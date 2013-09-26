@@ -1,6 +1,6 @@
 # Playground OSS
 
-This the 'Playground' game engine and released in open source under Apache License v2.0
+This the 'Playground' game engine and released in open source under Apache License v2.0.
 
  * All the needed documentation is in the /Doc folder.
  * Source code are under the /Engine folder.
@@ -12,5 +12,9 @@ Other folders (CSharpVersion, SampleProject) are more related to prototype featu
 To get started, please read the /Doc/Project.txt
 
 The dev team.
+
+## LICENSE
+'Playground OSS' is released under Apache Software License, Version 2.0 (Apache 2.0). Please refer http://www.apache.org/licenses/LICENSE-2.0 file for detail.
+
 
 ---------------------------------------------------------------------------
