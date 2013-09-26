@@ -324,7 +324,7 @@ void KLBOpenSLEngine::discardCorrespondingSoundHandles(KLBOpenSLSoundAsset *asse
 }
 
 void KLBOpenSLEngine::onActivityPause() {
-	DEBUG_PRINT("AUIDO; performing pause on all playing sounds");
+	DEBUG_PRINT("AUDIO; performing pause on all playing sounds");
 	is_sound_paused = true;
 	for (int i = 0; i < MAX_SOUND_HANDLE; ++i) {
 		KLBOpenSLSoundHandle** handle = soundHandles + i;
