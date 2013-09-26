@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CompilerProject", "CompilerProject.vcxproj", "{9F524797-7C48-47EA-86FB-445AEC76533C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		TestAll|Win32 = TestAll|Win32
+		TestAssignment|Win32 = TestAssignment|Win32
+		TestDelegate|Win32 = TestDelegate|Win32
+		TestDllImport|Win32 = TestDllImport|Win32
+		TestExpression|Win32 = TestExpression|Win32
+		TestFramework|Win32 = TestFramework|Win32
+		TestGeneric|Win32 = TestGeneric|Win32
+		TestInterface|Win32 = TestInterface|Win32
+		TestInvoke|Win32 = TestInvoke|Win32
+		TestRef|Win32 = TestRef|Win32
+		TestResolution|Win32 = TestResolution|Win32
+		TestStatement|Win32 = TestStatement|Win32
+		TestStruct|Win32 = TestStruct|Win32
+		TestTestSuite|Win32 = TestTestSuite|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.Debug|Win32.Build.0 = Debug|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.Release|Win32.ActiveCfg = Release|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.Release|Win32.Build.0 = Release|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestAll|Win32.ActiveCfg = TestAll|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestAll|Win32.Build.0 = TestAll|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestAssignment|Win32.ActiveCfg = TestAssignment|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestAssignment|Win32.Build.0 = TestAssignment|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestDelegate|Win32.ActiveCfg = TestDelegate|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestDelegate|Win32.Build.0 = TestDelegate|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestDllImport|Win32.ActiveCfg = TestDLLImport|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestDllImport|Win32.Build.0 = TestDLLImport|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestExpression|Win32.ActiveCfg = TestExpression|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestExpression|Win32.Build.0 = TestExpression|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestFramework|Win32.ActiveCfg = TestFramework|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestFramework|Win32.Build.0 = TestFramework|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestGeneric|Win32.ActiveCfg = TestGeneric|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestGeneric|Win32.Build.0 = TestGeneric|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestInterface|Win32.ActiveCfg = TestInterface|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestInterface|Win32.Build.0 = TestInterface|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestInvoke|Win32.ActiveCfg = TestInvoke|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestInvoke|Win32.Build.0 = TestInvoke|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestRef|Win32.ActiveCfg = TestRef|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestRef|Win32.Build.0 = TestRef|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestResolution|Win32.ActiveCfg = TestResolution|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestResolution|Win32.Build.0 = TestResolution|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestStatement|Win32.ActiveCfg = TestStatement|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestStatement|Win32.Build.0 = TestStatement|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestStruct|Win32.ActiveCfg = TestStruct|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestStruct|Win32.Build.0 = TestStruct|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestTestSuite|Win32.ActiveCfg = TestTestSuite|Win32
+		{9F524797-7C48-47EA-86FB-445AEC76533C}.TestTestSuite|Win32.Build.0 = TestTestSuite|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

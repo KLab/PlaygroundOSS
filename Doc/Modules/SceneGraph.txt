@@ -1,0 +1,206 @@
+============================== Scene graph ==================================
+
+The Scene Graph is used to represent a hierarchy of 2D transformation and color transformation.
+The base class which is a node of the tree is CKLBNode.
+
+Each node owns a list of render objects to apply the transformations to.
+The rendering order is not linked to the geometry order, basically the hierarchy DOES NOT
+define the order of rendering. Each render object has its own order.
+
+So, it is important to understand that scene graph and rendering are dependant in order :
+|<---   Scene graph domain                --->|<--- Rendering Domain                      --->|
+ [Tree is modified] -> [Tree is recomputed]  ---> [Render is recomputed] -> [Render performed]
+
+1 - Modification of the tree
+	Each tasks creating node will modify the properties like scaling, color, etc...
+	Because multiple properties could be changed by many tasks within the same frame we
+	avoid recomputing/updating the tree in place (= each time a modification is made)
+	
+	Instead we store information inside the tree to tell the recomputation process later on
+	that specific changes have occured.
+	
+	- Mark the node that was change, specific bit exist of each type of change.
+	- Mark the uppers node until the root to signal that children has been changed.
+	
+2 - Recomputation of the tree
+	The recomputation will parse the tree once per frame and recompute the tree information,
+	perform tree transformation on the render object for the rendering phase.
+	
+	Basically the following computation occurs :
+	- Node compute its "composed" matrix with its parent matrix and local Matrix :
+		Composed          = Parent          * Own Matrix
+	- Same for colors
+		Composed Color    = Parent Color    * Own Color
+	- Apply the transformation to the rendering object
+		For each vertices :
+		-------------------
+		Screen Coordinate = Composed Matrix * Own Coordinate
+		Screen Color      = Composed Color  * Own Color
+	
+	Note : Optimization of the tree
+	-------------------------------------
+	Because of the marking we have made when modifying the tree, we can understand if a sub tree
+	has changed or not, thus we can skip some part of the recomputation, avoid recomputing
+	some part of the rendering object too.
+	
+3 - Root node is owned by CKLBDrawResource singleton, 
+	accessible using CKLBDrawResource::getInstance().getRoot()
+
+Technical Limitations 
+----------------------------------------------------------------------------------------------
+
+Some nodes are linked to system object or feature that can NOT perform any rotation or scaling when displayed.
+So, you must know when to use rotation or scaling.
+
+- Clipping (uses OpenGLES glScissor)
+- Text input box for the OS (depends on each OS implementation)
+- Web Browser
+- Movie (OS will provide the player and display/overlay)
+
+
+Technical Note:
+A CKLBNode can be linked with a UITask.
+In that case, the UITask and the CKLBNode will point each other.
+Moreover, the CKLBNode will be protected from destruction untill the UITask is destroyed.
+
+##################################
+### Sub Classes
+
+- CKLBSystem
+	CKLBSystem provides static methods to manage the Animation Node List.
+	It allows to separate the Node System from the rest of the Game Engine.
+	
+	Sources : 	source/SceneGraph/CKLBNode.h
+				source/Animation/CKLBSystem.cpp
+
+- CKLBNode
+	CKLBNode is the root class for the Scene Graph.
+	Every Element of the Scene Graph is a CKLBNode or a derivated class.
+	Each CKLBNode owns a list of render objects to apply the transformations to.
+	The transformations are defined by matrices also owned by the CKLBNode.
+	
+	A CKLBNode can be linked with a CKLBUITask and in that case, they will point
+	each other. Moreover, the CKLBNode will be protected from destruction untill 
+	the CKLBUITask is destroyed.
+	
+	Important points about the Scene Graph System :
+	- add/remove do also add/remove to the animation and rendering if associated 
+		bit or object are set.
+	- add takes in account the fact that upper node of new_ node is visible to perform 
+		the modification in animation and rendering.
+	- node destruction also destroy all the sub system and includes render object associated.
+	
+	Sources :	source/SceneGraph/CKLBNode.h
+				source/SceneGraph/CKLBNode.cpp
+	
+- CKLBUITask
+	Adds an integrated node to the task, the task owns a node connected to the scene graph.
+	The node also has a pointer to the task.
+	Refer to the CKLBUITask for more details (Docs/Modules/Tasks.txt and Docs/Documentation_Tasks.txt).
+	
+	Sources : 	source/Core/CKLBUITask.h
+				source/Core/CKLBUITask.cpp
+
+
+# Classes inheriting CKLBNode
+- CKLBMovieNode
+	CKLBMovieNode is a specilized Node for movie management.
+	It takes care of the graphic operations that can be processed
+	on a movie asset.
+
+	Sources :	source/UISystem/CKLBMovieNode.h
+				source/UISystem/CKLBMovieNode.cpp
+
+- CKLBLabelNode 
+	CKLBLabelNode is a text specialized Node for Scene Graph.
+	It provides methods to modify the apparence of the text label.
+	
+	Sources :	source/UISystem/CKLBLabelNode.h
+				source/UISystem/CKLBLabelNode.cpp
+				
+- CKLBUITextBox 
+	CKLBUITextBox is a UITextBox specialized Node.
+	It provides methodss to manage a TextBox.
+	
+	Sources :	source/UISystem/CKLBTextInputNode.h
+				source/UISystem/CKLBTextInputNode.cpp
+				
+- CKLBUISystem 
+	CKLBUISystem provides static methods to manage screen area using STouchSurface.
+	It can be used to create/release touch surfaces and clips.
+
+	Sources :	source/UISystem/CKLBUISystem.h
+				source/UISystem/CKLBUISystem.cpp
+				
+- CKLBUIContainer  
+	CKLBUIContainer allows to regroup sub items and manage them like one.
+	
+	Sources :	source/UISystem/CKLBUISystem.h
+				source/UISystem/CKLBUISystem.cpp
+				
+- CKLBUISelectable 
+	CKLBUISelectable represents a selectable item Node.
+	A STouchSurface is allocated for each CKLBUISelectable and represents the 
+	screen area associated with the object.
+	
+	Sources :	source/UISystem/CKLBUISystem.h
+				source/UISystem/CKLBUISystem.cpp
+				
+- CKLBUIElement 
+	CKLBUIElement is the most basic UI Node as it directly inherits CKLBNode.
+	It adds Assets and asset management methods to the CKLBNode.
+	A CKLBUIElement supports multiple assets association in order to change
+	the asset if the CKLBUIElement is enable or not.
+	
+	Sources :	source/UISystem/CKLBUISystem.h
+				source/UISystem/CKLBUISystem.cpp
+				
+- CKLBUIWebView 
+	CKLBUIWebView provides methods to manage a Web Viewer.
+	
+	Sources :	source/UISystem/CKLBWebViewNode.h
+				source/UISystem/CKLBWebViewNode.cpp
+				
+- CKLBSWFMovie 
+	CKLBSWFMovie is a specialized Node for Flash Movies.
+	It provides basic control methods for a Flash Movie.
+
+	Sources :	source/Animation/CKLBSWFPlayer.h
+				source/Animation/CKLBSWFPlayer.cpp
+				
+- CKLBSplineNode 
+	CKLBSplineNode gives the possibility to easily associate a Spline Animation 
+	with an UITask.
+	
+	Sources :	source/Animation/CKLBSplineNode.h
+				source/Animation/CKLBSplineNode.cpp
+				 
+- CKLBScoreNode 
+	CKLBScoreNode is in charge of animating a Score.
+	First, it animates the previous digit.
+	The is animates the next digt.
+	Finnaly, it animates the node itself.
+
+	Sources :	source/Animation/CKLBScoreNode.h
+				source/Animation/CKLBScoreNode.cpp
+				
+- CKLBNodeVirtualDocument 
+	CKLBNodeVirtualDocumentis in charge of the graphic operations
+	on a Virtual Document.
+	
+	Sources :	source/Animation/CKLBNodeVirtualDocument.h
+				source/Animation/CKLBNodeVirtualDocument.cpp
+				
+- CKLBActivityIndicatorNode 
+	Used by CKLBUIActivityIndicator task, this node create a native OS widget
+	to display that the application is "busy" doing some work.
+	
+	Sources :	source/UISystem/CKLBActivityIndicatorNode.h
+				source/UISystem/CKLBActivityIndicatorNode.cpp
+
+##################################
+### Other Files involved
+
+See also CKLBDrawTask.h, CKLBDrawTask.cpp : 
+	- own CKLBDrawResource singleton which owns the root.
+	- Implement global rendering task, including tree update

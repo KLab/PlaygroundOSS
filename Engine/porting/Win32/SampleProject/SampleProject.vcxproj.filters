@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="source\game">
+      <UniqueIdentifier>{c00262c1-79e2-417a-8022-9a1736f0ccf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Scripting">
+      <UniqueIdentifier>{c9284a41-5d70-4085-9a21-f8e0f571c40e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\RuntimeLib">
+      <UniqueIdentifier>{ee3e12ae-ae5b-45df-b4ab-923ecbdabcaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\CppCode">
+      <UniqueIdentifier>{9e6cc6c1-7d7c-44d2-9bb2-2d1d139f662f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\source\Scripting\ExportListC_Likefunction.cpp">
+      <Filter>source\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Array.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Console.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Exception.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Memory.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_String.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_System.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\InternalUtils.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\MarshallingUtils.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Generic\CS_Dictionary.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Generic\CS_List.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Object.cpp">
+      <Filter>source\RuntimeLib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SampleProject\game\CSampleProjectEntrance.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="SampleProject.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SampleProject\Cpp\out.cpp">
+      <Filter>source\CppCode</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Array.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Console.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Marshal.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Math.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Memory.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_Object.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_String.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\CS_System.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\InternalUtils.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\MarshallingUtils.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Collections.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Generic\CS_Dictionary.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Generic\CS_List.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Generic\Generic.h">
+      <Filter>source\RuntimeLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\inline\__InternalUtilsGetTypeID_specializations.inl">
+      <Filter>source\CppCode</Filter>
+    </None>
+    <None Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\inline\classPrototypes.inl">
+      <Filter>source\CppCode</Filter>
+    </None>
+  </ItemGroup>
+</Project>

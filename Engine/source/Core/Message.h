@@ -1,0 +1,30 @@
+﻿/* 
+   Copyright 2013 KLab Inc.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+#ifndef __MICRO_MSG_KLB_OBJECT_
+#define __MICRO_MSG_KLB_OBJECT_
+
+// Used by :
+// - Animation Node			param:time millisecond
+// - SWF Node				param:frame number
+// - Cell Animation Node	param:frame number
+//
+#define		ANIMATION_COMPLETE		(1)
+
+// Used by :
+// - SWF Node				param:label index
+#define		LABEL_REACHED			(2)
+
+#endif

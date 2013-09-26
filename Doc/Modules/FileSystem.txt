@@ -1,0 +1,124 @@
+============================== File System =================================
+
+The platform provides a set of APIs to handle files in the target OS file system.
+
+IReadStream defines an Interface for Read Stream classes.
+It provides methods for file decryption.
+Read data can either be u8, u16, u32, float or blocks.
+	
+Group A
+	IReadStream*	openReadStream(...);
+
+Group B
+	ITmpFile*		openTmpFile(...);
+	void			removeTmpFile(...);
+
+Group C
+	void*			ifopen	(...)
+	void			ifclose	(...)
+	int				ifseek	(...)
+	u32				ifread	(...)
+	u32				ifwrite	(...)
+	int				ifflush	(...)
+	long int		iftell	(...)
+	bool			icreateEmptyFile(...)
+
+	
+The file path has always the following format coming from the game engine :
+	
+	file://external/fileName
+	file://install/fileName
+	asset://fileName
+	
+By using a notation like that we can extend later to other system like "socket://"
+
+file://install/ is the root of the data for the application, where the package
+has been downloaded and installed, considered as a READ ONLY area inside the file system.
+(or ROM if you prefer)
+
+file://external/ is the base of the area where data can be freely modified and updated
+independently from the application package files.
+
+When using the "asset://folder/file.ext" addressing, 
+we check first if "file://external/folder/file.ext" does exist.
+-> If so we return the stream object accessing the file.
+-> If not, we then check "file://internal/folder/file.ext"
+
+So, the implementation checks FIRST in the updatable storage for a given file,
+and if not found, try to find it inside the application package.
+
+Such mechanism allows to update, load new modules without worrying about the change
+of path inside the game content.
+
+Because path format, default root and file permission may be different betweens OSes,
+the path search and conversion from abstract "game path" to physical path is done
+inside the porting layer of each platform.
+	
+Each platform porting layer is in charge of converting logical paths into physical paths 
+for each specific platform.
+It provides instance of the IReadStream.
+
+There are not much file writing activity, except for the downloading itself.
+(Information that are written over and over are saved on server side or client side DB).
+
+So the engine relies mainly on openReadStream(...) to access files.
+
+The group B APIs : openTmpFile / removeTmpFile APIs are only used in
+	CKLBAsyncFileCopy
+	CKLBUpdate
+	
+The group C APIs : it has been added later when encryption was added to the engine later on.
+This addition just exists for the purpose of supporting encryption inside SQLite, and 
+all these APIs are called from CKLBDatabase.cpp
+
+Now, there is also a IWriteStream interface that is used only for debugger protocol, but
+is not an essential part of the engine.
+(See source/Core/DebugTracker.cpp)
+
+- IWriteStream
+	IWriteStream defines an Interface for Write Stream classes.
+	Written data can either be u8, u16, u32, float or blocks.
+
+We have also included here the files about socket stream because they inherit from IReadStream / IWriteStream.
+But also those are not used anymore inside the engine.
+
+Related files:
+	
+- include/FileSystem.h
+- source/Database/
+	CKLBDatabase.h
+	CKLBDatabase.cpp
+- porting/Win32/Platform/
+	CWin32PathConv.cpp
+	CWin32PathConv.h
+	CWin32ReadFileStream.h
+	CWin32ReadFileStream.cpp
+	CWin32Platform.cpp
+- porting/iOS/
+	CiOSPathConv.mm
+	CiOSReadFileStream.cpp
+	CiOSWriteFileStream.cpp
+	CiOSTmpFile.cpp
+	CiOSHttpStream.h
+	CiOSHttpStream.mm
+	CSockReadStream.cpp
+	CSockWriteStream.cpp
+	include/
+		CiOSReadFileStream.h
+		CiOSWriteFileStream.h
+		iOSFileLocation.h
+		
+- porting/Android/jni/Android/
+	CAndroidPathConv.cpp
+	CAndroidPathConv.h
+	CAndroidReadFileStream.cpp
+	CAndroidReadFileStream.h
+	CAndroidTmpFile.cpp
+	CAndroidTmpFile.h
+	CAndroidWriteFileStream.cpp
+	CAndroidWriteFileStream.h
+	CSockReadStream.cpp
+	CSockReadStream.h
+	CSockWriteStream.cpp
+	CSockWriteStream.h
+	

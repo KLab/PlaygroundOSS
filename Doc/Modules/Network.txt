@@ -1,0 +1,138 @@
+============================== Network ==================================
+
+At first, the core system is CKLBHTTPInterface class.
+Each instance of this class is an HTTP connection to the server.
+
+Each time the connection starts, a thread executing the connection is started.
+
+The HTTP and socket connection support is done using the LibCurl library.
+
+There is a special trick about error handling:
+Some server do suddenly cut the connection if there is zero byte of payload,
+resulting in an error when actually everything went OK.
+So we check the error code sent by the server into a temporary variable when
+receiving the header from the server and then override the error code from curl
+with our temporary variable if we have CURL error with a zero byte payload.
+
+CKLBHTTPInterface has also various functions to :
+- Save the HTTP stream to file system.
+- Use POST or GET method.
+- Know how much of the data has already been downloaded / download complete.
+
+References:
+- CKLBHTTPInterface
+	Sources :	source\HTTP\CKLBHTTPInterface.h
+				source\HTTP\CKLBHTTPInterface.cpp
+				
+To avoid having HTTP connections created directly, the CKLBHTTPInterface class is
+not directly accessible. (private constructor)
+
+Instead, we use the NetworkManager singleton which controls each connection so
+we know how many connection threads are currently active.
+
+The ConnectionEntry class is an element of the link list for each active connection.
+
+Reference:
+- ConnectionEntry
+	Sources :	source\HTTP\MultithreadedNetwork.h
+				source\HTTP\MultithreadedNetwork.cpp
+				
+- NetworkManager
+	Sources : 	source\HTTP\MultithreadedNetwork.h
+				source\HTTP\MultithreadedNetwork.cpp
+
+
+CKLBUpdate is a task that download a file and unzip it.
+CKLBUpdateZip is task that perform only the zip when the file is already downloaded and saved.
+(Those use the same code, just different start state in their internal state machine)
+
+Add two functions to lua library to check if a lock exists and destroy the lock.
+
+We are using a lock mechanism (creating a lock file) in case if the appli fails while downloading,
+we know that something went wrong and can restart/complete the operation.
+
+References:				
+- CKLBUpdate & CKLBUpdateZip
+	Sources :	source\HTTP\CKLBUpdate.h
+				source\HTTP\CKLBUpdate.cpp
+
+Code used for unzipping the archive.
+- CUnZip
+	Sources :	source\HTTP\CUnZip.h
+				source\HTTP\CUnZip.cpp
+	
+CKLBNetAPI is a task that perform network connection to a server.
+It has the following possibilities :
+	- Use Get or Post method
+	- Cancel connection
+	- Handle time out
+	- Setup the headers for the connection
+	
+	Each instance of CKLBNetAPI task can only work with ONE connection at a time.
+	So the user need to wait a callback that the download is complete, failed or has timed out. else it is also possible
+	to cancel a connection.
+	
+	The system only receive result in Json format which is sent back to LUA.
+	
+	Here is the LUA command for the constructor :
+	pNetTaskVariable = HTTP_API("myNetCallbackFunction")	-- Pass the callback function
+	
+	Here is the various LUA commands possible after construction :
+	
+	-- sysCommand(task, NETAPI_SEND, url, header, payload, timeout) : start a connection
+	sysCommand(pNetTaskVariable, NETAPI_SEND, "http://someserverdomain.com/urlapi/", {a="Hello", b="World"}, "{\"payload\":true}", 30000)
+	
+	-- sysCommand(task, NETAPI_CANCEL) : cancel the connection if any
+	sysCommand(pNetTaskVariable, NETAPI_CANCEL)
+	
+	-- sysCommand(task, NETAPI_BUSY) : return true if the connection is currently active, false if no connection
+	isBusy = sysCommand(pNetTaskVariable, NETAPI_BUSY)
+	
+	Here is the callback function format :
+	
+	function myNetCallbackFunction(connectionID, message, status, bodyPayload)
+		-- connectionID is always 0 for historical reason with our internal version of the network APIs.
+		-- message has the following values :
+		--   NETAPIMSG_CONNECTION_FAILED
+		--   NETAPIMSG_SERVER_ERROR
+		--   NETAPIMSG_SERVER_TIMEOUT
+		--   NETAPIMSG_REQUEST_SUCCESS
+		-- status is the server status code, but return -1 if connection could not happen
+		-- bodyPayload is a json item tree
+	end
+	
+References:				
+- CKLBNetAPI
+	Sources :	source\HTTP\CKLBNetAPI.h
+				source\HTTP\CKLBNetAPI.cpp
+
+
+There is a singleton just to store key chain related information for network implementation.
+
+- CKLBNetAPIKeyChain
+	Sources :	source\HTTP\CKLBNetAPIKeyChain.h
+				source\HTTP\CKLBNetAPIKeyChain.cpp
+
+This is more a utility than networking feature, but it is used mainly in networking.
+When receiving a JSon stream from a server response, the stream is parsed and converted into a tree
+of CKLBJSonItem and then to an equivalent LUA object tree sent back to LUA.
+It is used by mainly by CKLBNetAPI and derived work.
+
+- CKLBJsonItem
+	Sources :	Engine\source\HTTP\CKLBJsonItem.h
+				Engine\source\HTTP\CKLBJsonItem.cpp
+
+
+Considering billing/stores APIs, not sure if it can be considered as "networking" primitive, 
+still they surely connect in the background and do a lot of work.
+CKLBStoreService is responsible for the different interactions with the Application Store,
+as getting the products list or buying items.
+This task is platform independent as it uses IPlatformRequest to process its requests.
+
+- CKLBStoreService
+	Sources :	source\HTTP\CKLBStoreService.h
+				source\HTTP\CKLBStoreService.cpp
+				
+				porting\iOS\CiOSPlatform.mm
+				porting\Android\src\klb\android\GameEngine\PFInterface.java
+				porting\Android\src\klb\android\GameEngine\billing\*

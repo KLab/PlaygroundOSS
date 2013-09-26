@@ -1,0 +1,227 @@
+============================== Scripting ==================================
+
+We use LUA as scripting language but other languages could be interfaced without much pain.
+
+This document is describing HOW Lua is bound to our objects and how to create new objects following
+our APIs. This document is NOT describing the LUA APIs that are available in the engine.
+
+LUA is used in different ways :
+
+- LUA Libraries
+	What we mean here by library is to provide a list of functions.
+	They are not related with task instances.
+	They provide APIs for various type of work from opening and reading a file to audio management.	
+
+	# Implementation & extension
+
+	source/LuaLib/ folder contains all the implemented libraries, look at the source as implementation reference.
+
+		ILuaFuncLib.h	: Provides mecanism to register your function into LUA.
+		ILuaFuncLib.cpp
+		
+		CKLBLuaConst.h	: Provides mecanism to register your constants into LUA.
+		CKLBLuaConst.cpp
+	
+	To create a new library, you need to :
+	- Implement a class derived from ILuaFuncLib implementing addLibrary() function.
+	- Inside your addLibrary function, call addFunction for each function you want to register.
+	- Implement each function from your library with the following signature:
+	
+		int MyLibraryClass::myFunctionForLUA(lua_State * L);
+	
+		The input parameter is the parameters received from LUA.
+		The output int is the number of values returned by the function call.
+		
+		Wrap the lua_State* with a CLUAState:
+		CLuaState lua(L);
+		
+		Then use lua.*() functions to get the number of arguments, their type and setup the return value(s).
+		
+	- Create a static instance that passes an optionnal constant array as constructor parameter.
+	
+	NOTE :
+	You may see optionnally code calling a given classID to a CKLBLibRegistrator class.
+	In this case, it is related to work done on interfacing with other scripting system and is not related to LUA.
+	
+	IMPORTANT NOTE :
+	If your extension source code is not in the project of the executable but is going to be inside
+	a C++ library for your compiler then you need to register your LUA library using EngineStdReference.cpp
+	It will force to reference the code and linker will include the code, else you may endup with your code not being
+	included inside the final exe.
+
+		See EngineLuaFuncReference() implementation.
+	
+- Task command implementation & extension	
+	
+	See also Docs/Modules/Tasks.txt for more details about task inheritance.
+	
+	Inside the tasks system, there is support for implementing commands that can be executed from LUA.
+	Commands ARE equivalent to function call from LUA to C++, except that they all use a common pattern.
+	
+	From LUA language it is always the same function which is called :
+	syscommand(taskObject, COMMAND_ID, ...parameters...)
+	
+	The list of supported commands is registered to the CKLBTaskFactory template with your task class.
+
+	Inside your task implementation MyTaskClass.cpp, you will have something like that :
+
+	// Optionnal constant, just for sake of clean code.
+	enum {
+		CPP_CONSTANT	= 0,
+		...
+		...
+	};
+	
+	// Constant table of commands to pass to the factory when registering your task.
+	static IFactory::DEFCMD cmd[] = {
+		{"COMMAND_CONSTANT",			CPP_CONSTANT		},
+		...
+		...
+		...
+		{0, 0}
+	};
+	// Registration to the factory using template.
+	static CKLBTaskFactory<MyTASKClass> factory("ClassNameInLUA", UNIQUE_CLASS_ID, commands);
+
+	... MyTASKClass implementation here ...
+
+	// Implementation of LUA callback to decode argument and execute command.	
+	int
+	myTaskClass::commandScript(CLuaState& lua)					// In case MyTaskClass is NOT a CKLBUITask subclass. 
+	myTaskClass::commandUI(CLuaState& lua, int argc, int cmd)	// In case MyTaskClass IS a CKLBUITask subclass. 
+	{
+		switch(cmd)
+		{
+		case CPP_CONSTANT:
+			... Implement your command here...
+		break;
+		...
+		...
+		}
+		
+		return luaReturnArgumentCount;
+	}
+	
+	NOTE : it is possible to return MULTIPLE arguments in LUA, as an example a get point coordinate could return X and Y.
+
+	See CLuaState.h for all the get* function to retrieve data from the LUA stack.
+	See CLuaState.h for all the ret* function to return data to LUA.
+	
+	=> See implementation of UI tasks as an example.
+	
+- Task constructor from LUA
+
+	Implement the virtual function initUI if you are creating a CKLBUITask subclass.
+	Implement the virtual function initScript if you are creating a CKLBLuaTask or CKLBLuaPropTask subclass.
+	
+	bool myTaskClass::initUI(CLuaState& lua) {
+		// Read the parameter, create internal objects, return true if successfull.
+	}
+	
+	=> See implementation of UI tasks as an example.
+
+- Task properties implementation & extension
+
+	All classes derived from CKLBLuaPropTask can support having properties accessible for reading and writing
+	from LUA.
+	
+	For historical reason and bad design, the first implementation of CKLBLuaPropTask property mecanism was wasting memory
+	and consuming more CPU at initialize. Moreover, it was less compatible with standard getter/setter that could
+	be used when mapping another script language.
+	
+	Because most classes were already written with this scheme in place and we were afraid of having too much regression
+	on already working code in production, we choosed to use have a second property accessing scheme in parrallel,
+	and the scheme would be selected at runtime and not compile time.
+	This way more work was needed, but we could migrate task one by one from the old property scheme to the new one
+	without having to worry about impacting already working code.
+
+	The distinction can be done easily :
+	inside CKLBLuaPropTask.h there are two structures,
+	- PROP		: Struct used by old scheme.
+	- PROP_V2	: Struct used by new scheme.
+
+	When a class support the new scheme, IT MUST have the following code inside the C++ constructor:
+	
+		m_newScriptModel = true;
+	
+	Then during the init, call to CKLBLuaPropTask::setupPropertyList will use the given parameters differently.
+	By doing a "dirty cast", we keep the old API structure as it was, even if internals behave differently.
+	
+	It is recommended to use the new scheme.
+		
+	Please take a look at the implementation of various getter/setters for implementation detail.
+	
+- Garbage collection in LUA.
+	
+	Each time the script is executed within the script phase, there is also an evaluation of a threshold
+	to start a garbage collection within LUA.
+	
+	See implementation of void CKLBLuaEnv::execScript(int) function.
+	
+- Callback from C++ to LUA.
+	
+	In order to be Scripting Language Independant, the Engine does not directly call LUA function.
+	Indeed, callbacks signatures are first defined in CKLBScriptEnv.h
+	Then, the implementation defiers regarding the Scripting Language used.
+	These methods takes the following parameters :
+	- the name of the function to call back
+	- a pointer to a CKLBObjectScriptable
+	- additional parameters to send back to the scripting language
+	Both the name or the object pointer can be used to locate the callback to call depending on 
+	the scripting language.
+	
+	For LUA, the function name is used to identify the function to call back.
+	The methods implemented redirect the call to a LUA specific method with the following parameters : 
+	- the name of the callback function
+	- a String corresponding to the callback signature (matching the next arguments)
+		The following types are supported and linked with the following letter
+		- B : Byte
+		- I : Integer
+		- N : numeric (double)
+		- S : String
+		- P : Pointer
+		- G : Global 
+		For example if a callback must return 2 integers to LUA, the signature will be "II".
+	- Additional parameters to send back to LUA
+	
+	The signature String is then analysed and arguments are pushed on the LUA stack before calling the final 
+	LUA function through its name.
+	
+	Involved Files :
+		source/Core/CKLBScriptEnv.h					: Defines the callbacks signatures (Scripting Language Independant).
+		source/Scripting/CKLBScriptEnv_forLUA.cpp	: Implements the callbacks for LUA Scripting
+	
+	
+- About LUA Script Loading
+
+	Using the "sysLoad" command, it is possible to switch from a LUA file to another LUA file.
+	
+	Each time we load a new LUA file, our library will try to call the following functions :
+	
+	setup() function	: When the LUA file loading is complete AT THE BEGINNING OF THE NEXT FRAME after "sysLoad".
+	execute() function	: Executed each frame from the NEXT FRAME after "sysLoad"
+	leave() function	: Executed directly when "sysLoad" load another file.
+	
+	Basically, the current LUA file executing "sysLoad" will have its leave() function executed right away.
+	Then the file is loaded at the beginning of the NEXT frame, setup() is executed. Then execute() for each frame.
+	
+Core Related Files:
+	source/LuaLib/
+		ILuaFuncLib.h		: Registration of libraries and functions.
+		ILuaFuncLib.cpp
+		CKLBLuaConst.h		: Registration of constant into LUA scripting world.
+		CKLBLuaConst.cpp
+	source/core/
+		CLuaState.h			: Wrapper to access the stack, data type and push back return values.
+		CLuaState.cpp
+		
+		CKLBLuaEnv.h		: Execution context of the scripting system (singleton)
+		CKLBLuaEnv.cpp
+		
+		CKLBLuaScript.h		: Task executing the script.
+		CKLBLuaScript.cpp
+		
+		CKLBLuaTask.h		: Support of task accessible from LUA (commands & properties)
+		CKLBLuaTask.cpp
+		CKLBLuaPropTask.h
+		CKLBLuaPropTask.cpp

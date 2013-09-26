@@ -1,0 +1,1 @@
+This directory is directly used by Mono, this is why the folder tree cannot be modified.

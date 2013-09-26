@@ -1,0 +1,79 @@
+============================== Audio ==================================
+
+There are two ways to load audio data :
+- One is to use LUA API directly and manage audio data with control APIs.
+- One is to use audio resource link inside a form.
+	(See Assets.txt for Audio)
+
+Core Audio APIs are provided by the platform layer to be standardized
+for all platforms.
+
+These APIs are called from the following system in the game engine :
+- Called from Audio Asset wrapper.
+- Called by LUA binding APIs.
+- SWF Player
+
+Audio files support encryption same as any other resources.
+(For more details about encryption support, see Encryption.txt)
+
+Inside the tool when you compile for iPhone, the audio is MP3.
+When compiling for Android, the audio output is OGG.
+
+Because of licensing issue, it may be worth to pass everything to OGG
+but in this case, you may loose the advantage of the performance gain but will have to pay
+licenses using MP3 for games.
+given by device maker optimization. (ie hardware codec, or very optimized software codec)
+(http://www.mp3licensing.com/royalty/games.html)
+
+Anyway, the OSS version of the engine is OGG for Android, MP3 for Win32 and iOS.
+
+Related file (all platforms):
+	source/Assets/
+		AudioAsset.cpp
+		AudioAsset.h
+	
+	source/LuaLib/
+		CKLBLuaLibSOUND.h
+		CKLBLuaLibSOUND.cpp
+	
+	source/Animation/CKLBSWFPlayer.cpp
+	
+	source/include/CPInterface.h
+
+Related file (when using MP3, all platforms):
+	source/Sound/CSoundAnalysis.cpp
+	source/Sound/CSoundAnalysisMP3.cpp
+	source/Sound/CSoundAnalysisMP3.h
+
+Each platform has a specific implementation depending on the underlying OS
+APIs available, optimisation of resources, streaming, etc...
+What is important to know is that we have a thread that control the volume
+for each audio object currently playing.
+
+Related file (each platform):
+	Win32 	(MP3 version)
+	porting/Win32/Platform/
+		CWin32Audio.cpp
+		CWin32Audio.h
+		CWin32MP3.cpp
+		CWin32MP3.h
+		CWin32Platform.cpp
+		
+	iOS 	(MP3 version)
+	porting/iOS/
+		CiOSAudio.mm
+		CiOSAudioManager.mm
+		CiOSPlatform.mm
+		
+	Android (OGG version)
+	porting/Android/jni/Android/
+		CSoundPool.cpp
+		CSoundPool.h
+		KLBOpenSLAudioPlayer.h
+		KLBOpenSLEngine.cpp
+		KLBOpenSLSoundAsset.cpp
+		KLBOpenSLSoundAssetLoader.cpp
+		KLBOpenSLSoundHandle.cpp
+	
+Note : we also have a version for Win32 using OggVorbis instead of MP3 but is not
+yet used in production.

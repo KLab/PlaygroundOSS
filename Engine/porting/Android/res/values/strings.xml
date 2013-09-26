@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World!</string>
+    <string name="app_name">GameEngine</string>
+    
+    <string name="sender_id">694365359580</string>
+
+</resources>

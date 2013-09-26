@@ -1,0 +1,236 @@
+================================ Assets ====================================
+
+The Asset Manager (CKLBAssetManager) is the class in charge of all assets life cycle
+and of the assets loader plugins.
+
+This class is a singleton and has a pool of assets.
+
+A SAssetEntry is a basic structure :
+
+struct SAssetEntry {
+	CKLBAbstractAsset*	m_pAsset;
+	bool				m_isFree;
+	u16					m_prev;
+	u16					m_next;
+};
+
+It uses an allocator with a list of used and free SAssetEntry.
+Pool size is defined when the game engine starts. (See "Allocators.txt")
+
+It can load a maximum of 65534 assets.
+
+The Asset Manager is also able to register and unregister IKLBAssetPlugins. 
+Using IKLBAssetPlugins allows the different assets to be loaded differently depending on 
+the type of asset that have to be loaded.
+
+CKLBAbstractAsset is the root class for all assets definition.
+Each abstract asset has a name (for debug purpose), an ID (runtime decided),
+and the methods incrementRefCount() and decrementRefCount() which can be used 
+to lock an instance of this asset. If the reference counter falls to 0, 
+it is automatically removed from the CKLBAbstractAsset list of the Asset Manager.
+
+It also defines the following virtual methods : onRegisterSubAsset() and onUnregisterSubAsset()
+doing nothing by default. They can be overwritten in subclasses.
+
+IKLBAssetPlugin defines an interface for the Asset plugins being defined in the Engine.
+Among other methods, it defines a method loadAsset(u8* stream, u32 streamSize).
+
+The manager allows to find an asset by an asset name :
+Example "asset://myfolder/asset.ext"
+
+The manager knows the logical name of each asset loaded and decided to load automatically the asset
+if not already loaded. File system acts as database of assets.
+There are cases where one asset file will actually own multiple assets, thus a need to have multiple path
+pointing to the same asset.(.LNK file)
+
+See also "Asset Stream Format" folder with :
+- Asset_Naming_Convention.txt
+- TEXB_stream_format.txt (not updated to latest version of the parser, just as a reference)
+- TIMG_stream_format.txt (not updated to latest version of the parser, just as a reference)
+
+=============================================================================
+How To Add A New Asset Type ?
+
+How to create new assets and use them :
+- Create your own plugin derived from IKLBAssetPlugin.
+- Create your own asset derived from CKLBAbstractAsset or CKLBAsset based on the type.
+- Export a file format that has a header supporting the getChunkID() from the plugin OR use
+  API calls with a specific plugin. 
+  -> Loader will recognize your file by using a header if you have no plugin set during the function call.
+
+=============================================================================
+
+LINK file
+
+When an asset embed multiple assets, as we have a unique file path to access each sub asset, it can create a problem.
+=> We can create an asset file that will reroute to another asset that really owns all the data.
+
+The file will own a LINK header instead of a normal plugin header, and have information to reroute to another file.
+
+To make the understanding easier :
+----------------------------------
+
+For the sake of understanding all the asset are in the root folder.
+A texture "A.texb" have 3 images "IMG1.imag", "IMG2.imag", "IMG3.imag".
+
+Thus :
+"asset://IMG1.imag"
+"asset://IMG2.imag"
+"asset://IMG3.imag" are the assets we want to access
+
+"asset://A.texb" is the real file having the texture and all the IMG*.imag assets.
+
+A file IMG1.imag does exist, but inside there is just a LINK header pointing to A.texb
+Same for IMG2.imag and IMG3.imag
+
+You can look at compiled image asset.
+
+=============================================================================
+
+About plugin direct call + Asset with/without using header.
+
+When creating new tasks for your game, you can use as an example the following APIs.
+See CKLBUtility::readAsset
+See CKLBUtility::loadAsset
+
+By passing a plugin, we can access a file which has no header and directly read the stream
+as an asset stream.
+
+If the plugin is not given, then a header IS necessary at the beginning of the file.
+
+In some cases it is usefull : JSON file as an example have no header, and different
+asset could use JSON as an exchange format.
+
+=============================================================================
+Note about audio assets :
+
+	1/ Audio assets are "just" wrappers around objects given by the porting layer,
+	and are actually used only by the form asset loader.
+	2/ Audio assets used by LUA are directly using Audio Object from the porting layer,
+	so technically they are NOT assets from the point of view of the engine.
+	
+	Considering that Audio Asset are not used globally, it defeat the whole point
+	of wrapping and modularity of the design. A possible refactoring would be
+	to remove completly Audio Asset and related code and directly use Audio object
+	inside the engine.
+	
+	The only role here for Audio asset is to avoid loading the same audio object
+	multiple times. By using the asset management system we get unique assets.
+		
+=============================================================================
+# Assets
+- CKLBAbstractAsset
+	Generic basic asset, owns the reference counting mecanism.
+	
+	Sources : 	source/Assets/CKLBAsset.h
+				source/Assets/CKLBAssetManager.cpp
+	
+- CKLBAsset
+	Asset that can create a part of the scene graph when instancing.
+	
+	Sources : 	source/Assets/CKLBAsset.h
+	
+- CKLBAudioAsset
+	Wrapper for audio object given by porting layer, used only by 
+	
+	Sources :	source/Assets/AudioAsset.h
+				source/Assets/AudioAsset.cpp
+	
+- CKLBTextureAsset
+- CKLBImageAsset
+	Texture asset is a texture that describes a 2D texture uploaded to the GPU.
+	Inside a texture asset file, we also store a list of 2D models.
+	A 2D model is a list vertices and related indexes for rendering triangles. 
+	Basically, one model is an image asset.
+	There are also various attributes that are stored within an image asset.
+	
+	Sources : 	source/Assets/CKLBAsset.h
+				source/Assets/CKLBAssetManager.cpp
+
+- CKLBSWFAsset
+	This is an asset that stores exported Flash movies from our converter.
+	It contains animation information, link to needed images or sound assets and movie structure.
+	Various information about label, movie length is also stored.
+	
+	Sources :	source/Animation/CKLBSWFPlayer.h
+				source/Animation/CKLBSWFPlayer.cpp
+
+- CKLBCompositeAsset
+	CKLBCompositeAsset is an asset defining a "Form". 
+	A Form is basically a tree of visual tasks and components.
+	It allows to create a scene formed with tasks and UI objects without having to 
+	heavily rely on scripting. 
+	Instead, a loader performs object creation and property setup.
+	
+	Sources : 	source/Assets/CompositeManagement.h
+				source/Assets/CompositeManagement.cpp
+	
+- CKLBCellAnimationAsset
+- CKLBSplineAnimationAsset 
+- CKLBNodeAnimationAsset
+	Those assert virtually exist as implemented for some, but have never been used in production or completly.
+	So for the time being we will not consider discussing those further.
+	
+	Note : could remove from the project.
+	
+	Sources : 	source/Assets/CKLBAssetCellAnimation.h
+				source/Assets/CKLBAssetCellAnimation.cpp
+				source/Assets/MapManagement.h
+				source/Assets/MapManagement.cpp
+				source/Assets/AI_Asset.h
+				source/Assets/AI_Asset.cpp
+				source/Assets/NodeAnimationAsset.h
+				source/Assets/NodeAnimationAsset.cpp
+	
+- CKLBUIAsset
+	Generates an instance of UI Form from asset definition.
+	Never been used, instead we use "CKLBCompositeAsset"
+	
+	Sources :	source/Assets/CKLBAsset.h
+				source/Assets/CKLBAssetManager.cpp
+	
+# Assets Plugins
+- IKLBAssetPlugin
+	Base interface for all asset plugins.
+	
+	Sources :	source/Assets/CKLBAsset.h
+				source/Assets/CKLBAssetManager.cpp
+	
+- KLBTextureAssetPlugin
+	Plugin responsible for loading texture and images inside texture.
+	See CKLBTextureAsset and CKLBImageAsset.
+	
+	Sources :	source/Assets/TextureManagement.h
+				source/Assets/TextureManagement.cpp
+	
+- KLBFlashAssetPlugin
+	KLBFlashAssetPlugin is in charge of loading KLBFlashAssetPlugin.
+	
+	Sources :	source/Animation/CKLBSWFPlayer.h
+				source/Animation/CKLBSWFPlayer.cpp
+				
+- KLBAudioAssetPlugin
+	KLBAudioAssetPlugin is in charge of loading CKLBAudioAsset.
+	
+	Sources :	source/Assets/AudioAsset.h
+				source/Assets/AudioAsset.cpp
+
+- KLBBlendAnimationAssetPlugin
+	KLBBlendAnimationAssetPlugin is in charge of loading CKLBNodeAnimationAsset.
+	
+	Sources :	source/Assets/NodeAnimationAsset.h
+				source/Assets/NodeAnimationAsset.cpp
+	
+- KLBCellAnimationAssetPlugin
+	KLBCellAnimationAssetPlugin is in charge of loading CKLBCellAnimationAsset.
+	
+	Sources : 	source/Assets/CKLBAssetCellAnimation.h
+				source/Assets/CKLBAssetCellAnimation.
+				
+Special note about asynchronous loading for textures :
+	There is one special case where the asset is loaded by a seperated thread.
+	In this case, the main engine thread MUST NOT execute any asset loading (= all tasks using ressources must NOT be created)
+
+	The asset manager will perform the asset loading in another thread but transfer to OpenGL texture
+	and texture creation will happen on the main thread.
+	

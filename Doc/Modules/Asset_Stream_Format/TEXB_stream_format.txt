@@ -1,0 +1,61 @@
+--------------------------------------------------------------------------
+TEXB File format
+
+TEXB file format describe a texture.
+
+Texture can embbed multiple "images" which are not only rectangular but
+is defined as a triangle soup.
+
+2011/12/06 V0.1 : First Draft
+2011/12/09 V0.15: Added information about "Type" field, compressed texture is not complete still.
+2012/01/12 V0.2 : Updated information about C String format for ressource name
+2012/01/26 V0.3 : Added member width, height into image asset
+--------------------------------------------------------------------------[TEXB](u32)
+Size  (u32)
+	String Length	(u16)
+		Length include 0 and padding alignment
+	C String (0 included, + padding align 2)
+		T + full resource path name
+		example : Tpackage.package2.filename.texb
+	Width				(u16)
+	Height				(u16)
+	Type				(u16)
+		Bit 0..2	: [0] ALPHA | [1] LUMA | [2] LUMALPHA | [3] RGB | [4] RGBA
+		Bit 3		: [0] False, [1] True --> Compressed
+		Bit 4		: [0] False, [1] True --> Mipmap
+		Bit 5		: [0] False, [1] True --> Double Buffered
+		Bit 6..7	: Pixel Format
+			0 : 565  RGB
+			1 : 5551 RGBA
+			2 : 4444 RGBA
+			3 : Byte
+			
+		TODO RP		: Add Bit definition for compressed texture format type (ETC1 variation, etc...)
+						Can reuse pixel format bits if necessary
+
+	TotalVertexCount	(u16)
+	TotalIndexCount		(u16)
+	ImageCount			(u16)
+	
+		(multiply by Image Count)
+		[TIMG]				(u32)
+		Size				(u16)
+		String Length			(u16)
+			Length include 0 and padding alignment
+		C String 			(0 included, + padding align 2)
+			I + full resource path name
+			Ipackage.package2.filenameB.imag
+		VertexCount			(u8)
+		IndexCount			(u8)
+		CenterX				(u16)
+		CenterY				(u16)
+		
+			(multiply by VertexCount)
+			X					(u32 fixed 16.16)
+			Y					(u32 fixed 16.16)
+			
+			(multiply by IndexCount)
+			Index				(u8)
+
+	[... Texture Bitmap Data...]
+------------------------------------------------------------------------

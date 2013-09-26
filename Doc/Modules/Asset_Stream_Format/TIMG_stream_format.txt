@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------
+TIMG Chunk format
+
+TIMG Chunk format describe an image inside a texture.
+TIMG Chunk ARE NOT stand alone for now but embedded into the TEXB stream format.
+IMAG File ARE stand alone but are just link information to the TEXB file.
+
+2011/12/06 V0.1 : First Draft
+2011/12/09 V0.15: 
+2012/01/12 V0.2 : Added information about link file and
+2012/01/26 V0.3 : Added Width & Height member to have virtual image size.
+2012/01/27 V0.4 : Added concept of map with sub tiles.
+--------------------------------------------------------------------------
+[TIMG]			(u32)
+Size			(u16)
+String Length	(u16)
+	Length include 0 and padding alignment
+C String 		(0 included, + padding align 2)
+		I + full resource path name
+		Ipackage.package2.filenameB.imag
+SubCount		(u16)
+
+	x SubCount
+		VertexCount		(u8)
+		IndexCount		(u8)
+		Width			(u16)
+		Height			(u16)
+		CenterX			(u16)
+		CenterY			(u16)
+
+			(multiply by VertexCount)
+			X					(u32 fixed 16.16)
+			Y					(u32 fixed 16.16)
+			
+			(multiply by IndexCount)
+			Index				(u8)
+Note : due to the fact that TIMG is embedded into a TEXB stream, there is no constant
+pool referencing to the texture name.
+
+Note : Stand alone imag file linking to .texb files
+[LINK][Size(u32)]C String 0 terminated.
+
+ Ex : [LINK][31]package.package2.filename.texb[0]
+
+
+

@@ -1,0 +1,1453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_Cpp|Win32">
+      <Configuration>Debug_Cpp</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_CSharp|Win32">
+      <Configuration>Debug_CSharp</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FBA57D95-F571-4CFE-BDA1-E40610D58F01}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>GameLibraryWin32</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(ProjectDir)openssl/lib;$(ProjectDir)Lame;$(ProjectDir)pure-Lua\;$(ProjectDir)LuaEdit\x86;$(ProjectDir)directx;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Output\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>$(ProjectDir)openssl/lib;$(ProjectDir)Lame;$(ProjectDir)pure-Lua\;$(ProjectDir)LuaEdit\x86;$(ProjectDir)directx;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Output\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">
+    <LibraryPath>$(ProjectDir)openssl/lib;$(ProjectDir)Lame;$(ProjectDir)pure-Lua\;$(ProjectDir)LuaEdit\x86;$(ProjectDir)directx;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)Output\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>CURL_STATICLIB;WIN32;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;_DEBUG;_CONSOLE;DEBUG_MEMORY_OFF;DEBUG_PERFORMANCE_OFF;DEBUG_LUAEDIT_OFF;DEBUG_RT_CHECK;DEBUG_MENU;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../source/UISystem/;../../source/Animation/;../../source/Assets/;../../source/Core/;../../source/LuaLib/;../../source/HTTP/;../../source/SystemTask/;../../source/Rendering/;../../source/SceneGraph/;../../source/UnitSystem/;../../porting/;../../libs/freeType/include/;../../libs/sha1/;../../libs/utf8_converter/;../../include/;../../Source/include/;../../libs/minizip;../../libs/lua;../../porting/Win32/;../../porting/Win32/LuaEdit/include/;../../porting/Win32/Platform;../../porting/Win32/openssl/include/;../../porting/Win32/Lame/;../../libs/SQLite/;../../source/Database/;../../source/AISystem/;../../source/DataSet/;./zlib/include/;../../libs/;../../libs/curl-7.29.0-minimal/include/curl/;../../libs/curl-7.29.0-minimal/lib/;../../libs/curl-7.29.0-minimal/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/D "DEBUG" %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ShowIncludes>false</ShowIncludes>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>wsock32.lib;C:\Imagination Technologies\POWERVR SDK\OGLES_WINDOWS_X86EMULATION_2.09.29.0649\Builds\OGLES\WindowsX86\Lib\libEGL.lib;C:\Imagination Technologies\POWERVR SDK\OGLES_WINDOWS_X86EMULATION_2.09.29.0649\Builds\OGLES\WindowsX86\Lib\libgles_cm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>CURL_STATICLIB;WIN32;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;_DEBUG;_CONSOLE;DEBUG_MEMORY_OFF;DEBUG_PERFORMANCE_OFF;DEBUG_LUAEDIT_OFF;DEBUG_RT_CHECK;DEBUG_MENU;__CSHARP_VERSION__;DEBUG_WITH_MD;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../source/UISystem/;../../source/Animation/;../../source/Assets/;../../source/Core/;../../source/LuaLib/;../../source/HTTP/;../../source/SystemTask/;../../source/Rendering/;../../source/SceneGraph/;../../source/UnitSystem/;../../porting/;../../libs/freeType/include/;../../libs/sha1/;../../libs/utf8_converter/;../../include/;../../Source/include/;../../libs/minizip;../../libs/lua;../../porting/Win32/;../../porting/Win32/LuaEdit/include/;../../porting/Win32/Platform;../../porting/Win32/openssl/include/;../../porting/Win32/Lame/;../../libs/SQLite/;../../source/Database/;../../source/AISystem/;../../source/DataSet/;./zlib/include/;../../libs/;../../libs/curl-7.29.0-minimal/include/curl/;../../libs/curl-7.29.0-minimal/lib/;../../libs/curl-7.29.0-minimal/include/;../../include/;../../libs/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/D "DEBUG" %(AdditionalOptions)</AdditionalOptions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <CompileAsManaged>false</CompileAsManaged>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>wsock32.lib;C:\Imagination Technologies\POWERVR SDK\OGLES_WINDOWS_X86EMULATION_2.09.29.0649\Builds\OGLES\WindowsX86\Lib\libEGL.lib;C:\Imagination Technologies\POWERVR SDK\OGLES_WINDOWS_X86EMULATION_2.09.29.0649\Builds\OGLES\WindowsX86\Lib\libgles_cm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>CURL_STATICLIB;WIN32;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>../../source/UISystem/;../../source/Animation/;../../source/Assets/;../../source/Core/;../../source/LuaLib/;../../source/HTTP/;../../source/SystemTask/;../../source/Rendering/;../../source/SceneGraph/;../../source/UnitSystem/;../../porting/;../../libs/freeType/include/;../../libs/utf8_converter/;../../include/;../../libs/curl-7.29.0-minimal/include/curl/;../../libs/curl-7.29.0-minimal/include/;../../libs/curl-7.29.0-minimal/lib/;../../Source/include/;../../libs/lua;../../porting/Win32/;../../porting/Win32/LuaEdit/include/;../../porting/Win32/Platform;../../libs/SQLite/;../../source/Database/;../../source/AISystem/;%(AdditionalIncludeDirectories);../../source/DataSet/</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>CURL_STATICLIB;WIN32;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;_DEBUG;_CONSOLE;DEBUG_MEMORY_OFF;DEBUG_PERFORMANCE_OFF;DEBUG_LUAEDIT_OFF;DEBUG_RT_CHECK;DEBUG_MENU;__CPP_VERSION__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../../source/UISystem/;../../source/Animation/;../../source/Assets/;../../source/Core/;../../source/LuaLib/;../../source/HTTP/;../../source/SystemTask/;../../source/Rendering/;../../source/SceneGraph/;../../source/UnitSystem/;../../porting/;../../libs/freeType/include/;../../libs/sha1/;../../libs/utf8_converter/;../../include/;../../Source/include/;../../libs/minizip;../../libs/lua;../../porting/Win32/;../../porting/Win32/LuaEdit/include/;../../porting/Win32/Platform;../../porting/Win32/openssl/include/;../../porting/Win32/Lame/;../../libs/SQLite/;../../source/Database/;../../source/AISystem/;../../source/DataSet/;./zlib/include/;../../libs/;../../libs/curl-7.29.0-minimal/include/curl/;../../libs/curl-7.29.0-minimal/lib/;../../libs/curl-7.29.0-minimal/include/;../../libs/;../../libs/RuntimeCSharp/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAsManaged>false</CompileAsManaged>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="..\..\source\Rendering\shaderSource.inl" />
+    <None Include="Playground.ico" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Projects\WorldTest\CWorldTask.h" />
+    <ClInclude Include="..\..\include\BaseType.h" />
+    <ClInclude Include="..\..\include\FileSystem.h" />
+    <ClInclude Include="..\..\include\ITmpFile.h" />
+    <ClInclude Include="..\..\include\OSWidget.h" />
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_common.h" />
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_gen.h" />
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_parse.h" />
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_tree.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_alloc.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_assert.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_buf.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_bytestack.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_encode.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_lex.h" />
+    <ClInclude Include="..\..\libs\JSonParser\yajl_parser.h" />
+    <ClInclude Include="..\..\libs\lua\lapi.h" />
+    <ClInclude Include="..\..\libs\lua\lauxlib.h" />
+    <ClInclude Include="..\..\libs\lua\lcode.h" />
+    <ClInclude Include="..\..\libs\lua\lctype.h" />
+    <ClInclude Include="..\..\libs\lua\ldebug.h" />
+    <ClInclude Include="..\..\libs\lua\ldo.h" />
+    <ClInclude Include="..\..\libs\lua\lfunc.h" />
+    <ClInclude Include="..\..\libs\lua\lgc.h" />
+    <ClInclude Include="..\..\libs\lua\llex.h" />
+    <ClInclude Include="..\..\libs\lua\llimits.h" />
+    <ClInclude Include="..\..\libs\lua\lmem.h" />
+    <ClInclude Include="..\..\libs\lua\lobject.h" />
+    <ClInclude Include="..\..\libs\lua\lopcodes.h" />
+    <ClInclude Include="..\..\libs\lua\lparser.h" />
+    <ClInclude Include="..\..\libs\lua\lstate.h" />
+    <ClInclude Include="..\..\libs\lua\lstring.h" />
+    <ClInclude Include="..\..\libs\lua\ltable.h" />
+    <ClInclude Include="..\..\libs\lua\ltm.h" />
+    <ClInclude Include="..\..\libs\lua\lua.h" />
+    <ClInclude Include="..\..\libs\lua\lua.hpp" />
+    <ClInclude Include="..\..\libs\lua\luaconf.h" />
+    <ClInclude Include="..\..\libs\lua\lualib.h" />
+    <ClInclude Include="..\..\libs\lua\lundump.h" />
+    <ClInclude Include="..\..\libs\lua\lvm.h" />
+    <ClInclude Include="..\..\libs\lua\lzio.h" />
+    <ClInclude Include="..\..\libs\minizip\crypt.h" />
+    <ClInclude Include="..\..\libs\minizip\ioapi.h" />
+    <ClInclude Include="..\..\libs\minizip\mztools.h" />
+    <ClInclude Include="..\..\libs\minizip\unzip.h" />
+    <ClInclude Include="..\..\libs\sha1\hash_sha1.h" />
+    <ClInclude Include="..\..\libs\SQLite\sqlite3.h" />
+    <ClInclude Include="..\..\libs\SQLite\sqlite3ext.h" />
+    <ClInclude Include="..\..\source\Animation\CKLBNodeVirtualDocument.h" />
+    <ClInclude Include="..\..\source\Animation\CKLBScoreNode.h" />
+    <ClInclude Include="..\..\source\Animation\CKLBSplineNode.h" />
+    <ClInclude Include="..\..\source\Animation\CKLBSWFPlayer.h" />
+    <ClInclude Include="..\..\source\Assets\AudioAsset.h" />
+    <ClInclude Include="..\..\source\Assets\CKLBAsset.h" />
+    <ClInclude Include="..\..\source\Assets\CKLBPropertyBag.h" />
+    <ClInclude Include="..\..\source\Assets\CKLBTexturePacker.h" />
+    <ClInclude Include="..\..\source\Assets\MapManagement.h" />
+    <ClInclude Include="..\..\source\Assets\NodeAnimationAsset.h" />
+    <ClInclude Include="..\..\source\Assets\TextureManagement.h" />
+    <ClInclude Include="..\..\source\Core\ArrayAllocator.h" />
+    <ClInclude Include="..\..\source\Core\CKLBAction.h" />
+    <ClInclude Include="..\..\source\Core\CKLBAppProperty.h" />
+    <ClInclude Include="..\..\source\Core\CKLBAsyncLoader.h" />
+    <ClInclude Include="..\..\source\Core\CKLBBinArray.h" />
+    <ClInclude Include="..\..\source\Core\CKLBDataHandler.h" />
+    <ClInclude Include="..\..\source\Core\CKLBDebugger.h" />
+    <ClInclude Include="..\..\source\Core\CKLBGenericTask.h" />
+    <ClInclude Include="..\..\source\Core\CKLBIntervalTimer.h" />
+    <ClInclude Include="..\..\source\Core\CKLBLifeCtrlTask.h" />
+    <ClInclude Include="..\..\source\Core\CKLBLuaEnv.h" />
+    <ClInclude Include="..\..\source\Core\CKLBLuaPropTask.h" />
+    <ClInclude Include="..\..\source\Core\CKLBLuaTask.h" />
+    <ClInclude Include="..\..\source\Core\CKLBObject.h" />
+    <ClInclude Include="..\..\source\Core\CKLBPauseCtrl.h" />
+    <ClInclude Include="..\..\source\Core\CKLBTextTempBuffer.h" />
+    <ClInclude Include="..\..\source\Core\CKLBUtility.h" />
+    <ClInclude Include="..\..\source\Core\CLuaState.h" />
+    <ClInclude Include="..\..\source\Core\DebugAlloc.h" />
+    <ClInclude Include="..\..\source\Core\DebugTracker.h" />
+    <ClInclude Include="..\..\source\Core\yasper.h" />
+    <ClInclude Include="..\..\source\Database\CKLBDatabase.h" />
+    <ClInclude Include="..\..\source\Database\CKLBLanguageDatabase.h" />
+    <ClInclude Include="..\..\source\Database\CKLBLuaDB.h" />
+    <ClInclude Include="..\..\source\Database\DataSet.h" />
+    <ClInclude Include="..\..\source\HTTP\CKLBHTTPInterface.h" />
+    <ClInclude Include="..\..\source\HTTP\CKLBJsonItem.h" />
+    <ClInclude Include="..\..\source\HTTP\CKLBNetAPI.h" />
+    <ClInclude Include="..\..\source\HTTP\CKLBNetAPIKeyChain.h" />
+    <ClInclude Include="..\..\source\HTTP\CKLBStoreService.h" />
+    <ClInclude Include="..\..\source\HTTP\CKLBUpdate.h" />
+    <ClInclude Include="..\..\source\HTTP\CUnZip.h" />
+    <ClInclude Include="..\..\source\include\CPFInterface.h" />
+    <ClInclude Include="..\..\source\include\CSoundAnalysis.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaConst.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibAPP.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibASSET.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibBIN.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibCONV.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibDATA.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibDB.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibDEBUG.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibENG.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibFONT.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibGL.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibHASH.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibKEY.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibLANG.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibMatrix.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibRES.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibSOUND.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibTASK.h" />
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibUI.h" />
+    <ClInclude Include="..\..\source\LuaLib\ILuaFuncLib.h" />
+    <ClInclude Include="..\..\source\Rendering\CKLBCanvasSprite.h" />
+    <ClInclude Include="..\..\source\Rendering\CKLBRendering.h" />
+    <ClInclude Include="..\..\source\SceneGraph\CKLBNode.h" />
+    <ClInclude Include="..\..\source\Scripting\CKLBGCTask.h" />
+    <ClInclude Include="..\..\source\Sound\CSoundAnalysisMP3.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBDebugMenu.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBDeviceKeyEvent.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBDrawTask.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBLuaScript.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBOSCtrlEvent.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBTouchEventUI.h" />
+    <ClInclude Include="..\..\source\SystemTask\CKLBTouchPad.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBActivityIndicatorNode.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBDragCallbackIF.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBFormGroup.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBFormIF.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBLabelNode.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBModalStack.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBMovieNode.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBNodeAnimPack.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBScrMgrDefault.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBScrMgrPage.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBScrMgrSolid.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBScrollBarIF.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBTextInputNode.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIActivityIndicator.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIButton.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUICanvas.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIClip.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIControl.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIDebugItem.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIDragIcon.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIForm.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIFreeVertItem.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIGroup.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUILabel.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIList.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIMoviePlayer.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIMultiImgItem.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIPieChart.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIPolyline.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIRubberBand.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUISimpleItem.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUISystem.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUITextInput.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIVariableItem.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBUIWebArea.h" />
+    <ClInclude Include="..\..\source\UISystem\CKLBWebViewNode.h" />
+    <ClInclude Include="..\..\source\UISystem\IMgrEntry.h" />
+    <ClInclude Include="..\..\source\UnitSystem\UnitSystem.h" />
+    <ClInclude Include="EngineStdReference.h" />
+    <ClInclude Include="GameEngine.h" />
+    <ClInclude Include="Lame\BladeMP3EncDLL.h" />
+    <ClInclude Include="Lame\lame.h" />
+    <ClInclude Include="Platform\CSockReadStream.h" />
+    <ClInclude Include="Platform\CSockWriteStream.h" />
+    <ClInclude Include="Platform\CWin32Audio.h" />
+    <ClInclude Include="Platform\CWin32HttpStream.h" />
+    <ClInclude Include="Platform\CWin32KeyChain.h" />
+    <ClInclude Include="Platform\CWin32MP3.h" />
+    <ClInclude Include="Platform\CWin32PathConv.h" />
+    <ClInclude Include="Platform\CWin32Platform.h" />
+    <ClInclude Include="Platform\CWin32ReadFileStream.h" />
+    <ClInclude Include="Platform\CWin32TmpFile.h" />
+    <ClInclude Include="Platform\CWin32Widget.h" />
+    <ClInclude Include="Platform\CWin32WriteFileStream.h" />
+    <ClInclude Include="Platform\KLBPlatformMetrics.h" />
+    <ClInclude Include="Platform\Win32FileLocation.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\amigaos.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\asyn-ares.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\asyn-thread.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\axtls.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\base64.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\bundles.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\conncache.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\connect.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\content_encoding.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\cookie.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_addrinfo.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_darwinssl.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_fnmatch.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_gethostname.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_gssapi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_memrchr.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_multibyte.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm_core.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm_msgs.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm_wb.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_rand.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_rtmp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_sasl.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_schannel.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_sspi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_threads.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\cyassl.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\dict.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\easy.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\escape.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\file.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\fileinfo.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\formdata.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ftp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ftplistparser.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\getenv.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\getinfo.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\gopher.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\gtls.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hash.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hmac.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostasyn.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostcheck.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostip.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostip4.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostip6.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostsyn.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_chunks.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_digest.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_negotiate.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_negotiate_sspi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_proxy.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\idn_win32.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\if2ip.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\imap.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\inet_ntop.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\inet_pton.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\krb4.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\krb5.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ldap.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\llist.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\md4.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\md5.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\memdebug.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\mprintf.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\multi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\netrc.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\non-ascii.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nonblock.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nss.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nwlib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nwos.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\openldap.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\parsedate.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\pingpong.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\polarssl.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\pop3.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\progress.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\qssl.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\rawstr.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\rtsp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\security.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\select.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\sendf.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\share.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\slist.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\smtp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\socks.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\socks_gssapi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\socks_sspi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\speedcheck.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\splay.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ssh.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\sslgen.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ssluse.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strdup.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strequal.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strerror.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strtok.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strtoofft.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\telnet.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\tftp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\timeval.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\transfer.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\url.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\version.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\warnless.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\wildcard.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_binmode.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_bname.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_dbg.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_hdr.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_prg.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_rea.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_see.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_wrt.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cfgable.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_convert.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_dirhie.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_doswin.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_easysrc.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_formparse.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_getparam.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_getpass.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_help.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_helpers.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_homedir.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_hugehelp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_libinfo.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_main.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_metalink.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_mfiles.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_msgs.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_operate.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_operhlp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_panykey.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_paramhlp.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_parsecfg.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_setopt.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_sleep.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_urlglob.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_util.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_vms.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_writeenv.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_writeout.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_xattr.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\autofit\autofit.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftbase.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftbbox.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftbitmap.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftfstype.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftgasp.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftglyph.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftgxval.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftinit.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftlcdfil.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftmm.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftotval.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftpatent.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftpfr.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftstroke.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftsynth.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftsystem.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\fttype1.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftwinfnt.c" />
+    <ClCompile Include="..\..\libs\freeType\src\base\ftxf86.c" />
+    <ClCompile Include="..\..\libs\freeType\src\bdf\bdf.c" />
+    <ClCompile Include="..\..\libs\freeType\src\cache\ftcache.c" />
+    <ClCompile Include="..\..\libs\freeType\src\cff\cff.c" />
+    <ClCompile Include="..\..\libs\freeType\src\cid\type1cid.c" />
+    <ClCompile Include="..\..\libs\freeType\src\ftdebug.c" />
+    <ClCompile Include="..\..\libs\freeType\src\gzip\ftgzip.c" />
+    <ClCompile Include="..\..\libs\freeType\src\lzw\ftlzw.c" />
+    <ClCompile Include="..\..\libs\freeType\src\pcf\pcf.c" />
+    <ClCompile Include="..\..\libs\freeType\src\pfr\pfr.c" />
+    <ClCompile Include="..\..\libs\freeType\src\psaux\psaux.c" />
+    <ClCompile Include="..\..\libs\freeType\src\pshinter\pshinter.c" />
+    <ClCompile Include="..\..\libs\freeType\src\psnames\psmodule.c" />
+    <ClCompile Include="..\..\libs\freeType\src\raster\raster.c" />
+    <ClCompile Include="..\..\libs\freeType\src\sfnt\sfnt.c" />
+    <ClCompile Include="..\..\libs\freeType\src\smooth\smooth.c" />
+    <ClCompile Include="..\..\libs\freeType\src\truetype\truetype.c" />
+    <ClCompile Include="..\..\libs\freeType\src\type1\type1.c" />
+    <ClCompile Include="..\..\libs\freeType\src\type42\type42.c" />
+    <ClCompile Include="..\..\libs\freeType\src\winfonts\winfnt.c" />
+    <ClCompile Include="..\..\libs\JSonParser\json_binary_parser.c" />
+    <ClCompile Include="..\..\libs\JSonParser\msg_pack_parser.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_alloc.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_buf.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_encode.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_gen.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_lex.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_parser.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_tree.c" />
+    <ClCompile Include="..\..\libs\JSonParser\yajl_version.c" />
+    <ClCompile Include="..\..\libs\minizip\ioapi.c" />
+    <ClCompile Include="..\..\libs\minizip\mztools.c" />
+    <ClCompile Include="..\..\libs\minizip\unzip.c" />
+    <ClCompile Include="..\..\libs\sha1\hash_sha1.c" />
+    <ClCompile Include="..\..\libs\SQLite\sqlite3.c" />
+    <ClCompile Include="..\..\libs\utf8_converter\utf8.c" />
+    <ClCompile Include="..\..\source\Animation\CKLBNodeVirtualDocument.cpp" />
+    <ClCompile Include="..\..\source\Animation\CKLBScoreNode.cpp" />
+    <ClCompile Include="..\..\source\Animation\CKLBSplineNode.cpp" />
+    <ClCompile Include="..\..\source\Animation\CKLBSWFPlayer.cpp" />
+    <ClCompile Include="..\..\source\Animation\CKLBSystem.cpp" />
+    <ClCompile Include="..\..\source\Assets\AudioAsset.cpp" />
+    <ClCompile Include="..\..\source\Assets\CKLBAssetManager.cpp" />
+    <ClCompile Include="..\..\source\Assets\CKLBPropertyBag.cpp" />
+    <ClCompile Include="..\..\source\Assets\CKLBTexturePacker.cpp" />
+    <ClCompile Include="..\..\source\Assets\CompositeManagement.cpp" />
+    <ClCompile Include="..\..\source\Assets\NodeAnimationAsset.cpp" />
+    <ClCompile Include="..\..\source\Assets\TextureManagement.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBAppProperty.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBAsyncFilecopy.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBAsyncLoader.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBBinArray.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBContext.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBDataHandler.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBDebugger.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBGameApplication.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBGameApplicationDebugModule.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBGenericTask.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBIntervalTimer.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBLibRegistrator.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBLifeCtrlTask.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBLuaEnv.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBLuaPropTask.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBLuaTask.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBObject.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBPauseCtrl.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBTask.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBTextTempBuffer.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBUITask.cpp" />
+    <ClCompile Include="..\..\source\Core\CKLBUtility.cpp" />
+    <ClCompile Include="..\..\source\Core\CLuaState.cpp" />
+    <ClCompile Include="..\..\source\Core\CPFInterface.cpp" />
+    <ClCompile Include="..\..\source\Core\DebugAlloc.cpp" />
+    <ClCompile Include="..\..\source\Core\DebugTracker.cpp" />
+    <ClCompile Include="..\..\source\Core\Dictionnary.cpp" />
+    <ClCompile Include="..\..\source\Core\encryptFile.cpp" />
+    <ClCompile Include="..\..\source\Core\ITmpFile.cpp" />
+    <ClCompile Include="..\..\source\Database\CKLBDatabase.cpp" />
+    <ClCompile Include="..\..\source\Database\CKLBLanguageDatabase.cpp" />
+    <ClCompile Include="..\..\source\Database\CKLBLuaDB.cpp" />
+    <ClCompile Include="..\..\source\Database\DataSet_JSonDB.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CKLBHTTPInterface.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CKLBJsonItem.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CKLBNetAPI.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CKLBNetAPIKeyChain.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CKLBStoreService.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CKLBUpdate.cpp" />
+    <ClCompile Include="..\..\source\HTTP\CUnZip.cpp" />
+    <ClCompile Include="..\..\source\HTTP\MultithreadedNetwork.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaConst.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibAPP.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibASSET.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibBIN.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibCONV.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibDATA.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibDB.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibDEBUG.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibENG.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibFONT.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibGL.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibHASH.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibKEY.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibLANG.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibMatrix.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibRES.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibSOUND.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibTASK.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibUI.cpp" />
+    <ClCompile Include="..\..\source\LuaLib\ILuaFuncLib.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CBuffer.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CFrame.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CImageBuffer.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CIndexBuffer.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CKLBCanvasSprite.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CKLBRenderingManager.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CKLBSprite3D.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CRenderingManager.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CRenderingManager_GL1.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CRenderingManager_GL2.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CShaderSet.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CShaderSetInstance.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CTexture.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CTextureBase.cpp" />
+    <ClCompile Include="..\..\source\Rendering\CTextureUsage.cpp" />
+    <ClCompile Include="..\..\source\Rendering\glWrapper.cpp" />
+    <ClCompile Include="..\..\source\SceneGraph\CKLBNode.cpp" />
+    <ClCompile Include="..\..\source\Scripting\CKLBGCTask.cpp" />
+    <ClCompile Include="..\..\source\Scripting\CKLBScriptEnv_forCpp.cpp" />
+    <ClCompile Include="..\..\source\Scripting\CKLBScriptEnv_forCSharp.cpp" />
+    <ClCompile Include="..\..\source\Scripting\CKLBScriptEnv_forLUA.cpp" />
+    <ClCompile Include="..\..\source\Sound\CSoundAnalysis.cpp" />
+    <ClCompile Include="..\..\source\Sound\CSoundAnalysisMP3.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBDebugMenu.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBDeviceKeyEvent.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBDrawTask.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBLuaScript.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBOSCtrlEvent.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBTouchEventUI.cpp" />
+    <ClCompile Include="..\..\source\SystemTask\CKLBTouchPad.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBActivityIndicatorNode.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBDragCallbackIF.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBFormGroup.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBFormIF.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBLabelNode.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBModalStack.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBMovieNode.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBNodeAnimPack.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBScrMgrDefault.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBScrMgrPage.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBScrMgrSolid.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBScrollBarIF.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBTextInputNode.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIActivityIndicator.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIButton.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUICanvas.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIClip.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIControl.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIDebugItem.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIDragIcon.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIForm.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIFreeVertItem.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIGroup.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUILabel.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIList.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIMoviePlayer.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIMultiImgItem.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIPieChart.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIPolyline.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIProgressBar.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIRubberBand.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIScale9.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIScore.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIScrollBar.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUISimpleItem.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUISWFPlayer.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUISystem.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUITextInput.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUITouchPad.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIVariableItem.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIVirtualDoc.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBUIWebArea.cpp" />
+    <ClCompile Include="..\..\source\UISystem\CKLBWebViewNode.cpp" />
+    <ClCompile Include="..\..\source\UISystem\IMgrEntry.cpp" />
+    <ClCompile Include="..\dirent.c" />
+    <ClCompile Include="..\FileDelete.cpp" />
+    <ClCompile Include="..\FontRendering.cpp" />
+    <ClCompile Include="assert.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="EngineStdReferenceOSS.cpp" />
+    <ClCompile Include="GameLibraryWin32.cpp" />
+    <ClCompile Include="Platform\CSockReadStream.cpp" />
+    <ClCompile Include="Platform\CSockWriteStream.cpp" />
+    <ClCompile Include="Platform\CWin32Audio.cpp" />
+    <ClCompile Include="Platform\CWin32HttpStream.cpp" />
+    <ClCompile Include="Platform\CWin32KeyChain.cpp" />
+    <ClCompile Include="Platform\CWin32MP3.cpp" />
+    <ClCompile Include="Platform\CWin32PathConv.cpp" />
+    <ClCompile Include="Platform\CWin32Platform.cpp" />
+    <ClCompile Include="Platform\CWin32ReadFileStream.cpp" />
+    <ClCompile Include="Platform\CWin32TmpFile.cpp" />
+    <ClCompile Include="Platform\CWin32Widget.cpp" />
+    <ClCompile Include="Platform\CWin32WriteFileStream.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

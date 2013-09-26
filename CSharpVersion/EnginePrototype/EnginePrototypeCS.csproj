@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{82172820-045A-4210-88EC-466042522A57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EnginePrototype</RootNamespace>
+    <AssemblyName>MyCSharpLibForWindows</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>True</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="FrameworkCore\GameObjectFactory.cs" />
+    <Compile Include="FrameworkCore\NodeIterator.cs" />
+    <Compile Include="FrameworkCore\Utils.cs" />
+    <Compile Include="Libs\CSRES.cs" />
+    <Compile Include="Libs\CSLang.cs" />
+    <Compile Include="Libs\CSGL.cs" />
+    <Compile Include="Libs\CSUI.cs" />
+    <Compile Include="Libs\CSAPP.cs" />
+    <Compile Include="Libs\CSAsset.cs" />
+    <Compile Include="Libs\CSData.cs" />
+    <Compile Include="Libs\CSDB.cs" />
+    <Compile Include="Libs\CSSystem.cs" />
+    <Compile Include="Libs\CSEng.cs" />
+    <Compile Include="Libs\CSDebug.cs" />
+    <Compile Include="Libs\CSKey.cs" />
+    <Compile Include="Wrappers\CKLBTask.cs" />
+    <Compile Include="Wrappers\CKLBGenericTask.cs" />
+    <Compile Include="Wrappers\CKLBIntervalTimer.cs" />
+    <Compile Include="Wrappers\CKLBNetApi.cs" />
+    <Compile Include="Wrappers\CKLBUICanvas.cs" />
+    <Compile Include="Wrappers\CKLBUIFreeVertItem.cs" />
+    <Compile Include="Wrappers\CKLBUIGroup.cs" />
+    <Compile Include="Wrappers\CKLBUIPolyline.cs" />
+    <Compile Include="Wrappers\CKLBUIProgressBar.cs" />
+    <Compile Include="Wrappers\CKLBUIScale9.cs" />
+    <Compile Include="Wrappers\CKLBUIScore.cs" />
+    <Compile Include="Wrappers\CKLBUIScrollBar.cs" />
+    <Compile Include="Wrappers\CKLBUISimpleItem.cs" />
+    <Compile Include="Wrappers\CKLBUISWFPlayer.cs" />
+    <Compile Include="Wrappers\CKLBUITask.cs" />
+    <Compile Include="Wrappers\CKLBUITextInput.cs" />
+    <Compile Include="Wrappers\CKLBUIVirtualDoc.cs" />
+    <Compile Include="Wrappers\CKLBUIWebArea.cs" />
+    <Compile Include="Wrappers\CKLBUIDragIcon.cs" />
+    <Compile Include="Wrappers\CKLBUIForm.cs" />
+    <Compile Include="Wrappers\CKLBUILabel.cs" />
+    <Compile Include="Wrappers\CKLBUIList.cs" />
+    <Compile Include="Wrappers\CKLBUIMoviePlayer.cs" />
+    <Compile Include="Wrappers\CKLBUIMultiImgItem.cs" />
+    <Compile Include="Wrappers\CKLBUIPieChart.cs" />
+    <Compile Include="Wrappers\CKLBUIRubberBand.cs" />
+    <Compile Include="Wrappers\CKLBUIControl.cs" />
+    <Compile Include="Wrappers\CKLBUIVariableItem.cs" />
+    <Compile Include="Wrappers\CKLBStoreService.cs" />
+    <Compile Include="Wrappers\CKLBAsyncLoader.cs" />
+    <Compile Include="Wrappers\CKLBUIDebugItem.cs" />
+    <Compile Include="FrameworkCore\CKLBException.cs" />
+    <Compile Include="FrameworkCore\NativeManagement.cs" />
+    <Compile Include="FrameworkCore\WrapperReg.cs" />
+    <Compile Include="FrameworkCore\GameObject.cs" />
+    <Compile Include="Libs\CSFont.cs" />
+    <Compile Include="Libs\CSSound.cs" />
+    <Compile Include="Libs\CSMatrix.cs" />
+    <Compile Include="Libs\CSBin.cs" />
+    <Compile Include="Wrappers\CKLBUITouchPad.cs" />
+    <Compile Include="Wrappers\CKLBUIClip.cs" />
+    <Compile Include="Wrappers\IAmADocClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup />
+</Project>

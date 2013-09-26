@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Parser">
+      <UniqueIdentifier>{5f7fee26-b49c-4cd7-8b91-f97d89eb3dbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ParserLibrary">
+      <UniqueIdentifier>{2dd10776-1a21-4c47-857b-99affa50979f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ParserLibrary\Source">
+      <UniqueIdentifier>{cc6f60d2-70d1-49fc-bf0a-ca6ca4cb4a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ParserLibrary\Header">
+      <UniqueIdentifier>{1f619903-4890-4af5-9d3f-7e2ee9ef4361}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dump">
+      <UniqueIdentifier>{afc5e584-0b9d-4ef0-b56c-a37c37a32d40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="csharp.l">
+      <Filter>Parser</Filter>
+    </None>
+    <None Include="csharp.y">
+      <Filter>Parser</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="y.tab.h">
+      <Filter>Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="include.h">
+      <Filter>ParserLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractContainer.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Attribute.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseType.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="compilerLibrary.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Expression.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="NameSpace.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Statement.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Symbol.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeObject.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Variable.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="UTF8Parse.h">
+      <Filter>ParserLibrary\Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompilerProject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="csharpcompiler.cpp">
+      <Filter>Parser</Filter>
+    </ClCompile>
+    <ClCompile Include="dirent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractContainer.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Attribute.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="compilerLibrary.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Expression.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="NameSpace.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Statement.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Symbol.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeObject.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Variable.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Accessor.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Method.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Dump.cpp">
+      <Filter>Dump</Filter>
+    </ClCompile>
+    <ClCompile Include="UTF8Parser.cpp">
+      <Filter>ParserLibrary\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

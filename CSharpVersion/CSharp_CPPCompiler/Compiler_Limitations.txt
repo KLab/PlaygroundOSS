@@ -1,0 +1,50 @@
+###############################
+#   C# Compiler Limitations   #
+###############################
+
+
+NOT SUPPORTED
+
+- foreach
+- auto-properties
+- operator overloading
+- generic delegates
+- events
+- typeof()
+- sizeof()
+- interface explicit implementation (eg public void InterfaceA.Method(); declaration)
+- named arguments (eg MethodCall(param2: 24, param1: "value"))
+- switch(string) statements
+- new operator with structures or base types
+- Non integer enums
+- += with strings
+- Non-array object initializers
+- Several methods for one delegate
+- Enums with Console.Write, Console.WriteLine and string concatenation
+- methodA(methodB) call, where methodB is overloaded (double overloading)
+- "this()" in constructor initialisation
+- params
+- IS operator with non pointer types
+- AS operator with non pointer types
+- list of boolean expressions which can be misunderstood as a generic (eg method(a<b,c>d))
+- unicode prefix (\u)
+- Decimal type
+- unsafe blocks
+- checked / unchecked
+- *, & and -> operators
+- stackalloc
+- lock
+- fixed
+- Conditional operator (? :) with functions passed as a delegate
+
+
+RESTRICTIONS
+
+- Only part of the System classes and methods is supported (see supported.cs)
+- "using" can only be used with namespaces
+- Struct Marshalling
+	> By references only
+	> Must use attributes
+	> StructLayout(LayoutKind.Sequential, Pack = 1) only
+- Cdecl is the only supported call convention
+- If the source file contains Japanese characters, its encoding needs to be UTF8 without BOM.

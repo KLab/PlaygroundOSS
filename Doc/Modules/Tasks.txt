@@ -1,0 +1,201 @@
+============================== Task System ==================================
+
+The only thing executed each frame by the engine is the task manager.
+Anything that must be executed by the CPU each frame must register a task to the task manager.
+
+The task manager works the following way :
+- There are what is called PHASES. It defines the order of execution.
+	(See TASK_PHASE inside CKLBTask.h)
+	
+- There are tasks that are registered to a given phase.
+	Note that a task instance can only be registered to one and only one phase at a given time.
+	
+- Order of execution INSIDE a phase are not guaranteed.
+	-> We guarantee that a phase is executed before another, but not the task order within a phase.
+	
+- Tasks can have parent/child relationship.
+	When a task is destroyed, all the subtree is destroyed at the same time.
+
+- When killing a task, the task is NOT destroyed immediatly but at the end of the current frame execution ;
+	that means after all the phases have been executed for this frame.
+	It helps to guarantee that pointers are not becoming unavailable if tasks have pointers on other tasks and
+	guarantee the integrity of all tasks for a given frame.
+	
+
+Class Groups:
+
+Event if all Tasks inherits the root class CKLBTask (see "Classes" in this document for more details),
+there are splitted in 2 groups : System Tasks and User Tasks.
+- System Tasks are tasks created when launching the game and not controlled by the programmer.
+- User Tasks are tasks the programmer can instanciate through LUA (or another scripting language).
+	They all inherits from CKLBLuaTask previously described.
+	User Tasks can also be splitted in 2 groups : 
+		- User UI Tasks (all UI related tasks).
+		- User Other Tasks (download, unzip, network, etc).
+	
+	For more details about specific Tasks of any group refer to Docs/Documentation_Tasks.txt
+
+
+Tasks may not need to be executed every single frame, for instance if a progress bar had not moved from the previous frame,
+recompute it and redraw it would be a loss of cpu usage.
+That is why, in an optimization purpose, tasks can enter a Sleep state by themselves (meaning not like a Pause from the script).
+
+A flag system has been deployed, using a 1 byte member and macros.
+By default, a task is ALWAYS_ACTIVE. (0x80)
+If you want a sub task to be not always active, you have to call setNotAlwaysActive() in the subclass constructor,
+this will desactivate the flag at 0x80. We strongly suggest to use this only in the constructor to differenciate
+tasks who can sleep and those which ALWAYS need to execute at each frame.
+
+Then, for tasks which can sleep, we have different flags.
+Those flag are generic in the way that the programmer can decide to use them for any purpose.
+
+5 flags macros are available for a Task activity (from A to E). If one of them is Up, the task is considered as active and
+execute function will be called as long as the flag is not reset.
+
+- Flag A (0x01)	: REFRESH_A, CHANGE_A, RESET_A macros
+- Flab B (0x02)	: REFRESH_B, CHANGE_B, RESET_B macros
+- Flag C (0x04)	: REFRESH_C, CHANGE_C, RESET_C macros
+- Flag D (0x08)	: REFRESH_D, CHANGE_D, RESET_D macros
+- Flag E (0x10)	: REFRESH_E, CHANGE_E, RESET_E macros
+
+REFRESH_x will SET the flag to 1.
+CHANGE_x will return if the flag is set or not. So programmer can do something like : if (CHANGE_x) { ... }
+RESET_x will RESET the flag to 0.
+
+Most of the common case is to set a flag when a property is changed, and then perform the real update only once
+per frame. To different what kind of update has been made to the object, the programmer can use freely those flags.
+
+When the TaskManager process the Tasks List and execute every one of them, it first tests if the task is indeed 
+active or not. If not, the call to the execute method is not done.
+A task is active either if it is "Alaways Active" or if one of the 5 flags is up.
+
+
+IMPORTANT: === Only needed if modifying the library instead of using the main project ===
+If you want to add/remove task from the library project (inside Win32 project), 
+it is important to modify EngineStdReference.cpp
+The reason for this file to exist is that when compiling all the tasks inside a library, each
+task creates a singleton template factory. But because nobody is referencing directly the singleton
+outside of the library, thus the linker does not incluse the singleton and the factory is not available at runtime.
+(Worked without this system when the project was inside a single project)
+
+So you need to modify EngineStdReference.h with :
+- #include your header 
+- go inside the EngineTaskReference() function and then add/remove the call to the task.
+
+Note about destruction of task owning nodes (UITask) :
+
+Task using node in the scene graph will need delete the node they created.
+If the node is connected to the scene graph when the task dies, it is automatically destroyed due to connection
+with the task "local root" node.
+
+Now, if a node belonging to a task B is connected to a node from task A, when task A dies, the node belonging to task B is NOT destroyed.
+
+Here is the schematic:
+---------------------------------
+Task A with Node A'
+	Node A2'
+		Task B with node B'
+			Node B2'
+	Node A3'
+---------------------------------
+
+Normally a tree should delete all the node by recursion on destruction,
+but as the node belong to another task, we avoid the destruction of those sub node (B' and B2') when killing taks A.
+Only node A',A2',A3' are going to be automatically deleted.
+
+Because task B does NOT know that task A has been destroyed in the scene graph and we do not want task B to delete the
+node B' and B2' a second time ! So when A dies, it has NO RIGHTS to destroy a node belonging to another task.
+
+Just remember that Task parent (relation between task) and scene graph relation (task parent inside a form) are not related.
+A given task B inside another task A inside the scene graph could have task B as child of task A in term of execution.
+
+Classes:
+	CKLBTaskMgr (Singleton)
+		Performs the execution of each phase.
+		Provides management for tasks.
+		
+	CKLBTask
+		Basic task class, provides mecanisms for init/die/execute, phase ownership, name.
+		Refer to Docs/Modules/Scripting.txt for more details about scripting tasks.
+		
+		CKLBLuaTask : 
+		Adds feature to have command executable from LUA.
+			
+			CKLBLuaPropTask : 
+			Adds properties accessible from LUA.
+				
+				CKLBUITask : 
+				Adds an integrated node to the task, the task owns a node connected to the scene graph.
+				The node also has a pointer to the task.
+
+=============================================================================
+How To Add A New Task ?
+
+If you want to add new tasks to the Game Engine, please follow these instructions.
+We will consider that your new task is name MyNewTask.
+
+- Make MyNewTask inherits CKLBTask or a subclass of CKLBTask.
+- In include/BaseType.h add a new define :
+	#define CLS_MYNEWTASK (XXX | CLS_KLBUSERTASK | ...)
+	refer to the defines at the beginning of the file.
+- Add CKLBTaskFactory<MyNewTask> as a friend class.
+- In the cpp file, add 
+	static CKLBTaskFactory<MyNewTask> factory("MyNewTask", CLS_MYNEWTASK);
+- Add the following methods :
+	- static MyNewTask* create(...) : tries to allocate the task and call init(...).
+	- bool init(...) : ends with a call to CKLBTask::regist(parent, phase) to add this task 
+		to a specific phase of the Game Engine.
+
+- Override the following methods :
+	- u32 getClassID()	: must return CLS_MYNEWTASK.
+	- void execute(u32 deltaT) : contains the execution instructions.
+
+- You may add setNotAlwaysActive() in the contructor for optimization purpose.
+	Refer to Docs/Documentation_Tasks.txt for more details about tasks execution.
+
+For more details about LuaTask and derived classes implementation, refer to Docs/Modules/Scripting.txt
+	
+If it is a LuaPropTask
+- In the constructor, add :
+	m_newScriptModel = true;
+- Add properties :
+	- .h 	: 
+		static	PROP_V2		ms_propItems[];
+	- .cpp 	: 
+		CKLBLuaPropTask::PROP_V2 MyNewTask::ms_propItems[] = {
+			{	"prop1",	UINTEGER,	(setBoolT)&MyNewTask::setProp1,	(getBoolT)&MyNewTask::getOrder,	0 },
+			{	"prop2",	R_STRING,	NULL,							(getBoolT)&MyNewTask::getAsset,	0 },
+			...
+		};
+	
+If it is a CKLBUITask
+
+- .cpp
+	Don't forget to add the CKLBUITask properties to your Task ones, with the macro UI_BASE_PROP.
+	CKLBLuaPropTask::PROP_V2 MyNewTask::ms_propItems[] = {
+			UI_BASE_PROP,
+			{	"prop1",	UINTEGER,	(setBoolT)&MyNewTask::setProp1,	(getBoolT)&MyNewTask::getOrder,	0 },
+			{	"prop2",	R_STRING,	NULL,							(getBoolT)&MyNewTask::getAsset,	0 },
+			...
+		};
+		
+	- Override the following methods 
+		- initCore 	: initializes the members.
+		- initUI	: initializes the script values.
+	
+	If you want to add commands accessible from the Script, override the commandUI method.
+
+For more details, please refer to a simple task implementation such as source/UISystem/CKLBUISimpleItem.h
+
+=============================================================================
+
+Related Files:
+source/core/
+	CKLBTask.h
+	CKLBTask.cpp
+	CKLBLuaTask.h
+	CKLBLuaTask.cpp
+	CKLBLuaPropTask.h
+	CKLBLuaPropTask.cpp
+	CKLBUITask.h
+	CKLBUITask.cpp

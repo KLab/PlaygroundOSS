@@ -1,0 +1,30 @@
+Asset Loading specification & Format
+---------------------------------------
+
+1/ Asset Seen from File URL :File URL : "asset:://com/klab/www/asset1.texb"
+
+	'asset::' allow to access to the asset folder.
+	
+	Asset name is : 'com/klab/www/asset1'
+	Plugin ID is  : 'T' (Texture) --> Extension is  : '.texb'
+
+2/ Asset Seen from internal views :	- Own Name stored in Asset stream 		: Char[0]   : PluginId
+											  Char[1..n]: Asset Name (non-mangled name)
+	Ex. 'Iimage_207'
+		I			: Plugin ID (char)
+		image_207	: Name
+
+	- Inside a .link file asset				: Use AssetName + Extension in one string : "com/klab/www/asset1.texb"
+		
+	- In a constant pool for reference		: Same as own name storage.
+		Char[0]		: PluginId
+		Char[1..n]	: Asset Name
+		3/ Assets : Plugin ID, file extension, chunk type, description.
+
+	'I'		.imag		[TIMG]		Define one sprite entity
+	'T'		.texb		[TEXB]		Define one texture, grouping multiple sprite definition [TIMG]
+	'F'		.flsh		[FLSH]		Define a flash movie, use references on [TIMG]						Special chunk type:
+						[LINK]		Special chunk that can be in ANY file but 'route' to another file for loading.
+
+	For now, [LINK] is used inside .imag to force loading of .texb embedding the ressource instead.
+	.imag has no data, .texb has all the data.

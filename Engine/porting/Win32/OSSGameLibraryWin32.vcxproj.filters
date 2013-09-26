@@ -1,0 +1,1787 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Rendering">
+      <UniqueIdentifier>{191477fc-ce36-4230-8560-bd63e3c948e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneGraph">
+      <UniqueIdentifier>{f8bcf784-9896-4ff3-870c-d2c50e880f80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Assets">
+      <UniqueIdentifier>{2e2c5026-ce5b-435a-9f66-02fe68eeb687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rendering\OpenGLWrapper">
+      <UniqueIdentifier>{1826bcbc-029a-46a7-b49d-1fdfe6592ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{81d99951-9458-45ca-8d66-667016001819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SystemTask">
+      <UniqueIdentifier>{6e322d91-3851-4846-9f9b-a0020317438a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs">
+      <UniqueIdentifier>{5acf2361-4b34-47e0-b390-3be153298476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\JSonParser">
+      <UniqueIdentifier>{dd87aa6d-110f-4038-b78e-024b014d3e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\Lua">
+      <UniqueIdentifier>{06d107af-9509-499b-9762-2300dada5922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\SQLite">
+      <UniqueIdentifier>{95f387ff-b949-43a0-831b-6b95b40e4be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Database">
+      <UniqueIdentifier>{8fb1d4c5-f805-4242-8381-4f52d407d27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LuaLib">
+      <UniqueIdentifier>{d9a096af-eec3-4709-8053-b01c0b84bd1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\mp3lame">
+      <UniqueIdentifier>{f58709a6-c3ca-4211-9337-2c01988d41a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UISystem">
+      <UniqueIdentifier>{7c6d1eca-4aa7-4a05-a63d-6528ba44a481}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UISystem\Elements">
+      <UniqueIdentifier>{9537358f-4954-4412-b767-4b5ca32d2ccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UISystem\Task">
+      <UniqueIdentifier>{a27f1a91-bae0-44f3-9c98-10d38378d733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UISystem\ScrollMgr">
+      <UniqueIdentifier>{4e2e668e-905a-41f8-bc93-908ddcefb29b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UtilTask">
+      <UniqueIdentifier>{8365e9bf-6dae-42fc-864e-ff78583f1402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LuaLib\Element">
+      <UniqueIdentifier>{a6389dff-f319-4f33-adb2-82473966296f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LuaLib\modules">
+      <UniqueIdentifier>{e5ec6d1e-9a14-42a8-a7e2-0506215142d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="boot">
+      <UniqueIdentifier>{32ce2d29-696a-4393-bc74-aa4a109387a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneGraph\Animation">
+      <UniqueIdentifier>{479d592e-65ba-4efd-bc90-0f905eceddeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network">
+      <UniqueIdentifier>{b9f41e39-eb1a-4d86-919a-1215e9fe2274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network\Element">
+      <UniqueIdentifier>{f3224719-d252-4dd6-ab7b-3e7740486224}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network\Task">
+      <UniqueIdentifier>{9f5f5749-ed18-4454-bca6-81e6a135628d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\minizip">
+      <UniqueIdentifier>{6c900c52-1fcf-46c6-9f7e-25b816b33bd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripting">
+      <UniqueIdentifier>{29f2620d-a954-4b24-8f7d-23c9b9c53b9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{9c3d1702-4fb8-41bb-b582-3498f145662b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\LibCurl">
+      <UniqueIdentifier>{45dc69c1-9e00-43c4-8044-41d9a863e6f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\LibCurl\Src">
+      <UniqueIdentifier>{b19b49cf-8a93-4290-87ae-5a5f1a68603a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\LibCurl\lib">
+      <UniqueIdentifier>{a088816b-559a-41ed-9d78-267e7c85ebdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libs\sha1">
+      <UniqueIdentifier>{9bbe57f9-d7c4-4903-aa44-22a0551ecaaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Rendering\Font">
+      <UniqueIdentifier>{052c5c2d-5ab4-4d1a-bec4-dfa3854f63f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="..\..\source\Rendering\shaderSource.inl">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </None>
+    <None Include="Playground.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBAction.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBDebugger.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBObject.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Animation\CKLBSWFPlayer.h">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\CKLBAsset.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\TextureManagement.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SceneGraph\CKLBNode.h">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Rendering\CKLBRendering.h">
+      <Filter>Source Files\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\BaseType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\FileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Animation\CKLBSplineNode.h">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\AudioAsset.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\MapManagement.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\include\CPFInterface.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CSockReadStream.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CSockWriteStream.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32Platform.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32PathConv.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32ReadFileStream.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\Win32FileLocation.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32WriteFileStream.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32Audio.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBLuaTask.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CLuaState.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBLuaEnv.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\DebugTracker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBDrawTask.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBLuaScript.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBTouchPad.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_alloc.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_assert.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_buf.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_bytestack.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_encode.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_lex.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\yajl_parser.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_common.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_gen.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_parse.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\JSonParser\api\yajl_tree.h">
+      <Filter>libs\JSonParser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Animation\CKLBScoreNode.h">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\yasper.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBDataHandler.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Animation\CKLBNodeVirtualDocument.h">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBLuaPropTask.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\NodeAnimationAsset.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBTouchEventUI.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\DebugAlloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UnitSystem\UnitSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32HttpStream.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\SQLite\sqlite3.h">
+      <Filter>libs\SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\SQLite\sqlite3ext.h">
+      <Filter>libs\SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Database\CKLBDatabase.h">
+      <Filter>Source Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBUtility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Projects\WorldTest\CWorldTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Database\CKLBLuaDB.h">
+      <Filter>Source Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBBinArray.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\llex.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\llimits.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lmem.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lobject.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lopcodes.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lparser.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lstate.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lstring.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\ltable.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\ltm.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lua.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lua.hpp">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\luaconf.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lualib.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lundump.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lvm.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lzio.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lapi.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lauxlib.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lcode.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lctype.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\ldebug.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\ldo.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lfunc.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\lua\lgc.h">
+      <Filter>libs\Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32Widget.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\OSWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBDebugMenu.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBOSCtrlEvent.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+    <ClInclude Include="Lame\BladeMP3EncDLL.h">
+      <Filter>libs\mp3lame</Filter>
+    </ClInclude>
+    <ClInclude Include="Lame\lame.h">
+      <Filter>libs\mp3lame</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32MP3.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\CKLBTexturePacker.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32KeyChain.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Database\CKLBLanguageDatabase.h">
+      <Filter>Source Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Database\DataSet.h">
+      <Filter>Source Files\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Rendering\CKLBCanvasSprite.h">
+      <Filter>Source Files\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBTextTempBuffer.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Assets\CKLBPropertyBag.h">
+      <Filter>Source Files\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\IMgrEntry.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBDragCallbackIF.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBFormGroup.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBFormIF.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBModalStack.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBNodeAnimPack.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBScrollBarIF.h">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIWebArea.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUICanvas.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIClip.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIControl.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIDebugItem.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIDragIcon.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIForm.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIFreeVertItem.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIGroup.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUILabel.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIList.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIMoviePlayer.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIMultiImgItem.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIPieChart.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIPolyline.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIRubberBand.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUISimpleItem.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUITextInput.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIVariableItem.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBScrMgrDefault.h">
+      <Filter>Source Files\UISystem\ScrollMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBScrMgrPage.h">
+      <Filter>Source Files\UISystem\ScrollMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBScrMgrSolid.h">
+      <Filter>Source Files\UISystem\ScrollMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HTTP\CKLBNetAPIKeyChain.h">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HTTP\CKLBHTTPInterface.h">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HTTP\CKLBJsonItem.h">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HTTP\CKLBStoreService.h">
+      <Filter>Source Files\Network\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBPauseCtrl.h">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBGenericTask.h">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBIntervalTimer.h">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBLifeCtrlTask.h">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\ILuaFuncLib.h">
+      <Filter>Source Files\LuaLib\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaConst.h">
+      <Filter>Source Files\LuaLib\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibUI.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBAppProperty.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibAPP.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibASSET.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibBIN.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibCONV.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibDATA.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibDB.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibDEBUG.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibENG.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibFONT.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibGL.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibKEY.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibLANG.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibMatrix.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibRES.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibSOUND.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibTASK.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEngine.h">
+      <Filter>boot</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineStdReference.h">
+      <Filter>boot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBLabelNode.h">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBMovieNode.h">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBTextInputNode.h">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBWebViewNode.h">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUISystem.h">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBActivityIndicatorNode.h">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIActivityIndicator.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\minizip\ioapi.h">
+      <Filter>libs\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\minizip\mztools.h">
+      <Filter>libs\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\minizip\unzip.h">
+      <Filter>libs\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\minizip\crypt.h">
+      <Filter>libs\minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HTTP\CUnZip.h">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ITmpFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\CWin32TmpFile.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\HTTP\CKLBUpdate.h">
+      <Filter>Source Files\Network\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\ArrayAllocator.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Core\CKLBAsyncLoader.h">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\include\CSoundAnalysis.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Sound\CSoundAnalysisMP3.h">
+      <Filter>Source Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\Scripting\CKLBGCTask.h">
+      <Filter>Source Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform\KLBPlatformMetrics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\libs\sha1\hash_sha1.h">
+      <Filter>libs\sha1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\LuaLib\CKLBLuaLibHASH.h">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\UISystem\CKLBUIButton.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\SystemTask\CKLBDeviceKeyEvent.h">
+      <Filter>SystemTask</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\Animation\CKLBSystem.cpp">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Animation\CKLBSWFPlayer.cpp">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBContext.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBDebugger.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBObject.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\CKLBAssetManager.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\TextureManagement.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SceneGraph\CKLBNode.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CKLBRenderingManager.cpp">
+      <Filter>Source Files\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CBuffer.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CIndexBuffer.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CRenderingManager.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CRenderingManager_GL1.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CRenderingManager_GL2.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CShaderSet.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CShaderSetInstance.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CTexture.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CTextureBase.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CTextureUsage.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="assert.c">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CPFInterface.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Animation\CKLBSplineNode.cpp">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBTask.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\AudioAsset.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CSockReadStream.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CSockWriteStream.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32Platform.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32PathConv.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32ReadFileStream.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32WriteFileStream.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32Audio.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBLuaTask.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CLuaState.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBLuaEnv.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\DebugTracker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBLuaScript.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBTouchPad.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBDrawTask.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_buf.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_encode.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_gen.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_lex.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_parser.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_tree.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_version.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\yajl_alloc.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Animation\CKLBScoreNode.cpp">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBDataHandler.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Animation\CKLBNodeVirtualDocument.cpp">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBLuaPropTask.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\CompositeManagement.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CImageBuffer.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CFrame.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\NodeAnimationAsset.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBTouchEventUI.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\DebugAlloc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32HttpStream.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\SQLite\sqlite3.c">
+      <Filter>libs\SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Database\CKLBDatabase.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Database\CKLBLuaDB.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBBinArray.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32Widget.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBDebugMenu.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBOSCtrlEvent.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32MP3.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\CKLBTexturePacker.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32KeyChain.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\json_binary_parser.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\Dictionnary.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Database\CKLBLanguageDatabase.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Database\DataSet_JSonDB.cpp">
+      <Filter>Source Files\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CKLBCanvasSprite.cpp">
+      <Filter>Source Files\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBTextTempBuffer.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Assets\CKLBPropertyBag.cpp">
+      <Filter>Source Files\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBUITask.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBDragCallbackIF.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBFormGroup.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBFormIF.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBModalStack.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBNodeAnimPack.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBScrollBarIF.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\IMgrEntry.cpp">
+      <Filter>Source Files\UISystem\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUICanvas.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIClip.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIControl.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIDebugItem.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIDragIcon.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIForm.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIFreeVertItem.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIGroup.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUILabel.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIList.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIMoviePlayer.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIMultiImgItem.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIPieChart.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIPolyline.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIProgressBar.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIRubberBand.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIScale9.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIScore.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIScrollBar.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUISimpleItem.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUISWFPlayer.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUITextInput.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUITouchPad.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIVariableItem.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIVirtualDoc.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIWebArea.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBScrMgrDefault.cpp">
+      <Filter>Source Files\UISystem\ScrollMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBScrMgrPage.cpp">
+      <Filter>Source Files\UISystem\ScrollMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBScrMgrSolid.cpp">
+      <Filter>Source Files\UISystem\ScrollMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\CKLBHTTPInterface.cpp">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\CKLBJsonItem.cpp">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\CKLBNetAPIKeyChain.cpp">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\CKLBStoreService.cpp">
+      <Filter>Source Files\Network\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBGenericTask.cpp">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBIntervalTimer.cpp">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBLifeCtrlTask.cpp">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBPauseCtrl.cpp">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaConst.cpp">
+      <Filter>Source Files\LuaLib\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\ILuaFuncLib.cpp">
+      <Filter>Source Files\LuaLib\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBAppProperty.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibAPP.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibASSET.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibBIN.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibCONV.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibDATA.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibDB.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibDEBUG.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibENG.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibFONT.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibGL.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibKEY.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibLANG.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibMatrix.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibRES.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibSOUND.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibTASK.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibUI.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBLabelNode.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBMovieNode.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBTextInputNode.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBWebViewNode.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUISystem.cpp">
+      <Filter>Source Files\SceneGraph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBActivityIndicatorNode.cpp">
+      <Filter>Source Files\SceneGraph\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIActivityIndicator.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\minizip\mztools.c">
+      <Filter>libs\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\minizip\unzip.c">
+      <Filter>libs\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\minizip\ioapi.c">
+      <Filter>libs\minizip</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\CUnZip.cpp">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\CWin32TmpFile.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\CKLBUpdate.cpp">
+      <Filter>Source Files\Network\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\ITmpFile.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBGameApplicationDebugModule.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Scripting\CKLBScriptEnv_forCSharp.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Scripting\CKLBScriptEnv_forLUA.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBLibRegistrator.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBAsyncLoader.cpp">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\glWrapper.cpp">
+      <Filter>Source Files\Rendering\OpenGLWrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Sound\CSoundAnalysis.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Sound\CSoundAnalysisMP3.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Scripting\CKLBScriptEnv_forCpp.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Scripting\CKLBGCTask.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\encryptFile.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_easysrc.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_formparse.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_getparam.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_getpass.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_help.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_helpers.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_homedir.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_hugehelp.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_libinfo.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_main.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_metalink.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_mfiles.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_msgs.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_operate.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_operhlp.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_panykey.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_paramhlp.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_parsecfg.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_setopt.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_sleep.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_urlglob.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_util.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_vms.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_writeenv.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_writeout.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_xattr.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_binmode.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_bname.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_dbg.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_hdr.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_prg.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_rea.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_see.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cb_wrt.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_cfgable.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_convert.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_dirhie.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\src\tool_doswin.c">
+      <Filter>libs\LibCurl\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\amigaos.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\asyn-ares.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\asyn-thread.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\axtls.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\base64.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\bundles.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\conncache.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\connect.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\content_encoding.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\cookie.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_addrinfo.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_darwinssl.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_fnmatch.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_gethostname.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_gssapi.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_memrchr.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_multibyte.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm_core.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm_msgs.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_ntlm_wb.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_rand.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_rtmp.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_sasl.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_schannel.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_sspi.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\curl_threads.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\cyassl.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\dict.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\easy.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\escape.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\file.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\fileinfo.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\formdata.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ftp.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ftplistparser.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\getenv.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\getinfo.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\gopher.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\gtls.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hash.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hmac.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostasyn.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostcheck.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostip.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostip4.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostip6.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\hostsyn.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_chunks.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_digest.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_negotiate.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_negotiate_sspi.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\http_proxy.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\idn_win32.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\if2ip.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\imap.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\inet_ntop.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\inet_pton.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\krb4.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\krb5.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ldap.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\llist.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\md4.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\md5.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\memdebug.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\mprintf.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\multi.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\netrc.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\non-ascii.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nonblock.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nss.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nwlib.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\nwos.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\openldap.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\parsedate.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\pingpong.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\polarssl.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\pop3.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\progress.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\qssl.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\rawstr.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\rtsp.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\security.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\select.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\sendf.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\share.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\slist.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\smtp.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\socks.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\socks_gssapi.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\socks_sspi.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\speedcheck.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\splay.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ssh.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\sslgen.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\ssluse.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strdup.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strequal.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strerror.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strtok.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\strtoofft.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\telnet.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\tftp.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\timeval.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\transfer.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\url.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\version.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\warnless.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\curl-7.29.0-minimal\lib\wildcard.c">
+      <Filter>libs\LibCurl\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\HTTP\MultithreadedNetwork.cpp">
+      <Filter>Source Files\Network\Element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBAsyncFilecopy.cpp">
+      <Filter>Source Files\UtilTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\sha1\hash_sha1.c">
+      <Filter>libs\sha1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\LuaLib\CKLBLuaLibHASH.cpp">
+      <Filter>Source Files\LuaLib\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Rendering\CKLBSprite3D.cpp">
+      <Filter>Source Files\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\autofit\autofit.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\bdf\bdf.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\cff\cff.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FontRendering.cpp">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftbase.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftbbox.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftbitmap.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\cache\ftcache.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\ftdebug.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftfstype.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftgasp.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftglyph.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftgxval.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\gzip\ftgzip.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftinit.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftlcdfil.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\lzw\ftlzw.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftmm.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftotval.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftpatent.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftpfr.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftstroke.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftsynth.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftsystem.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\fttype1.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftwinfnt.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\base\ftxf86.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\pcf\pcf.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\pfr\pfr.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\psaux\psaux.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\pshinter\pshinter.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\psnames\psmodule.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\raster\raster.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\sfnt\sfnt.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\smooth\smooth.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\truetype\truetype.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\type1\type1.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\cid\type1cid.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\type42\type42.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\freeType\src\winfonts\winfnt.c">
+      <Filter>Source Files\Rendering\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\JSonParser\msg_pack_parser.c">
+      <Filter>libs\JSonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBUtility.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\libs\utf8_converter\utf8.c">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\UISystem\CKLBUIButton.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\SystemTask\CKLBDeviceKeyEvent.cpp">
+      <Filter>SystemTask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dirent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FileDelete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameLibraryWin32.cpp">
+      <Filter>boot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\Core\CKLBGameApplication.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineStdReferenceOSS.cpp">
+      <Filter>boot</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

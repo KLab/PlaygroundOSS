@@ -1,0 +1,209 @@
+======================== Rendering  =============================
+
+The rendering is actually composed of two modules.
+- The OpenGLES wrapper. (OGLWrapper)                            (A)
+- The rendering system of the engine itself using OGLWrapper.   (B)
+
+There is also something related to rendering, but 
+
+A/ The OpenGLES wrapper
+-----------------------------------------------------------------
+The goal is to avoid having the engine or upper layer to
+be dependant on a specific rendering APIs.
+Moreover, by wrapping OpenGL concept with C++ objects,
+it makes life cycle management and setup much more convenient.
+
+It is a self-contained system and have no dependancy except OpenGL/OpenGLES
+It also has some features to make life easier concerning texture management
+(double buffering, handling atlas and UV coordinates).
+
+Related files :
+source/Rendering/
+	CBuffer.cpp
+	CFrame.cpp
+	CImageBuffer.cpp
+	CIndexBuffer.cpp
+	CRenderingManager.cpp
+	CRenderingManager_GL1.cpp	(Rendering manager part dependant on OpenGLES 1.x APIs)
+	CRenderingManager_GL2.cpp	(Rendering manager part dependant on OpenGLES 2.x APIs)
+	CShaderSet.cpp
+	CShaderSetInstance.cpp
+	CTexture.cpp
+	CTextureBase.cpp
+	CTextureUsage.cpp
+	glWrapper.cpp
+	glWrapper.h
+	shaderSource.inl
+
+	
+B/ The rendering system.
+
+It is a list in order of rendering commands, executed each frame.
+
+B.1 - The rendering system is working as the following :
+
+	1  - Parse a list of render commands.
+	2A - If the render command has a triangle to draw, takes the XY, UV, color information
+	  and tries to group them (batch) by rendering state to minimize the number of draw calls to GPU.
+	2B - If the render command changes the gpu state or applies specific GPU command, it executes them.
+
+	The XY and color are recomputed by the scene graph when necessary (= when changes occur)
+	before the rendering system is executed.
+
+	First, the rendering system is simply a singleton of the CKLBRenderingManager class
+	which owns datas to perform rendering on :
+	- Link list of all the render command objects.
+	- Index Buffer, Vertex Buffer for batching.
+		- List of indexes for triangle soup.
+		- List of XY, UV, color buffers for vertices.
+
+
+B.2 - Default matrix, default OpenGLES setup
+
+	* We perform 2D rendering and control the rendering order of the polygons, moreover
+	for all polygons being transparent there is no need for using a Z Buffer (except a few specific cases
+	where clipping per pixel is needed). By doing so, we optimize the memory bandwidth necessary to perform rendering.
+
+	* Because all the vertices have colors attribute and we prefer to do batches, all the rendering
+	are done using this render state :
+		Pixel = Texture * Interpolated Vertex Color (modulate)
+		including alpha blending.
+		
+	* Transformation matrix is done in a way that all our coordinates for objects
+	are TOP-LEFT in pixel coordinate.
+
+- Coordinates system : Logical Screen Size, Physical Screen Size.
+
+	Because devices have different screen size, it is important to design the application with only one
+	screen size.
+	There are scripting APIs to allow to setup a "logical screen size" (the screen size used when creating UI)
+	and then the "physical screen size" (the device).
+	By being able to setup a logical screen size, it is possible to use/reuse parts created for another resolution.
+	The OpenGL matrix is updated accordinly to match the physical screen size when using logical screen size data.
+
+- Render Commands classes inheritance.
+
+* CKLBRenderCommand				: Abstract render command, does nothing.
+	* CKLBRenderState			: Executes a render state change
+		Clears, Actives, Desactivates Z Buffer
+		Z Buffer Range
+		Stencil Buffer Management (Never used)
+		Changes of shaders (when shader compatible GPU)
+	* CKLBSprite				: Basic class for drawable polygon.
+		Supports a fixed amount of vertex (XY,UV,Color), indexes.
+		Uses image asset as source.
+		
+		* CKLBSprite4_6			: Optimized version of CKLBSprite
+			The role of this class is to have a member array with
+			6 indexes and 4 vertices.
+			Thus, there is no need to allocate buffers for XY and UV coordinates.
+			Neither allocation for colors.
+			Instead the class is limited to the use of "rectangular" images.
+			
+		* CKLBDynSprite			: More generic sprite where it is possible to
+			setup the number of vertices, the indexes, setup XY, UV and colors freely.
+			Usefull for doing tricks with UV, showing part of images, etc...
+			
+			* CKLBSpriteScale9	: It is a special image composed with 9 rectangles,
+			the corners are of fixed size, 
+			the bottom and up edges are stretched horizontally,
+			left and right edges are stretched vertically.
+			
+			ie : ABC          ABBBBBC
+			     DEF     ---> DEEEEEF
+			     GHI          GHHHHHI
+				 
+			ie : ABC          ABBBBBC
+			     DEF          DEEEEEF
+			     GHI          DEEEEEF
+			     	          DEEEEEF
+			                  GHHHHHI
+							  
+			A,C,G,I corners are of fixed size.
+			B and H are stretched horizontally.
+			D and F are stretched vertically.
+			E is stretched against both axis.
+			
+			This component is usefull to draw many different variation of the same image
+			without sacrifying memory.
+			
+			* CKLBPolyline		:
+			Render command that take like and convert them into rectangle with thickness,
+			allowing to draw lines.
+			This primitive was created only to perform some debug information and was
+			never used into production. The quality of the lines connection is inexistant.
+			
+		* CKLBCanvasSprite
+		
+			It is like a dynamic sprite with a maximum amount of vertices and indexes.
+			It allowed to perform "local" rendering of images into one sprite that act like
+			a batch.
+			
+			Simple use case :
+			There is a fixed background composed of multiple tiled images, like a maze.
+			
+			It is of course possible to create multiple images instance, setup each coordinate.
+			But if you are concerned with performance and ressource usage, it would be better
+			to batch all those vertices and indexes into ONE batch of polygons.
+			
+			Basically the canvas sprite allows the programmer to create a batch of images drawn as a single static
+			sprite.
+			
+		* CKLBSprite3D
+			It is code that have never been in production but only made as a prototype to use 3D objects
+			inside the game engine.
+
+- Text Rendering
+
+	At first we had text rendering done by each platform. But the slight differences between platforms were
+	too much different in some cases. We ended up having our own font rendering system.
+	Of course, complex language are not handled correctly as we are doing a basic usage of freeType for our renderer.
+	
+	The system is the following :
+	FontObject class :	Owns the list of FontObject and handles life-cycle of font using reference counter.
+						Perform the rendering of strings of characters.
+						Mapping between a logical font name and physical font file.
+						Owns root of the font dictionnary mapping unicode id and cached character.
+	
+	CharCache class :	Array of CharCache represent a pool of free and used cached character.
+						Has information about font object, cached glyph bitmap, rendering offsets.
+						
+						When a cache entry is used or created, it is always put at the top of the list.
+						When there are no cache entry available for a new uncached character,
+						the most bottom item is reused as new one and old character information are deleted.
+						
+						Basically act as a big MRU of the size of the cache table.
+						
+	
+	CharDictionnary class :
+						Allows to create a tree to map unicode id (32 bits) <-> CharCache entry.
+						- Node of CharDictionnary tree.
+						- Use a radix based child table (4 bits -> 16 children).
+						- The last item uses its child index to store an index to CharCache instead of CharDictionnary.
+						
+						As a unicode is 32 bits, cut in 4 bits slices, the depth for any complete entry is 8 in depth.
+	
+	Rendering is optimized using a tricky format :
+	- The bitmap cache for a glyp is using a "mask table".
+	  We are cutting the glyph into vertical bands of 32 bits.
+	  And then rely on the mask to perform the rendering : 
+	  - No need to test for valid/invalid pixels.
+	  - Early termination test is for free.
+	  
+	- The value for each pixel in the cache is an unsigned 8 bits value.
+	  We convert them into RGB values when performing the rendering to the target surface.
+
+Related files:
+porting/
+	FontRendering.cpp
+	FontRendering.h
+
+Related files :
+	source/Rendering/
+		CKLBRendering.h
+		CKLBRenderingManager.cpp
+		CKLBSprite3D.cpp
+		CKLBSprite3D.h
+		CKLBCanvasSprite.cpp
+		CKLBCanvasSprite.h
+ 

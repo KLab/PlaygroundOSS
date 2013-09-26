@@ -1,0 +1,79 @@
+============================== Allocators & Memory ==================================
+
+1. Global Object & Array Allocation
+First there are MACROS used for allocation/free.
+
+KLBNEW(className)
+KLBNEWA(type, count)
+KLBDELETE(pointer)
+KLBDELETEA(pointer)
+
+Those macros are used only INSIDE the engine code, NOT inside the platform code.
+When receiving a object that you must free yourself from the platform (ie like a string),
+DO NOT USE those macros.
+
+ie :
+				|	Alloc Platform	| Alloc Engine
+----------------------------------------------------
+Free  Engine	|	NO MACRO		| Use Macro
+Free  Platform	|	NO MACRO		| NEVER EXIST
+----------------------------------------------------
+
+Based on DEBUG_MEMORY flag, those macro behavior can change. (BaseType.h)
+
+2. Pool.
+There are a few places where pool allocator are used.
+
+In source/core/ArrayAllocator.h, there is a template of a pool allocator.
+The allocator work the following way :
+- An array of struct is allocated.
+- Each struct member with index in the array about the previous and next item.
+- There are two link list in the allocator :
+	- The list of free items.
+	- The list of allocated items.
+
+For now, indexes are limited to 16 bit, resulting in 65534 item available max.
+
+The allocator is used in :
+- The asset dictionnary node pool.
+- The language dictionnary node pool.
+- The 2D Texture packer nodes.
+- The composite management loader ("form") CKLBInnerDef struct pool.
+- The asset manager pool.(note : does NOT use the template but direct implementation of same mecanism)
+
+
+3. Detailed Setup of memory amount for various pools and buffers when the engine start.
+When the main class CKLBGameApplication start, each project implement a sub class and can override the setupAllocation(...) function.
+(See CKLBGameApplication.h)
+
+The following information can be setup :
+- Default number of node for dictionnary (used for asset) : 15,000 by default.
+- Asset Handler pool size.	: 10,000 by default.	x  8  byte each =  80 KB at start
+- Number of asset slots.	:  1,000 by default.	x 12  byte each =  12 KB at start
+- Template form node slots	: 10,000 by default.	x 240 byte each	= 2.4 MB at start
+	Used by form loader for each "node"
+
+Internal Stuff at startup are :
+- CKLBTextTempBuffer is a singleton for a "temporary any use" buffer	= 32 KB at start
+- TexturePacker with 2048x512 texture (SW buff + HW texture) in 4444 or 8888 depending on compile option = 4MB or 8MB at start.
+- Each plugin instance and various singletons of each modules.
+- Language database entry node = 72 KB at start.
+- Rendering System consume per frame cache : 65000 vertex and 65000 indexes.
+	128 KB for index
+	1.2 MB for vertex
+	per frame cached.
+	
+	In multithreaded rendering, we have 5 frames cached.
+	
+TexturePacker and Rendering system are the heavy weight in memory consumption at first,
+those memory could be reduce by changing the limits (packer page size, maximum number of vertex during rendering of a frame, etc...)
+Each asset, each task instance will of course use memory.
+
+##################################
+### Files involved
+
+include/BaseType.h
+source/core/ArrayAllocator.h
+source/Rendering/CKLBRenderingManager.cpp
+source/core/CKLBGameApplication.cpp
+source/assets/CKLBTexturePacker.cpp
