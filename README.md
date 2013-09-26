@@ -1,4 +1,4 @@
-= Playground OSS
+# Playground OSS
 
 This the 'Playground' game engine and released in open source under Apache License v2.0
 
