@@ -37,7 +37,7 @@ History
 How to run
 ---------------------------------
 	
-	See How_t_run.txt
+	See How_to_run.txt
 
 Documents about architecture and C++
 ---------------------------------
