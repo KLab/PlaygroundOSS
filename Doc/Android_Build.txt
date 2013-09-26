@@ -113,7 +113,7 @@ If you have already a Linux virtual machine running you can skip this section.
 	 ~/.(ba|z)shrc
 
 	   * NDK Setup
-		 ANDROID_NDK_ROOT="/Application/android-ndk-r9"
+		 ANDROID_NDK_ROOT="/Applications/android-ndk-r9"
 		 export ANDROID_NDK_ROOT
 
 	   * SDK Setup
