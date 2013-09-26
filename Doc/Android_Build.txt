@@ -151,14 +151,17 @@ If you have already a Linux virtual machine running you can skip this section.
 		
 2. Build Engine library (native module)
 
+
 	For OS X:
 		Launch terminal :
 		cd [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/
+		chmod +x ./build.py (note: First time only)
 		./build.py --rebuild --project SampleProject
 
 	For Ubuntu:
 		Launch terminal :
 		cd /media/sf_Playground/Engine/porting/Android/GameEngine-android/
+		chmod +x ./build.py (note: First time only)
 		./build.py --rebuild --project SampleProject
 	
 3. Build package assets
@@ -172,11 +175,15 @@ If you have already a Linux virtual machine running you can skip this section.
 		Launch terminal :
 		cd [PATH TO PROJECT BASE]/Samples/01.SimpleItem/.publish/android/
 		zip -0 [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
+		echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
+		(note: you need to increment "1" by one every new build. i.e. "2" next time)
 
 	For Ubuntu:
 		Launch terminal :
 		cd /media/sf_Playground/Samples/01.SimpleItem/.publish/android/
 		zip -0 /media/sf_Playground/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
+		echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
+		(note: you need to increment "1" by one every new build. i.e. "2" next time)
 
 4. Import Engine project into your ADT
 
