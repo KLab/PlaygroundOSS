@@ -148,7 +148,6 @@
 		8E8760CB152017C000B36A2C /* CKLBContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E87603B152015A900B36A2C /* CKLBContext.cpp */; };
 		8E8760CC152017C300B36A2C /* CKLBDataHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E87603C152015A900B36A2C /* CKLBDataHandler.cpp */; };
 		8E8760CE152017D100B36A2C /* CKLBDebugger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E876040152015A900B36A2C /* CKLBDebugger.cpp */; };
-		8E8760CF152017D500B36A2C /* CKLBDebugTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E876042152015A900B36A2C /* CKLBDebugTask.cpp */; };
 		8E8760D0152017D900B36A2C /* CKLBGameApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E876044152015A900B36A2C /* CKLBGameApplication.cpp */; };
 		8E8760D1152017DE00B36A2C /* CKLBGenericTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E876046152015A900B36A2C /* CKLBGenericTask.cpp */; };
 		8E8760D2152017E500B36A2C /* CKLBLuaEnv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E876048152015A900B36A2C /* CKLBLuaEnv.cpp */; };
@@ -170,7 +169,6 @@
 		8E8760E8152018D500B36A2C /* CKLBSplineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8760151520154000B36A2C /* CKLBSplineNode.cpp */; };
 		8E8760E9152018D900B36A2C /* CKLBSWFPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8760171520154000B36A2C /* CKLBSWFPlayer.cpp */; };
 		8E8760EA152018DD00B36A2C /* CKLBSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8760191520154000B36A2C /* CKLBSystem.cpp */; };
-		8E8760EB152018E100B36A2C /* MapDisplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E87601A1520154000B36A2C /* MapDisplay.cpp */; };
 		8E8760EC152018EC00B36A2C /* CKLBDrawTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8760021520152900B36A2C /* CKLBDrawTask.cpp */; };
 		8E8760ED152018F000B36A2C /* CKLBLuaScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8760041520152900B36A2C /* CKLBLuaScript.cpp */; };
 		8E8760EE152018F400B36A2C /* CKLBTouchEventUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E8760061520152900B36A2C /* CKLBTouchEventUI.cpp */; };
@@ -669,7 +667,6 @@
 		8E8760171520154000B36A2C /* CKLBSWFPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBSWFPlayer.cpp; sourceTree = "<group>"; };
 		8E8760181520154000B36A2C /* CKLBSWFPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLBSWFPlayer.h; sourceTree = "<group>"; };
 		8E8760191520154000B36A2C /* CKLBSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBSystem.cpp; sourceTree = "<group>"; };
-		8E87601A1520154000B36A2C /* MapDisplay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapDisplay.cpp; sourceTree = "<group>"; };
 		8E8760231520159B00B36A2C /* AudioAsset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioAsset.cpp; sourceTree = "<group>"; };
 		8E8760241520159B00B36A2C /* AudioAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAsset.h; sourceTree = "<group>"; };
 		8E8760251520159B00B36A2C /* CKLBAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLBAsset.h; sourceTree = "<group>"; };
@@ -687,8 +684,6 @@
 		8E87603D152015A900B36A2C /* CKLBDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLBDataHandler.h; sourceTree = "<group>"; };
 		8E876040152015A900B36A2C /* CKLBDebugger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBDebugger.cpp; sourceTree = "<group>"; };
 		8E876041152015A900B36A2C /* CKLBDebugger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLBDebugger.h; sourceTree = "<group>"; };
-		8E876042152015A900B36A2C /* CKLBDebugTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBDebugTask.cpp; sourceTree = "<group>"; };
-		8E876043152015A900B36A2C /* CKLBDebugTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLBDebugTask.h; sourceTree = "<group>"; };
 		8E876044152015A900B36A2C /* CKLBGameApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBGameApplication.cpp; sourceTree = "<group>"; };
 		8E876045152015A900B36A2C /* CKLBGameApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKLBGameApplication.h; sourceTree = "<group>"; };
 		8E876046152015A900B36A2C /* CKLBGenericTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBGenericTask.cpp; sourceTree = "<group>"; };
@@ -1648,7 +1643,6 @@
 				8E8760171520154000B36A2C /* CKLBSWFPlayer.cpp */,
 				8E8760181520154000B36A2C /* CKLBSWFPlayer.h */,
 				8E8760191520154000B36A2C /* CKLBSystem.cpp */,
-				8E87601A1520154000B36A2C /* MapDisplay.cpp */,
 			);
 			name = Animation;
 			path = ../../../../source/Animation;
@@ -1712,8 +1706,6 @@
 				8E87603D152015A900B36A2C /* CKLBDataHandler.h */,
 				8E876040152015A900B36A2C /* CKLBDebugger.cpp */,
 				8E876041152015A900B36A2C /* CKLBDebugger.h */,
-				8E876042152015A900B36A2C /* CKLBDebugTask.cpp */,
-				8E876043152015A900B36A2C /* CKLBDebugTask.h */,
 				8E876044152015A900B36A2C /* CKLBGameApplication.cpp */,
 				8E876045152015A900B36A2C /* CKLBGameApplication.h */,
 				8E876046152015A900B36A2C /* CKLBGenericTask.cpp */,
@@ -2035,7 +2027,6 @@
 				8E8760CB152017C000B36A2C /* CKLBContext.cpp in Sources */,
 				8E8760CC152017C300B36A2C /* CKLBDataHandler.cpp in Sources */,
 				8E8760CE152017D100B36A2C /* CKLBDebugger.cpp in Sources */,
-				8E8760CF152017D500B36A2C /* CKLBDebugTask.cpp in Sources */,
 				8E8760D0152017D900B36A2C /* CKLBGameApplication.cpp in Sources */,
 				8E8760D1152017DE00B36A2C /* CKLBGenericTask.cpp in Sources */,
 				8E8760D2152017E500B36A2C /* CKLBLuaEnv.cpp in Sources */,
@@ -2057,7 +2048,6 @@
 				8E8760E8152018D500B36A2C /* CKLBSplineNode.cpp in Sources */,
 				8E8760E9152018D900B36A2C /* CKLBSWFPlayer.cpp in Sources */,
 				8E8760EA152018DD00B36A2C /* CKLBSystem.cpp in Sources */,
-				8E8760EB152018E100B36A2C /* MapDisplay.cpp in Sources */,
 				8E8760EC152018EC00B36A2C /* CKLBDrawTask.cpp in Sources */,
 				8E8760ED152018F000B36A2C /* CKLBLuaScript.cpp in Sources */,
 				8E8760EE152018F400B36A2C /* CKLBTouchEventUI.cpp in Sources */,
