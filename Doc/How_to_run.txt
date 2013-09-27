@@ -2,7 +2,7 @@ Getting started
 ---------------------------------
 
 - Write your LUA code.
-	Sample Projects can be found in Tutorials/ (Zipped file, please unzip)
+	Sample Projects can be found in Tutorial/ directory.
 	A list of all available APIs can be found in Doc/SysCommandList.xls
 	
 - Create your assets with Toboggan tool and publish your project.

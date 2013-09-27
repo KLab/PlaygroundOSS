@@ -205,8 +205,8 @@ Launch terminal :
 ------------------------
 (Target assets should be compiled prior to packaging. Please refer Tools document for how)
 For instance, we're packaging "SimpleItem" example here.
-We assume you have unzipped Tutorials/Samples.zip into Playground root directory, please continue
-reading with replacing them if you unzipped to other location.
+We assume you already have Tutorial/ inside Playground root directory, please continue
+reading with replacing them if you have things in other location.
 
 ### Move to the samples directory
 
