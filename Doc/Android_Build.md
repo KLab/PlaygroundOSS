@@ -215,7 +215,7 @@ Launch terminal :
 
 ```
 > cd [PATH TO PROJECT BASE]/Samples/01.SimpleItem/.publish/android/
-> zip -0 [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
+> zip -r -0 [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
 > echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
 ```
 
@@ -226,7 +226,7 @@ Launch terminal :
 
 ```
 > cd /media/sf_Playground/Samples/01.SimpleItem/.publish/android/
-> zip -0 /media/sf_Playground/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
+> zip -r -0 /media/sf_Playground/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
 > echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
 ```
 
