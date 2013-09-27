@@ -50,6 +50,7 @@ LICENSES
 Library Name		|   License Type				|	Version (if known)		| 	Link
 -------------------------------------------------------------------------------------------------------------------------
 FreeType			|	FTL							|							|	http://git.savannah.gnu.org/cgit/freetype/freetype2.git/tree/docs/FTL.TXT
+IPA Gothic Font		|	IPA Font License v1.0		|	3						|	http://ipafont.ipa.go.jp/ipa_font_license_v1.html *1
 libCurl				|	MIT/X derivate licence		|	7.29.0					|	http://curl.haxx.se/docs/copyright.html 
 libogg				|	New BSD License				|							|	http://svn.xiph.org/trunk/ogg/COPYING
 libvorbis			|	New BSD License				|							|	http://svn.xiph.org/trunk/vorbis/COPYING
@@ -63,6 +64,8 @@ Tremolo				|	BSD							|							|	http://wss.co.uk/pinknoise/tremolo/
 utf8_converter		|	Undefined					|							|	http://www.opensource.apple.com/source/Heimdal/Heimdal-247.6/lib/wind/utf8.c
 YAJL				|	ISC license					|							|	http://lloyd.github.io/yajl/
 Zlib				|	Undefined					|							|	http://www.winimage.com/zLibDll/minizip.html
+
+*1: also included a copy in this directory (IPA_Font_License_Agreement_v1.0.txt) under license requirement.
 
 C# -> CPP Prototype compiler
 -------------------------------------------------------------------------------------------------------------------------
