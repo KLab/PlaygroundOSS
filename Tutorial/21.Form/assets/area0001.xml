@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<KLBTextureEditor_Plugin id="894ed018-0efc-4a30-9737-2d6b2ad0487a">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>form_tex.xml</ProjectFile>
+    <ProjectFileRelativeDir>assets/</ProjectFileRelativeDir>
+    <SaveDate>2012-05-14T12:42:13</SaveDate>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>1024</Width>
+    <Height>1024</Height>
+    <PixelFormat>RGBA8888</PixelFormat>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Id>0</Id>
+      <Name>AREA0001_BG.png</Name>
+      <Pos>
+        <X>0</X>
+        <Y>0</Y>
+      </Pos>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>assets/AREA0001_BG.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+</KLBTextureEditor_Plugin>

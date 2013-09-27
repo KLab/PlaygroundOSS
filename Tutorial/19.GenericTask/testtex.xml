@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<KLBTextureEditor_Plugin id="17aff6f0-1d32-413a-b0aa-3e2d1f3d9ed5">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>testtex.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-05-25T19:31:34</SaveDate>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>512</Width>
+    <Height>512</Height>
+    <PixelFormat>RGB565</PixelFormat>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Pos>
+        <X>0</X>
+        <Y>0</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>itemimage.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>itemimage.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+</KLBTextureEditor_Plugin>

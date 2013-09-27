@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBUIEditor_Plugin id="1e8e3e1a-09d7-44fe-9bbb-fb9dd6c43c3e" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <DrawingAllNodesClickableRegion>false</DrawingAllNodesClickableRegion>
+  <DrawingFingerNode>true</DrawingFingerNode>
+  <DrawingGrid>true</DrawingGrid>
+  <DrawingNodeClipRegion>false</DrawingNodeClipRegion>
+  <DrawingNodeName>false</DrawingNodeName>
+  <FormBounds xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d1p1:height>1039</d1p1:height>
+    <d1p1:width>958</d1p1:width>
+    <d1p1:x>217</d1p1:x>
+    <d1p1:y>136</d1p1:y>
+  </FormBounds>
+  <GridSize>10</GridSize>
+  <GuideForFourSplit>false</GuideForFourSplit>
+  <GuideForMargin>false</GuideForMargin>
+  <GuideForThreeSplit>false</GuideForThreeSplit>
+  <LayoutPpi>326</LayoutPpi>
+  <LayoutScale>0.75</LayoutScale>
+  <LayoutSize xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d1p1:height>740</d1p1:height>
+    <d1p1:width>960</d1p1:width>
+  </LayoutSize>
+  <RootNode>
+    <name>form</name>
+    <x>0</x>
+    <y>0</y>
+    <priority>0</priority>
+    <default>assets/bg_00.png.imag</default>
+    <sub>
+      <UINode>
+        <name>node_container</name>
+        <x>19</x>
+        <y>0</y>
+        <priority>1</priority>
+        <class>container</class>
+        <sub>
+          <UINode>
+            <name>AVATER0001.png.imag</name>
+            <x>40</x>
+            <y>82</y>
+            <priority>2</priority>
+            <default>assets/AVATER0001.png.imag</default>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/AVATER0001.png</d6p1:string>
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>AVATER0002.png.imag</name>
+            <x>40</x>
+            <y>247</y>
+            <priority>3</priority>
+            <default>assets/AVATER0002.png.imag</default>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/AVATER0002.png</d6p1:string>
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>AVATER0003.png.imag</name>
+            <x>40</x>
+            <y>412</y>
+            <priority>4</priority>
+            <default>assets/AVATER0003.png.imag</default>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/AVATER0003.png</d6p1:string>
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>node_container</name>
+            <x>56</x>
+            <y>56</y>
+            <priority>5</priority>
+            <class>container</class>
+            <sub>
+              <UINode>
+                <name>AVATER0001.png.imag</name>
+                <x>40</x>
+                <y>82</y>
+                <priority>6</priority>
+                <default>assets/AVATER0001.png.imag</default>
+                <xscale>1</xscale>
+                <yscale>1</yscale>
+                <_x0040_CommonAssets xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                  <d8p1:string>assets/AVATER0001.png</d8p1:string>
+                </_x0040_CommonAssets>
+                <rotation>0</rotation>
+              </UINode>
+              <UINode>
+                <name>AVATER0002.png.imag</name>
+                <x>40</x>
+                <y>247</y>
+                <priority>7</priority>
+                <default>assets/AVATER0002.png.imag</default>
+                <xscale>1</xscale>
+                <yscale>1</yscale>
+                <_x0040_CommonAssets xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                  <d8p1:string>assets/AVATER0002.png</d8p1:string>
+                </_x0040_CommonAssets>
+                <rotation>0</rotation>
+              </UINode>
+              <UINode>
+                <name>AVATER0003.png.imag</name>
+                <x>40</x>
+                <y>412</y>
+                <priority>8</priority>
+                <default>assets/AVATER0003.png.imag</default>
+                <xscale>1</xscale>
+                <yscale>1</yscale>
+                <_x0040_CommonAssets xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                  <d8p1:string>assets/AVATER0003.png</d8p1:string>
+                </_x0040_CommonAssets>
+                <rotation>0</rotation>
+              </UINode>
+            </sub>
+            <clipx>0</clipx>
+            <clipy>0</clipy>
+            <cliph>0</cliph>
+            <clipw>0</clipw>
+            <clipstart>0</clipstart>
+            <clipend>0</clipend>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>lblNode</name>
+            <x>-22</x>
+            <y>-3</y>
+            <priority>9</priority>
+            <class>label</class>
+            <text>class: node</text>
+            <fontname></fontname>
+            <fontsize>30</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-16777024</_x0023_color>
+            <width>240</width>
+            <height>32</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+        </sub>
+        <clipx>0</clipx>
+        <clipy>0</clipy>
+        <cliph>0</cliph>
+        <clipw>0</clipw>
+        <clipstart>0</clipstart>
+        <clipend>0</clipend>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>button_container</name>
+        <x>703</x>
+        <y>10</y>
+        <priority>10</priority>
+        <class>container</class>
+        <sub>
+          <UINode>
+            <name>BTN_Battle_off.png.imag</name>
+            <x>0</x>
+            <y>0</y>
+            <priority>11</priority>
+            <sx>0</sx>
+            <sy>0</sy>
+            <sw>256</sw>
+            <sh>128</sh>
+            <class>button</class>
+            <onclick>onBattle</onclick>
+            <default>assets/BTN_Battle_off.png.imag</default>
+            <select>assets/BTN_Battle_on.png.imag</select>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/BTN_Battle_off.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string>assets/BTN_Battle_on.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>BTN_Close_off.png.imag</name>
+            <x>0</x>
+            <y>128</y>
+            <priority>12</priority>
+            <sx>0</sx>
+            <sy>0</sy>
+            <sw>256</sw>
+            <sh>128</sh>
+            <class>button</class>
+            <onclick>onClose</onclick>
+            <default>assets/BTN_Close_off.png.imag</default>
+            <select>assets/BTN_Close_on.png.imag</select>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/BTN_Close_off.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string>assets/BTN_Close_on.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>BTN_Continue_off.png.imag</name>
+            <x>0</x>
+            <y>256</y>
+            <priority>13</priority>
+            <sx>0</sx>
+            <sy>0</sy>
+            <sw>256</sw>
+            <sh>128</sh>
+            <class>button</class>
+            <onclick>onContinue</onclick>
+            <default>assets/BTN_Continue_off.png.imag</default>
+            <select>assets/BTN_Continue_on.png.imag</select>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/BTN_Continue_off.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string>assets/BTN_Continue_on.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>lblButton</name>
+            <x>0</x>
+            <y>-16</y>
+            <priority>14</priority>
+            <class>label</class>
+            <text>class: button</text>
+            <fontname></fontname>
+            <fontsize>30</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-16777024</_x0023_color>
+            <width>240</width>
+            <height>32</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+        </sub>
+        <clipx>0</clipx>
+        <clipy>0</clipy>
+        <cliph>0</cliph>
+        <clipw>0</clipw>
+        <clipstart>0</clipstart>
+        <clipend>0</clipend>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>checkbox_container</name>
+        <x>128</x>
+        <y>400</y>
+        <priority>15</priority>
+        <class>container</class>
+        <sub>
+          <UINode>
+            <name>CARD0001.png.imag</name>
+            <x>0</x>
+            <y>0</y>
+            <priority>16</priority>
+            <sx>0</sx>
+            <sy>0</sy>
+            <sw>240</sw>
+            <sh>330</sh>
+            <_x0023_radio>1</_x0023_radio>
+            <class>checkbox</class>
+            <onclick>chkCard0001_click</onclick>
+            <default>assets/CARD0001.png.imag</default>
+            <select>assets/CARD0007.png.imag</select>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/CARD0001.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string>assets/CARD0007.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>CARD0002.png.imag</name>
+            <x>240</x>
+            <y>0</y>
+            <priority>17</priority>
+            <sx>0</sx>
+            <sy>0</sy>
+            <sw>240</sw>
+            <sh>330</sh>
+            <_x0023_radio>2</_x0023_radio>
+            <class>checkbox</class>
+            <onclick>chkCard0002_click</onclick>
+            <default>assets/CARD0002.png.imag</default>
+            <select>assets/CARD0008.png.imag</select>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/CARD0002.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string>assets/CARD0008.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>CARD0003.png.imag</name>
+            <x>480</x>
+            <y>0</y>
+            <priority>18</priority>
+            <sx>0</sx>
+            <sy>0</sy>
+            <sw>240</sw>
+            <sh>330</sh>
+            <_x0023_radio>3</_x0023_radio>
+            <class>checkbox</class>
+            <onclick>chkCard0003_click</onclick>
+            <default>assets/CARD0004.png.imag</default>
+            <select>assets/CARD0005.png.imag</select>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <_x0040_CommonAssets xmlns:d6p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+              <d6p1:string>assets/CARD0004.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string>assets/CARD0005.png</d6p1:string>
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+              <d6p1:string i:nil="true" />
+            </_x0040_CommonAssets>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>lbCheckBox</name>
+            <x>26</x>
+            <y>-34</y>
+            <priority>19</priority>
+            <class>label</class>
+            <text>class: checkbox</text>
+            <fontname></fontname>
+            <fontsize>30</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-16777024</_x0023_color>
+            <width>240</width>
+            <height>32</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+        </sub>
+        <clipx>0</clipx>
+        <clipy>0</clipy>
+        <cliph>0</cliph>
+        <clipw>0</clipw>
+        <clipstart>0</clipstart>
+        <clipend>0</clipend>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>container_container</name>
+        <x>150</x>
+        <y>150</y>
+        <priority>20</priority>
+        <class>container</class>
+        <clipx>0</clipx>
+        <clipy>0</clipy>
+        <cliph>0</cliph>
+        <clipw>0</clipw>
+        <clipstart>0</clipstart>
+        <clipend>0</clipend>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>label_container</name>
+        <x>472</x>
+        <y>38</y>
+        <priority>21</priority>
+        <class>container</class>
+        <sub>
+          <UINode>
+            <name>HelloWorld!</name>
+            <x>10</x>
+            <y>10</y>
+            <priority>22</priority>
+            <class>label</class>
+            <text>Hello World!</text>
+            <fontname></fontname>
+            <fontsize>20</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-13421773</_x0023_color>
+            <width>150</width>
+            <height>30</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>ハローワールド！</name>
+            <x>10</x>
+            <y>50</y>
+            <priority>23</priority>
+            <class>label</class>
+            <text>ハローワールド！</text>
+            <fontname></fontname>
+            <fontsize>20</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-13421773</_x0023_color>
+            <width>150</width>
+            <height>30</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>Google検索</name>
+            <x>10</x>
+            <y>90</y>
+            <priority>24</priority>
+            <class>label</class>
+            <text>Google 検索</text>
+            <fontname></fontname>
+            <fontsize>20</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-13421773</_x0023_color>
+            <width>150</width>
+            <height>30</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+          <UINode>
+            <name>lbLabel</name>
+            <x>3</x>
+            <y>-37</y>
+            <priority>25</priority>
+            <class>label</class>
+            <text>class: label</text>
+            <fontname></fontname>
+            <fontsize>30</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-16777024</_x0023_color>
+            <width>240</width>
+            <height>32</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+        </sub>
+        <clipx>0</clipx>
+        <clipy>0</clipy>
+        <cliph>0</cliph>
+        <clipw>0</clipw>
+        <clipstart>0</clipstart>
+        <clipend>0</clipend>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+      <UINode>
+        <name>textbox_container</name>
+        <x>234</x>
+        <y>39</y>
+        <priority>26</priority>
+        <class>container</class>
+        <sub>
+          <UINode>
+            <name>HelloWorld!</name>
+            <x>10</x>
+            <y>10</y>
+            <class>textbox</class>
+            <cliph>3</cliph>
+            <clipw>0</clipw>
+            <text>Hello World!</text>
+            <width>150</width>
+            <height>30</height>
+            <passwordmode>0</passwordmode>
+            <placeholder></placeholder>
+          </UINode>
+          <UINode>
+            <name>ハローワールド！</name>
+            <x>10</x>
+            <y>50</y>
+            <class>textbox</class>
+            <cliph>3</cliph>
+            <clipw>0</clipw>
+            <text>ハローワールド！</text>
+            <width>150</width>
+            <height>30</height>
+            <passwordmode>0</passwordmode>
+            <placeholder></placeholder>
+          </UINode>
+          <UINode>
+            <name>Google検索</name>
+            <x>10</x>
+            <y>90</y>
+            <class>textbox</class>
+            <cliph>3</cliph>
+            <clipw>0</clipw>
+            <text>Google 検索</text>
+            <width>150</width>
+            <height>30</height>
+            <passwordmode>0</passwordmode>
+            <placeholder></placeholder>
+          </UINode>
+          <UINode>
+            <name>lbTextBox</name>
+            <x>-10</x>
+            <y>-36</y>
+            <priority>30</priority>
+            <class>label</class>
+            <text>class: textbox</text>
+            <fontname></fontname>
+            <fontsize>30</fontsize>
+            <_x0023_color xmlns:d6p1="http://www.w3.org/2001/XMLSchema" i:type="d6p1:int">-16777024</_x0023_color>
+            <width>240</width>
+            <height>32</height>
+            <xscale>1</xscale>
+            <yscale>1</yscale>
+            <rotation>0</rotation>
+          </UINode>
+        </sub>
+        <clipx>0</clipx>
+        <clipy>0</clipy>
+        <cliph>0</cliph>
+        <clipw>0</clipw>
+        <clipstart>0</clipstart>
+        <clipend>0</clipend>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string i:nil="true" />
+          <d4p1:string i:nil="true" />
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+    </sub>
+    <width>960</width>
+    <height>740</height>
+    <_x0040_CommonAssets xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d2p1:string>assets/bg_00.png</d2p1:string>
+    </_x0040_CommonAssets>
+  </RootNode>
+  <ServerApiGroup>[ServerAPI]</ServerApiGroup>
+  <WindowState>Normal</WindowState>
+</KLBUIEditor_Plugin>

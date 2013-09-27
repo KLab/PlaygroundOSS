@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBTextureEditor_Plugin id="bf3f83c9-833e-45b2-bdba-9473f74637ff">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>PieTex.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2013-09-25T17:37:02</SaveDate>
+    <EditState>true</EditState>
+    <ContainerScale>1</ContainerScale>
+    <ContainerSnap>8</ContainerSnap>
+    <VisibleGrid>true</VisibleGrid>
+    <VisibleBoundaryLine>true</VisibleBoundaryLine>
+    <VisibleImage>true</VisibleImage>
+    <VisibleMask>false</VisibleMask>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleProperty>true</VisibleProperty>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleCenterPoint>false</VisibleCenterPoint>
+    <Comment />
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>512</Width>
+    <Height>256</Height>
+    <PixelFormat>RGBA8888</PixelFormat>
+    <usePremultiply>false</usePremultiply>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Pos>
+        <X>0</X>
+        <Y>0</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>piechart.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>piechart.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>202</X>
+        <Y>0</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>trash.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>trash.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+  <ArrayOfT3DModel />
+</KLBTextureEditor_Plugin>

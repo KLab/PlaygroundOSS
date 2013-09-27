@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBTextureEditor_Plugin id="d33e3dcb-d881-4ecc-89e5-6d21c718548d">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>textureBoat.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2013-06-05T20:08:04</SaveDate>
+    <EditState>true</EditState>
+    <ContainerScale>1</ContainerScale>
+    <ContainerSnap>8</ContainerSnap>
+    <VisibleGrid>true</VisibleGrid>
+    <VisibleBoundaryLine>true</VisibleBoundaryLine>
+    <VisibleImage>true</VisibleImage>
+    <VisibleMask>false</VisibleMask>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleProperty>true</VisibleProperty>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleCenterPoint>false</VisibleCenterPoint>
+    <Comment />
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>512</Width>
+    <Height>256</Height>
+    <PixelFormat>RGBA8888</PixelFormat>
+    <usePremultiply>false</usePremultiply>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Pos>
+        <X>8</X>
+        <Y>8</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>itemimage.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>itemimage.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+  <ArrayOfT3DModel />
+</KLBTextureEditor_Plugin>

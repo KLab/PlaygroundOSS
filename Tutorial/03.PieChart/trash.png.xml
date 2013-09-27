@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="ce210ea5-b0cf-471c-a1f2-3301b07ebf99">
+  <ProjectPropertyModel>
+    <Version>0.2.0</Version>
+    <ProjectFile>trash.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-11-07T19:36:51</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>11879</ImgFileSize>
+    <ImgFileDate>23/10/2012 18:06:16</ImgFileDate>
+    <ImgPathName>trash.png</ImgPathName>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>100</X>
+      <Y>100</Y>
+    </Center>
+    <Width>200</Width>
+    <Height>200</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>200</Width>
+        <Height>200</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>200</Width>
+      <Height>200</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>200</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>200</X>
+        <Y>200</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>200</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>200</MaskWidth>
+    <MaskHeight>200</MaskHeight>
+    <Mask>nEAB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

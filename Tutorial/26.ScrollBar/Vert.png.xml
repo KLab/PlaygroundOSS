@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="fa07b968-1d61-49af-9b3a-20e7f428257d">
+  <ProjectPropertyModel>
+    <Version>0.2.0</Version>
+    <ProjectFile>Vert.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-12-19T15:53:14</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>2001</ImgFileSize>
+    <ImgFileDate>23/10/2012 18:06:10</ImgFileDate>
+    <ImgPathName>Vert.png</ImgPathName>
+    <PriorityOffset>0</PriorityOffset>
+    <ImageType>ScrollBar</ImageType>
+    <ImageTypeParams>
+      <anyType xmlns:q1="http://www.w3.org/2001/XMLSchema" d3p1:type="q1:int" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">17</anyType>
+      <anyType xmlns:q2="http://www.w3.org/2001/XMLSchema" d3p1:type="q2:int" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">9</anyType>
+      <anyType xmlns:q3="http://www.w3.org/2001/XMLSchema" d3p1:type="q3:int" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">11</anyType>
+      <anyType xmlns:q4="http://www.w3.org/2001/XMLSchema" d3p1:type="q4:boolean" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">true</anyType>
+      <anyType xmlns:q5="http://www.w3.org/2001/XMLSchema" d3p1:type="q5:boolean" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">false</anyType>
+    </ImageTypeParams>
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>0</X>
+      <Y>0</Y>
+    </Center>
+    <Width>37</Width>
+    <Height>44</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>37</Width>
+        <Height>44</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>37</Width>
+      <Height>44</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>37</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>37</X>
+        <Y>44</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>44</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>37</MaskWidth>
+    <MaskHeight>44</MaskHeight>
+    <Mask>BlwB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

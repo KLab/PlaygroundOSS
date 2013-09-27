@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="36c337a2-54f1-4be2-b2c8-e73ef799fc2e">
+  <ProjectPropertyModel>
+    <Version>0.2.0</Version>
+    <ProjectFile>joint.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-11-20T10:52:49</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>516</ImgFileSize>
+    <ImgFileDate>23/10/2012 18:06:13</ImgFileDate>
+    <ImgPathName>joint.png</ImgPathName>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>16</X>
+      <Y>16</Y>
+    </Center>
+    <Width>32</Width>
+    <Height>32</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>32</Width>
+        <Height>32</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>32</Width>
+      <Height>32</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>32</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>32</X>
+        <Y>32</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>32</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>32</MaskWidth>
+    <MaskHeight>32</MaskHeight>
+    <Mask>BAAB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

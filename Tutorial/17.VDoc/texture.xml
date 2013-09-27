@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<KLBTextureEditor_Plugin id="a6487267-cf9d-4d42-a2c3-458a80c67e9a">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>texture.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-05-17T16:23:24</SaveDate>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>128</Width>
+    <Height>256</Height>
+    <PixelFormat>RGBA5551</PixelFormat>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Id>0</Id>
+      <Name>inline2.png</Name>
+      <Pos>
+        <X>16</X>
+        <Y>128</Y>
+      </Pos>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>true</IsSwitchXY>
+      <ImgPathName>inline2.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Id>0</Id>
+      <Name>inline.png</Name>
+      <Pos>
+        <X>16</X>
+        <Y>16</Y>
+      </Pos>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>inline.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+</KLBTextureEditor_Plugin>

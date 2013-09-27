@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<KLBTextureEditor_Plugin id="c3d748ed-9a81-4643-9b9d-3889279cd3da">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>Tex.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-08-31T15:42:28</SaveDate>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>128</Width>
+    <Height>128</Height>
+    <PixelFormat>RGBA8888</PixelFormat>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Pos>
+        <X>32</X>
+        <Y>32</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>Horiz.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>Horiz.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+</KLBTextureEditor_Plugin>

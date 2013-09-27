@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="bde51b73-154d-45c1-9ceb-e05f1dbc6a14">
+  <ProjectPropertyModel>
+    <Version>0.2.0</Version>
+    <ProjectFile>scrbar.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-11-09T15:01:57</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>215</ImgFileSize>
+    <ImgFileDate>23/10/2012 18:06:27</ImgFileDate>
+    <ImgPathName>scrbar.png</ImgPathName>
+    <ImageType>ScrollBar</ImageType>
+    <ImageTypeParams>
+      <anyType xmlns:q1="http://www.w3.org/2001/XMLSchema" d3p1:type="q1:int" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">2</anyType>
+      <anyType xmlns:q2="http://www.w3.org/2001/XMLSchema" d3p1:type="q2:int" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">36</anyType>
+      <anyType xmlns:q3="http://www.w3.org/2001/XMLSchema" d3p1:type="q3:int" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">2</anyType>
+      <anyType xmlns:q4="http://www.w3.org/2001/XMLSchema" d3p1:type="q4:boolean" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">true</anyType>
+      <anyType xmlns:q5="http://www.w3.org/2001/XMLSchema" d3p1:type="q5:boolean" xmlns:d3p1="http://www.w3.org/2001/XMLSchema-instance">false</anyType>
+    </ImageTypeParams>
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>0</X>
+      <Y>0</Y>
+    </Center>
+    <Width>25</Width>
+    <Height>40</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>25</Width>
+        <Height>40</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>25</Width>
+      <Height>40</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>25</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>25</X>
+        <Y>40</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>40</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>25</MaskWidth>
+    <MaskHeight>40</MaskHeight>
+    <Mask>A+gB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

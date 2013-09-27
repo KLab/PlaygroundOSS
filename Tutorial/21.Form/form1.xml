@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBUIEditor_Plugin xmlns:i="http://www.w3.org/2001/XMLSchema-instance" id="e4b019d7-6a19-4183-9a49-6e8411a2af3c">
+  <DrawingAllNodesClickableRegion>true</DrawingAllNodesClickableRegion>
+  <DrawingNodeClipRegion>true</DrawingNodeClipRegion>
+  <DrawingNodeName>false</DrawingNodeName>
+  <FormBounds xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d2p1:height>588</d2p1:height>
+    <d2p1:width>970</d2p1:width>
+    <d2p1:x>204</d2p1:x>
+    <d2p1:y>6</d2p1:y>
+  </FormBounds>
+  <LayoutScale>0.75</LayoutScale>
+  <LayoutSize xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d2p1:height>540</d2p1:height>
+    <d2p1:width>960</d2p1:width>
+  </LayoutSize>
+  <RootNode>
+    <name>form</name>
+    <x>0</x>
+    <y>0</y>
+    <priority>0</priority>
+    <_x0040_default>assets/AREA0001_BG.png</_x0040_default>
+    <default>assets/AREA0001_BG.png.imag</default>
+    <sub>
+      <UINode>
+        <name>AVATER0008.png.imag</name>
+        <x>26</x>
+        <y>240</y>
+        <priority>1</priority>
+        <_x0040_default>assets/AVATER0008.png</_x0040_default>
+        <default>assets/AVATER0008.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0007.png.imag</name>
+        <x>866</x>
+        <y>206</y>
+        <priority>2</priority>
+        <_x0040_default>assets/AVATER0007.png</_x0040_default>
+        <default>assets/AVATER0007.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0006.png.imag</name>
+        <x>654</x>
+        <y>292</y>
+        <priority>3</priority>
+        <_x0040_default>assets/AVATER0006.png</_x0040_default>
+        <default>assets/AVATER0006.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0005.png.imag</name>
+        <x>380</x>
+        <y>194</y>
+        <priority>4</priority>
+        <_x0040_default>assets/AVATER0005.png</_x0040_default>
+        <default>assets/AVATER0005.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0004.png.imag</name>
+        <x>650</x>
+        <y>2</y>
+        <priority>5</priority>
+        <_x0040_default>assets/AVATER0004.png</_x0040_default>
+        <default>assets/AVATER0004.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0003.png.imag</name>
+        <x>545</x>
+        <y>74</y>
+        <priority>6</priority>
+        <_x0040_default>assets/AVATER0003.png</_x0040_default>
+        <default>assets/AVATER0003.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0002.png.imag</name>
+        <x>300</x>
+        <y>92</y>
+        <priority>7</priority>
+        <_x0040_default>assets/AVATER0002.png</_x0040_default>
+        <default>assets/AVATER0002.png.imag</default>
+        <sub />
+      </UINode>
+      <UINode>
+        <name>AVATER0001.png.imag</name>
+        <x>178</x>
+        <y>216</y>
+        <priority>8</priority>
+        <sx>-40</sx>
+        <sy>-82</sy>
+        <sw>80</sw>
+        <sh>164</sh>
+        <class>button</class>
+        <_x0040_default>assets/AVATER0001.png</_x0040_default>
+        <default>assets/AVATER0001.png.imag</default>
+        <_x0040_select>assets/AVATER0002.png</_x0040_select>
+        <select>assets/AVATER0002.png.imag</select>
+        <_x0040_disable>assets/AVATER0003.png</_x0040_disable>
+        <disable>assets/AVATER0003.png.imag</disable>
+        <sub>
+          <UINode>
+            <name>AVATER0001.png.imag</name>
+            <x>120</x>
+            <y>82</y>
+            <priority>9</priority>
+            <sx>-40</sx>
+            <sy>-82</sy>
+            <sw>80</sw>
+            <sh>165</sh>
+            <class>button</class>
+            <_x0040_default>assets/AVATER0001.png</_x0040_default>
+            <default>assets/AVATER0001.png.imag</default>
+            <sub />
+          </UINode>
+        </sub>
+      </UINode>
+      <UINode>
+        <name>btnClose</name>
+        <x>715</x>
+        <y>4</y>
+        <priority>10</priority>
+        <sx>0</sx>
+        <sy>0</sy>
+        <sw>256</sw>
+        <sh>128</sh>
+        <class>button</class>
+        <onclick>formX_onClose</onclick>
+        <_x0040_default>assets/BTN_Close_off.png</_x0040_default>
+        <default>assets/BTN_Close_off.png.imag</default>
+        <_x0040_select>assets/BTN_Close_on.png</_x0040_select>
+        <select>assets/BTN_Close_on.png.imag</select>
+        <sub />
+      </UINode>
+    </sub>
+  </RootNode>
+  <WindowState>Normal</WindowState>
+</KLBUIEditor_Plugin>

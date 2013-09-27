@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBUIEditor_Plugin id="15806edf-76f8-4445-89f5-52ae3e3e5201" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <Comment>主に Part ノードとして利用される。
+貼付先にて、animnode ノードの下に任意のノードをぶら下げる事で、任意ノードの共通アニメーションを実現する。</Comment>
+  <DrawingAllNodesClickableRegion>true</DrawingAllNodesClickableRegion>
+  <DrawingFingerNode>false</DrawingFingerNode>
+  <DrawingGrid>true</DrawingGrid>
+  <DrawingNodeClipRegion>true</DrawingNodeClipRegion>
+  <DrawingNodeName>true</DrawingNodeName>
+  <FormBounds xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d1p1:height>552</d1p1:height>
+    <d1p1:width>833</d1p1:width>
+    <d1p1:x>25</d1p1:x>
+    <d1p1:y>75</d1p1:y>
+  </FormBounds>
+  <GridSize>10</GridSize>
+  <GuideForFourSplit>false</GuideForFourSplit>
+  <GuideForMargin>false</GuideForMargin>
+  <GuideForThreeSplit>false</GuideForThreeSplit>
+  <LayoutPpi>326</LayoutPpi>
+  <LayoutScale>0.75</LayoutScale>
+  <LayoutSize xmlns:d1p1="http://schemas.datacontract.org/2004/07/System.Drawing">
+    <d1p1:height>165</d1p1:height>
+    <d1p1:width>80</d1p1:width>
+  </LayoutSize>
+  <RootNode>
+    <name>root</name>
+    <x>0</x>
+    <y>0</y>
+    <priority>0</priority>
+    <sub>
+      <UINode>
+        <name>AVATAR0001.png.imag</name>
+        <x>0</x>
+        <y>0</y>
+        <priority>300</priority>
+        <default>assets/AVATAR0001.png.imag</default>
+        <_x0040_Publishable>true</_x0040_Publishable>
+        <xscale>1</xscale>
+        <yscale>1</yscale>
+        <_x0040_CommonAssets xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d4p1:string>assets/AVATAR0001.png</d4p1:string>
+        </_x0040_CommonAssets>
+        <rotation>0</rotation>
+      </UINode>
+    </sub>
+    <width>80</width>
+    <height>165</height>
+    <_x0040_Publishable>true</_x0040_Publishable>
+    <_x0040_CommonAssets xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d2p1:string i:nil="true" />
+    </_x0040_CommonAssets>
+  </RootNode>
+  <ServerApiGroup>[ServerAPI]</ServerApiGroup>
+  <WindowState>Normal</WindowState>
+</KLBUIEditor_Plugin>

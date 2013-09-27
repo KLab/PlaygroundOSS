@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBTextureEditor_Plugin id="6acd1e78-fefb-471b-bf2a-4a3bb2888f66">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>progress.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-10-04T12:29:38</SaveDate>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel>
+    <Width>512</Width>
+    <Height>256</Height>
+    <PixelFormat>RGBA4444</PixelFormat>
+  </ContainerPropertyModel>
+  <ArrayOfTextureModel>
+    <TextureModel>
+      <Pos>
+        <X>0</X>
+        <Y>0</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>prog_h_full.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>prog_h_full.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+    <TextureModel>
+      <Pos>
+        <X>0</X>
+        <Y>80</Y>
+      </Pos>
+      <Id>0</Id>
+      <Name>prog_h_empty.png</Name>
+      <IsFlipX>false</IsFlipX>
+      <IsFlipY>false</IsFlipY>
+      <IsSwitchXY>false</IsSwitchXY>
+      <ImgPathName>prog_h_empty.png</ImgPathName>
+      <ZOrder>0</ZOrder>
+    </TextureModel>
+  </ArrayOfTextureModel>
+</KLBTextureEditor_Plugin>

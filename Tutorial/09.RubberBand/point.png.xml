@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="ae15d768-f781-439a-8a0e-c737d055f92b">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>point.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2013-06-04T17:33:04</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>409</ImgFileSize>
+    <ImgFileDate>2013/02/25 15:07:03</ImgFileDate>
+    <ImgPathName>point.png</ImgPathName>
+    <PriorityOffset>0</PriorityOffset>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>63</X>
+      <Y>32</Y>
+    </Center>
+    <Width>64</Width>
+    <Height>64</Height>
+    <VertexPostProcessMode>0</VertexPostProcessMode>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>64</Width>
+        <Height>64</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>64</Width>
+      <Height>64</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>64</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>64</X>
+        <Y>64</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>64</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>64</MaskWidth>
+    <MaskHeight>64</MaskHeight>
+    <Mask>EAAB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

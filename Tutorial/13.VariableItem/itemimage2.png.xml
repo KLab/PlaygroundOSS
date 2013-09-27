@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="32369fe1-9389-4ec8-ad2c-e21948321f56">
+  <ProjectPropertyModel>
+    <Version>0.2.0</Version>
+    <ProjectFile>itemimage2.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2013-09-25T15:21:45</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <isAdditive>false</isAdditive>
+    <ImgFileSize>31013</ImgFileSize>
+    <ImgFileDate>2013/08/26 12:24:42</ImgFileDate>
+    <ImgPathName>itemimage2.png</ImgPathName>
+    <PriorityOffset>0</PriorityOffset>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>0</X>
+      <Y>0</Y>
+    </Center>
+    <Width>200</Width>
+    <Height>150</Height>
+    <VertexPostProcessMode>0</VertexPostProcessMode>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>200</Width>
+        <Height>150</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>200</Width>
+      <Height>150</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>200</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>200</X>
+        <Y>150</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>150</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>200</MaskWidth>
+    <MaskHeight>150</MaskHeight>
+    <Mask>dTAB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

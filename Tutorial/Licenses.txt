@@ -1,0 +1,6 @@
+Cat images come from : http://placekitten.com/attribution.html
+Sounds : 
+	16.sound/bgm.mp3     : http://archive.org/details/BigBandMusic
+	16.Sound/se_drag.mp3 : http://soundbible.com/1682-Robot-Blip.html
+	16.Sound/se_off.mp3  : http://soundbible.com/756-Sci-Fi-Robot.html
+	16.Sound/se_on.mp3   : http://soundbible.com/1669-Robot-Blip-2.html

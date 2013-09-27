@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="fc71a900-ebf8-424e-980c-35bc976271e5">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>putimg.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-11-07T19:42:46</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>711</ImgFileSize>
+    <ImgFileDate>23/10/2012 18:06:10</ImgFileDate>
+    <ImgPathName>putimg.png</ImgPathName>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>47</X>
+      <Y>11</Y>
+    </Center>
+    <Width>100</Width>
+    <Height>40</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>100</Width>
+        <Height>40</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>100</Width>
+      <Height>40</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>100</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>100</X>
+        <Y>40</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>40</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>100</MaskWidth>
+    <MaskHeight>40</MaskHeight>
+    <Mask>D6AB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

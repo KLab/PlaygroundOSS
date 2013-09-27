@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="b12a93be-dad0-40cc-9e73-60c45589f3e6">
+  <ProjectPropertyModel>
+    <Version>0.2.0</Version>
+    <ProjectFile>TileC.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-12-18T21:14:59</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>657</ImgFileSize>
+    <ImgFileDate>09/08/2012 17:43:54</ImgFileDate>
+    <ImgPathName>TileC.png</ImgPathName>
+    <PriorityOffset>0</PriorityOffset>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>0</X>
+      <Y>0</Y>
+    </Center>
+    <Width>16</Width>
+    <Height>16</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>16</Width>
+        <Height>16</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>16</Width>
+      <Height>16</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>16</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>16</X>
+        <Y>16</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>16</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>16</MaskWidth>
+    <MaskHeight>16</MaskHeight>
+    <Mask>AQAB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>

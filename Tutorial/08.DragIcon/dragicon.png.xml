@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<KLBImageEditor_Plugin id="388bd29c-a40d-401f-9d7b-6ff6135e5ec4">
+  <ProjectPropertyModel>
+    <Version>0.1.0</Version>
+    <ProjectFile>dragicon.png.xml</ProjectFile>
+    <ProjectFileRelativeDir />
+    <SaveDate>2012-11-07T19:42:46</SaveDate>
+    <EditState>false</EditState>
+    <VisibleImage>false</VisibleImage>
+    <VisiblePolygon>false</VisiblePolygon>
+    <VisibleMask>false</VisibleMask>
+    <VisibleBoundBox>false</VisibleBoundBox>
+    <VisibleGrid>false</VisibleGrid>
+    <VisibleProperty>false</VisibleProperty>
+  </ProjectPropertyModel>
+  <ContainerPropertyModel />
+  <ImageModel>
+    <ImgFileSize>914</ImgFileSize>
+    <ImgFileDate>23/10/2012 18:06:10</ImgFileDate>
+    <ImgPathName>dragicon.png</ImgPathName>
+    <ImageType>Default</ImageType>
+    <ImageTypeParams />
+    <VerticesClockwise>true</VerticesClockwise>
+    <Center>
+      <X>0</X>
+      <Y>0</Y>
+    </Center>
+    <Width>100</Width>
+    <Height>100</Height>
+    <BoundingBox>
+      <Location>
+        <X>0</X>
+        <Y>0</Y>
+      </Location>
+      <Size>
+        <Width>100</Width>
+        <Height>100</Height>
+      </Size>
+      <X>0</X>
+      <Y>0</Y>
+      <Width>100</Width>
+      <Height>100</Height>
+    </BoundingBox>
+    <Vertices>
+      <PointF>
+        <X>0</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>100</X>
+        <Y>0</Y>
+      </PointF>
+      <PointF>
+        <X>100</X>
+        <Y>100</Y>
+      </PointF>
+      <PointF>
+        <X>0</X>
+        <Y>100</Y>
+      </PointF>
+    </Vertices>
+    <Indices>AAECAw==</Indices>
+    <ImgAlphaType>TYPE_ALPHA_8BIT</ImgAlphaType>
+    <MaskCompress>true</MaskCompress>
+    <MaskX>0</MaskX>
+    <MaskY>0</MaskY>
+    <MaskWidth>100</MaskWidth>
+    <MaskHeight>100</MaskHeight>
+    <Mask>JxAB</Mask>
+  </ImageModel>
+</KLBImageEditor_Plugin>
