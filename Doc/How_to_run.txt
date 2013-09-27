@@ -129,7 +129,7 @@ With the Engine is also provided a Game Project Sample and some Script Samples (
 	
 * Android *
 	
-	See Android_Build.txt
+	See Android_Build.md
 
 * === Script Samples ===
 	Several script samples have been provided with the project.
