@@ -1,0 +1,24 @@
+{
+	"name":"root",
+	"x":0,
+	"y":0,
+	"priority":0,
+	"sub":[{
+		"name":"label",
+		"x":0,
+		"y":0,
+		"priority":0,
+		"class":"label",
+		"text":"幅300アイテム",
+		"fontname":"",
+		"fontsize":20,
+		"color":-13421773,
+		"width":300,
+		"height":360,
+		"xscale":1,
+		"yscale":1,
+		"rotation":0
+	}],
+	"width":960,
+	"height":640
+}
