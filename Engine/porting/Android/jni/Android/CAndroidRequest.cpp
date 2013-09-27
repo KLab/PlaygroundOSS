@@ -1411,7 +1411,7 @@ JNIEXPORT void  JNICALL APP_FUNC(WebViewControlEvent) ( JNIEnv *env, jobject obj
 }
 
 JNIEXPORT void	JNICALL APP_FUNC(clientControlEvent)
-	(JNIEnv * env, jobject obj, jint j_type, jint j_widget, jint j_size_1, jstring j_data_1, jint j_size_2, jstring j_data_2)
+	(JNIEnv * env, jobject obj, jint j_type, jint j_widget, jstring j_data_1, jstring j_data_2)
 {
 	IClientRequest& cli = CPFInterface::getInstance().client();
 	// とりあえずストア関係だけ //
