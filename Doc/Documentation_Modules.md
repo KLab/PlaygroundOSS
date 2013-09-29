@@ -15,45 +15,45 @@ List of modules
 
 ### Allocators
 
-See Docs/Modules/Allocators.txt
+See Doc/Modules/Allocators.txt
 
 ### Asset
 
 Management system for all loaded assets in the engine at runtime.
-See Docs/Modules/Asset.txt
+See Doc/Modules/Asset.txt
 
 ### Encryption
 
-See Docs/Modules/Encryption.txt
+See Doc/Modules/Encryption.txt
 
 ### File System
 
-See Docs/Modules/FileSystem.txt
+See Doc/Modules/FileSystem.txt
 
 ### Networking related
 
-See Docs/Modules/Network.txt
+See Doc/Modules/Network.txt
 
 ### Rendering
 
-See Docs/Modules/Rendering.txt
+See Doc/Modules/Rendering.txt
 
 ### SceneGraph
 
-See Docs/Modules/Scenegraph.txt
+See Doc/Modules/Scenegraph.txt
 
 ### Scripting/LUA related
 
-See Docs/Modules/Scripting.txt
+See Doc/Modules/Scripting.txt
 
 ### Sound System
 
-See Docs/Modules/Audio.txt
+See Doc/Modules/Audio.txt
 
 ### Tasks
 
-See Docs/Modules/Tasks.txt
+See Doc/Modules/Tasks.txt
 
 ### Threading model
 
-See Docs/Modules/Thread
+See Doc/Modules/Thread

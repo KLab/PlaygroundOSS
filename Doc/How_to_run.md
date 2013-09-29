@@ -87,7 +87,7 @@ With the Engine is also provided a Game Project Sample and some Script Samples (
 - GameLibraryWin32 which is the Game ENGINE project.
 - SampleProject which is the GAME poject.
 
-You may want to modify the Game Engine to add Tasks Classes or to modify some Tasks behavior (see Docs/Documentation_Tasks.txt
+You may want to modify the Game Engine to add Tasks Classes or to modify some Tasks behavior (see Doc/Documentation_Tasks.md
 for more details about Tasks).
 You may want to modify the Game project to add Game Specific classes.
 
@@ -153,7 +153,7 @@ Start toboggan : Tool menu -> Setup ->
 
 - ```-enc true/1/false/0```
 
-  Enables/Disables the encryption (see Docs/Modules/Encryption.txt for more details).
+  Enables/Disables the encryption (see Doc/Modules/Encryption.txt for more details).
 
 
 **WARNING**
