@@ -33,7 +33,7 @@ there are splitted in 2 groups : System Tasks and User Tasks.
 		- User UI Tasks (all UI related tasks).
 		- User Other Tasks (download, unzip, network, etc).
 	
-	For more details about specific Tasks of any group refer to Docs/Documentation_Tasks.md
+	For more details about specific Tasks of any group refer to Doc/Documentation_Tasks.md
 
 
 Tasks may not need to be executed every single frame, for instance if a progress bar had not moved from the previous frame,
@@ -116,7 +116,7 @@ Classes:
 		
 	CKLBTask
 		Basic task class, provides mecanisms for init/die/execute, phase ownership, name.
-		Refer to Docs/Modules/Scripting.txt for more details about scripting tasks.
+		Refer to Doc/Modules/Scripting.txt for more details about scripting tasks.
 		
 		CKLBLuaTask : 
 		Adds feature to have command executable from LUA.
@@ -151,9 +151,9 @@ We will consider that your new task is name MyNewTask.
 	- void execute(u32 deltaT) : contains the execution instructions.
 
 - You may add setNotAlwaysActive() in the contructor for optimization purpose.
-	Refer to Docs/Documentation_Tasks.md for more details about tasks execution.
+	Refer to Doc/Documentation_Tasks.md for more details about tasks execution.
 
-For more details about LuaTask and derived classes implementation, refer to Docs/Modules/Scripting.txt
+For more details about LuaTask and derived classes implementation, refer to Doc/Modules/Scripting.txt
 	
 If it is a LuaPropTask
 - In the constructor, add :

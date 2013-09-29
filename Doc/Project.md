@@ -170,11 +170,11 @@ Modify things
 
 ### Add new tasks.
 
-  See "How To Add A New Task ?" in Docs/Modules/Tasks.txt
+  See "How To Add A New Task ?" in Doc/Modules/Tasks.txt
 
 ### Add new asset type.
 
-  See "How To Add A New Asset Type ?" in Docs/Modules/Assets.txt
+  See "How To Add A New Asset Type ?" in Doc/Modules/Assets.txt
 
 Road Map
 --------

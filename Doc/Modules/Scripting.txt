@@ -53,7 +53,7 @@ LUA is used in different ways :
 	
 - Task command implementation & extension	
 	
-	See also Docs/Modules/Tasks.txt for more details about task inheritance.
+	See also Doc/Modules/Tasks.txt for more details about task inheritance.
 	
 	Inside the tasks system, there is support for implementing commands that can be executed from LUA.
 	Commands ARE equivalent to function call from LUA to C++, except that they all use a common pattern.
