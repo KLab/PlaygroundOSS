@@ -55,7 +55,7 @@ SRC_FILES   :=	$(shell find $(SRC_DIRS) -name "*.c" -or -name "*.cpp")
 
 LOCAL_SRC_FILES	:=	$(subst ./jni/,,$(SRC_FILES))
 
-ENGINE_GITHASH  := $(shell git log | head -1 | cut -b8-13)
+ENGINE_GITHASH  := $(shell git log --pretty=format:%h -1)
 # force refresh engine hash
 $(shell touch ./jni/Android/KLBPlatformMetrics.cpp)
 
