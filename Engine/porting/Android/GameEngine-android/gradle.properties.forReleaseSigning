@@ -1,0 +1,4 @@
+storeFile=キーストアファイルのパス
+storePassword=<キーストアのパスワード>
+keyAlias=<署名用の秘密鍵のエイリアス名>
+keyPassword=<秘密鍵のパスワード>
