@@ -4,7 +4,7 @@ Tasks
 This file will introduce the tasks used in the engine.
 
 The tasks are the basics object used by scripting.
-Refer to the Tasks module documentation for more details about implementation and architecture. (Docs/Modules/Tasks.txt)
+Refer to the Tasks module documentation for more details about implementation and architecture. (Doc/Modules/Tasks.txt)
 
 Tasks are splitted into System Tasks and User Tasks as follows
 --------------------------------------------------------------
@@ -37,7 +37,7 @@ CKLBTask is the base class for all the tasks of the engine.
 By registering a task in the TaskManager it will be run as a process in the game.
 
 For more details regarding the Tasks management, refer to the TaskManager documentation
-or the Tasks module documentation (Docs/Modules/Tasks.txt).
+or the Tasks module documentation (Doc/Modules/Tasks.txt).
 
 #### CKLBLuaTask : CKLBTask
 
@@ -64,7 +64,7 @@ You can also attach to a CKLBUITask some spline animations.
 
 Each UITask is linked with a Node of the SceneGraph to be rendered.
 Both objects point each other.
-For more details, see Docs/Modules/SceneGraph.txt
+For more details, see Doc/Modules/SceneGraph.txt
 
 The different CKLBUITask subclasses will be detailled above.
 
@@ -229,7 +229,7 @@ CKLBUIRubberBand allows to create dynamic Rubber Bands.
 CKLBUIScale9 is designed to manage assets cut in 9 parts.
 4 for corners, 4 for borders and 1 for the center.
 It uses a CKLBSpriteScale9, refer to CKLBSpriteScale9 documentation for more details
-(Docs/Modules/Rendering.txt).
+(Doc/Modules/Rendering.txt).
 
 #### CKLBUIScore : CKLBUITask
 

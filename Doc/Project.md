@@ -44,7 +44,7 @@ fix bugs, improve multiplatform support, tool extension, etc...
 How to run
 ----------
 
-See How_to_run.txt
+See How_to_run.md
 
 Documents about architecture and C++
 ------------------------------------
@@ -92,7 +92,7 @@ Prototype with C# Instead of LUA
 We also provide a version of the engine using C# instead of LUA as a scripting language.
 The engine works with Mono, but also works with a custom compiler able to convert C# into C++.
 
-See Doc/Documentation_CSharp.txt
+See Doc/Documentation_CSharp.md
 	
 PLEASE UNDERSTAND THAT IT IS A PROTOTYPE and has not be completed to be in production, still
 we believe that the amount of work put into this part of the project made it quite close to reality.
@@ -170,11 +170,11 @@ Modify things
 
 ### Add new tasks.
 
-  See "How To Add A New Task ?" in Docs/Modules/Tasks.txt
+  See "How To Add A New Task ?" in Doc/Modules/Tasks.txt
 
 ### Add new asset type.
 
-  See "How To Add A New Asset Type ?" in Docs/Modules/Assets.txt
+  See "How To Add A New Asset Type ?" in Doc/Modules/Assets.txt
 
 Road Map
 --------

@@ -96,7 +96,7 @@ Moreover, the CKLBNode will be protected from destruction untill the UITask is d
 - CKLBUITask
 	Adds an integrated node to the task, the task owns a node connected to the scene graph.
 	The node also has a pointer to the task.
-	Refer to the CKLBUITask for more details (Docs/Modules/Tasks.txt and Docs/Documentation_Tasks.txt).
+	Refer to the CKLBUITask for more details (Doc/Modules/Tasks.txt and Doc/Documentation_Tasks.md).
 	
 	Sources : 	source/Core/CKLBUITask.h
 				source/Core/CKLBUITask.cpp
