@@ -21,11 +21,11 @@
 class ITmpFile
 {
 public:
-	ITmpFile();
-	virtual ~ITmpFile();
+  ITmpFile();
+  virtual ~ITmpFile();
 
-	// writing
-	virtual size_t writeTmp(void * ptr, size_t size) = 0;
+  // writing
+  virtual size_t writeTmp(void * ptr, size_t size) = 0;
 };
 
 #endif // ITmpFile_h

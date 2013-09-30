@@ -13,6 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+
 #ifndef __ASSERT_SYSTEM__
 #define __ASSERT_SYSTEM__
 
@@ -24,20 +25,20 @@ extern "C" {
 //#error "Already using standard C Assert"
 //#endif
 //#undef assert
-	void assertFunction(int line, const char* file, const char* msg,...);
+  void assertFunction(int line, const char* file, const char* msg,...);
 #ifdef _WIN32
-#define klb_assert(cond,msg,...)		if (!(cond)) { assertFunction(__LINE__, __FILE__, msg, __VA_ARGS__); }
-#define klb_assertNull(cond, msg, ...)	;
-#define klb_assertAlways(msg,...)		{ assertFunction(__LINE__, __FILE__, msg, __VA_ARGS__); }
+#define klb_assert(cond,msg,...)  if (!(cond)) { assertFunction(__LINE__, __FILE__, msg, __VA_ARGS__); }
+#define klb_assertNull(cond, msg, ...)  ;
+#define klb_assertAlways(msg,...) { assertFunction(__LINE__, __FILE__, msg, __VA_ARGS__); }
 #else
 #if (DEBUG == 1)
-#define klb_assert(cond,msg...)			if(!(cond)) { assertFunction(__LINE__, __FILE__, msg); }
-#define klb_assertNull(cond, msg, ...)	;
-#define klb_assertAlways(msg...)		{ assertFunction(__LINE__, __FILE__, msg); }
+#define klb_assert(cond,msg...)  if(!(cond)) { assertFunction(__LINE__, __FILE__, msg); }
+#define klb_assertNull(cond, msg, ...)  ;
+#define klb_assertAlways(msg...) { assertFunction(__LINE__, __FILE__, msg); }
 #else
-#define klb_assert(cond,msg...)			;
-#define klb_assertNull(cond, msg, ...)	;
-#define klb_assertAlways(msg...)		;
+#define klb_assert(cond,msg...)  ;
+#define klb_assertNull(cond, msg, ...) ;
+#define klb_assertAlways(msg...) ;
 #endif
 #endif
 
