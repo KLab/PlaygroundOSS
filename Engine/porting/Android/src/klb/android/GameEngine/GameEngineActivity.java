@@ -55,6 +55,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.ref.WeakReference;
 
 import klb.android.GameEngine.billing.manager.BillingManager;
 
@@ -527,15 +528,26 @@ public class GameEngineActivity extends Activity {
     }
     
     // インストール終了時処理
-    private Handler handler = new Handler() {
-    	@Override
-		public void handleMessage(Message msg) {
-    		m_layout.removeView(m_InstallProgressView);
-    		m_InstallProgressView = null;
-    		m_installEnd = true;
-    		Log.v("Cpp", "InstallEnd");
-    	}
-    };
+    private static class InstallationPostProcessHandler extends Handler {
+        private final WeakReference<GameEngineActivity> mActivity;
+        public InstallationPostProcessHandler(GameEngineActivity activity) {
+            mActivity = new WeakReference<GameEngineActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            final GameEngineActivity self = mActivity.get();
+            if (self == null) {
+                return;
+            }
+            self.m_layout.removeView(self.m_InstallProgressView);
+            self.m_InstallProgressView = null;
+            self.m_installEnd = true;
+            Log.v("Cpp", "InstallEnd");
+        }
+    }
+
+    private Handler handler = new InstallationPostProcessHandler(this);
     
     public boolean IsInstallEnd() {
     	return m_installEnd;
