@@ -71,7 +71,6 @@ public class GameGLSurfaceView extends GLSurfaceView {
     
     @Override
 	public boolean onTouchEvent(MotionEvent ev) {
-    	int count = ev.getPointerCount();
     	PFInterface pfif = PFInterface.getInstance();
         
         // データコピー処理時のインジケータを表示するため、かなり無理めな実装となり、
@@ -79,7 +78,6 @@ public class GameGLSurfaceView extends GLSurfaceView {
     	// が呼ばれるのがデータ終了後となっているため下記処理追加  2013/05/09  
         if(pfif.IsInstallEnd() == false) return true;
   
-        int i, j;
         float x;
         float y;
 
@@ -89,10 +87,12 @@ public class GameGLSurfaceView extends GLSurfaceView {
         	
         	break;
         case MotionEvent.ACTION_DOWN:
+        {
         	// 同時押しなら、押された分全てを送る
-        	for(i = 0; i < count; i++) {
+        	int count = ev.getPointerCount();
+        	for(int i = 0; i < count; i++) {
         		int id = -1;
-        		for(j = 0; j < TOUCH_MAX; j++) {
+        		for(int j = 0; j < TOUCH_MAX; j++) {
         			int cursor = (touch_alloc_cursor + j) % TOUCH_MAX;
         			if(touch_id[cursor] < 0) {
         				id = cursor;
@@ -106,16 +106,17 @@ public class GameGLSurfaceView extends GLSurfaceView {
         		y = ev.getY(i);
         		touch_x[id] = (int)x;
         		touch_y[id] = (int)y;
-                pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_CLICK, (int)x, (int)y);
+        		pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_CLICK, (int)x, (int)y);
         	}
-        	break;
+        }
+        break;
         case MotionEvent.ACTION_POINTER_DOWN:
         {
-            // 変化のあった pointer についてのみ送る
+        	// 変化のあった pointer についてのみ送る
             int index = ev.getActionIndex();
        		int jid = ev.getPointerId(index);
        		int id = -1;
-        	for(j = 0; j < TOUCH_MAX; j++) {
+        	for(int j = 0; j < TOUCH_MAX; j++) {
                 int cursor = (touch_alloc_cursor + j) % TOUCH_MAX;
        			if(touch_id[cursor] < 0) {	// 最初に見つけたブランク候補
        				id = cursor;
@@ -129,14 +130,17 @@ public class GameGLSurfaceView extends GLSurfaceView {
        		y = ev.getY(index);
        		touch_x[id] = (int)x;
        		touch_y[id] = (int)y;
-            pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_CLICK, (int)x, (int)y);
+       		pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_CLICK, (int)x, (int)y);
         }
         break;
         case MotionEvent.ACTION_MOVE:
-        	for(i = 0; i < count; i++) {
+        {
+        	// 同時押しなら、押された分全てを送る
+        	int count = ev.getPointerCount();
+        	for(int i = 0; i < count; i++) {
         		int jid = ev.getPointerId(i);
         		int id = -1;
-        		for(j = 0; j < TOUCH_MAX; j++) {
+        		for(int j = 0; j < TOUCH_MAX; j++) {
         			if(jid == touch_id[j]) {
         				id = j;
         				break;
@@ -149,16 +153,17 @@ public class GameGLSurfaceView extends GLSurfaceView {
         			// move はポインタが動いた場合のみ通知する
         			touch_x[id] = (int)x;
         			touch_y[id] = (int)y;
-                    pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_DRAG, (int)x, (int)y);
+        			pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_DRAG, (int)x, (int)y);
         		}
         	}
-        	break;
+        }
+        break;
         case MotionEvent.ACTION_POINTER_UP:
         {
             int index = ev.getActionIndex();
         	int jid = ev.getPointerId(index);
         	int id = -1;
-    		for(j = 0; j < TOUCH_MAX; j++) {
+    		for(int j = 0; j < TOUCH_MAX; j++) {
     			if(jid == touch_id[j]) {
     				id = j;
     				break;
@@ -168,14 +173,16 @@ public class GameGLSurfaceView extends GLSurfaceView {
     		x = ev.getX(index);
     		y = ev.getY(index);
     		touch_id[id] = -1;
-            pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_RELEASE, (int)x, (int)y);
+    		pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_RELEASE, (int)x, (int)y);
         }
         break;
         case MotionEvent.ACTION_UP:
-        	for(i = 0; i < count; i++) {
+        {
+        	int count = ev.getPointerCount();
+        	for(int i = 0; i < count; i++) {
         		int jid = ev.getPointerId(i);
         		int id = -1;
-        		for(j = 0; j < TOUCH_MAX; j++) {
+        		for(int j = 0; j < TOUCH_MAX; j++) {
         			if(jid == touch_id[j]) {
         				id = j;
         				break;
@@ -185,14 +192,17 @@ public class GameGLSurfaceView extends GLSurfaceView {
         		x = ev.getX(i);
         		y = ev.getY(i);
         		touch_id[id] = -1;
-                pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_RELEASE, (int)x, (int)y);
+        		pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_RELEASE, (int)x, (int)y);
         	}
-        	break;
+        }
+        break;
         case MotionEvent.ACTION_CANCEL:
-        	for(i = 0; i < count; i++) {
+        {
+        	int count = ev.getPointerCount();
+        	for(int i = 0; i < count; i++) {
         		int jid = ev.getPointerId(i);
         		int id = -1;
-        		for(j = 0; j < TOUCH_MAX; j++) {
+        		for(int j = 0; j < TOUCH_MAX; j++) {
         			if(jid == touch_id[j]) {
         				id = j;
         				break;
@@ -201,10 +211,10 @@ public class GameGLSurfaceView extends GLSurfaceView {
         		if(id < 0) break;	// 該当するIDのタッチが見つからなかった
         		x = ev.getX(i);
         		y = ev.getY(i);
-                pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_RELEASE, (int)x, (int)y);	// release
+        		pfif.inputPoint(id, PFInterface.E_INPUT_TYPE_RELEASE, (int)x, (int)y);	// release
         	}
-        	break;
-        	
+        }
+        break;
     	}
         context.refreshSystemUi();
     	return true; // super.onTouchEvent(ev);
