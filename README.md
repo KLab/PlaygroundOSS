@@ -13,6 +13,10 @@ To get started, please read the /Doc/Project.txt
 
 The dev team.
 
+## Buid Status
+[![Build Status](https://travis-ci.org/KLab/PlaygroundOSS.png)](https://travis-ci.org/KLab/PlaygroundOSS)
+
+
 ## LICENSE
 'Playground OSS' is released under Apache Software License, Version 2.0 (Apache 2.0). Please refer http://www.apache.org/licenses/LICENSE-2.0 file for detail.
 

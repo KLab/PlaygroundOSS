@@ -2,7 +2,7 @@
 
 from __future__ import print_function
 from decimal import *
-from os import makedirs, path, remove
+from os import makedirs, path, remove, chdir
 from shutil import copy2, copytree, rmtree
 import argparse
 import subprocess
@@ -62,10 +62,22 @@ class PlaygroundBuilder:
             else:
                 copytree(*params) 
 
-    def build(self, project, use_luajit=False, gles_ver=Decimal('1.1'), perform_rebuild=False, is_release=False):
+    def _output_log(self, p):
+        for l in iter(p.stdout.readline, b''):
+            print('%s>>%s %s' % (bcolors.OKGREEN, bcolors.ENDC, l.rstrip().decode('utf-8')))
+
+    def _is_apk_sane(self, target_path):
+        if not path.exists(target_path):
+            return False
+        return 0 < path.getsize(target_path)
+
+    def build(self, project, use_luajit=False, gles_ver=Decimal('1.1'), perform_rebuild=False, is_release=False, perform_assemble=False):
+        chdir(path.dirname(sys.argv[0]) or '.')
+
         if perform_rebuild:
             self.rmtree('./jni')
             self.rmtree('./src')
+
 
         self.makedirs('./jni')
         self.copytree('../jni/Android', './jni/')
@@ -142,10 +154,20 @@ class PlaygroundBuilder:
             cmdline.append('NDK_DEBUG=0')
             print("performing release build")
         cmdline_s = ' '.join(cmdline)
+
+        # if performing assemble, we should perform clean prior to main build to make sure latest binary is assembled.
+        if perform_assemble:
+            # self._output_log(subprocess.Popen('./gradlew clean', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            pass
+
         print('performing: %s' % (cmdline_s))
-        p = subprocess.Popen(cmdline_s, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        for l in iter(p.stdout.readline, b''):
-            print('%s>>%s %s' % (bcolors.OKGREEN, bcolors.ENDC, l.rstrip().decode('utf-8')))
+        self._output_log(subprocess.Popen(cmdline_s, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+
+        if perform_assemble:
+            self._output_log(subprocess.Popen('./gradlew build', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            return 0 if self._is_apk_sane('./build/apk/GameEngine-android-debug-unaligned.apk') else 1
+
+        return 0
 
 # http://stackoverflow.com/questions/287871/print-in-terminal-with-colors-using-python
 class bcolors:
@@ -166,17 +188,19 @@ class bcolors:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Playground for Android Native Binaries Builder')
-    parser.add_argument('-p', '--project', required=True)
-    parser.add_argument('-l', '--luavm', choices=['lua', 'luajit'], default='lua')
-    parser.add_argument('-g', '--gles', choices=['1.1', '2.0', '3.0'], default='1.1')
-    parser.add_argument('-m', '--mode', choices=['debug', 'release'], default='debug')
-    parser.add_argument('-r', '--rebuild', action='store_true')
+    parser.add_argument('-p', '--project', help='specify project name', required=True)
+    parser.add_argument('-l', '--luavm', help='choose Lua runtime', choices=['lua', 'luajit'], default='lua')
+    parser.add_argument('-g', '--gles', help='choose target OpenGL ES version', choices=['1.1', '2.0', '3.0'], default='1.1')
+    parser.add_argument('-m', '--mode', help='choose build binary mode', choices=['debug', 'release'], default='debug')
+    parser.add_argument('-r', '--rebuild', help='perform whole rebuild', action='store_true')
+    parser.add_argument('-a', '--assemble', help='assemble APK with gradle', action='store_true')
 
     args = parser.parse_args()
     builder = PlaygroundBuilder()
-    builder.build(
+    sys.exit(builder.build(
             project=args.project,
             use_luajit=(True if args.luavm == 'luajit' else False),
             gles_ver=Decimal(args.gles),
             perform_rebuild=args.rebuild,
-            is_release=(True if args.mode == 'release' else False))
+            is_release=(True if args.mode == 'release' else False),
+            perform_assemble=args.assemble))
