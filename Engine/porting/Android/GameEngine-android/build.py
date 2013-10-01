@@ -78,11 +78,14 @@ class PlaygroundBuilder:
             print('%s>>%s %s' % (bcolors.OKGREEN, bcolors.ENDC, log_line))
         return is_succeeded
 
-    # TODO: add proper APK sanity checking
     def _is_apk_sane(self, target_path):
         if not path.exists(target_path):
             return False
-        return 0 < path.getsize(target_path)
+        apk_path = path.realpath(target_path)
+        is_apk_sane = self._output_log(
+            subprocess.Popen('aapt dump badging %s' % apk_path, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT),
+            success_marker='package:', fail_marker='ERROR:')
+        return is_apk_sane is True
 
     def build(self, project, use_luajit=False, gles_ver=Decimal('1.1'), perform_rebuild=False, is_release=False, perform_assemble=False):
         chdir(path.dirname(sys.argv[0]) or '.')
