@@ -7,7 +7,8 @@ jdk: oraclejdk7
 env:
  matrix:
    # android-16 is always included
-   - ANDROID_SDKS=sysimg-16           ANDROID_TARGET=android-16  ANDROID_ABI=armeabi-v7a
+   ## note: we're using android-17 for building, so android-16 env is disabled here.
+   # - ANDROID_SDKS=sysimg-16           ANDROID_TARGET=android-16  ANDROID_ABI=armeabi-v7a
    - ANDROID_SDKS=android-17,sysimg-17 ANDROID_TARGET=android-17  ANDROID_ABI=armeabi-v7a
    - ANDROID_SDKS=android-18,sysimg-18 ANDROID_TARGET=android-18  ANDROID_ABI=armeabi-v7a
 
