@@ -45,7 +45,7 @@
 
 //------------------------------------------------
 #elif defined __LOVELIVE
-// ラブライブ
+
 #define JAVA_FUNC( func ) Java_klb_android_lovelive_PFInterface_##func
 #define PROC_FUNC( func ) proc_app_klb_android_lovelive_PFInterface_##func
 #define APP_FUNC( func )  app_klb_android_lovelive_PFInterface_##func

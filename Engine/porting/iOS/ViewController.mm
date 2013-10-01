@@ -291,7 +291,6 @@ NSMutableDictionary* transactionDict =[NSMutableDictionary dictionary];
             }
             case SKPaymentTransactionStateRestored: {
                 // アイテムのリストア(購入済みアイテムの再付与(再インストール等で最6初から持っている状態にすべき、など)完了
-                // ラブライブでは非消費型アイテムは扱わないのでこの遷移に入る事は無い
                 cli.controlEvent(IClientRequest::E_STORE_RESTORE, 0, len, (void *)utf8_id, 0, 0);
                 [queue finishTransaction:transaction];
                 break;
@@ -303,14 +302,12 @@ NSMutableDictionary* transactionDict =[NSMutableDictionary dictionary];
 
 - (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error {
     // リストア失敗
-    // ラブライブでは非消費型アイテムは扱わないのでこの遷移に入る事は無い
     IClientRequest& cli = CPFInterface::getInstance().client();
     cli.controlEvent(IClientRequest::E_STORE_RESTORE_FAILED, 0, 0, 0, 0, 0);
 }
 
 - (void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
     // 全リストア終了
-    // ラブライブでは非消費型アイテムは扱わないのでこの遷移に入る事は無い
     IClientRequest& cli = CPFInterface::getInstance().client();
     cli.controlEvent(IClientRequest::E_STORE_RESTORE_COMPLETED, 0, 0, 0, 0, 0);
 }
