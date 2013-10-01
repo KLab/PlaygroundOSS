@@ -14,7 +14,7 @@ To get started, please read the /Doc/Project.txt
 The dev team.
 
 ## Buid Status
-[![Build Status](https://travis-ci.org/KLab/PlaygroundOSS.png)](https://travis-ci.org/KLab/PlaygroundOSS)
+[![Build Status](https://travis-ci.org/KLab/PlaygroundOSS.png?branch=master)](https://travis-ci.org/KLab/PlaygroundOSS)
 
 
 ## LICENSE
