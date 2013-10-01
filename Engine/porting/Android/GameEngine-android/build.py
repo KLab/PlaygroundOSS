@@ -157,8 +157,7 @@ class PlaygroundBuilder:
 
         # if performing assemble, we should perform clean prior to main build to make sure latest binary is assembled.
         if perform_assemble:
-            # self._output_log(subprocess.Popen('./gradlew clean', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-            pass
+            self._output_log(subprocess.Popen('./gradlew clean', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         print('performing: %s' % (cmdline_s))
         self._output_log(subprocess.Popen(cmdline_s, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
