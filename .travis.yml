@@ -41,7 +41,7 @@ before_install:
   # NDK
   - wget http://dl.google.com/android/ndk/android-ndk-r9-linux-x86_64.tar.bz2
   - tar jxf android-ndk-r9-linux-x86_64.tar.bz2
-  - export ANDROID_NDK_ROOT=$PWD/
+  - export ANDROID_NDK_ROOT=$PWD/android-ndk-r9
   - export PATH=$ANDROID_NDK_ROOT:$PATH
 
   # Gradle
