@@ -78,6 +78,7 @@ CAndroidRequest::CAndroidRequest(const char* model, const char * brand, const ch
 CAndroidRequest::~CAndroidRequest() {
 	delete [] m_homePath;
 	delete [] m_platform;
+        delete [] m_regId;
 }
 
 CAndroidRequest *
@@ -162,6 +163,7 @@ CAndroidRequest::getBundleVersion() {
     jstring jstr = (jstring)value.l;
     const char * str = CJNI::getJNIEnv()->GetStringUTFChars(jstr, NULL);
     CJNI::getJNIEnv()->ReleaseStringUTFChars(jstr, str);
+    // FIXME ReleaseStringUTFChars 後のポインタを返してしまっている
     return str;
 }
 
@@ -1221,6 +1223,13 @@ JNIEXPORT jboolean JNICALL APP_FUNC(initSequence)
 	DEBUG_PRINT("initSequence() initGame() finish.");
 #endif
 
+        env->ReleaseStringUTFChars(j_strPath, strPath);
+        env->ReleaseStringUTFChars(j_model, strModel);
+        env->ReleaseStringUTFChars(j_brand, strBrand);
+        env->ReleaseStringUTFChars(j_board, strBoard);
+        env->ReleaseStringUTFChars(j_version, strVersion);
+        env->ReleaseStringUTFChars(j_tz, strTZ);
+
 	// 初期化終了。
 	return (jboolean)true;
 }
@@ -1429,6 +1438,7 @@ JNIEXPORT void	JNICALL APP_FUNC(clientControlEvent)
 
 	const char * char_1 = env->GetStringUTFChars(j_data_1, NULL);
     const char * char_2 = env->GetStringUTFChars(j_data_2, NULL);
+    // FIXME ↑の２つは ReleaseStringUTFChars されてないけど影響範囲が広いのでとりあえず後回し
 
     size_t len_1 = strlen(char_1);
     size_t len_2 = strlen(char_2);
