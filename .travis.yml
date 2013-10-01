@@ -26,7 +26,7 @@ before_install:
   # Other relevant API's:
   #  addon-google_apis-google-16
   # yes, we do agree SDK EULA
-  - echo 'y' | android update sdk --filter platform-tools,android-16,extra-android-support,66,$ANDROID_SDKS --no-ui --force
+  - echo 'y' | android update sdk --filter tool,platform-tools,android-16,extra-android-support,66,$ANDROID_SDKS --no-ui --force
 
 ## disable emulator related things for now
 #   # Create and start emulator
