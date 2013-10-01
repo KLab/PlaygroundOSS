@@ -20,6 +20,9 @@ class PlaygroundBuilder:
     def decor_print(self, header, content, color):
         print('%s%s%s: %s' % (color, header, bcolors.ENDC, content))
 
+    def print_error(self, content):
+        self.decor_print('ERROR', content, bcolors.WARNING)
+
     def makedirs(self, target_dir):
         target_abs_dir = self.getAbsPath(target_dir)
         if not path.isdir(target_abs_dir):
@@ -62,14 +65,27 @@ class PlaygroundBuilder:
             else:
                 copytree(*params) 
 
-    def _output_log(self, p):
+    # we'll return None unless any status markers are found
+    # note: return status is updated in every apperance of markers
+    def _output_log(self, p, success_marker=None, fail_marker=None):
+        is_succeeded = None
         for l in iter(p.stdout.readline, b''):
-            print('%s>>%s %s' % (bcolors.OKGREEN, bcolors.ENDC, l.rstrip().decode('utf-8')))
+            log_line = l.rstrip().decode('utf-8')
+            if success_marker is not None and  log_line.find(success_marker) != -1:
+                is_succeeded = True
+            if fail_marker is not None and log_line.find(fail_marker) != -1:
+                is_succeeded = False
+            print('%s>>%s %s' % (bcolors.OKGREEN, bcolors.ENDC, log_line))
+        return is_succeeded
 
     def _is_apk_sane(self, target_path):
         if not path.exists(target_path):
             return False
-        return 0 < path.getsize(target_path)
+        apk_path = path.realpath(target_path)
+        is_apk_sane = self._output_log(
+            subprocess.Popen('aapt dump badging %s' % apk_path, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT),
+            success_marker='package:', fail_marker='ERROR:')
+        return is_apk_sane is True
 
     def build(self, project, use_luajit=False, gles_ver=Decimal('1.1'), perform_rebuild=False, is_release=False, perform_assemble=False):
         chdir(path.dirname(sys.argv[0]) or '.')
@@ -163,8 +179,15 @@ class PlaygroundBuilder:
         self._output_log(subprocess.Popen(cmdline_s, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         if perform_assemble:
-            self._output_log(subprocess.Popen('./gradlew build', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
-            return 0 if self._is_apk_sane('./build/apk/GameEngine-android-debug-unaligned.apk') else 1
+            build_result = self._output_log(
+                subprocess.Popen('./gradlew build', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT),
+                success_marker='BUILD SUCCESSFUL', fail_marker='BUILD FAILED')
+            if build_result is not True:
+                self.print_error('Gradle build failed.')
+                return 1
+            if self._is_apk_sane('./build/apk/GameEngine-android-debug-unaligned.apk') is not True:
+                self.print_error('Generated APK file is corrupt.')
+                return 1
 
         return 0
 
