@@ -6,7 +6,7 @@ language: java
 jdk: oraclejdk7
 env:
  matrix:
-   # android-16 is always included
+   # android-17 is always included
    ## note: we're using android-17 for building, so android-16 env is disabled here.
    # - ANDROID_SDKS=sysimg-16           ANDROID_TARGET=android-16  ANDROID_ABI=armeabi-v7a
    - ANDROID_SDKS=android-17,sysimg-17 ANDROID_TARGET=android-17  ANDROID_ABI=armeabi-v7a
@@ -27,7 +27,7 @@ before_install:
   # Other relevant API's:
   #  addon-google_apis-google-16
   # yes, we do agree SDK EULA
-  - echo 'y' | android update sdk --filter platform-tools,android-16,extra-android-support,$ANDROID_SDKS --no-ui --force
+  - echo 'y' | android update sdk --filter platform-tools,android-17,extra-android-support,$ANDROID_SDKS --no-ui --force
   - BUILD_TOOLS_ID=`android list sdk --extended -a | grep "build-tools-18.1.0" |cut -d ' ' -f 2`
   - echo 'y' | android update sdk -a --filter $BUILD_TOOLS_ID --no-ui --force
 
