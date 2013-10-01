@@ -66,6 +66,11 @@ class PlaygroundBuilder:
         for l in iter(p.stdout.readline, b''):
             print('%s>>%s %s' % (bcolors.OKGREEN, bcolors.ENDC, l.rstrip().decode('utf-8')))
 
+    def _is_apk_sane(self, target_path):
+        if not path.exists(target_path):
+            return False
+        return 0 < path.getsize(target_path)
+
     def build(self, project, use_luajit=False, gles_ver=Decimal('1.1'), perform_rebuild=False, is_release=False, perform_assemble=False):
         chdir(path.dirname(sys.argv[0]) or '.')
 
@@ -152,13 +157,17 @@ class PlaygroundBuilder:
 
         # if performing assemble, we should perform clean prior to main build to make sure latest binary is assembled.
         if perform_assemble:
-            self._output_log(subprocess.Popen('./gradlew clean', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            # self._output_log(subprocess.Popen('./gradlew clean', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            pass
 
         print('performing: %s' % (cmdline_s))
         self._output_log(subprocess.Popen(cmdline_s, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
 
         if perform_assemble:
             self._output_log(subprocess.Popen('./gradlew build', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT))
+            return 0 if self._is_apk_sane('./build/apk/GameEngine-android-debug-unaligned.apk') else 1
+
+        return 0
 
 # http://stackoverflow.com/questions/287871/print-in-terminal-with-colors-using-python
 class bcolors:
@@ -188,10 +197,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     builder = PlaygroundBuilder()
-    builder.build(
+    sys.exit(builder.build(
             project=args.project,
             use_luajit=(True if args.luavm == 'luajit' else False),
             gles_ver=Decimal(args.gles),
             perform_rebuild=args.rebuild,
             is_release=(True if args.mode == 'release' else False),
-            perform_assemble=args.assemble)
+            perform_assemble=args.assemble))
