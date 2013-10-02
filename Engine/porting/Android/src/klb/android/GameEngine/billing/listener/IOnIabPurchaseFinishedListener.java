@@ -15,8 +15,6 @@
 */
 package klb.android.GameEngine.billing.listener;
 
-import java.io.UnsupportedEncodingException;
-
 import android.util.Log;
 
 import klb.android.GameEngine.PFInterface;
@@ -40,23 +38,15 @@ public class IOnIabPurchaseFinishedListener implements OnIabPurchaseFinishedList
 	private void sendMessageFailed()
 	{
 		Log.d(kClassName, "sendMessageFailed");
-		try {
-			PFInterface.getInstance().clientControlEvent(
-					PFInterface.E_STORE_FAILED, 0, this.sku.getBytes("UTF-8").length + 1, this.sku,0,"");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(kClassName, this.sku + ": " + e.toString());
-		}
+		PFInterface.getInstance().clientControlEvent(
+				PFInterface.E_STORE_FAILED, 0, this.sku,"");
 	}
 	
 	private void sendMessagePurchasing()
 	{
 		Log.d(kClassName, "sendMessagePurchasing");
-		try {
-			PFInterface.getInstance().clientControlEvent(
-					PFInterface.E_STORE_PURCHASHING, 0, this.sku.getBytes("UTF-8").length + 1, this.sku,0,"");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(kClassName, this.sku + ": " + e.toString());
-		}		
+		PFInterface.getInstance().clientControlEvent(
+				PFInterface.E_STORE_PURCHASHING, 0, this.sku, "");
 	}
 	
 	// 購入処理途中の情報をLuaに返す処理を他の場所でも使うので、このインタフェースを公開しておく
@@ -68,15 +58,8 @@ public class IOnIabPurchaseFinishedListener implements OnIabPurchaseFinishedList
 		Log.d(kClassName, "Purchased" + sku);
 		Log.d(kClassName, "Receipt:\n" + data_str);
 	
-		try {
-			PFInterface.getInstance().clientControlEvent(
-					PFInterface.E_STORE_PURCHASHED, 0,
-					sku.getBytes("UTF-8").length + 1, sku,
-					data_str.getBytes("UTF-8").length + 1, data_str);
-		} catch(UnsupportedEncodingException e) {
-			// oh hell.. we are doomed
-			Log.e(kClassName, sku + ": " + e.toString());
-		}
+		PFInterface.getInstance().clientControlEvent(
+				PFInterface.E_STORE_PURCHASHED, 0, sku, data_str);
 	}
 	
 	public IOnIabPurchaseFinishedListener(String _sku) {

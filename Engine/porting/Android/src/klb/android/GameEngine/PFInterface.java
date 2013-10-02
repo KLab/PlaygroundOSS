@@ -788,7 +788,7 @@ public class PFInterface {
     public native void onActivityPause();
     public native void onActivityResume();
     public native void WebViewControlEvent(WebView _pWeb, int _flg);
-	public native void clientControlEvent(int type, int widget, int size_1, String data_1, int size_2, String data_2);
+	public native void clientControlEvent(int type, int widget, String data_1, String data_2);
 	public native void clientResumeGame();
 
 	static {

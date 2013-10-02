@@ -15,7 +15,6 @@
 */
 package klb.android.GameEngine.billing.listener;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -89,13 +88,8 @@ public class IQueryInventoryFinishedListener implements QueryInventoryFinishedLi
 		Log.i(kClassName, "SKU Json: " + resultStr);
 		Log.i(kClassName, "length: " + resultStr.length());
 
-		try {
-			Log.i(kClassName, "byte length: " + resultStr.getBytes("UTF-8").length);
-			PFInterface.getInstance().clientControlEvent(
-					PFInterface.E_STORE_GET_PRODUCTS, 0, resultStr.getBytes("UTF-8").length + 1, resultStr,0,"");
-		} catch (UnsupportedEncodingException e) {
-			Log.e(kClassName, e.toString());
-		}
+		PFInterface.getInstance().clientControlEvent(
+				PFInterface.E_STORE_GET_PRODUCTS, 0, resultStr, "");
 	}
 
 	@Override
