@@ -30,6 +30,7 @@ before_install:
   - echo 'y' | android update sdk --filter platform-tools,android-17,extra-android-support,$ANDROID_SDKS --no-ui --force
   - BUILD_TOOLS_ID=`android list sdk --extended -a | grep "build-tools-18.1.0" |cut -d ' ' -f 2`
   - echo 'y' | android update sdk -a --filter $BUILD_TOOLS_ID --no-ui --force
+  - export PATH=${PATH}:${ANDROID_HOME}/build-tools/18.1.0
 
 ## disable emulator related things for now
 #   # Create and start emulator
