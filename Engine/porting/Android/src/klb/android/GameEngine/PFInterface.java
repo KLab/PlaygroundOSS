@@ -62,6 +62,13 @@ public class PFInterface {
 	public static final int E_STORE_RESTORE_FAILED = 6;     // リストア失敗
 	public static final int E_STORE_RESTORE_COMPLETED = 7;  // 全リストア終了
 
+    // エターナルスタティックファイナル ------- 順番を間違えると相手は死なないけど困る
+    // CPFInterface.h の IClientRequest 内に定義された enum INPUT_TYPE と対応するようにメンテナンスすること
+    public static final int E_INPUT_TYPE_CLICK   = 0; //!< マウスのクリック、タッチパネルのタップ動作
+    public static final int E_INPUT_TYPE_DRAG    = 1; //!< ドラッグ動作
+    public static final int E_INPUT_TYPE_RELEASE = 2; //!< リリース動作(離す)
+    public static final int E_INPUT_TYPE_CANCEL  = 3; //!< Cancel event
+
 	public enum WEBVIEW_STATUS {
 		E_DIDSTARTLOADWEB(0),
 		E_DIDLOADENDWEB(1),
