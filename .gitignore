@@ -1,0 +1,40 @@
+# build environment/text editor things
+.gradle/
+.idea/
+local.properties
+*.vshost.*
+*.suo
+*.vcxproj.user
+*.csproj.user
+*.swp
+
+# OS specific temp files
+.DS_Store
+Thumbs.db
+__MACOSX/
+
+# Android template project things
+/Engine/porting/Android/.classpath
+/Engine/porting/Android/.project
+/Engine/porting/Android/.settings/
+/Engine/porting/Android/gen/
+
+# Android concrete project things
+/Engine/porting/Android/GameEngine-android/bin/
+/Engine/porting/Android/GameEngine-android/build/
+/Engine/porting/Android/GameEngine-android/gen/
+/Engine/porting/Android/GameEngine-android/jni/
+/Engine/porting/Android/GameEngine-android/libs/
+/Engine/porting/Android/GameEngine-android/obj/
+/Engine/porting/Android/GameEngine-android/src/
+
+# iOS 
+/Engine/porting/iOS/Project/
+
+# object files things
+*.exe
+*.pdb
+*.a
+!libcurl.a
+*.so
+*.dll
