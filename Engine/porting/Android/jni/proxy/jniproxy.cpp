@@ -68,7 +68,7 @@ static jint     JNICALL (*PROC_FUNC(getGLVersion))(JNIEnv *, jobject);
 static void     JNICALL (*PROC_FUNC(resetViewport))(JNIEnv *, jobject);
 static void     JNICALL (*PROC_FUNC(onActivityPause))( void );
 static void     JNICALL (*PROC_FUNC(onActivityResume))( void );
-static void		JNICALL (*PROC_FUNC(clientControlEvent))(JNIEnv *, jobject, jint, jint, jint, jstring, jint, jstring);
+static void		JNICALL (*PROC_FUNC(clientControlEvent))(JNIEnv *, jobject, jint, jint, jstring, jstring);
 static void     JNICALL (*PROC_FUNC(WebViewControlEvent))( JNIEnv *, jobject, jobject, jint );
 static void		JNICALL (*PROC_FUNC(clientResumeGame))( void );
 static void		JNICALL (*PROC_FUNC(jniOnLoad))( JavaVM*, void* );
@@ -216,10 +216,10 @@ JNIEXPORT void  JNICALL JAVA_FUNC(onActivityResume) (void)
 }
 
 JNIEXPORT void JNICALL JAVA_FUNC(clientControlEvent)
-	(JNIEnv * env, jobject obj, jint j_type, jint j_widget, jint j_size_1, jstring j_data_1, jint j_size_2, jstring j_data_2)
+	(JNIEnv * env, jobject obj, jint j_type, jint j_widget, jstring j_data_1, jstring j_data_2)
 {
 	// j_widgetはちょっとどう扱っていいかわからないので、null渡しておきます //
-	if(LoadApplication) PROC_FUNC(clientControlEvent)( env, obj, j_type, 0, j_size_1, j_data_1, j_size_2, j_data_2 );
+	if(LoadApplication) PROC_FUNC(clientControlEvent)( env, obj, j_type, 0, j_data_1, j_data_2 );
 }
 
 // WebViewのコントロールイベント
