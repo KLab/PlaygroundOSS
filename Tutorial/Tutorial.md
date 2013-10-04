@@ -36,7 +36,7 @@ Setting window appears.
 **Go to [General] Tab, then "Bundled GameEngine Settings" entry, on argument "CmdLine Parameters" type**
 
 ```
-- no defaultdb -no defaultfont
+-no defaultdb -no defaultfont
 ```
   
 ### The tools has mainly the following editors included 
