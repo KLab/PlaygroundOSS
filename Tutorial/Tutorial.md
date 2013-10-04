@@ -28,9 +28,16 @@ If you go to the file menu, you can directly create a new project and new resour
 
 To run the sample, you MUST setup command line option to disable some engine features to avoid ASSERT when
 we start the engine.
-Go to Tools -> Setup : Setting window appears.
-Go to [General] Tab, then "Bundled GameEngine Settings" entry, on argument "CmdLine Parameters" type :
+
+**Go to Tools -> Setup** 
+
+Setting window appears.
+
+**Go to [General] Tab, then "Bundled GameEngine Settings" entry, on argument "CmdLine Parameters" type**
+
+```
 - no defaultdb -no defaultfont
+```
   
 ### The tools has mainly the following editors included 
 
