@@ -4,7 +4,7 @@ This is the 'Playground' game engine and is released in open source under Apache
 
  * All the needed documentation is in the /Doc folder.
  * Source code are under the /Engine folder.
- * Tool to compile a sample project is under /Tools
+ * Tool to compile a sample project is under /Tools folder.
  * Sample showing the scripting APIs are available under the /Tutorial folder.
 
 Other folders (CSharpVersion, SampleProject) are more related to prototype features or detailed implementations.
