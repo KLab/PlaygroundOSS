@@ -9,7 +9,7 @@ This is the 'Playground' game engine and is released in open source under Apache
 
 Other folders (CSharpVersion, SampleProject) are more related to prototype features or detailed implementations.
 
-To get started, please read the /Doc/Project.txt
+To get started, please read the /Doc/Project.md
 
 The dev team.
 
