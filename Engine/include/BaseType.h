@@ -218,18 +218,18 @@ typedef long long unsigned int u64;
 	#define KLBNEWC(a,b)			(a*)CTracker::logNew(new a b,sizeof(a), __LINE__,__FILE__)
 	#define KLBMALLOC(a)			CTracker::logNew(malloc(a),(a),__LINE__,__FILE__)
 
-	#define KLBDELETE(a)			if( (a)!=NULL ){ CTracker::logDelete((void *)(a),__LINE__,__FILE__); delete a; }
-	#define KLBDELETEA(a)			if( (a)!=NULL ){ CTracker::logDelete((void *)(a),__LINE__, __FILE__); delete [] a; }
-	#define KLBFREE(a)				if( (a)!=NULL ){ CTracker::logDelete((void *)(a),__LINE__,__FILE__); free(a); a=NULL; }
+	#define KLBDELETE(a)			do { if( (a)!=NULL ){ CTracker::logDelete((void *)(a),__LINE__,__FILE__); delete a; } } while (0)
+	#define KLBDELETEA(a)			do { if( (a)!=NULL ){ CTracker::logDelete((void *)(a),__LINE__, __FILE__); delete [] a; } } while (0)
+	#define KLBFREE(a)				do { if( (a)!=NULL ){ CTracker::logDelete((void *)(a),__LINE__,__FILE__); free(a); a=NULL; } } while (0)
 #else
     #define KLBNEW(a)				new a()
     #define KLBNEWA(a,b)			new a[(b)]
     #define KLBNEWC(a,b)			new a b
     #define KLBMALLOC(a)			malloc(a)
 
-    #define KLBDELETE(a)			if( (a)!=NULL ){ delete a;}
-    #define KLBDELETEA(a)           if( (a)!=NULL ){ delete [] a;}
-    #define KLBFREE(a)				if( (a)!=NULL ){ free(a); a=NULL; }
+    #define KLBDELETE(a)			do { if( (a)!=NULL ){ delete a; } } while (0)
+    #define KLBDELETEA(a)           do { if( (a)!=NULL ){ delete [] a; } } while (0)
+    #define KLBFREE(a)				do { if( (a)!=NULL ){ free(a); a=NULL; } } while (0)
 #endif
 
 #include "assert_klb.h"
