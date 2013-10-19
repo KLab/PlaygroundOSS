@@ -115,7 +115,10 @@ public class GameEngineActivity extends Activity {
 	}
 	
 	private boolean isInappropriateEnvSuspected() {
-		return Build.PRODUCT.equals("google_sdk") || Build.PRODUCT.equals("sdk") || isSuBinaryPresent();
+		if ((getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) == 0) {
+			return Build.PRODUCT.equals("google_sdk") || Build.PRODUCT.equals("sdk") || isSuBinaryPresent();
+		}
+		return false;
 	}
 
 	public void startActivity(final Intent intent) {
