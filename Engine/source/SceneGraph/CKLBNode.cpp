@@ -453,6 +453,7 @@ bool CKLBNode::setRenderSlotCount	(u32 slot) {
 
 	if (slot == 1) {
 		m_pRender		= &m_renderSlot;
+		m_renderCount = 1;
 	}
 
 	return res;
