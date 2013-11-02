@@ -311,7 +311,7 @@ CTracker::logNew(void* ptr, size_t size, int line, const char* file)
 		int id = getSrcID(file);
     
 		buf[0] = CMD_ALLOC;
-		setArrU32(buf + 1, (u32)ptr);
+		setArrU32(buf + 1, static_cast<uint32_t>(reinterpret_cast<uintptr_t>(ptr)));
 		setArrU32(buf + 5, (u32)size);
 		setArrU32(buf + 9, ms_numFrame);  // frame
 		setArrU32(buf + 13, ms_numCounter); // counter
@@ -336,7 +336,7 @@ CTracker::logDelete(void* ptr, int line, const char* file)
 		int id = getSrcID(file);
     
 		buf[0] = CMD_FREE;
-		setArrU32(buf + 1, (u32)ptr);
+		setArrU32(buf + 1, static_cast<uint32_t>(reinterpret_cast<uintptr_t>(ptr)));
 		setArrU32(buf + 5, ms_numFrame);  // frame
 		setArrU32(buf + 9, ms_numCounter); // counter
 		setArrU16(buf + 13, (u16)line); // line

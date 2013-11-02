@@ -364,7 +364,7 @@ void TexturePackerOnce::release() {
 
 void TexturePackerOnce::dump(bool detail) {
 	FILE* pFile = CPFInterface::getInstance().client().getShellOutput();
-	fprintf(pFile, "==== Surface Alloc %8X Size W:%i, H:%i Byte/Pix: %i ====\n", reinterpret_cast<unsigned int>(this), m_width, m_height, m_currFormat);
+	fprintf(pFile, "==== Surface Alloc %8lX Size W:%i, H:%i Byte/Pix: %i ====\n", reinterpret_cast<uintptr_t>(this), m_width, m_height, m_currFormat);
 	u32 totalSurface	= m_width * m_height;
 	u32 usedSurface		= 0;
 	u32 allocSurface	= 0;

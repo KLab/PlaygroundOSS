@@ -1,5 +1,5 @@
 function setup()
-
+    syslog("setting up SimpleItem")
 	local x = 100
 	local y = 100
 	pSimpleItem = UI_SimpleItem(	nil,							-- arg[1]:		親となるUIタスクポインタ

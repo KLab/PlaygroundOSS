@@ -159,7 +159,7 @@ void CKLBOGLWrapper::releaseShader(CShader* pShader) {
 }
 
 void CKLBOGLWrapper::releaseShaderSet(CShaderSet* pFullShader) {
-	klb_assertc(pFullShader,						"null shader set");
+	klb_assertc(pFullShader != NULL,						"null shader set");
 
 	CShaderSet* p		= this->shaderSetList;
 	CShaderSet* pPrev	= null;
