@@ -85,7 +85,7 @@ Samples and Tutorials
 While it may not be a tutorial in the strict sense of the term, because there are not much step by step explaination,
 we have also a tutorial-like showing LUA code testing different features of the engine.
 
-See ```Tutorial/Samples.zip``` (for download size reason, we keep it zipped)
+See ```Tutorial/``` directory.
 
 Prototype with C# Instead of LUA
 ---------------------------------
