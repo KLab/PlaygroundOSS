@@ -19,6 +19,7 @@
 #include <unistd.h>
 #else
 #include <Windows.h>
+typedef unsigned __int32 uint32_t;
 #endif
 
 #include "BaseType.h"
