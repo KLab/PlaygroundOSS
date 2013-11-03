@@ -25,12 +25,21 @@
 // ---------------------------------------------------------------------------------------
 #ifndef USE_DEBUG_WRAPPER
 	#if defined(__APPLE__)
-		#ifdef OPENGL2
-		#import <OpenGLES/ES2/gl.h>
-		#import <OpenGLES/ES2/glext.h>
-		#else
-		#import <OpenGLES/ES1/gl.h>
-		#import <OpenGLES/ES1/glext.h>
+        #include "TargetConditionals.h"
+		#if TARGET_OS_IPHONE // iOS devices or iOS Simulator
+			#ifdef OPENGL2
+			#import <OpenGLES/ES2/gl.h>
+			#import <OpenGLES/ES2/glext.h>
+			#else
+			#import <OpenGLES/ES1/gl.h>
+			#import <OpenGLES/ES1/glext.h>
+			#endif
+		#else // Mac OS X
+			// #include "glew.h"
+			#include <GLUT/glut.h>
+			#include <OpenGL/gl.h>
+            #include <OpenGL/glext.h>
+			#define STD_OPENGL
 		#endif
 	#else
 		#ifdef OPENGL2
