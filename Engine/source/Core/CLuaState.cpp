@@ -21,6 +21,30 @@
 #include "CLuaState.h"
 #include "CKLBLuaEnv.h"
 
+namespace
+{
+
+int
+traceback(lua_State* L)
+{
+  const char* message = lua_tostring(L, 1);
+  if (message)
+    {
+      luaL_traceback(L, L, message, 1);
+    }
+  else if (!lua_isnoneornil(L, 1))
+    {
+      if(!luaL_callmeta(L, 1, "__tostring"))
+        {
+          lua_pushliteral(L, "(noeror message)");
+        }
+    }
+
+  return 1;
+}
+
+} // noname namespace
+
 CLuaState::CLuaState(lua_State * L) 
 : m_L(L) 
 {
@@ -123,7 +147,13 @@ CLuaState::call_luafunction(int retnum, const char *func, const char *argform, v
 bool
 CLuaState::call(int args, const char * func, int nresults)
 {
-    int result = lua_pcall(m_L, args, nresults, 0);
+    // call stackを取れるようにtraceback函数をpushしpcallの第四引数を修正.
+    int base = lua_gettop(m_L) - args;
+    lua_pushcfunction(m_L, traceback);
+    lua_insert(m_L, base);
+    int result = lua_pcall(m_L, args, nresults, base);
+    lua_remove(m_L, base);
+
     if(result) {
     	const char * msg = NULL;
         
@@ -135,11 +165,17 @@ CLuaState::call(int args, const char * func, int nresults)
             case LUA_ERRERR:    msg = "error in error: %s (%s)";            break;
     	}
         // 呼び出しエラー: 指定の関数呼び出しに失敗
-        char buf[1024];
 		const char * errmsg = getString(-1);
-        sprintf(buf, msg, errmsg, func);
-        CKLBLuaEnv::getInstance().errMsg(buf);
-		klb_assertAlways("%s", buf);
+        int buff_len = strlen(msg) + strlen(errmsg) + strlen(func) + 1;
+        char* buffer = KLBNEWA(char, buff_len);
+#if defined(_WIN32)
+        sprintf_s(buffer, buff_len, msg, errmsg, func);
+#else
+        snprintf(buffer, buff_len, msg, errmsg, func);
+#endif // #if defined(_WIN32)
+        CKLBLuaEnv::getInstance().errMsg(buffer);
+		klb_assertAlways("%s", buffer);
+        KLBDELETEA(buffer); // assert発生するとここまで来ない予感はする.
         return false;
     }
     return true;
