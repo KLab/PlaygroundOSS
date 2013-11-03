@@ -214,7 +214,7 @@ reading with replacing them if you have things in other location.
 Launch terminal :
 
 ```
-> cd [PATH TO PROJECT BASE]/Samples/01.SimpleItem/.publish/android/
+> cd [PATH TO PROJECT BASE]/Tutorial/01.SimpleItem/.publish/android/
 > zip -r -0 [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
 > echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
 ```
@@ -225,7 +225,7 @@ Launch terminal :
 Launch terminal :
 
 ```
-> cd /media/sf_Playground/Samples/01.SimpleItem/.publish/android/
+> cd /media/sf_Playground/Tutorial/01.SimpleItem/.publish/android/
 > zip -r -0 /media/sf_Playground/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
 > echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
 ```
