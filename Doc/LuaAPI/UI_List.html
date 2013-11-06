@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_List – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_List">UI_List<a title="このセクションへのリンク" href="#UI_List" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="ご注意">!!!ご注意!!!<a title="このセクションへのリンク" href="#%E3%81%94%E6%B3%A8%E6%84%8F" class="anchor"> ¶</a></h3>
+<p>
+<strong>UI_List は非常に多機能であり、使用方法についてもっとも質問の多いタスクであるため、</strong>
+<strong>質問や不具合報告を行う前に、必ず FAQ およびマニュアルを確認することを推奨します。</strong>
+</p>
+<ul><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/FAQ#UI_FormUI_List%E5%85%B1%E9%80%9A%E7%B7%A8">FAQ:UI_Form/UI_List共通編</a>
+</li><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/FAQ#UI_List%E7%B7%A8">FAQ:UI_List編</a>
+</li></ul><hr>
+<pre class="wiki">   &lt;task pointer&gt; = UI_List( &lt;parent pointer&gt;, 
+                             &lt;base priority&gt;, &lt;max order&gt;,
+                             &lt;x&gt;, &lt;y&gt;, &lt;clip width&gt;, &lt;clip height&gt;,
+                             &lt;default line step&gt;, &lt;vertical flag&gt;, "&lt;drag callback&gt;" [ , &lt;option flags&gt; ] )
+
+
+   function &lt;drag callback&gt;(&lt;task pointer&gt;, &lt;type&gt;, &lt;tap-x&gt;, &lt;tap-y&gt;, &lt;move-x&gt;, &lt;move-y&gt;)
+
+   end
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;base priority&gt; 基準表示プライオリティ
+</li><li>&lt;max order&gt; クリッピング対象とする最大プライオリティ値
+</li><li>&lt;x&gt;, &lt;y&gt; クリッピング領域とする領域の位置
+</li><li>&lt;clip width&gt;, &lt;clip height&gt; クリッピング領域のサイズ
+</li><li>&lt;default line step&gt; デフォルトの項目間隔（アイテムの幅）
+</li><li>&lt;vertical flag&gt; 縦方向リストフラグ。trueで縦方向、falseで横方向
+</li><li>&lt;drag callback&gt; リストをドラッグ操作した際のコールバック。nil を指定した場合はコールバックを呼ばない。
+</li><li>&lt;option flags&gt; 動作オプションのフラグ
+<ul><li>LIST_FLAG_BOTTOM アイテムとなるフォームを並べる軸線を、横スクロールであればクリッピング領域の下端、縦スクロールであれば右端に設定する。
+</li><li>LIST_FLAG_MODAL  モーダルコントロールとして生成する(<a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/ModalStack">モーダルスタックについて</a>)
+</li></ul></li></ul><blockquote>
+<p>
+※LIST_FLAG_BOTTOM を使用する場合、アイテムとして追加されるフォームの起点が軸線上に来るため、データ作成上注意が必要。
+</p>
+</blockquote>
+<ul><li>&lt;task pointer&gt; コールバックを呼び出した UI_List タスクのポインタ
+</li><li>&lt;type&gt; タッチパネル操作の種類
+</li><li>&lt;tap-x&gt; 今回の操作が始まった時点におけるタップ位置x座標
+</li><li>&lt;tap-y&gt; 今回の操作が始まった時点におけるタップ位置y座標
+</li><li>&lt;move-x&gt; タップ位置から今回のイベントが検出された位置までのx方向差分
+</li><li>&lt;move-y&gt; タップ位置から今回のイベントが検出された位置までのy方向差分
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_List タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+UIエディタで生成されたJSONを項目として、複数のフォームを縦または横に並べたリストを表示/管理するタスクを生成する。
+</p>
+<h3 id="プロパティ">プロパティ<a title="このセクションへのリンク" href="#%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3" class="anchor"> ¶</a></h3>
+<ul><li>.margin_top (integer:default = 0)  先端マージンサイズ(integer)
+</li><li>.margin_bottom (integer:default = 0)  終端マージンサイズ(integer)
+</li><li>.default_scroll (boolean:default = false)  起動時に指定された &lt;drag callback&gt;がnilの場合、trueでデフォルトドラッグスクロールが有効になる。
+</li></ul><h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_LIST_ITEM_ADD</dt><dd>
+リストの末尾に項目を追加する。項目は JSON asset または同じ構造のLuaテーブルで与えられる。
+<ul><li>UI_LIST_ITEM_ADD
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ITEM_ADD, "&lt;form JSON asset&gt;" [, &lt;step by prev&gt;, &lt;item-id&gt; ] )
+   sysCommand(pList, UI_LIST_ITEM_ADD, &lt;form Lua table&gt; [, &lt;step by prev&gt;, &lt;item-id&gt; ] )
+
+   &lt;item-id&gt; 0以上の値を持つ任意の整数値
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_ITEM_ID</dt><dd>
+指定されたindex値を持つアイテムに、任意のID値を与える。
+<ul><li>UI_LIST_SET_ITEM_ID
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_ITEM_ID, &lt;index&gt;, &lt;item-id&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SEARCH_ID</dt><dd>
+指定されたID値を持つアイテムを検索し、そのindex値を返す。
+<ul><li>UI_LIST_SEARCH_ID
+<pre class="wiki">   pList = UI_List(...)
+   &lt;index&gt; = sysCommand(pList, UI_LIST_SEARCH_ID, &lt;item-id&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_ITEM_INSERT</dt><dd>
+リスト中の指定したindex位置に項目を挿入する。項目はJSON asset または同じ構造のLuaテーブルで与えられる。
+<ul><li>UI_LIST_ITEM_INSERT
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ITEM_INSERT, "&lt;form JSON asset&gt;", &lt;exist item index [, &lt;item-id&gt; ])
+   sysCommand(pList, UI_LIST_ITEM_INSERT, &lt;form Lua table&gt;, &lt;exist item index&gt; [, &lt;item-id&gt; ])
+
+   &lt;item-id&gt; 0以上の値を持つ任意の整数値
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_ITEM_REMOVE</dt><dd>
+リスト中の指定したindex位置にある項目を削除する。
+<strong>indexはその場で先頭に詰めます</strong>
+<ul><li>UI_LIST_ITEM_REMOVE
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ITEM_REMOVE, &lt;exist item index&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_ITEM_MOVE</dt><dd>
+&lt;src-index&gt;で指定されたアイテムのindex位置が、&lt;dst-index&gt;になるように移動する。
+ただし、index値として指定できるのは0～(アイテム総数-1)に限られ、この範囲を超えると末尾に移動する。
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ITEM_MOVE, &lt;src-index&gt;, &lt;dst-index&gt;)
+</pre></dd></dl>
+<dl><dt>UI_LIST_ITEM_REMOVE_SELECTION</dt><dd>
+Luaテーブルで指定されたリスト中に含まれる複数のindex位置にある項目をまとめて削除する。
+<ul><li>UI_LIST_ITEM_REMOVE_SELECTION
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ITEM_REMOVE_SELECTION, &lt;item-index-array&gt;)
+
+   ex) sysCommand(pList, UI_LIST_ITEM_REMOVE_SELECTION, { 0, 3, 8, 12 } )
+
+     indexが 0, 3, 8, 12 のアイテムをまとめて削除します。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_LOOPMODE</dt><dd>
+リストの先端と終端が連結され、アイテムがループする動作モードの有効/無効を設定する。
+リスト全体の長さがクリッピングエリアより短い場合、ループ動作モードはループ動作にならず、UI_LIST_SET_LIMITCLIPによる設定に準じた動作となる。
+<ul><li>UI_LIST_SET_LOOPMODE
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_LOOPMODE, &lt;loop-mode&gt;)
+
+   &lt;loop-mode&gt; true:ループ有効 / false:ループ無効
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_ITEMMODE</dt><dd>
+リストにおけるアイテムの保持モードを設定する。
+<ul><li>UI_LIST_SET_ITEMMODE
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(plist, UI_LIST_SET_ITEMMODE, &lt;item-mode&gt; [ , &lt;into-callback&gt; ])
+
+   &lt;item-mode&gt; として設定可能な値
+
+     LIST_ITEM_NORMAL    NORMALモード: アイテム追加時点でformを作成する。UI_LIST_UPDATE_NODEコマンドによるノードの更新が可能。
+
+     LIST_ITEM_DYNAMIC   DYNAMICモード: アイテム追加時点でformのjsonのみを保持し、クリッピング領域内に入った時点でformを生成、
+                         領域外に出たときにformを破棄する。formの状態を保持することができないので、UI_LIST_UPDATE_NODE コマンドによる
+                         ノードの更新は禁止される。表示分のみformを生成するため、assetによるメモリ資源の消費を抑えることができる。
+
+   &lt;into-callback&gt; アイテムがクリップ領域に入った時に呼ばれるコールバック。
+
+     function &lt;into-callback&gt;( pList , &lt;item-index&gt;, &lt;item-id&gt; )
+
+     end
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_MARGIN</dt><dd>
+リストスクロール範囲の先端と終端における、アイテム以前/以後の余白となる領域のサイズを指定する。
+<ul><li>UI_LIST_SET_MARGIN
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_MARGIN, &lt;margin-top&gt;, &lt;margin-bottom&gt;)
+
+   ※プロパティ .margin_top および .margin_bottom でも値は操作可能。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_POSITION</dt><dd>
+リスト項目のスクロール位置を指定する。スクロール方向は縦か横どちらかなので、位置を表す値は一つのみ。実際に設定された値を返す。
+また、ループ動作モード時など、あるポジションに行くために二つのスクロール方向がある場合のため、
+スクロール方向を指定する値として &lt;dir&gt; を指定することができる。 &lt;dir&gt;に指定する値は 1(増加方向)あるいは -1(減少方向)となる。
+<ul><li>UI_LIST_SET_POSITION
+<pre class="wiki">   pList = UI_List(...)
+   &lt;set position X or Y&gt; = sysCommand(pList, UI_LIST_SET_POSITION, &lt;position X or Y&gt; [ , &lt;dir&gt; ] )
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_GET_POSITION</dt><dd>
+現在のスクロール位置を取得する。
+<ul><li>UI_LIST_SET_POSITION
+<pre class="wiki">   pList = UI_List(...)
+   &lt;position X or Y&gt; = sysCommand(pList, UI_LIST_GET_POSITION)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_INITIAL</dt><dd>
+リスト項目の初期位置を指定する。UI_LIST_SET_POSITION と基本的に同じだが、
+スクロールマネージャによるアニメーションを伴わず、瞬時にその位置まで移動する。表示開始時の初期位置指定等に使用する。
+<ul><li>UI_LIST_SET_INITIAL
+<pre class="wiki">   pList = UI_List(...)
+   &lt;set position X or Y&gt; = sysCommand(pList, UI_LIST_SET_INITIAL, &lt;position X or Y&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_ITEM_POS</dt><dd>
+インデックスで指定したリスト中のアイテムが、クリッピング領域内にはいるように、スクロール位置を自動設定する。
+<ul><li>UI_LIST_SET_ITEM_POS
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_ITEM_POS, &lt;position mode&gt;, &lt;exist item index&gt; [, &lt;offset&gt; ])
+   
+   &lt;position mode&gt; は下記の中から選択する。
+		LIST_VIEW_TOP    クリッピング領域の上端にアイテム上端を合わせる
+		LIST_VIEW_CENTER クリッピング領域の中央にアイテムが来るように合わせる
+		LIST_VIEW_END    クリッピング領域の下端にアイテム下端を合わせる
+                LIST_VIEW_OFFSET クリッピング領域の上端を基準とした指定オフセット位置にアイテム上端を合わせる
+
+   ※ &lt;offset&gt; は &lt;position mode&gt;がLIST_VIEW_OFFSET以外の時に指定されるとエラーとなるので注意。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_CHANGE_STEP</dt><dd>
+インデックスで指定したリスト中のアイテムが占有するスクロール幅を変更する
+<ul><li>UI_LIST_CHANGE_STEP
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_CHANGE_STEP, &lt;exist item index&gt;, &lt;new step&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_LIMITCLIP</dt><dd>
+リストの上端および下端を超えたスクロールの許可/禁止を設定する。デフォルト状態では禁止状態。
+スクロールの結果、が両端に達した際呼ばれるコールバックを指定できる。
+このコールバックは、&lt;limit clip enable&gt;がtrueのときは両端に達した/離れたとき、falseの場合は両端からの領域に入った/出たときに呼ばれる。
+<ul><li>UI_LIST_SET_LIMITCLIP
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_LIMITCLIP, &lt;limit clip enable&gt; [, "&lt;limit callback&gt;" ] )
+   
+   &lt;limit clip enable&gt; true でクリップあり(禁止)、falseでクリップなし(許可)
+
+   &lt;limit callback&gt; スクロールの結果、リスト両端から一定の範囲がクリッピング領域に入った際に呼ばれるコールバック関数の名前。
+
+   function &lt;limit callback&gt;(&lt;list task pointer&gt;, &lt;mode&gt;, &lt;items&gt;, &lt;length&gt;, &lt;pos&gt;)
+   end
+
+   &lt;list task pointer&gt; 呼び出し元 UI_List タスクのポインタ
+   &lt;mode&gt;              LIST_SCROVER_TOP(先頭側) / LIST_SCROVER_BOTTOM(末端側) / LIST_SCROVER_TAKEOFF(先頭または末端を離れた)のいずれか。
+   &lt;items&gt;             現在のアイテム総数
+   &lt;length&gt;            現在のスクロール範囲長さ
+   &lt;pos&gt;               現在のスクロール位置
+
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_LIMITAREA</dt><dd>
+UI_LIST_SET_LIMITCLIP で超過スクロール警告コールバックを指定した際、呼び出し条件となる両端からの範囲のサイズを指定する。
+0 を指定すると両端からクリッピング領域のサイズ(1画面分)と同じ値となり、デフォルトではこの状態となる。
+<ul><li>UI_LIST_SET_LIMITAREA
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_LIMITAREA, &lt;limit area size&gt; )
+   
+   &lt;limit area size&gt; コールバック呼び出しの条件となる両端からの範囲のサイズ
+</pre></li></ul></dd></dl>
+<blockquote>
+<p>
+UI_LIST_SET_LIMITCLIP で false とコールバックを指定したとき、UI_LIST_SET_LIMITAREA で設定された範囲は下図のような概念で扱われます。
+</p>
+</blockquote>
+<p>
+<a style="padding:0; border:none" href="assets/LimitClipFalse.png"><img src="assets/LimitClipFalse.png"></a>
+</p>
+<dl><dt>UI_LIST_GET_LIMIT</dt><dd>
+現在のリスト下端がクリッピング領域の下端に来るスクロール値を返す。
+<ul><li>UI_LIST_GET_LIMIT
+<pre class="wiki">   pList = UI_List(...)
+   &lt;limit position X or Y&gt; = sysCommand(pList, UI_LIST_GET_LIMIT)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_EXIST_NODE</dt><dd>
+リスト内に含まれるノードを名前で検索し、存在するか否かを返す。
+<strong>&lt;target index&gt;は0から始まる。</strong>
+<ul><li>UI_LIST_EXIST_NODE
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_EXIST_NODE, &lt;target index&gt;, "&lt;node name&gt;")
+
+   &lt;target index&gt;  対象アイテムのindex
+   &lt;node name&gt;     ノードの名称
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_UPDATE_NODE</dt><dd>
+リスト内に含まれるノードを名前で検索し、サブコマンドで指定された操作を行う。
+<strong>&lt;target index&gt;は0から始まる。</strong>
+<ul><li>UI_LIST_UPDATE_NODE
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, &lt;subcommand&gt;, ... )
+
+
+   &lt;node identifier&gt;  ノードの名称"&lt;node name&gt;"または、FORM_NODE_POINTER で取得される &lt;node pointer&gt; いずれか
+
+
+   引数の数と意味は &lt;subcommand&gt; の値ごとに異なる。
+   &lt;subcommand&gt;の値は UI_Form と共通の定数を使用する。また、&lt;subcommand&gt;以降の書式は UI_Formと共通。
+
+   FORM_NODE_～: 全ノード共通処理
+     &lt;node pointer&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_POINTER)  ノードポインタ取得
+
+      ※取得されるポインタは SceneGraph上に存在するノードのポインタであり、そのノードが持つタスクのポインタではないことに注意。
+        タスクのポインタを取得する場合は、FORM_NODE_TASK サブコマンド(後述)を使用。
+
+
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_RECURSIVE, "&lt;function name&gt;") ノード再帰処理
+
+
+       function &lt;function name&gt;(&lt;parent task pointer&gt;, &lt;node pointer&gt;, &lt;index&gt;, &lt;level&gt;)
+         -- &lt;parent task pointer&gt;  呼び出し元UI_Listタスクのポインタ
+         -- &lt;node pointer&gt;         再帰処理対象となるノードのポインタ
+         -- &lt;index&gt;                アイテムインデックス。UI_ListではFORM_NODE_RECURSIVEで指定した &lt;target index&gt; の値
+         -- &lt;level&gt;                再帰呼び出しの階層。FORM_NODE_RECURSIVEで指定した&lt;node identifier&gt;に該当するノードが0、以降、階層を子の側に辿るごとに+1される
+       end
+
+
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_TRANS, &lt;x&gt;, &lt;y&gt;)           移動
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_SCALE, &lt;scaleX&gt;, &lt;scaleY&gt;) 表示倍率指定
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;", FORM_NODE_ROT, &lt;rotation-degree&gt;)    回転角指定。正の方向で時計回り。単位はdegree.
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_COLOR, &lt;alpha&gt;, &lt;RGB&gt; )    表示RGBおよびalpha指定
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_VISIBLE, &lt;visible flag&gt; )  表示/非表示切り替え
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_ORDER, &lt;priority&gt; )        表示プライオリティ指定
+     &lt;node order&gt;   = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_GET_ORDER)表示プライオリティ取得
+     &lt;task pointer&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_NODE_TASK)     指定のノードを持つタスクポインタを取得
+
+      ※FORM_NODE_TASK で取得できるのは、Compositeで指定され起動されたタスクのみであり、
+         UI_GENERIC_RECONNECT_NODE 等を使用してスクリプトから後天的に接続したタスクについては対象とならない。
+         そのようなタスクについては、別途スクリプタの責任においてタスクのポインタを保持すること。
+
+
+   FORM_UIE_～: CKLBUIElement型用
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIE_SET_ENABLED, &lt;enabled flag&gt; )           有効/無効切り替え
+     &lt;enabled flag&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIE_GET_ENABLED)           有効/無効状態取得
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIE_SET_ASSET, &lt;asset path&gt;, &lt;asset type&gt; ) 表示asset変更
+
+     &lt;asset type&gt; は、form中で使用される目的別の分類。
+		FORM_ASSET_NORMAL    通常時
+		FORM_ASSET_DISABLED  無効時
+		FORM_ASSET_FOCUSED   フォーカス時(タッチパネルデバイスでは無意味)
+		FORM_ASSET_PUSHED    押された時
+
+    sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIE_SET_TEXT, "&lt;new text&gt;" )                 ラベルテキスト変更(ラベル以外は無視)
+     ※現状未実装
+
+
+   FORM_UIS_～: CKLBUISelectable型用
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIS_SET_CLICK, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt; ) クリック範囲指定
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIS_SET_STICK, &lt;stick flag&gt; )                チェックボックス状態指定
+     &lt;sticked status&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIS_GET_STICK)            チェックボックス状態取得
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_UIS_SET_RADIO, &lt;radio ID&gt; )                  ラジオボタンID指定
+
+   FORM_CONT_～: CKLBUIContainer型用
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_CONT_VIEWOFFSET, &lt;offsetX&gt;, &lt;offsetY&gt; )      View内表示offset指定
+     &lt;radio value&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_CONT_GET_RADIO_VALUE)        ラジオボタン値取得
+
+   FORM_TEXT_～: CKLBUITextBox型用
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_TEXT_SET, &lt;text string&gt; )                    テキストボックス文字列設定
+     &lt;text string&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_TEXT_GET)                    テキストボックス文字列取得
+   
+   FORM_WEB_～: CKLBUIWebView型用
+     sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_WEB_SET_URI, &lt;URI string&gt; )                  WebView 表示 URI 指定
+     &lt;URI string&gt; = sysCommand(pList, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_WEB_GET_URI)                  現在の URI 文字列取得
+
+   FORM_LBL_～: CKLBLabelNode型用
+     sysCommand(pForm, UI_LIST_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_LBL_SET_TEXT, "&lt;new text&gt;" )                ラベルテキスト変更
+     &lt;text string&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;target index&gt;, &lt;node identifier&gt;, FORM_LBL_GET_TEXT)               ラベルテキスト取得
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_INPUT_ENABLE</dt><dd>
+リスト各項目の表示状態を変えずに操作を許可/禁止する。
+<ul><li>UI_LIST_INPUT_ENABLE
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pLilst, UI_LIST_INPUT_ENABLE, &lt;enable flag&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_ANIM_CALLBACK</dt><dd>
+フォームのアニメーションコールバックを指定する。
+<ul><li>UI_LIST_ANIM_CALLBACK
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ANIM_CALLBACK, "&lt;callback name&gt;")
+
+   コールバックの型は下記の通り。
+
+   function &lt;callback name&gt;(pList, name, id)
+   end
+
+    pList アニメーションを終了させたUI_Listタスクのポインタ
+    name  終了したアニメーションの名前
+    id    アニメーション起動時に与えたID(リストアイテムのindex値と同じ,あるいは-1)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_ANIMATION_ITEM</dt><dd>
+名前を指定して、listの持つアイテムのうち、&lt;item index&gt;で指定されたアイテムのアニメーションを開始させる。
+UI_LIST_ANIM_CALLBACKが使用されている場合、id値として&lt;item index&gt;が渡される。
+<ul><li>UI_LIST_ANIMATION_ITEM
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ANIMATION_ITEM, &lt;item index&gt;, "&lt;animation name&gt;" [, &lt;blend flag&gt;])
+
+     &lt;item index&gt; アニメーションさせるアイテムのindex
+     &lt;animation name&gt; アニメーションの名前
+     &lt;blend flag&gt; Form中のアニメーションとの補間フラグ。指定しない場合はfalseと同じ扱いとなる。
+                  trueであればこのコマンドで最初に指定した時にだけ再生を行い、
+                  falseであれば指定される都度に再生される。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_ANIMATION_ALL</dt><dd>
+名前を指定して、listの持つ全てのアイテムのアニメーションを開始させる。
+UI_LIST_ANIM_CALLBACKが使用されている場合、渡されるid値は -1 となる。
+<ul><li>UI_LIST_ANIMATION_ALL
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_ANIMATION_ALL, "&lt;animation name&gt;" [, &lt;blend flag&gt;])
+
+     &lt;animation name&gt; アニメーションの名前
+     &lt;blend flag&gt; Form中のアニメーションとの補間フラグ。指定しない場合はfalseと同じ扱いとなる。
+                  trueであればこのコマンドで最初に指定した時にだけ再生を行い、
+                  falseであれば指定される都度に再生される。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_USE_SCROLLBAR</dt><dd>
+UI_List の組み込みスクロールバーを表示させる。
+スクロールバーは縦スクロールの場合は左右いずれか、横スクロールの場合は上下いずれかに表示させることができる。
+<ul><li>UI_LIST_USE_SCROLLBAR
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_USE_SCROLLBAR, &lt;order&gt;, &lt;side&gt;, &lt;line-weight&gt;, &lt;image&gt;, &lt;min-slider-size&gt;,
+              "&lt;callback&gt;", &lt;alpha-normal&gt;, &lt;color-normal&gt;, &lt;alpha-select&gt;, &lt;color-select&gt;, &lt;active&gt; [ , &lt;hide-mode&gt; ] )
+
+   &lt;order&gt;   表示プライオリティ
+   &lt;side&gt;            スクロールバーの表示位置。true で右側または下側、falseで左側または上側
+   &lt;line-weight&gt;     スクロールバーの太さ。表示領域サイズに使用される。
+   &lt;image&gt;           スクロールバーのスライダ表示に使用される画像asset名。
+   &lt;min-slider-size&gt; スクロール領域の変動に伴うスライダサイズ変更時の最小サイズ
+   &lt;callback&gt;        スクロールバーによるコールバックの関数名称(不要な場合は nil を指定)
+
+   &lt;alpha-normal&gt;    通常時のスライダ表示アルファ値
+   &lt;color-normal&gt;    通常時のスライダ表示カラー
+   &lt;alpha-select&gt;    選択/操作時のスライダ表示アルファ値
+   &lt;color-select&gt;    選択/操作時のスライダ表示
+   &lt;active&gt;          ユーザによるスクロールバー自体の操作可否(true:許可/false:禁止)
+   &lt;hide-mode&gt;       手を放して1秒後にフェードアウトするモードの使用(true:有効/false:無効)
+
+
+   ※コールバック関数仕様
+   function &lt;callback&gt;(&lt;pList&gt;, &lt;type&gt;, &lt;pos&gt;)
+
+   end
+
+   &lt;pList&gt;    呼び出し元となるスクロールバーを持つUI_Listタスクのポインタ
+   &lt;type&gt;     操作の種類。0(Drag) または 1(Release)
+   &lt;pos&gt;      スクロールバーの値
+
+
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SELECT_SCRMGR</dt><dd>
+名前を指定してスクロールバーが使用するスクロールマネージャを選択し、必要に応じてそのパラメータを与える。
+<ul><li>UI_LIST_SELECT_SCRMGR
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SELECT_SCRMGR, "&lt;manager-name&gt;" [, ... ])
+
+     &lt;manager-name&gt; スクロールマネージャ名称
+
+     ※現在、スクロールマネージャは下記のものが用意されている。()内はパラメータ
+       "default" 指定位置まで急加速→減速の動きでスクロールする([, &lt;delay&gt; ])
+       "solid"   一切の補間処理なく指定位置にそのフレームで即ジャンプする(パラメータなし)
+       "page"    一定単位を「ページサイズ」とし、その境界単位でスクロールする(, &lt;page-size&gt; [, &lt;delay&gt; [ , &lt;stopline-offset&gt; ] ])
+
+         &lt;stopline-offset&gt; クリッピング領域上端からページ境界の停止位置オフセット
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SCRMGR_CALLBACK</dt><dd>
+スクロールマネージャレベルのコールバックを指定する。
+コールバックはスクロールマネージャがそのフレーム処理の中でスクロールを停止した時点で呼ばれる。
+<ul><li>UI_LIST_SCRMGR_CALLBACK
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SCRMGR_CALLBACK, "&lt;callback-function-name&gt;")
+
+   function &lt;callback-function-name&gt;( &lt;task-pointer&gt;, &lt;pos&gt; )
+     -- &lt;task-pointer&gt;  親となるUI_Listのポインタ
+     -- &lt;pos&gt;           停止した時点のスクロール位置
+   end
+
+   ※スクロール停止位置が前回の停止位置と同じ場合はコールバック関数は呼ばれない（仕様）
+</pre></li></ul></dd></dl>
+<dl><dt>UI_LIST_SET_GROUP</dt><dd>
+リストにグループ名を与える。同じグループ名を持つ UI_Form および UI_List は同一のグループに所属すると見做され、操作の排他制御が行われる。
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_GROUP, "&lt;group-name&gt;")
+</pre></dd></dl>
+<dl><dt>UI_LIST_SET_CLIP</dt><dd>
+クリッピングを再設定する機能です。start_priorityとend_priorityも設定できるが、-1に設定した場合、前の値のままになります。
+</dd></dl>
+<p>
+そして、x,yは基本的に0だが、自由に設定できる。
+</p>
+<blockquote>
+<p>
+width == 0 and height == 0の場合、クリップが無効になります。
+</p>
+</blockquote>
+<blockquote>
+<p>
+width != 0 or height != 0の場合、クリップ有効になります。
+</p>
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_CLIP, start_priority, end_priority, x, y, width, height)
+</pre></blockquote>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

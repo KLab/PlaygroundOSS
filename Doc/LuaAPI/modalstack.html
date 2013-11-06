@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/ModalStack – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="modalstack_files/trac.css" type="text/css"><link rel="stylesheet" href="modalstack_files/wiki.css" type="text/css">
+      <link type="application/opensearchdescription+xml" rel="search" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/search/opensearch" title="Search KLBGame25D">
+    <script type="text/javascript" src="modalstack_files/jquery.js"></script><script type="text/javascript" src="modalstack_files/trac.js"></script><script type="text/javascript" src="modalstack_files/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="モーダルスタックについて">モーダルスタックについて<a title="このセクションへのリンク" href="#%E3%83%A2%E3%83%BC%E3%83%80%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" class="anchor"> ¶</a></h2>
+<p>
+一部のUIタスクは「モーダルスタック」の概念を持ちます。
+これはUIのモーダル状態を制御するための、内部的なデータ構造です。
+具体的には下記のタスクが対応しています。
+</p>
+<ul><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/UI_Form">UI_Form</a> (&lt;modal flag&gt;で指定)
+</li><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/UI_List">UI_List</a> (&lt;option flags&gt; の LIST_FLAG_MODAL で指定)
+</li><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/UI_Control">UI_Control</a> (非モーダル状態のみ)
+</li><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/UI_DragIcon">UI_DragIcon</a> (非モーダル状態のみ)
+</li></ul><p>
+モーダルスタック対応のタスクは、起動されると自身を「モーダルスタック」と呼ばれるスタック形式のデータに積み上げます。
+また、非表示にされたり破棄されるなど、画面上から取り除かれる際に取り除かれます。
+</p>
+<p>
+この時、モーダルスタックに積まれているすべてのタスクは下記の法則により影響を受けます。
+</p>
+<ul><li>タスクがモーダルであるか否かを問わず、上記の種類のタスクはすべてモーダルスタックに積まれます。
+</li><li>モーダルスタックに積まれたタスクが「モーダル」であるならば、自分より下に積まれているタスクの操作をすべて禁止します。
+</li><li>タスクが取り除かれた時、そのタスクがモーダルスタック中で最も上に積まれているモーダルのタスク(その上に何もないか、あってもすべてモーダルではない場合)であれば、その下から次のモーダルであるタスクにぶつかるまで、操作が許可された状態に戻します。
+</li><li>自身がモーダルスタックの途中にあるときに取り除かれた場合は、特に他のタスクの状態を変更しません。
+</li></ul><p>
+モーダルスタックに積まれるタイミングは、
+</p>
+<ul><li>タスクを生成したとき
+</li><li>表示状態をvisibleに変更したとき
+</li></ul><p>
+取り除かれるタイミングは、
+</p>
+<ul><li>タスクを破棄したとき
+</li><li>表示状態をinvisible に変更したとき
+</li></ul><p>
+となります。
+</p>
+<p>
+モーダルスタックに積まれる順番は表示上のプライオリティと関係なく、
+「積まれるアクションを行った順」であることに注意してください。
+</p>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="modalstack_files/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

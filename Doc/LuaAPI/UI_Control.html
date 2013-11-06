@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_Control – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_Control">UI_Control<a title="このセクションへのリンク" href="#UI_Control" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_Control( "&lt;onClick callback&gt;", "&lt;onDrag callback&gt;")
+
+   function &lt;onClick callback&gt;(x, y)
+
+   end
+
+
+   function &lt;onDrag callback&gt;(mode, x, y, mvX, mvY)
+
+   end
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;onClick callback&gt; クリック動作時に呼ばれるコールバック関数の名称。関数は以下の二つの引数を持つ。
+<ul><li>x,y クリックされた座標
+</li></ul></li></ul><ul><li>&lt;onDrag callback&gt; ドラッグ動作時に呼ばれるコールバック関数の名称。関数は以下の5つの引数を持つ。
+<ul><li>mode ドラッグ中もしくはリリース動作を表す値のいずれか
+<ul><li>PAD_ITEM_DRAG     ドラッグ中
+</li><li>PAD_ITEM_RELEASE  リリース]
+</li></ul></li><li>x, y  現在の座標
+</li><li>mvX, mvY  タップ座標からの移動量
+</li></ul></li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_Control タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+高レベルの入力ゼスチャーを解釈し、それぞれに対応したコールバックを呼ぶ。
+ピンチイン/アウト、ローテーション、ダブルクリック、ロングタップ(長押し)に対応。
+</p>
+<p>
+また、<a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/ModalStack">モーダルスタック</a>の影響を受ける。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_CONTROL_ON_PINCH</dt><dd>
+ピンチイン/アウトおよびローテーション動作の値を取得するコールバック関数を指定する。
+<ul><li>UI_CONTROL_ON_PINCH 
+<pre class="wiki">   pCtrl = UI_Control(...)
+   sysCommand(pCtrl, UI_CONTROL_ON_PINCH, "&lt;onPinch callback&gt;")
+
+   function &lt;onPinch callback&gt;( mode, pinch, rot )
+
+   end
+
+    mode PAD_ITEM_DRAG / PAD_ITEM_RELEASE のどちらか
+    pinch 最初に指を置いた2点間の距離に対する、現在の2点間の距離の比率
+    rot   最初に指を置いた2点間を結ぶ線分に対する、現在の2点間を結ぶ線分の角度
+</pre></li></ul></dd></dl>
+<dl><dt>UI_CONTROL_ON_DBLCLICK</dt><dd>
+ダブルクリック動作の値を取得するコールバック関数を指定する。
+<ul><li>UI_CONTROL_ON_DBLCLICK 
+<pre class="wiki">   pCtrl = UI_Control(...)
+   sysCommand(pCtrl, UI_CONTROL_ON_DBLCLICK, "&lt;onDblClick callback&gt;")
+
+   function &lt;onDblClick callback&gt;( x, y )
+
+   end
+
+    x,y ダブルクリック動作が行われた座標
+</pre></li></ul></dd></dl>
+<dl><dt>UI_CONTROL_ON_LONGTAP</dt><dd>
+ロングタップ(長押し)動作の値を取得するコールバック関数を指定する。
+ロングタップ動作の通知は、ドラッグやリリースなどが行われるまで毎フレーム行われる。
+<ul><li>UI_CONTROL_ON_LONGTAP
+<pre class="wiki">   pCtrl = UI_Control(...)
+   sysCommand(pCtrl, UI_CONTROL_ON_LONGTAP, "&lt;onLongTap callback&gt;")
+
+   function &lt;onLongTap callback&gt;( t, x, y )
+
+   end
+
+    t   タップ時点からの経過時間(ミリ秒)
+    x,y ダブルクリック動作が行われた座標
+</pre></li></ul></dd></dl>
+<dl><dt>UI_CONTROL_SET_GROUP</dt><dd>
+UI_ControlをUI_FormやUI_Listと同様グループに所属させる。
+指定されたグループの他のフォーム等が操作中、UI_Controlの各操作におけるコールバックは呼ばれなくなる。また、後述のUI_CONTROL_LOCKで同グループの他のフォーム等の操作を禁止することができる。
+<ul><li>UI_CONTROL_SET_GROUP
+<pre class="wiki">   pCtrl = UI_Control(...)
+   sysCommand(pCtrl, UI_CONTROL_SET_GROUP, "&lt;group-name&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>UI_CONTROL_SET_MASK</dt><dd>
+UI_Controlが呼び出すcallback各種の許可/禁止フラグを設定する。
+指定はビットマスクで行い、対応するビットが 1 のコールバックは呼び出しが禁止される。
+<ul><li>UI_CONTROL_SET_MASK
+<pre class="wiki">   pCtrl = UI_Control(...)
+   sysCommand(pCtrl, UI_CONTROL_SET_MASK, &lt;bit-mask&gt;)
+
+   &lt;bit-mask&gt; に指定できるマスクビット定数
+    CTRLMASK_CLICK     クリック
+    CTRLMASK_DRAG      ドラッグ
+    CTRLMASK_PINCH      ピンチイン/アウト/ローテーション
+    CTRLMASK_DBLCLICK   ダブルクリック
+    CTRLMASK_LONGTAP    ロングタップ
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

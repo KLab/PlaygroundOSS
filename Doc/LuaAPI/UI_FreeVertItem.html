@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_FreeVertItem – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_FreeVertItem">UI_FreeVertItem<a title="このセクションへのリンク" href="#UI_FreeVertItem" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_FreeVertItem( &lt;parent pointer&gt;, &lt;order&gt;, &lt;x&gt;, &lt;y&gt;, "&lt;asset&gt;", &lt;vertices array&gt;)
+
+   &lt;vertices array&gt; = {
+     &lt;x0&gt;, &lt;y0&gt;,   -- left top
+     &lt;x1&gt;, &lt;y1&gt;,   -- right top
+     &lt;x2&gt;, &lt;y2&gt;,   -- right bottom
+     &lt;x3&gt;, &lt;y3&gt;    -- left bottom
+   } 
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;order&gt; 表示プライオリティ
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;asset&gt; 表示に使用する画像assetのパス。nilを指定するとテクスチャ無しで白単色での描画になる。
+</li><li>&lt;vertices array&gt; 頂点配列。4頂点を画像左上から時計回りに指定。
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_FreeVertItem タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+4つの頂点座標を自由に設定できる四角形を描画する。
+画像assetを指定した場合、そのテクスチャが使用されるが、assetとしてnilを指定した場合は白単色の四角形となる。
+</p>
+<p>
+実際は三角形を二つ組み合わせて描画(右上と左下を結ぶ対角線で分割)しているため、
+頂点の位置関係により凹となる頂点が生じた場合は正しく描画されない。必ず各頂点が凸となるような位置関係で指定する必要がある。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_FREEVERT_SET_VERTICES</dt><dd>
+頂点を再設定する。
+<ul><li>UI_FREEVERT_SET_VERTICES 
+<pre class="wiki">   pFVI= UI_FreeVertItem(...)
+   sysCommand(pFVI, UI_FREEVERT_SET_VERTICES, &lt;vertices array&gt;)
+
+   &lt;vertices array&gt; = {
+     &lt;x0&gt;, &lt;y0&gt;,   -- left top
+     &lt;x1&gt;, &lt;y1&gt;,   -- right top
+     &lt;x2&gt;, &lt;y2&gt;,   -- right bottom
+     &lt;x3&gt;, &lt;y3&gt;    -- left bottom
+   }
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FREEVERT_SET_COLORS</dt><dd>
+4つの頂点カラー(RGBA)を配列で与え、同時に設定する。
+頂点カラーにはデフォルトで 0xff(alpha)+0xffffff(RGB) が与えられているが、これを変更できる。
+<ul><li>UI_FREEVERT_SET_COLORS
+<pre class="wiki">   pFVI= UI_FreeVertItem(...)
+   sysCommand(pFVI, UI_FREEVERT_SET_COLORS, &lt;color array&gt;)
+
+   &lt;color array&gt; = {
+     &lt;alpha0&gt;, &lt;rgb0&gt;,  -- ex) 0xff, 0xffffff,
+     &lt;alpha1&gt;, &lt;rgb1&gt;,
+     &lt;alpha2&gt;, &lt;rgb2&gt;,
+     &lt;alpha3&gt;, &lt;rgb3&gt;
+   }
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FREEVERT_SET_VERT_COL</dt><dd>
+頂点カラーを個別に設定する。カラーを変更する頂点はインデックスで指定される。
+<ul><li>UI_FREEVERT_SET_VERT_COL
+<pre class="wiki">   pFVI= UI_FreeVertItem(...)
+   sysCommand(pFVI, UI_FREEVERT_SET_VERT_COL, &lt;idx&gt;, &lt;alpha&gt;, &lt;rgb&gt; )
+
+   &lt;idx&gt;: 左上を 0 とし、時計廻りに増加。
+</pre></li></ul></dd></dl>
+<p>
+UI_FREEVERT_SET_UV::
+</p>
+<blockquote>
+<p>
+4つの頂点についてUV値を同時に設定する。
+</p>
+</blockquote>
+<ul><li>UI_FREEVERT_SET_UV
+<pre class="wiki">   pFVI = UI_FreeVertItem(...)
+   sysCommand(pFVI, UI_FREEVERT_SET_UV, &lt;UV array&gt;)
+
+   &lt;UV array&gt; = {
+     &lt;u0&gt;, &lt;v0&gt;,   -- left top
+     &lt;u1&gt;, &lt;v1&gt;,   -- right top
+     &lt;u2&gt;, &lt;v2&gt;,   -- right bottom
+     &lt;u3&gt;, &lt;v3&gt;    -- left bottom
+   }
+   ※各UVは、指定された画像内の幅、高さを 0.0～1.0で正規化した値。テクスチャアトラス内(.texb)の正規化座標ではないことに注意。
+</pre></li></ul>
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

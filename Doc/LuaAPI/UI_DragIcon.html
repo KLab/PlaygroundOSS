@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_DragIcon – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_DragIcon">UI_DragIcon<a title="このセクションへのリンク" href="#UI_DragIcon" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_DragIcon( &lt;parent pointer&gt;, &lt;order&gt;, &lt;x&gt;, &lt;y&gt;, &lt;tap area&gt;, "&lt;asset&gt;",
+                                 "&lt;drag asset&gt;", &lt;drag order offset&gt;, &lt;drag alpha&gt;, &lt;centerX&gt;, &lt;centerY&gt;,
+                                 "&lt;callback&gt;" [ , &lt;flags&gt; ])
+
+   &lt;tap area&gt; = {
+     x = &lt;x&gt;,
+     y = &lt;y&gt;,
+     width = &lt;width&gt;,
+     height = &lt;height&gt;
+   }
+
+   function &lt;callback&gt;(step, x, y)
+   end
+
+    stepは下記二つの値を取る。
+　　  DRAGICON_DRAG ドラッグ中
+      DRAGICON_RELEASE リリース(ドロップ)
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;order&gt; アイコン表示プライオリティ
+</li><li>&lt;x&gt;, &lt;y&gt; アイコン表示座標
+</li><li>&lt;tap area&gt; アイコンとして反応するエリアの指定配列。自身の表示座標を基準に指定。
+</li><li>&lt;asset&gt; アイコン表示に使用する画像assetのパス
+</li></ul><ul><li>&lt;drag asset&gt; ドラッグ中、指先について回る表示物のasset
+</li><li>&lt;drag order offset&gt; ドラッグ中&lt;drag asset&gt;の表示に使用するプライオリティの、&lt;order&gt;からのオフセット
+</li><li>&lt;drag alpha&gt; ドラッグ中&lt;drag asset&gt;を表示する際のalpha値。
+</li><li>&lt;centerX&gt;,&lt;centerY&gt; ドラッグ中&lt;drag asset&gt;を表示する際に、指先の真下にくるべき&lt;drag asset&gt;表示位置からの相対座標。
+</li><li>&lt;callback&gt; 操作中や操作終了の通知を受け取るコールバック関数名。
+</li><li>&lt;flags&gt; 動作規定フラグ。下記の値をbitOR()関数等でORした結果で動作を規定する。
+<ul><li>F_DICON_BASEINVISIBLE ドラッグ中元アイコンを非表示にする
+</li></ul></li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_DragIcon タスクのポインタ。
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+アイコン位置からのドラッグ&amp;ドロップ操作によって、操作対象の位置を取得できるUIタスク。
+<a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/ModalStack">モーダルスタック</a>の影響を受ける。
+</p>
+<p>
+UI_DragIcon を起動すると指定した座標に&lt;asset&gt;によるアイコンが表示される。
+このアイコンに対し、&lt;tap area&gt;で指定された領域内から始まるDRAG操作により、現在のDRAG座標に&lt;drag asset&gt;が表示され、
+RELEASE操作でDropした段階で&lt;drag asset&gt;の表示が消える。
+</p>
+<p>
+この間、DRAGとRELEASEそれぞれについて&lt;callback&gt;で指定されたLua関数が呼ばれ、この関数を適切に実装することにより、
+ドラッグ&amp;ドロップ操作を実装できる。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_DRAGICON_ENABLE</dt><dd>
+ドラッグアイコンの操作を許可または禁止する。
+<ul><li>UI_DRAGICON_ENABLE
+<pre class="wiki">   pDIC= UI_DragIcon(...)
+   sysCommand(pDIC, UI_DRAGICON_ENABLE, &lt;enabled(true/false)&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_DRAGICON_DRAGAREA</dt><dd>
+ドラッグアイコンをドロップ操作可能な画面領域に制限を与える。
+このコマンド実行以後、画面上の指定した領域以外に対してはドロップ操作ができなくなる。
+<ul><li>UI_DRAGICON_DRAGAREA
+<pre class="wiki">   pDIC= UI_DragIcon(...)
+   sysCommand(pDIC, UI_DRAGICON_DRAGAREA, &lt;drop area&gt;)
+
+   &lt;drop area&gt; = {
+     x = &lt;x&gt;,
+     y = &lt;y&gt;,
+     width = &lt;width&gt;,
+     height = &lt;height&gt;
+   }
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

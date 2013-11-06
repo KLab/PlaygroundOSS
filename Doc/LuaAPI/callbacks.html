@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/CompositeCallback – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="callbacks_files/trac.css" type="text/css"><link rel="stylesheet" href="callbacks_files/wiki.css" type="text/css">
+      <link type="application/opensearchdescription+xml" rel="search" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/search/opensearch" title="Search KLBGame25D">
+    <script type="text/javascript" src="callbacks_files/jquery.js"></script><script type="text/javascript" src="callbacks_files/trac.js"></script><script type="text/javascript" src="callbacks_files/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="Compositeからのコールバック仕様UI_FormUI_List共通">Compositeからのコールバック仕様(UI_Form / UI_List共通)<a title="このセクションへのリンク" href="#Composite%E3%81%8B%E3%82%89%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E4%BB%95%E6%A7%98UI_FormUI_List%E5%85%B1%E9%80%9A" class="anchor"> ¶</a></h2>
+<p>
+UI_FormやUI_ListはCompositeを使用してフォームを表示します。
+フォーム内のコントロールは、操作されることでLuaのコールバック関数を呼ぶことができます。
+</p>
+<p>
+Compositeから呼ばれるLuaコールバック関数は、下記の形式を持ちます。
+</p>
+<pre class="wiki">   function &lt;composite-lua-callback&gt; ( &lt;string:name&gt;, &lt;int:type&gt;, &lt;int:param&gt; )
+
+   end
+</pre><ul><li>&lt;string:name&gt; 操作が生じたコントロールにComposite中で与えられた名前
+</li><li>&lt;int:type&gt; 操作の種類。下記の値を持つ。
+<ul><li>ACTION_PUSH コントロールがPUSHされた(TAP操作)
+</li><li>ACTION_RELEASE コントロールがRELEASEされた(RELEASE操作)
+</li><li>ACTION_ENDANIM アニメーションが終了した
+</li><li>ACTION_CHANGE チェックボックス等の状態が変更された
+</li><li>ACTION_CLICK ボタンがクリックされた
+</li></ul></li><li>&lt;int:param&gt; その他パラメータ
+<ul><li>ACTION_CHANGEの時 変更後のチェックボックス状態
+</li></ul></li></ul><p>
+複数のコントロールに対する応答を一つのコールバックで行う場合は、
+&lt;string:name&gt; と &lt;int:type&gt; で分岐します。
+</p>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="callbacks_files/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

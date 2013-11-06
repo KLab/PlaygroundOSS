@@ -1,0 +1,1179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/lua – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="Luaスクリプトインタフェース">Luaスクリプトインタフェース<a title="このセクションへのリンク" href="#Lua%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9" class="anchor"> ¶</a></h2>
+<p>
+ここでは、タスクとは独立したLuaインタフェース関数について解説します。
+</p>
+<ul><li><a class="wiki" href="index.html">汎用タスクマニュアル</a>
+</li></ul><h3 id="スクリプトの実行ルール">スクリプトの実行ルール<a title="このセクションへのリンク" href="#%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E5%AE%9F%E8%A1%8C%E3%83%AB%E3%83%BC%E3%83%AB" class="anchor"> ¶</a></h3>
+<ul><li>スクリプトはロードされた直後、グローバル域とsetup()が実行される
+</li><li>毎フレームP_SCRIPTフェーズにexecute()が呼ばれる。
+</li><li>sysLoad()関数を用いて他のスクリプトに移動することが決定したとき、leave()が呼ばれる。
+</li><li>sysLoad()で指定された移動先のスクリプトがロードされるのは、次のフレームのP_SCRIPTフェーズ。
+</li></ul><h3 id="タスクの実行ルール">タスクの実行ルール<a title="このセクションへのリンク" href="#%E3%82%BF%E3%82%B9%E3%82%AF%E3%81%AE%E5%AE%9F%E8%A1%8C%E3%83%AB%E3%83%BC%E3%83%AB" class="anchor"> ¶</a></h3>
+<ul><li>タスクは、起動関数を呼ぶことで起動される。
+</li><li>起動関数は、必ずタスクのポインタを返す。
+</li><li>起動中のタスクに対しコマンドを与える際は、sysCommand()関数を使用する。第一引数は対象タスクのポインタ、第二引数が各タスクによって定義されるコマンド値となる。引数が必要な場合は、第三引数以降に続ける。
+</li><li>起動中のタスクを個別に破棄するには、TASK_kill() 関数を用いる。
+</li><li>「ステージタスク」として登録されているタスクは、TASK_StageClear()関数でまとめて破棄することができる。
+</li><li>起動したタスクを「ステージタスク」として登録する場合は、TASK_StageOnly()関数にタスクのポインタを与える。
+</li><li>タスクが起動すると自動的に「ステージタスク」になるように実装されているケースもある。
+</li></ul><h2 id="Luaスクリプト関数リファレンス">Luaスクリプト関数リファレンス<a title="このセクションへのリンク" href="#Lua%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9" class="anchor"> ¶</a></h2>
+<ul><li><a class="wiki" href="#%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E9%96%A2%E6%95%B0">システム関数</a>
+</li><li><a class="wiki" href="#IDKeyChain%E9%96%A2%E6%95%B0">ID/KeyChain関数</a>
+</li><li><a class="wiki" href="#GL%E9%96%A2%E6%95%B0">GL関数</a>
+</li><li><a class="wiki" href="#SG%E9%96%A2%E6%95%B0">GuardBand関数</a>
+</li><li><a class="wiki" href="#%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%B5%B7%E5%8B%95%E9%96%A2%E6%95%B0">アプリケーション起動関数</a>
+</li><li><a class="wiki" href="#%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%83%A2%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0">デバッグモード関数</a>
+</li><li><a class="wiki" href="#%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%E3%83%80%E3%83%B3%E3%83%97%E9%96%A2%E6%95%B0">システムリソース情報ダンプ関数</a>
+</li><li><a class="wiki" href="#Engine%E6%83%85%E5%A0%B1%E9%96%A2%E6%95%B0">Engine情報関数</a>
+</li><li><a class="wiki" href="#%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E6%83%85%E5%A0%B1%E9%96%A2%E6%95%B0">フォント情報関数</a>
+</li><li><a class="wiki" href="#ASSET%E6%83%85%E5%A0%B1%E9%96%A2%E6%95%B0">ASSET情報関数</a>
+</li><li><a class="wiki" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E9%96%A2%E6%95%B0">データセット関数</a>
+</li><li><a class="wiki" href="#%E3%82%BF%E3%82%B9%E3%82%AF%E9%96%A2%E6%95%B0">タスク関数</a>
+</li><li><a class="wiki" href="#%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%96%A2%E6%95%B0">サウンド関数</a>
+</li><li><a class="wiki" href="#AI%E9%96%A2%E6%95%B0">AI関数</a>
+</li><li><a class="wiki" href="#%E3%83%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3%E9%96%A2%E6%95%B0">ユーティリティ関数</a>
+</li><li><a class="wiki" href="#%E3%83%87%E3%83%BC%E3%82%BF%E5%A4%89%E6%8F%9B%E9%96%A2%E6%95%B0">データ変換関数</a>
+</li><li><a class="wiki" href="#%E8%A8%80%E8%AA%9EDB%E9%96%A2%E6%95%B0">言語DB関数</a>
+</li><li><a class="wiki" href="#SQLite%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E9%96%A2%E6%95%B0">SQLiteインタフェース関数</a>
+</li><li><a class="wiki" href="#%E3%83%90%E3%82%A4%E3%83%8A%E3%83%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E9%96%A2%E6%95%B0">バイナリデータインタフェース関数</a>
+</li><li><a class="wiki" href="#%E3%83%9E%E3%83%88%E3%83%AA%E3%82%AF%E3%82%B9%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E6%BC%94%E7%AE%97%E9%96%A2%E6%95%B0">マトリクス/ベクトル演算関数</a>
+</li></ul><h3 id="システム関数">システム関数<a title="このセクションへのリンク" href="#%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>sysReboot</dt><dd>
+全ゲーム環境を破棄し、起動シーケンスから再実行する
+<ul><li>sysReboot
+<pre class="wiki">   sysReboot()
+</pre></li></ul></dd></dl>
+<dl><dt>sysLoad</dt><dd>
+指定されたスクリプトに制御を移す。
+コールされた時点で、現在定義されているleave()関数を呼び、
+次のフレームのexecute()実行前に指定されたスクリプトをロード、グローバル域とsetup()を実行する。
+<ul><li>sysLoad
+<pre class="wiki">   sysLoad(&lt;移行先スクリプトのパス名&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>sysCommand</dt><dd>
+動作中のタスクに対し、そのタスクが受け付けるコマンドを発行する。
+第一引数はコマンド実行対象となるタスクのポインタ、第二引数はそのタスクが受け付けるコマンドの値となる。
+引数がある場合は第三引数以降に指定される。また、コマンドによっては戻り値を持つ。
+<ul><li>sysCommand
+<pre class="wiki">   [ &lt;戻り値&gt; = ] sysCommand(&lt;タスクポインタ&gt;, &lt;コマンドID&gt; [, ...] )
+</pre></li></ul></dd></dl>
+<dl><dt>syslog</dt><dd>
+デバッグに用いられるログ文字列を出力する。
+出力先およびその形式は、実行されるプラットフォームに依存する。
+<ul><li>syslog
+<pre class="wiki">   syslog(&lt;出力文字列&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>sysExit</dt><dd>
+ゲームシステムの実行を終了し、OSに制御を戻す。
+アプリケーションが「自己判断で終了する」という概念を持たないプラットフォームでは
+対応していない(例:iOS)。
+<ul><li>sysExit
+<pre class="wiki">   sysExit()
+</pre></li></ul></dd></dl>
+<dl><dt>include</dt><dd>
+指定されたスクリプトファイルの内容が、さもその場所にあるかのように取り込む。
+スクリプト間で共通する定義を別ファイルにまとめ、取り込む際などに使用する。
+<ul><li>include
+<pre class="wiki">   include(&lt;インクルードスクリプトのパス名&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>sysInfo</dt><dd>
+実行環境についてのシステム情報をテーブルとして返す。
+現時点で対応しているのは width(画面幅)とheight(画面高)のみ。
+<ul><li>sysInfo
+<pre class="wiki">   &lt;システム情報テーブルを受け取る変数&gt; = sysInfo()
+</pre></li></ul></dd></dl>
+<h3 id="IDKeyChain関数">ID/KeyChain関数<a title="このセクションへのリンク" href="#IDKeyChain%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>KEY_genUserID</dt><dd>
+IDとして使用できる値を自動生成する。
+<ul><li>KEY_genUserID
+<pre class="wiki">   &lt;id-string&gt; = KEY_genUserID()
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_genUserPW</dt><dd>
+パスワードとして使用できる値を自動生成する。
+<ul><li>KEY_genUserPW
+<pre class="wiki">   &lt;password-string&gt; = KEY_genUserPW("&lt;id-string&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_setSecureID</dt><dd>
+文字列を指定されたサービス名のIDとして、keychainに登録する。
+<ul><li>KEY_setSecureID
+<pre class="wiki">   &lt;result&gt; = KEY_setSecureID("&lt;service-name&gt;", "&lt;id-string&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_setSecurePW</dt><dd>
+文字列を指定されたサービスのパスワードとして keychain に登録する。
+<ul><li>KEY_setSecurePW
+<pre class="wiki">   &lt;result&gt; = KEY_setSecurePW("&lt;service-name&gt;", "&lt;password-string&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_getSecureID</dt><dd>
+keychainをサービス名で検索し、登録されているIDを返す。IDが登録されていない場合はnilを返す。
+<ul><li>KEY_getSecureID
+<pre class="wiki">   &lt;id-string&gt; = KEY_getSecureID("&lt;service-name&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_getSecurePW</dt><dd>
+keychainをサービス名で検索し、登録されているパスワードを返す。パスワードが登録されていない場合はnilを返す。
+<ul><li>KEY_getSecurePW
+<pre class="wiki">   &lt;password-string&gt; = KEY_getSecurePW("&lt;service-name&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_delSecureID</dt><dd>
+keychain中から指定されたサービス名で登録されているIDを削除し、未登録状態にする。
+元々登録されていない場合は何もしない。
+<ul><li>KEY_delSecureID
+<pre class="wiki">   KEY_delSecureID("&lt;service-name&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>KEY_delSecurePW</dt><dd>
+keychain中から指定されたサービス名で登録されているパスワードを削除し、未登録状態にする。
+元々登録されていない場合は何もしない。
+<ul><li>KEY_delSecurePW
+<pre class="wiki">   KEY_delSecurePW("&lt;service-name&gt;")
+</pre></li></ul></dd></dl>
+<h3 id="GL関数">GL関数<a title="このセクションへのリンク" href="#GL%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>GL_ClearColor</dt><dd>
+OpenGL ES のglClearColor()と同じ。GLのクリア色を指定する。
+<ul><li>GL_ClearColor
+<pre class="wiki">   GL_ClearColor(&lt;red&gt;, &lt;green&gt;, &lt;blue&gt;, &lt;alpha&gt;)
+   
+   ※各要素は 0.0～1.0 で指定する。
+</pre></li></ul></dd></dl>
+<dl><dt>GL_SetResolution</dt><dd>
+論理描画領域の解像度を指定する。プログラムはその描画面積があるものとして動作するが、表示は物理解像度に合わせ比率を保ったまま拡大または縮小される。
+デフォルトの状態における論理解像度は物理解像度と一致する。
+</dd></dl>
+<p>
+borderlessがオプションですが、設定をtrueにすると論理描画と物理画面の比率が会わない場合、右左や上下に枠が描画可能になり、
+</p>
+<blockquote>
+<p>
+左や上に描画したい場合、理論座標システムは次になります。
+</p>
+<blockquote>
+<p>
+[-borderHorizontal, -borderHorizontal] .. [width + borderHorizontal, height + borderVertical]
+</p>
+</blockquote>
+<p>
+つまり、borderlessをtrue/falseにしても、<a class="source" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/log/?revs=0">[0,0]</a>-[width,height]は同じ場所にあります。
+</p>
+<pre class="wiki">   GL_SetResolution(&lt;width&gt;, &lt;height&gt; [,&lt;borderless = false&gt;])
+</pre></blockquote>
+<blockquote>
+<p>
+See also : GL_GetHorizontalBorder, GL_GetVerticalBorder.
+</p>
+</blockquote>
+<pre class="wiki">   -- Sample Code : Bordeless when screen is larger than logical screen.
+   GL_SetResolution(width, height)
+   if (GL_GetHorizontalBorder() != 0) then
+     GL_SetResolution(width, height, true)
+   endif
+</pre><dl><dt>GL_GetHorizontalBorder</dt><dd>
+GL_SetResolutionを使って、borderlessにした場合、立て枠のピクセルサイズを返す関数です。
+<pre class="wiki">　GL_GetHorizontalBorder()
+</pre></dd></dl>
+<dl><dt>GL_GetVerticalBorder</dt><dd>
+GL_SetResolutionを使って、borderlessにした場合、横枠のピクセルサイズを返す関数です。
+<pre class="wiki">　GL_GetVerticalBorder()
+</pre></dd></dl>
+<h3 id="SG関数">SG関数<a title="このセクションへのリンク" href="#SG%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>SG_GetGuardBand</dt><dd>
+現在のGuardBand情報を返す。X0,Y0,X1,Y1
+<ul><li>SG_GetGuardBand
+<pre class="wiki">   x0,y0,x1,y1 = SG_GetGuardBand()
+</pre></li></ul></dd></dl>
+<dl><dt>SG_SetGuardBand</dt><dd>
+描画・計算処理を軽くするため、ノードの座標がGuardBand外に移動した場合、処理をしない事になります。
+</dd></dl>
+<p>
+おかしいな描画・描画に表れない事につながる事になります。
+</p>
+<blockquote>
+<p>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/GuardBand" rel="nofollow">GuardBand?</a>の座標は画面の空間でピクセルで設定する。
+</p>
+</blockquote>
+<blockquote>
+<p>
+例えば：SG_SetGuardBand(-500.0, -400.0, 1500.0, 1400.0)
+この場合、(-500, -400)を以下に物置いた場合、処理・描画が行わない。
+同じく、+1500,+1400を超えた場合にも、処理・描画が行わない。
+</p>
+</blockquote>
+<blockquote>
+<p>
+ノードにつながっている描画オブジェクトのサイズや中心もあるため、ぎりぎりなサイズで使わない方が良い。
+基本的に大変横・立ての長いのリスト・物の一覧があった時に利用する。
+</p>
+</blockquote>
+<pre class="wiki">   SG_SetGuardBand(&lt;x0&gt;, &lt;y0&gt;, &lt;x1&gt;, &lt;y1&gt;)
+</pre><h3 id="アプリケーション起動関数">アプリケーション起動関数<a title="このセクションへのリンク" href="#%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E8%B5%B7%E5%8B%95%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>APP_CallApplication</dt><dd>
+指定された機能を持つ、プラットフォーム上のアプリケーションを起動する。
+起動されるアプリケーションそのものや、機能の対応状況、アプリケーション起動時の状態はプラットフォームに依存する。
+<ul><li>APP_CallApplication
+<pre class="wiki">   &lt;result&gt; = APP_CallApplication(&lt;app-type&gt;, ... )
+
+   &lt;app-type&gt; アプリケーション機能のタイプ。
+      APP_MAIL  メールアプリケーション
+        APP_CallApplication(APP_MAIL, &lt;address&gt;, &lt;subject&gt;, &lt;body&gt;)
+
+      APP_BROWSER Webブラウザ
+        ※現在未対応
+
+      APP_UPDATE アプリケーションのアップデートを行うシステムアプリ(例: iOSの場合は AppStore が該当)
+        APP_CallApplication(APP_UPDATE, &lt;search-key&gt;)
+
+   &lt;result&gt; 指定されたアプリケーションの起動に成功したら true, 失敗したり非対応である場合は false
+</pre></li></ul></dd></dl>
+<h3 id="デバッグモード関数">デバッグモード関数<a title="このセクションへのリンク" href="#%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%83%A2%E3%83%BC%E3%83%89%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>DEBUG_SetCallback</dt><dd>
+デバッグモード終了時に設定値を受け取るLuaのコールバック関数を指定する。
+<ul><li>DEBUG_SetCallback
+<pre class="wiki">   DEBUG_SetCallback("&lt;コールバック関数名&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>DEBUG_AddItem</dt><dd>
+デバッグモードのセクションと、セクションに属する刻目を追加する。
+<ul><li>DEBUG_AddItem
+<pre class="wiki">   DEBUG_AddItem("&lt;セクション名&gt;", "&lt;セクションkey名&gt;", {
+       { DBG_M_SWITCH, "&lt;項目名&gt;", "&lt;項目key名&gt;", &lt;デフォルト値(true/false)&gt; }.
+       { DBG_M_SELECT, "&lt;項目名&gt;", "&lt;項目key名&gt;", "&lt;デフォルト値&gt;", { "&lt;項目1&gt;", "&lt;項目2&gt;", ... , "&lt;項目n&gt;" }},
+       { DBG_M_NUMBER, "&lt;項目名&gt;", "&lt;項目key名&gt;", &lt;下限値&gt;, &lt;上限値&gt;, &lt;デフォルト値&gt; }
+   })
+
+     項目は、ON/OFF型(DBG_M_SWITCH)、選択型(DBG_M_SELECT)、整数型(DBG_M_NUMBER) の三種類が作れる。
+     DBG_M_SELECT の &lt;デフォルト値&gt; は、その後の項目リスト中に存在する文字列である必要がある。
+     項目内に存在しない&lt;デフォルト値&gt;を指定した場合、先頭の項目がデフォルトとなる。
+</pre></li></ul></dd></dl>
+<dl><dt>DEBUG_DelItem</dt><dd>
+指定されたkey名を持つセクションを削除する
+<ul><li>DEBUG_DelItem
+<pre class="wiki">   DEBUG_DelItem("&lt;セクションkey名&gt;")
+</pre></li></ul></dd></dl>
+<h4 id="デバッグモード生成の流れ">デバッグモード生成の流れ<a title="このセクションへのリンク" href="#%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E3%83%A2%E3%83%BC%E3%83%89%E7%94%9F%E6%88%90%E3%81%AE%E6%B5%81%E3%82%8C" class="anchor"> ¶</a></h4>
+<pre class="wiki">DEBUG_SetCallback("debugCallback")  -- コールバックの設定
+
+DEBUG_AddItem("Default enemy parameters", "enemy", {  -- 敵の設定
+    { DBG_M_SWITCH, "Phisical attack", "phisical" true },  -- 物理攻撃の使用(on/off)
+    { DBG_M_SWITCH, "Use magic",       "magic",   true },  -- 魔法の使用(on/off)
+    { DBG_M_SWITCH, "Use skill",       "skill",   true },  -- スキルの使用(on/off)
+    { DBG_M_SELECT, "Tactics",         "tactics", "normal", { "normal", "power", "defence", "away" } }, -- 使用戦術(通常/攻撃重視/防御重視/逃亡)
+    { DBG_M_NUMBER, "HitPoint",        "hp",      1000, 30000, 2500 }, -- HPの値
+    { DBG_M_NUMBER, "MagicPoint",      "mp",      0, 500, 300 }        -- MPの値
+})
+
+DEBUG_AddItem("World flags",  "world", {  -- ワールド設定
+    { DBG_M_SWITCH, "Castle Pass",  "castle", true },  -- 城の通行証(on/off)
+    { DBG_M_SWITCH, "River bridge", "bridge", false },  -- 川の橋(on/off)
+    { DBG_M_SWITCH, "Cave door",    "cave",   false },  -- 洞窟の扉(on/off)
+    { DBG_M_SWITCH, "Hell Gate",    "hell",   false },  -- 地獄の門(on/off)
+})
+
+
+function debugCallback(tbl)
+
+   --[[
+      上記のデバッグモード設定でメニューを生成した場合、
+      デフォルト状態で渡されるテーブルの値は次のようになります。
+   ]]
+   tbl = {
+     "enemy" = {
+       "phisical" = true,
+       "magic" = true,
+       "skill" = true,
+       "tactics" = "normal",
+       "hp" = 2500,
+       "mp" = 300
+     },
+     "world" = {
+       "castle" = true,
+       "bridge" = false,
+       "cave" = false,
+       "hell" = false
+     }
+   }
+end
+
+</pre><h3 id="システムリソース情報ダンプ関数">システムリソース情報ダンプ関数<a title="このセクションへのリンク" href="#%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%E3%83%80%E3%83%B3%E3%83%97%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>RES_DumpSceneGraph</dt><dd>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/SceneGraph" rel="nofollow">SceneGraph?</a> のツリー情報をコンソールに出力する。引数を与えない場合はrootノードから、
+UIタスクのポインタを与えた場合はそのタスクが持つコントロールノード以下のツリー情報を出力する。
+<ul><li>RES_DumpSceneGraph()
+<pre class="wiki">   RES_DumpSceneGraph( [ &lt;UI-task-pointer&gt; ] )
+</pre></li></ul></dd></dl>
+<dl><dt>RES_DumpRendering</dt><dd>
+<ul><li>RES_DumpRendering
+</li></ul></dd></dl>
+<dl><dt>RES_DumpAsset</dt><dd>
+使用中の asset をコンソールにダンプする。
+<ul><li>RES_DumpAsset
+<pre class="wiki">   RES_DumpAsset()
+</pre></li></ul></dd></dl>
+<dl><dt>RES_DumpTexturePacker</dt><dd>
+<ul><li>RES_DumpTexturePacker
+</li></ul></dd></dl>
+<dl><dt>RES_DumpGeometryCost</dt><dd>
+<ul><li>RES_DumpGeometryCost
+</li></ul></dd></dl>
+<h3 id="Engine情報関数">Engine情報関数<a title="このセクションへのリンク" href="#Engine%E6%83%85%E5%A0%B1%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>ENG_isRelease</dt><dd>
+現在動作しているEngineがReleaseビルド版であるかどうかを返す。
+Releaseビルドの場合は true, それ以外の場合は false を返す。
+<ul><li>ENG_isRelease
+<pre class="wiki">   &lt;result&gt; = ENG_isRelease()
+</pre></li></ul></dd></dl>
+<dl><dt>ENG_getPlatform</dt><dd>
+現在Engineが動作しているOSとそのバージョン情報、および設定されているTIMEZONEを返す。
+Releaseビルドの場合は true, それ以外の場合は false を返す。
+<ul><li>ENG_getPlatform
+<pre class="wiki">   &lt;version string&gt; = ENG_getPlatform()
+
+   version string は、下記フォーマットで与えられる。
+　　　"&lt;OS名&gt;;&lt;version&gt;;&lt;timezone&gt;"
+
+   例) "iOS;5.1;JST"
+</pre></li></ul></dd></dl>
+<dl><dt>ENG_getNanoTime</dt><dd>
+porting layer で実装されている、システムのナノ秒単位カウンタ値を取得する。
+epoch はシステム依存だが、2回以上の呼び出しで得られた値の差分から経過時間の計測を行える。
+<ul><li>ENG_getNanoTime
+<pre class="wiki">   &lt;milli-second-time&gt;, &lt;nano-second-time&gt; = ENG_getNanoTime()
+
+   &lt;milli-second-time&gt;  ミリ秒単位の時間
+   &lt;nano-second-time&gt;   ナノ秒単位の時間。0～999999の範囲をとる。
+</pre></li></ul></dd></dl>
+<dl><dt>ENG_getFrameID</dt><dd>
+タスクマネージャが各フレームに対し発行している FrameID の値を取得する。
+この値は毎フレームインクリメントされる16bitの値であり、0xffffの次は 0x0000 となる。
+隣り合うフレームではこの値が異なることが保証される。
+</dd></dl>
+<ul><li>ENG_getFrameID
+<pre class="wiki">   &lt;frame-id&gt; = ENG_getFrameID()
+</pre></li></ul><dl><dt>ENG_startNanoTime</dt><dd>
+ナノ秒単位の時間計測を開始する。最大10個までのタイマーを用いることができる。
+<ul><li>ENG_startNanoTime
+<pre class="wiki">   ENG_startNanoTime(&lt;timer-id&gt;)
+
+   &lt;timer-id&gt; 0～9が指定可能
+</pre></li></ul></dd></dl>
+<dl><dt>ENG_endNanoTime</dt><dd>
+指定した&lt;timer-id&gt;において、最後の ENG_startNanoTime() もしくは ENG_endNanoTime() の呼び出しから経過した時間をナノ秒単位で取得する。
+<ul><li>ENG_endNanoTime
+<pre class="wiki">   &lt;milli-sec&gt;, &lt;nano-sec&gt; = ENG_endNanoTime(&lt;timer-id&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>ENG_getElapsedTime</dt><dd>
+OSの起動からの経過時間を秒単位で取得する。
+<ul><li>ENG_getElapsedTime
+<pre class="wiki">   &lt;sec&gt; = ENG_getElapsedTime()
+</pre></li></ul></dd></dl>
+<h3 id="フォント情報関数">フォント情報関数<a title="このセクションへのリンク" href="#%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E6%83%85%E5%A0%B1%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+フォント情報関数は、フォント描画に関連する値の取得に使用されます。
+</p>
+<dl><dt>FONT_load</dt><dd>
+フォントファイルをロードして利用可能になります。
+<ul><li>FONT_load
+<pre class="wiki">  bResult = FONT_load("&lt;logicalName&gt;","&lt;asset://...ttf&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>FONT_create</dt><dd>
+フォント情報オブジェクトを生成する。
+取得したフォント情報は、フォントによる描画情報の計算に使用される。
+<ul><li>FONT_create
+<pre class="wiki">  &lt;font-object&gt; = FONT_create(&lt;font-size&gt;, "&lt;font-name&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>FONT_release</dt><dd>
+フォント情報オブジェクトを破棄する。
+<ul><li>FONT_release
+<pre class="wiki">   nil[, nil, ... ] = FONT_release(&lt;font-object&gt; [, &lt;font-object&gt;, ... ])
+</pre></li></ul></dd></dl>
+<dl><dt>FONT_getTextInfo</dt><dd>
+フォント情報と文字列を指定して「その文字列を描画するために必要な位置と面積の情報」を取得する。
+<ul><li>FONT_getTextInfo
+<pre class="wiki">   &lt;draw-info&gt; = FONT_getTextInfo(&lt;font-object&gt;, "&lt;string&gt;")
+
+   &lt;draw-info&gt; = {
+       "width" = &lt;draw-width&gt;,
+       "height" = &lt;draw-height&gt;,
+       "ascent" = &lt;ascent&gt;,
+       "descent" = &lt;descent&gt;,
+       "top" = &lt;top&gt;,
+       "bottom" = &lt;bottom&gt;
+   }
+</pre></li></ul></dd></dl>
+<h3 id="ASSET情報関数">ASSET情報関数<a title="このセクションへのリンク" href="#ASSET%E6%83%85%E5%A0%B1%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>ASSET_getImageSize</dt><dd>
+指定された画像assetの元画像サイズを返す。
+<ul><li>ASSET_getImageSize
+<pre class="wiki">   &lt;width&gt;, &lt;height&gt; = ASSET_getImageSize("&lt;asset-path&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>ASSET_getBoundSize</dt><dd>
+指定された画像assetが持つ全頂点のバウンディングボックスサイズを返す
+<ul><li>ASSET_getBoundSize
+<pre class="wiki">   &lt;width&gt;, &lt;height&gt; = ASSET_getBoundSize("&lt;asset-path&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>ASSET_getAssetInfo</dt><dd>
+指定された画像assetのサイズ情報をまとめて取得する。
+<ul><li>ASSET_getAssetInfo
+<pre class="wiki">   &lt;img-width&gt;, &lt;img-height&gt;, &lt;bound-width&gt;, &lt;bound-height&gt; = ASSET_getAssetInfo("&lt;asset-path&gt;")
+</pre></li></ul></dd></dl>
+<h3 id="データセット関数">データセット関数<a title="このセクションへのリンク" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+データセットは、個々のタスクに代わってデータを保持し続けるための仕組み。
+データセットを使用するタスクは、あらかじめデータセットを使用するものとして実装されている必要がある。
+</p>
+<p>
+通常、各アセットはリファレンスカウンタによる管理で使用者がいなくなると自動的に解放される。
+同じアセットを繰り返し使いまわしたい場合、そのアセットを使用するタスクが一時不在になった後、
+再度同じアセットを使用すると再ロードが発生するため、処理負荷が大きくなる。
+</p>
+<p>
+これを防ぐため、各タスクの代理としてアセットを保持し続けるのがデータセットであり、
+データセットを利用するタスクは、指定されたデータセットからデータを借りてくる形で実装される。
+</p>
+<dl><dt>DATA_create</dt><dd>
+指定されたIDでデータセットを生成し、そのポインタを返す。
+<ul><li>DATA_create
+<pre class="wiki">   &lt;データセットポインタ受取変数&gt; = DATA_create(&lt;データセットに与えるID&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>DATA_register</dt><dd>
+指定されたデータセットのポインタに対し、データを個別に登録する。
+データセットのポインタとアセットのパス名、データに与える名称を指定する。
+<ul><li>DATA_register
+<pre class="wiki">   DATA_register(&lt;データセットポインタ&gt;, &lt;アセットパス名&gt;, &lt;データセット内でアセットに与える名称&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>DATA_regtable</dt><dd>
+指定されたデータセットのポインタに対し、複数のデータを一括で登録する。
+与えるデータはLuaのテーブルで指定する。
+<ul><li>DATA_regtable
+<pre class="wiki">   -- 登録データ配列
+   assetList = {
+      { &lt;アセットパス名&gt;, &lt;データセット内でアセットに与える名称&gt; },
+       :
+   }
+
+   DATA_regtable(&lt;データセットポインタ&gt;, assetList )
+</pre></li></ul></dd></dl>
+<dl><dt>DATA_delete</dt><dd>
+生成済みのデータセットを破棄する。
+データセットに登録されたデータを使用中のタスクがある場合はエラーとなる。
+<ul><li>DATA_delete
+<pre class="wiki">   DATA_delete(&lt;データセットポインタ&gt;)
+</pre></li></ul></dd></dl>
+<h3 id="タスク関数">タスク関数<a title="このセクションへのリンク" href="#%E3%82%BF%E3%82%B9%E3%82%AF%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+タスク関数は、基本的にタスクの生成/破棄を管理する。
+また、タスクがスクリプトからアクセス可能なプロパティを持つ場合、アクセス手段を提供する。
+起動されている特定のタスクに対して処理を行うものが多いため、タスク関数で扱いたいタスクについては、
+起動関数の戻り値として返されるタスクのポインタを保持しておく必要がある。
+</p>
+<dl><dt>TASK_kill</dt><dd>
+タスクポインタで指定されたタスクに対し、破棄指令を出す。
+破棄指令が出されたタスクは、そのフレームの最後に破棄される。
+TASK_kill() は必ずnil値を返す。また、破棄対象のタスクポインタとしてnil値が渡された場合は何もしない。
+<ul><li>TASK_kill
+<pre class="wiki">   [ &lt;nil値を受け取る変数&gt; = ] TASK_kill( &lt;破棄対象となるタスクのポインタ&gt; )
+
+   例)
+   pTask = TASK_kill(pTask)
+
+   上の例はpTaskが示すタスクに破棄指令を出した後、pTaskの値がnilになるので、
+   複数回実行された場合の事故防止になる。
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_registerkill</dt><dd>
+タスクポインタで指定されたタスクに対し、killが発生した時のコールバックを設定出来る仕組みです。
+<ul><li>TASK_registerkill
+<pre class="wiki">   TASK_registerkill( &lt;タスクのポインタ&gt;, &lt;コールバック関数名&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_isKilled</dt><dd>
+ポインタで指定されたタスクが、すでに破棄指令を何らかの形で出されているか否かを返す。
+「何らかの形」とは、TASK_kill()関数のほか、TASK_StateClear() による破棄や、
+親タスクの破棄による連鎖破棄なども含まれる。
+<ul><li>TASK_isKilled
+<pre class="wiki">   &lt;is-killed-status&gt; = TASK_isKilled( &lt;破棄対象となるタスクのポインタ&gt; )
+
+   &lt;is-killed-status&gt; (bool)   破棄指令が出されている場合は true, まだ出されていない場合は false
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_StageOnly</dt><dd>
+タスクポインタで指定されたタスクを「ステージタスク」として登録する。
+「ステージタスク」は「現在のステージでのみ使用されるタスク」という概念で、
+ステージの終了を告げる TASK_StageClear() のタイミングで破棄対象とされる。
+TASK_StageOnly()でステージタスクにしたタスクを TASK_kill() で破棄しても、
+特に問題はない。
+<ul><li>TASK_StageOnly
+<pre class="wiki">   TASK_StageOnly( &lt;ステージタスクにするタスクのポインタ&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_StageClear</dt><dd>
+この関数が呼ばれたフレームの最後に、TASK_StageOnly()でステージタスク登録されたタスク全てに対し破棄指令を出す。
+これは、TASK_StageClear()を呼んだ後に起動され、TASK_StageOnly()で登録されたタスクも対象となる。
+つまり、そのフレームの最後までにステージタスクとして登録され、破棄されていないタスクはすべて破棄対象となる。
+<ul><li>TASK_StageClear
+<pre class="wiki">   TASK_StageClear()
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_getProperty</dt><dd>
+タスクがスクリプトに対し公開プロパティを持つ場合、その値をLuaテーブルとして取得する。
+公開プロパティを持たないタスクの場合はエラーとなる。
+<ul><li>TASK_getProperty
+<pre class="wiki">   &lt;受取Luaテーブル&gt; = TASK_getProperty( &lt;プロパティを取得するタスクのポインタ&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_setProperty</dt><dd>
+TASK_getProperty() で取得したのと同じ形式のLuaテーブルをタスクの新たなプロパティ値として受け取り、
+指定されたタスクに設定する。公開プロパティを持たないタスクや、プロパティがread onlyであるタスクに対してはエラーとなる。
+また、指定されたLuaテーブルが、タスクのプロパティリストにない名称のメンバを持つ場合もエラーとなる。
+<ul><li>TASK_setProperty
+<pre class="wiki">   TASK_setProperty( &lt;プロパティを設定するタスクのポインタ&gt;, &lt;プロパティ値を持つLuaテーブル&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>TASK_Pause</dt><dd>
+特定のタスクをpause状態を操作する。
+pause状態にあるタスクは、毎フレームの execute() 呼び出しが行われなくなる。
+<ul><li>TASK_Pause
+<pre class="wiki">   TASK_Pause( &lt;対象タスクのポインタ&gt;, &lt;pause状態(true/false)&gt;[, &lt;再帰指定(true/false)&gt;] )
+
+   上記の&lt;pause状態&gt;をtrueにすることでpause、falseでpause解除となる。
+   子タスクを持つタスクを指定した場合、再帰指定がtrueだと子タスクも同じpause状態を与えられる。
+   再帰指定がfalseの場合子の状態は変化しない。再帰指定は省略でき、省略時の値はtrueとなる。
+</pre></li></ul></dd></dl>
+<h3 id="サウンド関数">サウンド関数<a title="このセクションへのリンク" href="#%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>SND_Open</dt><dd>
+サウンドデータを開いて再生準備を行う。また、そのサウンドデータを操作するためのハンドルを返す。
+<ul><li>SND_Open
+<pre class="wiki">   &lt;sound-handle&gt; = SND_Open("&lt;sound asset&gt;" [, &lt;BGM-mode(true/false)&gt; ])
+
+   &lt;sound asset&gt;に指定するファイル名は拡張子抜きで指定してください。
+     × SND_Open( "soundtest.mp3" )
+     ○ SND_Open( "soundtest" )
+
+   &lt;BGM-mode&gt;をtrueにすると、ループ再生されるBGMとして扱われる。再生開始が遅いのでSEには不向き。
+   &lt;BGM-mode&gt;をfalseにすると、SEとしてサウンドデータをロードし、オンメモリでの待機状態になる(プラットフォームによって異なることがある)。
+
+   &lt;BGM-mode&gt;のデフォルトは false
+</pre></li></ul></dd></dl>
+<dl><dt>SND_setBufSize</dt><dd>
+サウンドデータをBGM再生する際のバッファサイズを三段階(大中小)から選択する。具体的にどのような値が再生系に与えられるかは、
+プラットフォームによって異なる(場合によっては特に何も行わないプラットフォームも考えられる)。
+<ul><li>SND_setBufSize
+<pre class="wiki">    SND_setBufSize(&lt;sound-handle&gt;, &lt;buffer-size-level&gt;)
+
+    &lt;buffer-size-level&gt;
+      SND_BUF_SMALL   [小]時刻取得の分解能がより細かくなることが期待できる。
+      SND_BUF_MEDIUM  [中]標準。デフォルトのサイズ。
+      SND_BUF_LARGE   [大]標準より大きなサイズ。iOSでは標準の2倍。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Close</dt><dd>
+SND_Openによって得られた&lt;sound-handle&gt;を解放し、nilを返す。
+<ul><li>SND_Close
+<pre class="wiki">   nil[,...] = SND_Close(&lt;sound-handle&gt; [, ... ] )
+
+   同時に複数の &lt;sound-handle&gt; を解放できる。引数として与えられた個数分、
+   戻り値として nil を返す。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Play</dt><dd>
+SND_Openによって得られた&lt;sound-handle&gt;で指定されるサウンドデータの再生を開始する
+<ul><li>SND_Play
+<pre class="wiki">   SND_Play(&lt;sound-handle&gt;, &lt;mili-sec&gt;, &lt;terget-vol&gt;, &lt;volume&gt;)
+
+   以下の項目は入力スキップ可能
+  &lt;mili-sec&gt;       フェードにかかる時間(ミリ秒) デフォルト:0
+  &lt;terget-vol&gt;    フェード終了時の音量0.0~1.0で指定。 デフォルト:1.0
+  &lt;volume&gt;        サウンドの再生開始時のボリューム
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Stop</dt><dd>
+&lt;sound-handle&gt;で指定される再生中のサウンドデータについて、再生を停止する。
+<ul><li>SND_Stop
+<pre class="wiki">   SND_Stop(&lt;sound-handle&gt;, &lt;mili-sec&gt;, &lt;terget-vol&gt;)
+
+   以下の項目は入力スキップ可能
+  &lt;mili-sec&gt;       フェードにかかる時間(ミリ秒) デフォルト:0
+  &lt;terget-vol&gt;    フェード終了時の音量0.0~1.0で指定。 デフォルト:0.0
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Pause</dt><dd>
+&lt;sound-handle&gt;で指定される再生中のサウンドデータについて、再生を一時停止する。
+<ul><li>SND_Pause
+<pre class="wiki">   SND_Pause(&lt;sound-handle&gt;, &lt;mili-sec&gt;, &lt;terget-vol&gt;)
+
+   以下の項目は入力スキップ可能
+  &lt;mili-sec&gt;       フェードにかかる時間(ミリ秒) デフォルト:0
+  &lt;terget-vol&gt;    フェード終了時の音量0.0~1.0で指定。 デフォルト:0.0
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Resume</dt><dd>
+&lt;sound-handle&gt;で指定される一時停止中のサウンドデータについて、再生を再開する。
+<ul><li>SND_Resume
+<pre class="wiki">   SND_Resume(&lt;sound-handle&gt;, &lt;mili-sec&gt;, &lt;terget-vol&gt;)
+
+   以下の項目は入力スキップ可能
+  &lt;mili-sec&gt;       フェードにかかる時間(ミリ秒) デフォルト:0
+  &lt;terget-vol&gt;    フェード終了時の音量0.0~1.0で指定。 デフォルト:1.0
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Fade</dt><dd>
+&lt;sound-handle&gt;で指定される再生中のサウンドデータについて、&lt;mili-sec&gt;分の時間でフェード音量を&lt;terget-vol&gt;の値にする。
+<ul><li>SND_Fade
+<pre class="wiki">   SND_Fade(&lt;sound-handle&gt;, &lt;mili-sec&gt;, &lt;terget-vol&gt;)
+
+  &lt;mili-sec&gt;       フェードにかかる時間(ミリ秒) 
+  &lt;terget-vol&gt;    フェード終了時の音量0.0~1.0で指定。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Seek</dt><dd>
+&lt;sound-handle&gt;で指定されるサウンドデータについて再生位置をミリ秒で指定する。
+<ul><li>SND_Seek
+<pre class="wiki">   SND_Seek(&lt;sound-handle&gt;, &lt;milli-sec&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Tell</dt><dd>
+&lt;sound-handle&gt;で指定されるサウンドデータについて再生位置をミリ秒で取得する。
+<ul><li>SND_Tell
+<pre class="wiki">   &lt;milli-sec&gt; = SND_Tell(&lt;sound-handle&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>SND_getLength</dt><dd>
+&lt;sound-handle&gt;で指定されるサウンドデータについて総演奏時間をミリ秒で取得する。
+<ul><li>SND_getLength
+<pre class="wiki">   &lt;milli-sec&gt; = SND_getLength(&lt;sound-handle&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Volume</dt><dd>
+&lt;sound-handle&gt;で指定されるサウンドデータについて、音量を設定する。
+<ul><li>SND_Volume
+<pre class="wiki">   SND_Volume(&lt;sound-handle&gt;, &lt;volume&gt;)
+
+   &lt;volume&gt; 0.0(無音) ～ 1.0(最大) の間で指定
+</pre></li></ul></dd></dl>
+<dl><dt>SND_Pan</dt><dd>
+&lt;sound-handle&gt;で指定されるSEデータについて、パン位置を設定する。
+<ul><li>SND_Pan
+<pre class="wiki">   SND_Pan(&lt;sound-handle&gt;, &lt;pan&gt;)
+
+   &lt;pan&gt; 中央を 0.0 とし、左最大が -1.0, 右最大が 1.0
+</pre></li></ul></dd></dl>
+<dl><dt>SND_VolumeBGM</dt><dd>
+SND_Open()関数の&lt;BGM-mode&gt;をtrueとしてオープンされたBGMサウンド全体に対するマスターボリュームを設定する。
+&lt;BGM-mode&gt;がfalseであるSEサウンドは影響を受けない。
+<ul><li>SND_VolumeBGM
+<pre class="wiki">   SND_VolumeBGM(&lt;volume&gt;)
+
+   &lt;volume&gt; 0.0(無音)～1.0(最大) の範囲で指定。
+
+   実際の再生音量は、ここで指定された&lt;volume&gt;と、サウンド個別に指定された&lt;volume&gt;を掛けた値となる。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_VolumeSE</dt><dd>
+SND_Open()関数の&lt;BGM-mode&gt;をfalseとしてオープンされたSEサウンド全体に対するマスターボリュームを設定する。
+&lt;BGM-mode&gt;がtrueであるBGMサウンドは影響を受けない。
+<ul><li>SND_VolumeSE
+<pre class="wiki">   SND_VolumeSE(&lt;volume&gt;)
+
+   &lt;volume&gt; 0.0(無音)～1.0(最大)の範囲で指定。
+
+   実際の再生音量は、ここで指定された&lt;volume&gt;と、サウンド個別に指定された&lt;volume&gt;を掛けた値となる。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_VolumeFormSE</dt><dd>
+UI_FormでオープンされたSEサウンド全体に対するマスターボリュームを設定する。
+<ul><li>SND_VolumeFormSE
+<pre class="wiki">   SND_VolumeFormSE(&lt;volume&gt;)
+
+   &lt;volume&gt; 0.0(無音)～1.0(最大)の範囲で指定。
+
+   実際の再生音量は、ここで指定された&lt;volume&gt;と、SEのマスターボリュームと、サウンド個別に指定された&lt;volume&gt;を掛けた値となる。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_State</dt><dd>
+&lt;sound-handle&gt;で指定されるサウンドの状態を取得する。
+<ul><li>SND_State
+<pre class="wiki">   &lt;state&gt; = SND_State(&lt;sound-handle&gt;)
+
+   &lt;state&gt; サウンドハンドルで指定したサウンドの状態、戻り値の定数は以下の通りです。
+                SND_STATE_PLAY                      ・・・  再生中
+                SND_STATE_PAUSE                    ・・・  一時停止中
+                SND_STATE_STOP                      ・・・  停止中
+                SND_STATE_INVALID_HANDLE   ・・・  無効なハンドルです。
+</pre></li></ul></dd></dl>
+<dl><dt>SND_MultiProcess</dt><dd>
+<ul><li>SND_MultiProcess
+<pre class="wiki">   SND_MultiProcess(&lt;process-type&gt;)    
+
+   &lt;process-type&gt; で指定したタイプによってミュージックアプリとの挙動を変更します。(2013/4/8現在iPhoneのみ対応)
+                SND_MULTIPROCESS_MUSIC_CUT                      ・・・  ゲームアプリのサウンドがミュージックアプリより優先(ゲーム起動時デフォルト)
+                SND_MULTIPROCESS_SOUND_CUT                    ・・・  ミュージックアプリ再生中はゲームアプリのサウンドが全てOFF
+                SND_MULTIPROCESS_SOUND_BGM_CUT            ・・・  ミュージックアプリ再生中はゲームアプリのBGMサウンドのみOFF
+</pre></li></ul></dd></dl>
+<dl><dt>SND_PauseOnInterruption</dt><dd>
+<ul><li>SND_PauseOnInterruption
+<pre class="wiki">   SND_PauseOnInterruption(&lt;bInterruption&gt;)    
+
+   &lt;bInterruption&gt; で指定したbool値によってアプリのサスペンド時にエンジンでサウンドの一時停止などを制御するかを設定(2013/6/10現在iPhoneのみ対応)
+                true          ・・・  サウンドのサスペンド処理をエンジンで制御する(ゲーム起動時デフォルト)
+                false         ・・・  サウンドのサスペンド処理をエンジンで制御しない
+</pre></li></ul></dd></dl>
+<h3 id="AI関数">AI関数<a title="このセクションへのリンク" href="#AI%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+AIシステムの制御や利用に際して用いられます。
+</p>
+<dl><dt>AI_setProp</dt><dd>
+AIオブジェクトのプロパティを設定する。プロパティは別途指定されるindex定数で指定する。
+<ul><li>AI_setProp
+<pre class="wiki">   AI_setProp(&lt;AI-object&gt;, &lt;index&gt;, &lt;value&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>AI_getProp</dt><dd>
+AIオブジェクトからプロパティ値を取得する。プロパティは別途指定されるindex定数で指定する。
+<ul><li>AI_getProp
+<pre class="wiki">   &lt;prop-value&gt; = AI_getProp(&lt;AI-object&gt;, &lt;index&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>AI_newQuery</dt><dd>
+AIシステムにおいて他のユニットを検索する条件をまとめ、Queryオブジェクトとして生成する。
+<ul><li>AI_newQuery
+<pre class="wiki">   &lt;query-object&gt; = AI_newQuery("&lt;unit-class&gt;", &lt;unit-mask&gt;, &lt;query-table&gt;)
+
+   &lt;unit-class&gt; Sincで定義されるユニットクラス名。
+
+   &lt;unit-mask&gt; GAME_Unit タスクの UNIT_TYPE コマンドで指定されたtype値とANDを取り、
+               結果が0にならないものを検索対象とするために用いられる。
+               このため、UNIT_TYPEでtype値を指定されていないユニットは検索対象にならない。
+
+   &lt;query-table&gt; = {
+      { &lt;operator&gt;, &lt;src-type&gt;, &lt;src-param&gt;, &lt;dst-type&gt;, &lt;dst-param&gt; },
+      { &lt;operator&gt;, &lt;src-type&gt;, &lt;src-param&gt;, &lt;dst-type&gt;, &lt;dst-param&gt; },
+        :
+   }
+
+   &lt;query-type&gt; に指定できる条件は最大4つまで。それ以上指定した場合は無視5つ目以降が無視される。
+
+   &lt;operator&gt; src を左辺、dst を右辺とおいた場合の条件演算子を指定する。
+     OP_NE  != 条件 src Not Equal dst
+     OP_EQ  == 条件 src EQual dst
+     OP_GT  &gt;  条件 src Greater Than dst
+     OP_GE  &gt;= 条件 src Greater then or Equal to dst
+     OP_LT  &lt;  条件 src Less Than dst
+     OP_LE  &lt;= 条件 src Less then or Equal to dst
+
+   &lt;src-type&gt;,&lt;dst-type&gt;  値の種別を指定する。&lt;src-param&gt;/&lt;dst-param&gt;をどのように解釈するかの指定。
+     AIT_UNITP  ユニットのプロパティ名文字列として解釈する。
+     AIT_AIP    AIプロパティのインデックス値として解釈する。別途定義される定数シンボルを使用すること。
+     AIT_GLOBAL AIシステムグローバルプロパティ値として解釈する。別途定義される定数シンボルを使用すること。
+     AIT_CONST  定数として解釈する。32bit符号付き整数として扱える値を指定すること。
+
+   &lt;src-param&gt;,&lt;dst-param&gt; &lt;src-type&gt;/&lt;dst-type&gt;で指定されたタイプの値として解釈可能な値を与える。
+</pre></li></ul></dd></dl>
+<dl><dt>AI_delQuery</dt><dd>
+生成済みのQueryオブジェクトを破棄する。同時に複数破棄可能。破棄対象として指定した数だけnilを返す。
+<ul><li>AI_delQuery
+<pre class="wiki">   nil [, nil [, ...]] = AI_delQuery(&lt;query-object&gt; [, &lt;query-object&gt; [, ... ] ])
+</pre></li></ul></dd></dl>
+<dl><dt>AI_delQueryAll</dt><dd>
+生成したすべてのQueryオブジェクトを破棄する。
+<ul><li>AI_delQueryAll
+<pre class="wiki">   AI_delQueryAll()
+</pre></li></ul></dd></dl>
+<dl><dt>AI_resetRule</dt><dd>
+AIオブジェクトのルールフラグをすべてリセットする。
+<ul><li>AI_resetRule
+<pre class="wiki">   AI_resetRule(&lt;AI-object&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>AI_setActive</dt><dd>
+AIのアクティブ状態を設定する。非アクティブ状態の時、AIは処理を進行させない。
+<ul><li>AI_setActive
+<pre class="wiki">   AI_setActive(&lt;AI-object&gt;, &lt;active-flag&gt;)
+</pre></li></ul></dd></dl>
+<h3 id="ユーティリティ関数">ユーティリティ関数<a title="このセクションへのリンク" href="#%E3%83%A6%E3%83%BC%E3%83%86%E3%82%A3%E3%83%AA%E3%83%86%E3%82%A3%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>bitOR</dt><dd>
+引数すべてを整数とみなし、そのすべてのビットごとの OR をとった値を返す。
+整数とみなすことができない値を引数として与えた場合はエラーとなる。
+<ul><li>bitOR
+<pre class="wiki">   &lt;ORの結果&gt; = bitOR(&lt;int値&gt; [, &lt;int値&gt;[, ... ] ] )
+</pre></li></ul></dd></dl>
+<dl><dt>bitAND</dt><dd>
+引数すべてを整数とみなし、そのすべてのビットごとの AND をとった値を返す。
+整数とみなすことができない値を引数として与えた場合はエラーとなる。
+<ul><li>bitAND
+<pre class="wiki">   &lt;ANDの結果&gt; = bitAND(&lt;int値&gt; [, &lt;int値&gt;[, ... ] ] )
+</pre></li></ul></dd></dl>
+<h3 id="データ変換関数">データ変換関数<a title="このセクションへのリンク" href="#%E3%83%87%E3%83%BC%E3%82%BF%E5%A4%89%E6%8F%9B%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+各種データをLuaから扱いやすい形式に変換する機能を提供している。
+</p>
+<dl><dt>CONV_Lua2Json</dt><dd>
+Luaテーブルを同じ構造を持つJSON文字列に変換する。
+<ul><li>CONV_Lua2Json
+<pre class="wiki">   &lt;JSON文字列&gt; = CONV_Lua2Json( &lt;構造を表現するLuaテーブル&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>CONV_Json2Lua</dt><dd>
+JSONの文字列を、同じ構造を持つLuaテーブルに変換する。
+<pre class="wiki">   &lt;Luaテーブル&gt; = CONV_Json2Lua( &lt;元になるJSON文字列&gt; )
+</pre></dd></dl>
+<dl><dt>CONV_JsonFile2Lua</dt><dd>
+ファイルパス形式で指定されたJSONファイルを、同じ構造を持つLuaテーブルに変換する。
+<ul><li>CONV_JsonFile2Lua
+<pre class="wiki">   &lt;Luaテーブル&gt; = CONV_JsonFile2Lua( &lt;JSONファイルのパス&gt; )
+</pre></li></ul></dd></dl>
+<h3 id="言語DB関数">言語DB関数<a title="このセクションへのリンク" href="#%E8%A8%80%E8%AA%9EDB%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+各言語の文字列DBアクセス手段を提供する。
+</p>
+<dl><dt>LANG_addString</dt><dd>
+idと文字列の組を登録する。
+<ul><li>LANG_addString
+<pre class="wiki">   LANG_addString( &lt;id&gt;, "&lt;string&gt;" )
+</pre></li></ul></dd></dl>
+<dl><dt>LANG_getString</dt><dd>
+id指定されたidに対応する文字列を返す。
+<ul><li>LANG_getString
+<pre class="wiki">   &lt;string&gt; = LANG_getString(&lt;id&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>LANG_removeString</dt><dd>
+指定されたidに対応する文字列を削除する。
+<ul><li>LANG_removeString
+<pre class="wiki">   LANG_removeString(&lt;id&gt;)
+</pre></li></ul></dd></dl>
+<h3 id="SQLiteインタフェース関数">SQLiteインタフェース関数<a title="このセクションへのリンク" href="#SQLite%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+ローカルストレージ中にあるSQLite3のDBファイルをSQLでアクセスする手段を提供する。
+ただし、システムのルール上書き込み禁止のディレクトリにあるDBファイルに対し、
+INSERT/UPDATE/DELETEなどの更新を伴うクエリを投げてはならない。
+</p>
+<dl><dt>DB_open</dt><dd>
+DBファイルパスを指定することで、そのDBにアクセスするためのコネクションインスタンスを返す。
+指定されたDBファイルのオープンが失敗した場合、戻り値はnilとなる。
+<ul><li>DB_open
+<pre class="wiki">   &lt;コネクションインスタンス&gt; = DB_open( &lt;DBファイルパス名&gt; [, &lt;書き込み許可&gt;, &lt;DBファイル作成許可&gt; ] )
+
+   &lt;書き込み許可&gt;        true でDBへの書き込みを許可する。
+                         デフォルトはtrue。read only のDBとして扱う場合、false にする。
+
+   &lt;DBファイル作成許可&gt;  true でDBファイルが見つからない場合の作成を許可する。
+                         デフォルトはtrueだが、&lt;書き込み許可&gt;がfalseの場合自動的にfalseとなる。
+
+
+</pre></li></ul></dd></dl>
+<dl><dt>DB_close</dt><dd>
+DB_open()で返されたコネクションインスタンスのDBをクローズする。
+コネクションインスタンスとしてnilが渡された場合は何もしない。
+<ul><li>DB_close
+<pre class="wiki">   DB_close(&lt;コネクションインスタンス&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>DB_query</dt><dd>
+コネクションインスタンスで指定されたDBに対し、SQL文字列でクエリを発行し、
+クエリ実行の成否と結果を返す。戻り値が二つあるので注意。
+クエリがselectionを返すSELECT文である場合は、第二戻り値はselectionをまとめたLuaテーブルとなる。
+戻されるLuaテーブルは、selection各行を{ カラム名=値, ... }の形式でまとめ、この行単位のテーブルを
+配列にしたもの。
+<ul><li>DB_query
+<pre class="wiki">   &lt;成否&gt;, &lt;値&gt; = DB_query(&lt;コネクションインスタンス&gt;, &lt;SQL文字列&gt;)
+   
+   &lt;成否&gt; boolean 成功時 true / 失敗時 false
+   &lt;値&gt; 成功時 セレクション結果のテーブルまたは空のテーブル
+        失敗時 エラーコード
+</pre></li></ul></dd></dl>
+<h3 id="バイナリデータインタフェース関数">バイナリデータインタフェース関数<a title="このセクションへのリンク" href="#%E3%83%90%E3%82%A4%E3%83%8A%E3%83%AA%E3%83%87%E3%83%BC%E3%82%BF%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%95%E3%82%A7%E3%83%BC%E3%82%B9%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+ファイルをバイナリデータとして読み込み、指定のオフセットにあるバイトデータを読み込む手段を提供する。
+</p>
+<dl><dt>BIN_open</dt><dd>
+ファイルパスを指定することで、そのファイルをバイナリデータとみなし、
+バイナリアレイインスタンス返す。
+指定されたファイルのオープンが失敗した場合、戻り値はnilとなる。
+<ul><li>BIN_open
+<pre class="wiki">   &lt;バイナリアレイインスタンス&gt; = BIN_open( &lt;ファイルパス名&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>BIN_close</dt><dd>
+BIN_open()で返されたバイナリアレイインスタンスを破棄する。
+バイナリアレイインスタンスとしてnilが渡された場合は何もしない。
+<ul><li>BIN_close
+<pre class="wiki">   BIN_close(&lt;バイナリアレイインスタンス&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>BIN_peek</dt><dd>
+バイナリアレイインスタンスの持つデータの、指定されたオフセットにある値を返す。
+指定されたオフセットが負の値や元のファイルサイズを超えるなどの場合はnilを返す。
+<ul><li>BIN_peek
+<pre class="wiki">   &lt;値&gt; = BIN_peek(&lt;バイナリアレイインスタンス&gt;, &lt;オフセット&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>BIN_peekU16</dt><dd>
+バイナリアレイインスタンスの持つデータの、指定されたオフセットから 2 バイトを16bit整数として取得し、その値を返す。
+取得される値のバイトオーダーは、第三引数の &lt;big-endian-mode&gt; が true の場合はビッグエンディアン(上位-下位)、
+falseの場合および指定されない場合はリトルエンディアン(下位-上位)となる。
+<ul><li>BIN_peekU16
+<pre class="wiki">   &lt;値&gt; = BIN_peekU16(&lt;バイナリアレイインスタンス&gt;, &lt;オフセット&gt; [ , &lt;big-endian-mode&gt; ])
+</pre></li></ul></dd></dl>
+<dl><dt>BIN_peekU32</dt><dd>
+バイナリアレイインスタンスの持つデータの、指定されたオフセットから 4 バイトを32bit整数として取得し、その値を返す。
+取得される値のバイトオーダーは、第三引数の &lt;big-endian-mode&gt; が true の場合はビッグエンディアン(上位-&gt;下位)、
+falseの場合および指定されない場合はリトルエンディアン(下位-&gt;上位)となる。
+<ul><li>BIN_peekU32
+<pre class="wiki">   &lt;値&gt; = BIN_peekU32(&lt;バイナリアレイインスタンス&gt;, &lt;オフセット&gt; [ , &lt;big-endian-mode&gt; ])
+</pre></li></ul></dd></dl>
+<h3 id="マトリクスベクトル演算関数">マトリクス/ベクトル演算関数<a title="このセクションへのリンク" href="#%E3%83%9E%E3%83%88%E3%83%AA%E3%82%AF%E3%82%B9%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E6%BC%94%E7%AE%97%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<p>
+簡易的な3D計算をサポートするため、マトリクス/ベクトルの計算ライブラリが用意されている。
+</p>
+<dl><dt>GEO_CreateMatrix</dt><dd>
+Luaのテーブル(配列)で与えらえた値を持つマトリクスオブジェクトを与えられたテーブルの個数だけ生成する。
+テーブルの代わりに nil を与えると、単位行列を生成する。戻り値の数は、引数として与えられたテーブルとnilの個数の合計と等しい。
+</dd></dl>
+<blockquote>
+<p>
+テーブルを与えずに呼び出すと、単位行列の値を持つマトリクスオブジェクトを一つだけ生成して返す。
+</p>
+</blockquote>
+<blockquote>
+<p>
+マトリクスオブジェクトは、扱いを高速にするためC++のnativeコードから扱えるバイナリ構造体として表現されたマトリクス情報。
+Luaの実数が double で表現されている場合は double/float間の変換のため、実際に生成される値は丸め誤差が生じる。
+</p>
+</blockquote>
+<ul><li>GEO_CreateMatrix
+<pre class="wiki">   local tblMat1 = {
+    1.0, 2.0, 0.0, -1.0,
+    -1.0, 1.0, 2.0,  0.0,
+    2.0, 0.0, 1.0,  1.0,
+    1.0, -2.0, -1.0, 1.0
+   }
+   local tblMat2 = {
+     0.0, 1.0, 0.0, 0.0,
+     1.0, 0.0, 0.0, 0.0,
+     0.0, 0.0, 1.0, 0.0,
+     0.0, 0.0, 0.0, 1.0
+   }
+   pMat1, pMat2, pUnit = GEO_CreateMatrix(tblMat1, tblMat2, nil)
+
+   pUnitMat = GEO_CreateMatrix()
+
+   上記の例で、pMat1 と pMat2 はそれぞれ tblMat1, tblMat2 と同じ値を持つマトリクスオブジェクトになる。
+   また、ｐUnit, pUnitMat は単位行列として生成される。
+</pre></li></ul><dl><dt>GEO_DeleteMatrix</dt><dd>
+マトリクスオブジェクトを破棄する。
+一度に複数のマトリクスオブジェクトを破棄することができる。
+</dd></dl>
+<blockquote>
+<blockquote>
+<p>
+与えられた引数のうち、値が nil のものについては何も行わない。
+値がnilであったものも含め、引数として与えられた数と同じだけの nil を返す。
+</p>
+</blockquote>
+</blockquote>
+<ul><li>GEO_DeleteMatrix
+<pre class="wiki">   local tblMatrix = { (省略) }
+
+   pMatrix = GEO_CreateMatrix( tblMatrix )
+   pUnitMatrix = GEO_CreateMatrix()
+
+   pMatrix, pUnitMatrix = GEO_DeleteMatrix( pMatrix, pUnitMatrix )
+
+   上記の例で、生成した二つのマトリクスオブジェクトを破棄している。
+   呼び出しの引数が二つであるため、戻り値として二つの nil が返される。
+   これを用いてマトリクスオブジェクトの保持に使用した変数を初期化している。
+</pre></li></ul><dl><dt>GEO_RevertMatrix</dt><dd>
+マトリクスオブジェクトから、同じ値を持つLuaのテーブルを返す。
+返されたLuaテーブルは、GEO_CreateMatrix()で使用する形式と同じとなる。
+</dd></dl>
+<ul><li>GEO_RevertMatrix
+<pre class="wiki">   local tblMatrix = { (省略) }
+
+   pMatrix = GEO_CreateMatrix( tblMatrix )
+
+   local tblMat2 = GEO_RevertMatrix(pMatrix)
+
+   上記の例で、tblMat2 はtblMatrix と同じ値の配列となる。
+   ただし、Luaでの実数が double で扱われている環境では double と float の
+   相互変換を経由するため、丸め誤差が生じる可能性がある。
+</pre></li></ul><dl><dt>GEO_CopyMatrix</dt><dd>
+引数で指定されたマトリクスオブジェクトをコピーし、新しいマトリクスオブジェクトを生成する。
+内部でコピーされるため、マトリクスオブジェクトとしては全く同じ値を持つ。
+</dd></dl>
+<blockquote>
+<blockquote>
+<p>
+ただし両者は異なるポインタを持つため、Luaの演算子で比較しても同じ値とは見做されない。
+</p>
+</blockquote>
+</blockquote>
+<ul><li>GEO_CopyMatrix
+<pre class="wiki">   local tblMatrix = { (省略) }
+
+   pMatrix = GEO_CreateMatrix( tblMatrix )
+   pMat2 = GEO_CopyMatrix(pMatrix)
+
+   上記例で、pMat2 は pMatrix と同じ値を持つマトリクスオブジェクトとなる。
+</pre></li></ul><dl><dt>GEO_TransposedMatrix</dt><dd>
+指定されたマトリクスオブジェクトを、転置行列に変換する。
+<pre class="wiki">   pMatrix = GEO_CreateMatrix()
+   GEO_TransposedMatrix(pMatrix)
+
+   上記例で、pMatrix の内容は GEO_TransposedMatrix() 実行前の内容を転置行列に変換した値になる。
+   再度実行することで元に戻すことができる。
+</pre></dd></dl>
+<dl><dt>GEO_OverwriteMatrix</dt><dd>
+既存のマトリクスオブジェクトの値を、Luaテーブルの値で上書きする。
+マトリクスオブジェクトとして与えられた値が nil である場合には何も行わない。
+</dd></dl>
+<ul><li>GEO_OverwriteMatrix
+<pre class="wiki">   pMatrix = GEO_CreateMatrix()
+
+   local tblNew = {
+     1.0, 2.0, 0.0, -1.0,
+     -1.0, 1.0, 2.0,  0.0,
+     2.0, 0.0, 1.0,  1.0,
+     1.0, -2.0, -1.0, 1.0
+   }
+
+   GEO_OverwriteMatrix(pMatrix, tblNew)
+
+   上記の例では、GEO_CreateMatrix() で単位行列として生成したマトリクスオブジェクトの値を、
+   GEO_OverwriteMatrix() で上書きしている。
+</pre></li></ul><dl><dt>GEO_DeleteAllMatrix</dt><dd>
+  
+生成方法を問わず、これまで生成されたマトリクスオブジェクト全てを破棄する。
+変数を上書きしてアクセスできなくなったマトリクスオブジェクトも含まれる。
+</dd></dl>
+<ul><li>GEO_DeleteAllMatrix
+<pre class="wiki">   local tblMat = { (省略) }
+   pMatrix = GEO_CreateMatrix(tblMat)
+
+   pMatrix = 100
+
+   GEO_DeleteAllMatrix()
+
+   上記の例では生成したマトリクスオブジェクトのポインタ値を受け取った pMatrix 変数を、
+   数値で上書きすることによってマトリクスへのアクセス手段が失われてしまっているが、
+   このようなマトリクスオブジェクトも GEO_DeleteAllMatrix()によって破棄できる。
+
+   ただし、システム起動以来生成したすべてのマトリクスオブジェクトが対象となるため、
+   使用に際しては注意が必要となる。
+</pre></li></ul><dl><dt>GEO_MulMatrix</dt><dd>
+  
+第二引数以降のマトリクスオブジェクト同士を順次乗算し、結果を第一引数のマトリクスオブジェクトに書き込む。
+二つ以上のマトリクス乗算を一度の手続きで行うことができる。
+</dd></dl>
+<ul><li>GEO_MulMatrix
+<pre class="wiki">   local tblMat1 = { (省略) }
+   local tblMat2 = { (省略) }
+   local tblMat3 = { (省略) }
+   local tblMat4 = { (省略) }
+   local tblMat5 = { (省略) }
+
+   pMat1 = GEO_CreateMatrix(tblMat1)
+   pMat2 = GEO_CreateMatrix(tblMat2)
+   pMat3 = GEO_CreateMatrix(tblMat3)
+   pMat4 = GEO_CreateMatrix(tblMat4)
+   pMat5 = GEO_CreateMatrix(tblMat5)
+
+   pAns = GEO_CreateMatrix()  -- 結果受け取り用
+ 
+   GEO_MulMatrix(pAns, pMat1, pMat2, pMat3, pMat4, pMat5)
+
+   上記の例ではtblMat1～tblMat5までの配列から生成した pMat1～pMat5を番号順に乗算し、
+   結果を pAns に格納している。行列の計算なので、引数を与える順番に注意。
+</pre></li></ul><dl><dt>GEO_InverseMatrix</dt><dd>
+  
+与えられたマトリクスの内容を、逆行列に変換する。
+変換に成功した場合は true, 失敗した場合は false を返す。
+</dd></dl>
+<blockquote>
+<blockquote>
+<p>
+いずれの場合も元の内容は破壊されるため注意。
+</p>
+</blockquote>
+</blockquote>
+<ul><li>GEO_InverseMatrix
+<pre class="wiki">   local tblMat = { (省略) }
+
+   pMat = GEO_CreateMatrix(tblMat)
+   pInvMat = GEO_CopyMatrix(pMat)
+
+   if GEO_InverseMatrix(pInvMat) then
+     -- 逆行列生成成功
+   else
+     -- 逆行列生成失敗
+     -- pInvMatの内容は無効なので破棄する
+     pInvMat = GEO_DeleteMatrix(pInvMat)
+   end
+
+   上記の例ではLuaテーブルから生成したマトリクスオブジェクト pMat を pInvMat にコピーし、
+   GEO_INverseMatrix() で逆行列に変換している。
+</pre></li></ul><dl><dt>GEO_VecConv</dt><dd>
+  
+Luaテーブルとして表現されるベクトルにマトリクスオブジェクトをかけ、
+結果のベクトルを同じ形式のLuaテーブルとして返す。
+</dd></dl>
+<ul><li>GEO_VecConv
+<pre class="wiki">   local tblMat = { (省略) }
+
+   pMat = GEO_CreateMatrix(tblMat)
+
+   local tblVec = GEO_VecConv(pMat, { x1, y1, z1, w1 })
+
+   上記の例では(x1, y1, z1, w1)の値を持つベクトルをLuaテーブルとして与え、
+   pMat が持つマトリクスをかけた変換結果を tblVec に受け取っている。
+
+   変換結果を (x2, y2, z2, w2) とした場合、tblVec の値は { x2, y2, z2, w2 }
+   というテーブルになる。
+</pre></li></ul><dl><dt>GEO_VecArrayConv</dt><dd>
+  
+GEO_VecConv()に与える形式のベクトルを配列として同時に複数与え、そのすべてに対しマトリクスオブジェクトをかけた結果を、
+同じ要素数/同じ形式のLuaテーブルとして返す。複数のベクトルに対し、同じマトリクスでまとめて変換をかける際に使用する。
+</dd></dl>
+<ul><li>GEO_VecArrayConv
+<pre class="wiki">   local tblMat = { (省略) }
+
+   pMat = GEO_CreateMatrix(tblMat)
+
+   local tblVecArray {
+     { x1, y1, z1, w1 },
+     { x2, y2, z2, w2 },
+     { x3, y3, z3, w3 },
+     { x4, y4, z4, w4 },
+      :
+     (中略)
+      :
+     { xn, yn, zn, wn },
+   }
+
+   local retVecArray = GEO_VecArrayConv(pMat, tblVecArray)
+
+   上記の例では複数のベクトルをLuaテーブルとして与え、
+   pMat が持つマトリクスをかけた変換結果を retVecArray に受け取っている。
+
+   同じ形式、同じ要素数で変換結果が返される。
+</pre></li></ul><h3 id="RisetotheThrone専用関数">Rise to the Throne 専用関数<a title="このセクションへのリンク" href="#RisetotheThrone%E5%B0%82%E7%94%A8%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
+<dl><dt>RTTT_getPlatformID</dt><dd>
+</dd></dl>
+<p>
+今のPlatformが何であるかを示す識別子を返す. 
+</p>
+<ul><li>RTTT_getPlatformID
+<pre class="wiki">  local platform = RTTT_getPlatformID()
+
+  -- 戻り値の識別子は以下の通りで内部的には整数.
+  -- RTTT_PLATFORM_UNKNOWN
+  -- RTTT_PLATFORM_WIN32
+  -- RTTT_PLATFORM_IOS
+  -- RTTT_PLATFORM_ANDROID
+</pre></li></ul>
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

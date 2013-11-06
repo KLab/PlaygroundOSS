@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_RubberBand – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_RubberBand">UI_RubberBand<a title="このセクションへのリンク" href="#UI_RubberBand" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_RubberBand( &lt;parent pointer&gt;, &lt;order&gt;, &lt;origin x&gt;, &lt;origin y&gt;, "&lt;origin asset&gt;", "&lt;joint asset&gt;", "&lt;point asset&gt;",
+                              &lt;resolution&gt;[ , &lt;option flags&gt;, &lt;animation time&gt;, &lt;joint priority offset&gt;, &lt;point priority offset&gt;,
+                                              &lt;origin-rot-enable&gt;, &lt;joint-rot-enable&gt;, &lt;point-rot-enable&gt; ])
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;order&gt; 表示プライオリティ。始点の表示に使用される。
+</li><li>&lt;origin x&gt;, &lt;origin y&gt; 始点座標
+</li><li>&lt;origin asset&gt; 始点表示に使用する画像asset。向きに合わせて回転するので「右向きで」作る。
+</li><li>&lt;joint asset&gt; 中間表示に使用する画像asset。回転しないので、回転しなくても違和感のないデザインで作る。
+</li><li>&lt;point asset&gt; 終点表示に使用する画像asset。向きに合わせて回転するので「右向きで」作る。
+</li><li>&lt;resolution&gt; 分割数。始点と終点の間をこの数に分割した境界に中間点が表示される。
+</li><li>&lt;option flags&gt; オプションの動作フラグ。下記の値を論理和で指定可能。
+<ul><li>RB_ANIM_ENABLE アニメーションを行う。始点方向から終点方向に向かい、中間点がループアニメーションする。
+</li><li>RB_ANIM_REALTIME アニメーション時間を実時間で解釈する。
+</li></ul></li><li>&lt;animation time&gt; アニメーションフラグが有効な場合には &lt;joint priority offset&gt; のひとつ前に引数をセットする必要があります。アニメーションの1ループにかかる時間を設定します。
+</li><li>&lt;joint priority offset&gt; 中間表示のプライオリティに与える、始点プライオリティからのオフセット。デフォルトは 1
+</li><li>&lt;point prioriry offset&gt; 終点表示のプライオリティに与える、始点プライオリティからのオフセット。デフォルトは 2
+</li><li>&lt;origin-rot-enable&gt; 始点画像を回転させるか否か。デフォルトはtrue(回転する)
+</li><li>&lt;joint-rot-enable&gt;  中間表示画像を回転させるか否か。デフォルトは false(回転しない)
+</li><li>&lt;point-rot-enable&gt;  終点画像を回転させるか否か。デフォルトはtrue(回転する)
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_RubberBand タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+始点と終点の間を結ぶ直線状にスプライトを並べて表示します。
+矢印の表示に使用できます。
+</p>
+<p>
+タスクの動作中、始点と終点の座標を下記プロパティで変更することができます。
+</p>
+<pre class="wiki">   pRB = UI_RubberBand(...)
+   prop = TASK_getProperty(pRB)
+ 
+   -- 始点座標
+   prop.originX = &lt;始点x&gt;
+   prop.originY = &lt;始点y&gt;
+
+   -- 終点座標
+   prop.pointX = &lt;終点x&gt;
+   prop.pointY = &lt;終点y&gt;
+
+   TASK_setProperty(pRB)
+</pre><p>
+始点と終点に指定された画像は、両者を結ぶ線分の傾きに合わせて回転します。
+中間点の画像は回転されませんので、それを踏まえて素材を作る必要があります。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<p>
+UI_RUBBAND_SET_ORDER::
+</p>
+<blockquote>
+<p>
+各パーツの表示プライオリティを変更する
+</p>
+</blockquote>
+<p>
+* UI_RUBBAND_SET_ORDER
+</p>
+<pre class="wiki">   pRubBand = UI_RubberBand(...)
+   sysCommand(pRubBand, UI_RUBBAND_SET_ORDER, &lt;order-origin&gt;, &lt;order-joint&gt;, &lt;order-point&gt;)
+</pre>
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

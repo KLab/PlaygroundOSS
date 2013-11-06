@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_WebView – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_WebView20130221現在Windowsでの動作はしないです">UI_WebView (2013/02/21現在 Windowsでの動作はしないです)<a title="このセクションへのリンク" href="#UI_WebView20130221%E7%8F%BE%E5%9C%A8Windows%E3%81%A7%E3%81%AE%E5%8B%95%E4%BD%9C%E3%81%AF%E3%81%97%E3%81%AA%E3%81%84%E3%81%A7%E3%81%99" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_WebView( &lt;parent pointer&gt;, &lt;mode&gt;, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt;, &lt;url&gt;, "&lt;callback&gt;" )
+
+   function &lt;callback&gt;( &lt;task pointer&gt;, &lt;type&gt;, &lt;argument string&gt; )
+     -- &lt;task pointer&gt;          呼び出し元 UI_WebView タスクのポインタ
+     -- &lt;type&gt;                      呼び出し理由
+     -- &lt;argument string&gt;　通知に必要な文字列
+   end
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;mode&gt; ページ遷移の許可/禁止
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;width&gt;, &lt;height&gt; 表示領域のサイズ
+</li><li>&lt;url&gt; 初期表示状態のURL
+</li><li>&lt;callback&gt; <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/WebView" rel="nofollow">WebView?</a>のイベントコールバック
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_WebView タスクのポインタ
+</li></ul><h3 id="コールバック引数">コールバック引数<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; コールバックを呼び出した UI_WebView のポインタ
+</li><li>&lt;type&gt;             コールバック理由。
+<ul><li>WEBVIEW_LOCALLINK         スクリプトへの通知。&lt;argument string&gt;がWebView上で踏まれたリンクの値になる
+</li><li>WEBVIEW_DIDSTARTLOAD  Webのロードが開始された。&lt;argument string&gt; は空になる。
+</li><li>WEBVIEW_DIDENDLOAD     Webのロードが終了した。&lt;argument string&gt; は空になる。
+</li><li>WEBVIEW_FAILEDLOAD      Webのロードが失敗した。&lt;argument string&gt; は空になる。
+</li></ul></li><li>&lt;argument string&gt; <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/WebSite" rel="nofollow">WebSite?</a> 中のリンクから与えられた識別用文字列
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+画面の一部に簡易ブラウザを表示する。
+用途によって他ページへの遷移を禁止できる。
+</p>
+<p>
+また、表示したWebPage中のリンクやボタンから特定のJavaScript呼び出しを行うことで、
+&lt;callback&gt;で指定されたコールバック関数を呼び出し、<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/JavaScript" rel="nofollow">JavaScript?</a>の引数として与えられた文字列を
+受け取ることができる。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_WEBVIEW_SETURL</dt><dd>
+表示するURLを指定する
+<ul><li>UI_WEBVIEW_SETURL
+<pre class="wiki">   pWeb = UI_WebView(...)
+   sysCommand(pWeb, UI_WEBVIEW_SETURL, "&lt;url&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>UI_WEBVIEW_GETURL</dt><dd>
+現在表示しているURL文字列を取得する
+<ul><li>UI_WEBVIEW_GETURL
+<pre class="wiki">   pWeb = UI_WebView(...)
+   &lt;url&gt; = sysCommand(pWeb, UI_WEBVIEW_GETURL)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_WEBVIEW_SCALESPAGETOFIT</dt><dd>
+OSによって表示されるWebView の scalesPageToFit フラグを指定する。現時点ではiOS限定であり、対応していない環境では無視される。
+<pre class="wiki">   pWeb = UI_WebView(...)
+   &lt;url&gt; = sysCommand(pWeb, UI_WEBVIEW_SCALESPAGETOFIT, &lt;scalesPageToFit-value&gt;
+
+   &lt;scalesPageToFit-value&gt; true で YES / false で NO
+</pre></dd></dl>
+<dl><dt>UI_WEBVIEW_SETBGCOLOR</dt><dd>
+背景色を指定します。
+<pre class="wiki">   pWeb = UI_WebView(...)
+   sysCommand(pWeb, UI_WEBVIEW_SETBGCOLOR, &lt;alpha&gt;, &lt;rgb&gt;)
+
+   &lt;alpha&gt; 0x00 ～ 0xff までのアルファ値
+   &lt;rgb&gt; 0x000000 ～ 0xffffff までのRGBカラー値
+</pre></dd></dl>
+<h3 id="UI_WebView向けサイトの実装">UI_WebView向けサイトの実装<a title="このセクションへのリンク" href="#UI_WebView%E5%90%91%E3%81%91%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%AE%9F%E8%A3%85" class="anchor"> ¶</a></h3>
+<p>
+UI_WebView向けのサイトでは、ページ遷移せずにLua中のコールバック関数を呼ぶリンクを作ることができます。
+</p>
+<p>
+簡単なサンプルを書くと、下記のようになります。
+</p>
+<ul><li>HTML側(XHTML1.1による例)
+<pre class="wiki">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"]
+               "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"&gt;
+	&lt;head&gt;
+		&lt;meta name="language" content="jp" /&gt;
+
+		&lt;script type="text/javascript" src="./webview.js" /&gt;
+
+		&lt;title&gt;JavaScript Test&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+	&lt;div&gt;
+	&lt;h1&gt;テスト&lt;/h1&gt;
+	&lt;ul&gt;
+	&lt;li&gt;&lt;a onclick="eng.cmd('campaign')"&gt;呼び出しリンク(test:campaign)&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a onclick="eng.cmd('shop')"&gt;呼び出しリンク(test:shop)&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a onclick="eng.cmd('special')"&gt;呼び出しリンク(test:special)&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</pre></li></ul><ul><li>webview.js
+<pre class="wiki">// UserAgentを取得
+var strUA = "";
+strUA = navigator.userAgent.toLowerCase();
+
+// UserAgent に iphone または ipad が含まれたら、iOSデバイス
+var iOSclient = false;
+if(strUA.indexOf("iphone") &gt;= 0) iOSclient = true;
+if(strUA.indexOf("ipad") &gt;= 0) iOSclient = true;
+
+// iOSデバイスの場合は、Androidによって定義されるインタフェースクラスと同名のメソッドを持つ
+// 簡易インタフェースクラスを実装する。
+if(iOSclient) {
+	var engineIF = function() {};
+	engineIF.prototype.cmd = function(keyString) {
+		location.href = "native://" + keyString;
+	};
+	var eng = new engineIF();
+}
+</pre></li></ul><p>
+webview.js を読み込んだ後は、iOS,Android共にHTML中で eng.cmd('&lt;argument string&gt;') を呼ぶことで、
+そのページを表示しているUI_WebViewに指定された&lt;callback&gt;を呼び、&lt;argument string&gt;を渡すことができるようになります。
+</p>
+<p>
+eng インスタンスは、iOSでは webview.js 中で生成され、AndroidではEngine側でWebView表示の際にJavaScript Interfaceとして生成されます。
+どちらも cmd(String) メソッドを持ち、同じ呼び出し記述で&lt;callback&gt;を呼び出すことができます。
+</p>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>
