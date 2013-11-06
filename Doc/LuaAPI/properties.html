@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UIGeneric – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="properties_files/trac.css" type="text/css"><link rel="stylesheet" href="properties_files/wiki.css" type="text/css">
+      <link type="application/opensearchdescription+xml" rel="search" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/search/opensearch" title="Search KLBGame25D">
+    <script type="text/javascript" src="properties_files/jquery.js"></script><script type="text/javascript" src="properties_files/trac.js"></script><script type="text/javascript" src="properties_files/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UIタスクの標準プロパティ">UIタスクの標準プロパティ<a title="このセクションへのリンク" href="#UI%E3%82%BF%E3%82%B9%E3%82%AF%E3%81%AE%E6%A8%99%E6%BA%96%E3%83%97%E3%83%AD%E3%83%91%E3%83%86%E3%82%A3" class="anchor"> ¶</a></h2>
+<p>
+ツリー化可能とされるUIタスクは、すべて共通のプロパティを持ちます。
+</p>
+<ul><li>.alpha 表示上の alpha 値
+</li><li>.color 表示上の RGB 値
+</li><li>.scaleX 表示上のscale値(x方向)
+</li><li>.scaleY 表示上のscale値(y方向)
+</li><li>.rot 表示上の回転角(正方向で時計廻り。単位は degree)
+</li><li>.x 表示位置(x)
+</li><li>.y 表示位置(y)
+</li><li>.visible 表示の可否(boolean)
+</li></ul><p>
+これらは同じ手続きで操作できます。
+</p>
+<h2 id="UIタスクの標準コマンド">UIタスクの標準コマンド<a title="このセクションへのリンク" href="#UI%E3%82%BF%E3%82%B9%E3%82%AF%E3%81%AE%E6%A8%99%E6%BA%96%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h2>
+<p>
+ツリー化可能とされるUIタスクは、すべて共通のコマンドを受け付けます。
+</p>
+<dl><dt>UI_GENERIC_NODE_RECONNECT</dt><dd>
+</dd></dl>
+<blockquote>
+<p>
+<strong>注意:このコマンドは本来望ましくない処理を行うものであり、動作を理解しないまま使用するのは大変危険であるため、正しい動作を理解の上自己責任で使用すること！！</strong>
+</p>
+</blockquote>
+<blockquote>
+<p>
+自身の「代表ノード」を接続する先を、親タスクの持つ代表ノードではなく、
+親タスクの代表ノード以下になる別のノードに変更する。
+</p>
+</blockquote>
+<blockquote>
+<p>
+接続先のノードは名前で指定する。
+親タスクが存在しなければならず、またUIタスクでなければならない。
+親タスクが指定の名称のノードを持たない場合は基本的に何もしない。
+</p>
+</blockquote>
+<blockquote>
+<p>
+接続先として指定するノードは、親タスクが保有するノードでなければならない。同じ親を持つ兄弟の階層となったタスクが保有しているノードが、指定した名前を持つ場合の動作は保障しない。
+</p>
+</blockquote>
+<blockquote>
+<p>
+また、このコマンドはUIタスクの持つSceneGraphを上位となるUIタスクのRootノード以外のノードに接続しなおすだけであり、
+Compositeのロードにより起動されるタスクのような「タスク付きノード」を生成するものではない。このため、UI_FormやUI_Listの
+UI_(FORM|LIST)_UPDATE_NODE の FORM_NODE_TASKでタスクポインタを取得することはできないことに注意。
+</p>
+</blockquote>
+<ul><li>UI_GENERIC_NODE_RECONNECT
+<pre class="wiki">   pParent UI_*( ... )
+   pChild= UI_*(pParent, ...)
+   sysCommand(pChild, UI_GENERIC_NODE_RECONNECT, "&lt;reconnect node name&gt;")
+
+   ※上記例の場合、pParent が持つツリーに、&lt;reconnect node name&gt;で指定した名称のノードが無ければならない。
+</pre></li></ul><dl><dt>UI_GENERIC_SET_NAME</dt><dd>
+そのUIタスクの持つRootノードに、検索で使用可能な名前を与える。
+</dd></dl>
+<blockquote>
+<blockquote>
+<p>
+ただし、Rootノードが既に名前を持っている場合は再設定できない。Compositeから生成されたUIタスクや、すでに名前を与えられている場合がこれに該当する。
+</p>
+</blockquote>
+</blockquote>
+<ul><li>UI_GENERIC_SET_NAME
+<pre class="wiki">  pTask = UI_*( ... )
+  sysCommand(pTask, UI_GENERIC_SET_NAME, "&lt;new task name&gt;")
+</pre></li></ul><dl><dt>UI_GENERIC_ANIM_SET_SPLINE</dt><dd>
+自身の代表ノードに対し、スプラインアニメーションを設定する。
+スプラインアニメーション情報はLuaテーブルの形式で与える。
+</dd></dl>
+<blockquote>
+<blockquote>
+<p>
+現在再生中のアニメーションがある場合は、このコマンド呼び出しによって停止される。
+</p>
+</blockquote>
+</blockquote>
+<ul><li>UI_GENERIC_ANIM_SET_SPLINE
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_ANIM_SET_SPLINE, &lt;table-spline-data&gt;)
+
+   &lt;table-spline-data&gt; = {
+       {
+           target = &lt;modify-target&gt;,
+           mode = &lt;value-mode&gt;,
+           keys = {
+               { &lt;time&gt;, &lt;value&gt; },
+               { &lt;time&gt;, &lt;value&gt; },
+               { &lt;time&gt;, &lt;value&gt; },
+               { &lt;time&gt;, &lt;value&gt; },
+                      :
+                      :
+           },
+       },
+       {
+           target = &lt;modify-target&gt;,
+           mode = &lt;value-mode&gt;,
+           keys = {
+               { &lt;time&gt;, &lt;value&gt; },
+               { &lt;time&gt;, &lt;value&gt; },
+               { &lt;time&gt;, &lt;value&gt; },
+               { &lt;time&gt;, &lt;value&gt; },
+                      :
+                      :
+           },
+       },
+        :
+        :
+   }
+
+   &lt;modify-target&gt; 以下のうちどれか一種を指定。
+       SPL_MODIFY_X
+       SPL_MODIFY_Y
+       SPL_MODIFY_SCALE
+       SPL_MODIFY_R
+       SPL_MODIFY_G
+       SPL_MODIFY_B
+       SPL_MODIFY_A
+       SPL_MODIFY_ROT
+
+   &lt;value-mode&gt; 以下のうち、どちらかを指定。指定されない場合は SPL_VALUE_INT 扱いになる。
+       SPL_VALUE_INT  &lt;value&gt;を整数で指定。
+       SPL_VALUE_NUM  &lt;value&gt;を実数で指定。
+
+   &lt;time&gt; キーの時刻
+   &lt;value&gt; &lt;time&gt;で指定された時刻における値(値の形式は&lt;value-mode&gt;で指定)
+</pre></li></ul><dl><dt>UI_GENERIC_ANIM_PLAY</dt><dd>
+自身の代表ノードに設定されたスプラインアニメーションを再生する。
+実行前に、UI_GENERIC_ANIM_SET_SPLINE でアニメーション情報が設定されている必要がある。
+<ul><li>UI_GENERIC_ANIM_PLAY
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_ANIM_PLAY)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_GENERIC_ANIM_STOP</dt><dd>
+自身の代表ノードに設定されたスプラインアニメーションが再生中の場合に、それを停止する。
+<ul><li>UI_GENERIC_ANIM_STOP
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_ANIM_STOP)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_GENERIC_IS_ANIM</dt><dd>
+自身の代表ノードが現在アニメーション中か否かを返す。
+<ul><li>UI_GENERIC_IS_ANIM
+<pre class="wiki">   pParent UI_*( ... )
+   &lt;is-animating&gt; = sysCommand(pChild, UI_GENERIC_IS_ANIM)
+
+   &lt;is-animating&gt; trueでアニメーション中、falseで停止中
+</pre></li></ul></dd></dl>
+<dl><dt>UI_GENERIC_SET_COLOR</dt><dd>
+標準プロパティ .alpha および .color を設定する。
+<ul><li>UI_GENERIC_SET_COLOR
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_SET_COLOR, &lt;alpha&gt;, &lt;rgb&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_GENERIC_SET_SCALE</dt><dd>
+標準プロパティ .scaleX および .scaleYを設定する。
+<ul><li>UI_GENERIC_SET_SCALE
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_SET_SCALE, &lt;scale-x&gt;, &lt;scale-y&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_GENERIC_SET_ROT</dt><dd>
+標準プロパティ .rot を設定する。
+<ul><li>UI_GENERIC_SET_ROT
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_SET_ROT, &lt;rot&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_GENERIC_SET_VISIBLE</dt><dd>
+標準プロパティ .visible を設定する。
+<ul><li>UI_GENERIC_SET_VISIBLE
+<pre class="wiki">   pParent UI_*( ... )
+   sysCommand(pChild, UI_GENERIC_SET_VISIBLE, &lt;visible&gt;)
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="properties_files/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_Clip – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_Clip">UI_Clip<a title="このセクションへのリンク" href="#UI_Clip" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_Clip( &lt;parent pointer&gt;, 
+                             &lt;base priority&gt;, &lt;max order&gt;,
+                             &lt;x&gt;, &lt;y&gt;, &lt;clip width&gt;, &lt;clip height&gt;)
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;base priority&gt; 基準表示プライオリティ
+</li><li>&lt;max order&gt; クリッピング対象とする最大プライオリティ値
+</li><li>&lt;x&gt;, &lt;y&gt; クリッピング領域とする領域の位置
+</li><li>&lt;clip width&gt;, &lt;clip height&gt; クリッピング領域のサイズ
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_Clip タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+一定のプライオリティを持つオブジェクトに対して適用されるクリッピング領域を配置する。
+</p>
+<h3 id="制約事項">制約事項<a title="このセクションへのリンク" href="#%E5%88%B6%E7%B4%84%E4%BA%8B%E9%A0%85" class="anchor"> ¶</a></h3>
+<p>
+UI_Clip と UI_List は、共に描画システムのクリッピング機能を利用している。
+どちらも他の UI_Clip や UI_List と重複するプライオリティ範囲を指定することはできない。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_CLIP_SET_POSITION</dt><dd>
+クリッピング領域矩形の左上位置を画面座標で指定する
+<ul><li>UI_CLIP_SET_POSITION
+<pre class="wiki">   pClip = UI_Clip(...)
+   sysCommand(pClip, UI_CLIP_SET_POSITION, &lt;x&gt;, &lt;y&gt; )
+</pre></li></ul></dd></dl>
+<dl><dt>UI_CLIP_SET_SIZE</dt><dd>
+クリッピング領域矩形のサイズを指定する
+<ul><li>UI_CLIP_SET_SIZE
+<pre class="wiki">   pClip = UI_Clip(...)
+   sysCommand(pClip, UI_CLIP_SET_SIZE, &lt;clip width&gt;, &lt;clip height&gt; )
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

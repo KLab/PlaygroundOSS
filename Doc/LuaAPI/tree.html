@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UITree – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="tree_files/trac.css" type="text/css"><link rel="stylesheet" href="tree_files/wiki.css" type="text/css">
+      <link type="application/opensearchdescription+xml" rel="search" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/search/opensearch" title="Search KLBGame25D">
+    <script type="text/javascript" src="tree_files/jquery.js"></script><script type="text/javascript" src="tree_files/trac.js"></script><script type="text/javascript" src="tree_files/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UIタスクのツリー化について">UIタスクのツリー化について<a title="このセクションへのリンク" href="#UI%E3%82%BF%E3%82%B9%E3%82%AF%E3%81%AE%E3%83%84%E3%83%AA%E3%83%BC%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" class="anchor"> ¶</a></h2>
+<p>
+「ツリー化可能」とされるUIタスクは、必ず表示要素を持ち、起動関数の第一引数に「親タスクのポインタ」を指定するようになっています。
+起動時に他のUIタスクを親タスクとして指定することで、UIタスクのツリー化が可能になります。
+</p>
+<p>
+UIタスクをツリー化することにより、それらのタスクは以下のような関係を持ちます。
+</p>
+<ul><li>各UIタスクの持つ表示要素は、描画系のSceneGraphレベルでツリー化されます。
+</li><li>このため子の側となったタスクに指定した座標は、親側タスクの表示位置からの相対座標で扱われます。
+</li><li>各UIタスク同士は、タスクレベルでの親子関係を構築します。
+</li><li>親タスクの破棄に合わせ、子タスク側にも破棄指令が送られます。
+</li></ul><p>
+また、UIタスクに分類されるもの以外にも、ツリー化の親となることができるタスク(GAME_Unit, MAP_Groupなど)が存在します。
+この場合も構築される関係は上記と同じです。これらはUIタスクを装飾として付随させることができる機能として実装されています。
+</p>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="tree_files/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

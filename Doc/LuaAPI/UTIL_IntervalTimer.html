@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UTIL_IntervalTimer – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UTIL_IntervalTimer">UTIL_IntervalTimer<a title="このセクションへのリンク" href="#UTIL_IntervalTimer" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UTIL_IntervalTimer( &lt;timerID&gt;, "&lt;callback&gt;", &lt;interval&gt; [ , &lt;repeat&gt; , &lt;parentTask&gt; ] )
+
+
+   function &lt;callback&gt;(timerID)
+
+   end
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;timerID&gt; タイマーID。コールバック時の引数として渡される値で、スクリプタがその意味を定める。
+</li><li>&lt;callback&gt; 所定の時間経過時に呼び出されるコールバック関数の名称
+</li><li>&lt;interval&gt; 時間間隔。[ms]単位で与える(1秒 = 1000)
+</li><li>&lt;repeat&gt; trueで繰り返し、falseでワンショットタイマーになる。指定しなかった場合はfalseの扱いになる。
+</li><li>&lt;parentTask&gt; 親タスク。
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UTIL_IntervalTimer タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+タスクが起動されてから、指定された時間が経過後にコールバック関数を呼び出すタスク。
+同じ時間間隔で繰り返しコールバックを呼ぶこともできる。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<p>
+(コマンド無し)
+</p>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

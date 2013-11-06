@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_TextInput – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_TextInput">UI_TextInput<a title="このセクションへのリンク" href="#UI_TextInput" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_TextInput( &lt;parent pointer&gt;, &lt;password mode&gt;, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt;, "&lt;default text&gt;"
+                                 [ , "&lt;on-change-callback&gt;", &lt;widget-id&gt;, &lt;max-length&gt;, &lt;enable-chartype&gt; ] )
+
+   function &lt;on-change-callback&gt;(&lt;task-pointer&gt;, &lt;new-string&gt;, &lt;widget-id&gt;)
+     -- &lt;task-pointer&gt; 呼び出し元 UI_TextInput のタスクポインタ
+     -- &lt;new-string&gt;   更新された結果の文字列
+     -- &lt;widget-id&gt;    タスク起動時に指定された&lt;widget-id&gt;の値
+   end
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;password mode&gt; trueでパスワードモード(入力した文字列がコントロール上で伏せて表示される)で作成する。falseの場合は通常の入力。
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;width&gt;, &lt;height&gt; 画面上の表示サイズ
+</li><li>&lt;default text&gt; 初期状態で設定する文字列
+</li><li>&lt;on-change-callback&gt; 文字列が変更されたときに呼ばれるコールバック名。指定されない場合は呼び出されない。
+</li><li>&lt;widget-id&gt; コールバックに渡されるID値。指定されない場合は 0 と同じ扱い。
+</li><li>&lt;max-length&gt; 入力可能な最大長
+</li><li>&lt;enable-chartype&gt; 文字種による入力制限。定数 TXCH_7BIT_ASCII と TXCH_UTF8 の論理和で与える。
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_TextInput タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+OSのUI機能を使い、文字列入力コントロールを生成する。
+</p>
+<p>
+文字列入力コントロールの表示は OpenGL ES の管理外にあるため、必ず最前面に表示される(プライオリティ制御はできない)
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_TEXTBOX_SETTEXT</dt><dd>
+文字列入力コントロールに文字列を設定する
+<ul><li>UI_TEXTBOX_SETTEXT
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETTEXT, "&lt;new text string&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_GETTEXT</dt><dd>
+文字列入力コントロールに現在入力されている文字列を取得する
+<ul><li>UI_TEXTBOX_GETTEXT
+<pre class="wiki">   pText = UI_TextInput(...)
+   &lt;now text string&gt; = sysCommand(pText, UI_TEXTBOX_GETTEXT)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_SETPLACEHOLDER</dt><dd>
+プレースホルダー文字列を指定する
+<ul><li>UI_TEXTBOX_SETPLACEHOLDER
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETPLACEHOLDER, "&lt;placeholder-string&gt;")
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_SETCOLOR</dt><dd>
+文字列入力コントロールの文字色および背景色を、選択時および非選択時それぞれのケースについて設定する。
+現在iOSでは対応済みだが、非対応環境ではサポートされない。
+<ul><li>UI_TEXTBOX_SETCOLOR
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETCOLOR, &lt;touch-case&gt;, &lt;foreground-rgb&gt;, &lt;background-rgb&gt;)
+
+   &lt;touch-case&gt;  true で選択時 / false で非選択時
+   &lt;foreground-rgb&gt; フォアグラウンドカラー。具体的には文字の色。
+   &lt;background-rgb&gt; バックグラウンドカラー。具体的には背景の色。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_SETFONT</dt><dd>
+文字列入力コントロールで使用されるフォントの種類およびサイズを指定する。
+<ul><li>UI_TEXTBOX_SETFONT
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETFONT, "&lt;font-name&gt;", &lt;font-size&gt;)
+  
+   &lt;font-name&gt;  フォント名。システムフォントを使用する場合は nil を指定。
+   &lt;font-size&gt;    フォントサイズ。見かけ上の大きさはラベル等と同じ基準。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_SETMAXLEN</dt><dd>
+入力可能な最大文字列長を指定する。
+<ul><li>UI_TEXTBOX_SETMAXLEN
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETMAXLEN, &lt;max-length&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_SETCHARTYPE</dt><dd>
+入力可能な文字種を指定する。
+<ul><li>UI_TEXTBOX_SETCHARTYPE
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETCHARTYPE, &lt;enable-chartype&gt;)
+
+   &lt;enable-chartype&gt;  下記定数の論理和で、許可する文字種を与える。
+      TXCH_7BIT_ASCII  7bit ASCII 文字。通常のいわゆる半角アルファベットおよび数字、記号等はこちらに含まれる。
+      TXCH_UTF8           UTF8文字としているが、7bit ASCIIに含まれない文字は全てこちらに該当する。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_GETCHARCOUNT</dt><dd>
+入力されている文字数を読む。
+<ul><li>UI_TEXTBOX_GETCHARCOUNT
+<pre class="wiki">   pText = UI_TextInput(...)
+   count = sysCommand(pText, UI_TEXTBOX_GETCHARCOUNT)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_GETMAXLEN</dt><dd>
+テキストボックスの最大入力文字数を取得。
+<ul><li>UI_TEXTBOX_GETMAXLEN
+<pre class="wiki">   pText = UI_TextInput(...)
+   count = sysCommand(pText, UI_TEXTBOX_GETMAXLEN)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_TEXTBOX_SETALIGN</dt><dd>
+テキストボックスのアライメントを設定。
+<ul><li>UI_TEXTBOX_SETALIGN
+<pre class="wiki">   pText = UI_TextInput(...)
+   sysCommand(pText, UI_TEXTBOX_SETALIGN, &lt;align-type&gt;)
+   
+   &lt;align-type&gt; 下記定数のいずれかを設定(作成時のデフォルトは TX_ALIGN_LEFT )
+     TX_ALIGN_LEFT       左揃え 
+     TX_ALIGN_CENTER  中央揃え
+     TX_ALIGN_RIGHT     右揃え
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

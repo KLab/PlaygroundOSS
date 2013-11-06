@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_ScrollBar – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_ScrollBar">UI_ScrollBar<a title="このセクションへのリンク" href="#UI_ScrollBar" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_ScrollBar( &lt;parent pointer&gt;, &lt;order&gt;, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt;,
+                              &lt;min&gt;, &lt;max&gt;, &lt;pos&gt;, &lt;image&gt;, &lt;slider size&gt;, &lt;slider min size&gt;, &lt;vertical flag&gt;,
+                              "&lt;callback&gt;", &lt;touch active&gt;, &lt;alpha normal&gt;, &lt;alpha select&gt;, &lt;color normal&gt;, &lt;color select&gt;)
+
+  function callback( task, event_type, value)
+    -- task: コールバック元のタスク名
+    -- event_type: イベント種類
+    -- value: 更新後の値
+  end
+
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;order&gt; 表示プライオリティ
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;width&gt;, &lt;height&gt; スクロールバー全体の表示域サイズ
+</li><li>&lt;min&gt;, &lt;max&gt;, &lt;pos&gt; スクロールバーの開始、終了、現在値
+</li><li>&lt;image&gt; 使用する画像asset
+</li><li>&lt;slider size&gt;, &lt;slider min size&gt; スライダーサイズ
+</li><li>&lt;vertical flag&gt; 縦方向リストフラグ。trueで縦方向、falseで横方向
+</li><li>&lt;callback&gt; スクロールする際のコールバック
+</li><li>&lt;touch active&gt; イベント処理フラグ。trueでタッチイベントを受け取る
+</li><li>&lt;alpha normal&gt;, &lt;color normal&gt; 普段使うカラーとアルファ
+</li></ul><p>
+* &lt;alpha select&gt;, &lt;color select&gt; 選択されている状況で使うカラーとアルファ
+</p>
+<h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_ScrollBar タスクのポインタ
+</li></ul><h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<p>
+UI_SCROLL_SET_MIN::
+</p>
+<blockquote>
+<p>
+スクロールバーの開始値を設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_MIN
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_MIN, 0)
+</pre><p>
+UI_SCROLL_GET_MIN::
+</p>
+<blockquote>
+<p>
+スクロールバーの開始値を取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_MIN
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   min = sysCommand(pScrollBar, UI_SCROLL_GET_MIN)
+</pre><p>
+                        
+UI_SCROLL_SET_MAX::
+</p>
+<blockquote>
+<p>
+スクロールバーの終了値を設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_MAX
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_MAX, 100)
+</pre><p>
+UI_SCROLL_GET_MAX::
+</p>
+<blockquote>
+<p>
+スクロールバーの終了値を取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_MAX
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   max = sysCommand(pScrollBar, UI_SCROLL_GET_MAX)
+</pre><p>
+UI_SCROLL_SET_POS::
+</p>
+<blockquote>
+<p>
+スクロールバーの現在の値を設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_POS
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_POS, 50)
+</pre><p>
+UI_SCROLL_GET_POS::
+</p>
+<blockquote>
+<p>
+スクロールバーの現在の値を取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_POS
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   pos = sysCommand(pScrollBar, UI_SCROLL_GET_POS)
+</pre><p>
+UI_SCROLL_SET_SLIDER_SIZE::
+</p>
+<blockquote>
+<p>
+スライダーのサイズを設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_SLIDER_SIZE
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_SLIDER_SIZE, 12)
+</pre><p>
+UI_SCROLL_GET_SLIDER_SIZE::
+</p>
+<blockquote>
+<p>
+スライダーのサイズを取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_SLIDER_SIZE
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   slider_size = sysCommand(pScrollBar, UI_SCROLL_GET_SLIDER_SIZE)
+</pre><p>
+UI_SCROLL_SET_SLIDER_MIN_SIZE::
+</p>
+<blockquote>
+<p>
+スライダーの最小サイズを設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_SLIDER_MIN_SIZE
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_SLIDER_MIN_SIZE, 12)
+</pre><p>
+UI_SCROLL_GET_SLIDER_MIN_SIZE::
+</p>
+<blockquote>
+<p>
+スライダーの最小サイズを取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_SLIDER_MIN_SIZE
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   slider_min_size = sysCommand(pScrollBar, UI_SCROLL_GET_SLIDER_MIN_SIZE)
+</pre><p>
+UI_SCROLL_SET_COLOR_NORMAL::
+</p>
+<blockquote>
+<p>
+普段のカラーを設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_COLOR_NORMAL
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_COLOR_NORMAL, 0xffffffff)
+</pre><p>
+UI_SCROLL_GET_COLOR_NORMAL::
+</p>
+<blockquote>
+<p>
+普段のカラーをを取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_COLOR_NORMAL
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   color_normal = sysCommand(pScrollBar, UI_SCROLL_GET_COLOR_NORMAL)
+</pre><p>
+UI_SCROLL_SET_COLOR_SELECT::
+</p>
+<blockquote>
+<p>
+選択されている状況のカラーを設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_COLOR_SELECT
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_COLOR_SELECT, 0xffffffff)
+</pre><p>
+UI_SCROLL_GET_COLOR_SELECT::
+</p>
+<blockquote>
+<p>
+選択されている状況のカラーをを取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_COLOR_SELECT
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   color_select = sysCommand(pScrollBar, UI_SCROLL_GET_COLOR_SELECT)
+</pre><p>
+UI_SCROLL_SET_ALPHA_NORMAL::
+</p>
+<blockquote>
+<p>
+普段の透明度を設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_ALPHA_NORMAL
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_ALPHA_NORMAL, 0xff)
+</pre><p>
+UI_SCROLL_GET_ALPHA_NORMAL::
+</p>
+<blockquote>
+<p>
+普段の透明度をを取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_ALPHA_NORMAL
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   alpha_normal = sysCommand(pScrollBar, UI_SCROLL_GET_ALPHA_NORMAL)
+</pre><p>
+UI_SCROLL_SET_ALPHA_SELECT::
+</p>
+<blockquote>
+<p>
+選択されている状況の透明度を設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_ALPHA_SELECT
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_ALPHA_SELECT, 0xff)
+</pre><p>
+UI_SCROLL_GET_ALPHA_SELECT::
+</p>
+<blockquote>
+<p>
+選択されている状況の透明度をを取得する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_ALPHA_SELECT
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   alpha_select = sysCommand(pScrollBar, UI_SCROLL_GET_ALPHA_SELECT)
+</pre><p>
+UI_SCROLL_SET_TOUCH_ACTIVE::
+</p>
+<blockquote>
+<p>
+タッチイベント処理の有効無効状況を設定する。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SET_TOUCH_ACTIVE
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   sysCommand(pScrollBar, UI_SCROLL_SET_TOUCH_ACTIVE, true)
+</pre><p>
+UI_SCROLL_GET_TOUCH_ACTIVE::
+</p>
+<blockquote>
+<p>
+タッチイベント処理の有効無効状況を調べる。
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_GET_TOUCH_ACTIVE
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   touch_active = sysCommand(pScrollBar, UI_SCROLL_GET_TOUCH_ACTIVE)
+</pre><p>
+UI_SCROLL_SELECT_SCRMGR::
+</p>
+<blockquote>
+<p>
+スクロールマネージャを設定する
+</p>
+</blockquote>
+<p>
+* UI_SCROLL_SELECT_SCRMGR
+</p>
+<pre class="wiki">   pScrollBar = UI_ScrollBar(...)
+   touch_active = sysCommand(pScrollBar, UI_SCROLL_SELECT_SCRMGR, "scroll_manager")
+</pre>
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

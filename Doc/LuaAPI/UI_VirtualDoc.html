@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_VirtualDoc – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_VirtualDoc">UI_VirtualDoc<a title="このセクションへのリンク" href="#UI_VirtualDoc" class="anchor"> ¶</a></h2>
+<p>
+(マニュアル作成中)
+</p>
+<pre class="wiki">   &lt;task pointer&gt; = UI_VirtualDoc( &lt;parent pointer&gt;, &lt;order&gt;, &lt;x&gt;, &lt;y&gt;,
+                                   &lt;doc width&gt;, &lt;doc height&gt;, &lt;view width&gt;, &lt;view height&gt;,
+                                   &lt;max command nums&gt;, &lt;vertical flag&gt; [, "&lt;callback&gt;"] )
+
+   function &lt;drag callback&gt;(&lt;task pointer&gt;, &lt;type&gt;, &lt;tap-x&gt;, &lt;tap-y&gt;, &lt;move-x&gt;, &lt;move-y&gt;)
+
+   end
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;order&gt; 表示プライオリティ
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;doc width&gt;, &lt;doc height&gt; 表示するドキュメントのサイズ
+</li><li>&lt;view width&gt;, &lt;view height&gt; 表示域のサイズ
+</li><li>&lt;max command nums&gt; 受付可能な描画コマンドの最大数
+</li><li>&lt;vertical flag&gt; trueで縦スクロールモード(falseで横スクロール)
+</li><li>&lt;callback&gt; Virtual Document上におけるポインティングデバイス操作のコールバック
+</li></ul><ul><li>&lt;task pointer&gt; コールバックを呼び出した UI_List タスクのポインタ
+</li><li>&lt;type&gt; タッチパネル操作の種類
+</li><li>&lt;tap-x&gt; 今回の操作が始まった時点におけるタップ位置x座標
+</li><li>&lt;tap-y&gt; 今回の操作が始まった時点におけるタップ位置y座標
+</li><li>&lt;move-x&gt; タップ位置から今回のイベントが検出された位置までのx方向差分
+</li><li>&lt;move-y&gt; タップ位置から今回のイベントが検出された位置までのy方向差分
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_VirtualDoc タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+スクロール可能なドキュメント領域を生成する。
+ドキュメントはviewのサイズでクリッピングされて表示される。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_VDOC_CLEAR</dt><dd>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/VirtualDocument" rel="nofollow">VirtualDocument?</a>のクリア色を指定する
+<ul><li>UI_VDOC_CLEAR
+<pre class="wiki">   pVDoc = UI_VirtualDoc(...)
+   sysCommand(pVDoc, UI_VDOC_CLEAR, &lt;alpha&gt;, &lt;rgb&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_VDOC_FONT</dt><dd>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/VirtualDocument" rel="nofollow">VirtualDocument?</a>の指定したフォントインデックスに、フォント名とサイズを指定する。
+以後、このフォントインデックスによる文字列描画はそのフォント/サイズで行われる。
+<ul><li>UI_VDOC_FONT
+<pre class="wiki">   pVDoc = UI_VirtualDoc(...)
+   sysCommand(pVDoc, UI_VDOC_FONT, &lt;font index&gt;, "&lt;font name&gt;", &lt;font size&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_VDOC_VIEWPOS</dt><dd>
+表示域から見えるドキュメントの位置を指定する。
+<ul><li>UI_VDOC_VIEWPOS
+<pre class="wiki">   pVDoc = UI_VirtualDoc(...)
+   sysCommand(pVDoc, UI_VDOC_VIEWPOS, &lt;x&gt;, &lt;y&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_VDOC_ALIGN</dt><dd>
+テキスト描画の際のalignと、必要な場合はセンタリングや右寄せに用いる幅のサイズを指定する。
+UI_VDOC_DRAWで描画を行う以前に指定する必要がある。
+&lt;align-width&gt;を指定しない場合、表示域のサイズ( = &lt;doc width&gt;)を指定したのと同義となる。
+<ul><li>UI_VDOC_ALIGN
+<pre class="wiki">   pVDoc = UI_VirtualDoc(...)
+   sysCommand(pVDoc, UI_VDOC_ALIGN, &lt;align-mode&gt; [ , &lt;align-width&gt; ] )
+
+   &lt;align-mode&gt;に指定できる値
+
+    VD_ALIGN_LEFT   左寄せ(デフォルト)
+    VD_ALIGN_CENTER センタリング
+    VD_ALIGN_RIGHT  右寄せ
+</pre></li></ul></dd></dl>
+<dl><dt>UI_VDOC_DRAW</dt><dd>
+Virtual Document に対し描画命令を発行する。描画命令は配列で指定したものを一括で与える。
+与えられる描画命令の数は、タスク起動時に&lt;max command nums&gt;で与えた値が上限となる。
+<ul><li>UI_VDOC_DRAW
+<pre class="wiki">   pVDoc = UI_VirtualDoc(...)
+   sysCommand(pVDoc, UI_VDOC_DRAW, &lt;command list table&gt;)
+
+   &lt;command list table&gt; = {
+     -- 指定の色で線分を描画する
+     { VD_DRAW_LINE, &lt;x0&gt;, &lt;y0&gt;, &lt;x1&gt;, &lt;y1&gt;, &lt;alpha&gt;, &lt;rgb&gt; },
+
+     -- 指定の色と、フォントインデックスで指定されたフォントで文字列を描画する
+     { VD_DRAW_TEXT, &lt;x&gt;, &lt;y&gt;, "&lt;string&gt;", &lt;alpha&gt;, &lt;rgb&gt;, &lt;font index&gt; },
+
+     -- 矩形を描画する。&lt;fill&gt;をtrueにすることで、矩形を塗りつぶす。
+     { VD_FILL_RECT, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt;, &lt;alpha&gt;, &lt;rgb&gt;, &lt;fill&gt; },
+
+     -- インラインイメージを描画する。
+     { VD_DRAW_IMAG, &lt;x&gt;, &lt;y&gt;, "&lt;image asset&gt;", &lt;alpha&gt; },
+   }
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

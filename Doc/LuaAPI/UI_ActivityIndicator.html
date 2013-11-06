@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_ActivityIndicator – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_ActivityIndicator">UI_ActivityIndicator<a title="このセクションへのリンク" href="#UI_ActivityIndicator" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_ActivityIndicator( &lt;parent pointer&gt;, &lt;type&gt;, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt;[ , &lt;id&gt; ])
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;type&gt; 表示する <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/ActivityIndicator" rel="nofollow">ActivityIndicator?</a> の種類(ACTI_TYPE_WHITE / ACTI_TYPE_GRAY / ACTI_TYPE_WHITELARGE より選択)
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;width&gt;, &lt;height&gt; 表示領域のサイズ(表示領域中央に表示される)
+</li><li>&lt;id&gt; OS Widget に与える ID値
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_ActivityIndicator タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+長時間かかる処理を行っていることを示す処理待ちアイコンを表示する。
+基本的には iOS のAPIを使用するため、他の環境では同様の表示が保証されない(タスクとしての起動は可能)。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<p>
+UI_ACTI_ANIM_START::
+</p>
+<blockquote>
+<p>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/ActivityIndicator" rel="nofollow">ActivityIndicator?</a> のアニメーションを開始する
+</p>
+</blockquote>
+<ul><li>UI_ACTI_ANIM_START
+<pre class="wiki">   pActI = UI_ActivityIndicator(...)
+   sysCommand(pActI, UI_ACTI_ANIM_START)
+</pre></li></ul><p>
+UI_ACTI_ANIM_STOP::
+</p>
+<blockquote>
+<p>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/ActivityIndicator" rel="nofollow">ActivityIndicator?</a> のアニメーションを停止する
+</p>
+</blockquote>
+<ul><li>UI_ACTI_ANIM_STOP
+<pre class="wiki">   pActI = UI_ActivityIndicator(...)
+   sysCommand(pActI, UI_ACTI_ANIM_STOP)
+</pre></li></ul><p>
+UI_ACTI_IS_ANIM::
+</p>
+<blockquote>
+<p>
+<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/ActivityIndicator" rel="nofollow">ActivityIndicator?</a> がアニメーション中か否かを返す
+</p>
+</blockquote>
+<ul><li>UI_ACTI_IS_ANIM
+<pre class="wiki">   pActI = UI_ActivityIndicator(...)
+   &lt;is-anim&gt; = sysCommand(pActI, UI_ACTI_IS_ANIM)
+
+   &lt;is-anim&gt; trueでアニメーション中 / falseでアニメーション停止状態
+</pre></li></ul>
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

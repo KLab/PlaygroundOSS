@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/FAQ – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h1 id="タスク使い方FAQ">タスク使い方FAQ<a title="このセクションへのリンク" href="#%E3%82%BF%E3%82%B9%E3%82%AF%E4%BD%BF%E3%81%84%E6%96%B9FAQ" class="anchor"> ¶</a></h1>
+<blockquote>
+<p>
+タスクの使い方に関するFAQページです。
+</p>
+</blockquote>
+<ul><li>表現逆引き編
+<ul><li><a class="wiki" href="#%E3%83%89%E3%83%A9%E3%83%A0%E3%83%94%E3%83%83%E3%82%AB%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84">ドラムピッカーを作りたい</a>
+</li></ul></li><li>UI_TouchPad/UI_Control編
+<ul><li><a class="wiki" href="#UI_TouchPad%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%81%AE%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E4%B8%8E%E3%81%88%E3%82%89%E3%82%8C%E3%82%8Btbl%E3%81%AF%E3%81%A9%E3%82%93%E3%81%AA%E3%82%82%E3%81%AE">UI_TouchPadのコールバックの引数として与えられるtblはどんなもの?</a>
+</li><li><a class="wiki" href="#UI_TouchPad%E3%81%A7%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%81%AEid%E3%81%A3%E3%81%A6%E4%BD%95">UI_TouchPadで取得したイベントの "id" って何?</a>
+</li></ul></li><li>UI_SWFPlayer編
+<ul><li><a class="wiki" href="#%E5%86%8D%E7%94%9F%E3%81%97%E3%81%A6%E3%81%84%E3%82%8Bmovie%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF">再生しているmovie名を取得するには?</a>
+</li></ul></li><li>UI_VirtualDoc編
+<ul><li><a class="wiki" href="#BADcommandtableformat.%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0">BAD command table format.というassertで落ちた。何が原因?</a>
+</li></ul></li><li>UI_Form/UI_List共通編
+<ul><li><a class="wiki" href="#FORM_UIE_SET_ASSET%E3%81%A7Node%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84">FORM_UIE_SET_ASSETでNodeの画像が変更できない</a>
+</li><li><a class="wiki" href="#%E5%85%83%E3%80%85Composite%E3%81%A7%E6%8C%87%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A8%E5%90%8C%E3%81%98Asset%E3%82%92FORM_UIE_SET_ASSET%E3%81%A7%E6%8C%87%E5%AE%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84">元々Compositeで指定されているのと同じAssetをFORM_UIE_SET_ASSETで指定できない</a>
+</li><li><a class="wiki" href="#%E8%A4%87%E6%95%B0%E3%81%AEUI_Form%E3%82%84UI_List%E9%96%93%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%9C%E3%82%BF%E3%83%B3%E3%81%8C%E6%93%8D%E4%BD%9C%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E9%96%93%E4%BB%96%E3%81%AE%E3%83%9C%E3%82%BF%E3%83%B3%E3%81%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%BF%E3%83%83%E3%83%81%E3%81%A7%E6%93%8D%E4%BD%9C%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%82%92%E9%98%B2%E3%81%8E%E3%81%9F%E3%81%84">複数のUI_FormやUI_List間で、特定のボタンが操作されている間他のボタンがマルチタッチで操作されるのを防ぎたい</a>
+</li><li><a class="wiki" href="#UI_Form%E3%81%AE%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6UI_GENERIC_NODE_RECONNECT%E3%82%92%E4%BD%BF%E3%81%84UI%E3%82%BF%E3%82%B9%E3%82%AF%E3%82%92%E7%B9%8B%E3%81%8E%E3%81%AA%E3%81%8A%E3%81%97%E3%81%9F%E3%81%8C%E7%B9%8B%E3%81%84%E3%81%A0%E3%81%AF%E3%81%9A%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8B%E3%82%89UI_FORM_UPDATE_NODE%E3%81%AEFORM_NODE_TASK%E3%81%A7%E3%82%BF%E3%82%B9%E3%82%AF%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%81%8C%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%AA%E3%81%9C">UI_Formの特定のノードに対してUI_GENERIC_NODE_RECONNECTを使いUIタスクを繋ぎなおしたが、繋いだはずのノードからUI_FORM_UPDATE_NODEのFORM_NODE_TASKでタスクポインタが取得できない。なぜ?</a>
+</li></ul></li><li>UI_List限定編
+<ul><li><a class="wiki" href="#Overlappingclippingrange%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0">"Overlapping clipping range"というassertで落ちた。何が原因?</a>
+</li><li><a class="wiki" href="#Wrongclippingorderstartend%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0">"Wrong clipping order (start &gt;= end)"というassertで落ちた。何が原因?</a>
+</li><li><a class="wiki" href="#%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%A8%E3%81%97%E3%81%A6UI_List%E8%B5%B7%E5%8B%95%E3%82%92%E4%BC%B4%E3%81%86Composite%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%97%E3%81%9F%E3%81%8Cassertion%E3%81%8C%E5%87%BA%E3%81%A6%E5%8B%95%E3%81%84%E3%81%A6%E3%81%8F%E3%82%8C%E3%81%AA%E3%81%84">アイテムとしてUI_List起動を伴うCompositeを登録したが、assertionが出て動いてくれない。</a>
+</li><li><a class="wiki" href="#%E8%B5%B7%E5%8B%95%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AELIST_FLAG_BOTTOM%E3%81%AF%E4%BD%95%E3%81%8C%E5%A4%89%E3%82%8F%E3%82%8B%E3%81%AE">起動パラメータのLIST_FLAG_BOTTOMは何が変わるの?</a>
+</li><li><a class="wiki" href="#LIST_FLAG_BOTTOM%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%9F%E3%82%89%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E3%81%AA%E3%81%9C">LIST_FLAG_BOTTOMを指定したらアイテムが表示されなくなった。なぜ?</a>
+</li><li><a class="wiki" href="#%E3%83%AA%E3%82%B9%E3%83%88%E4%B8%8A%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%AE%E3%81%8C%E3%82%81%E3%82%93%E3%81%A9%E3%81%8F%E3%81%95%E3%81%84">リスト上ドラッグのためのコールバックを書くのがめんどくさい</a>
+</li><li><a class="wiki" href="#UI_List%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%82%92%E3%81%A4%E3%81%91%E3%81%9F%E3%81%84">UI_Listにスクロールバーをつけたい</a>
+</li><li><a class="wiki" href="#ImagesourceforScrollbardoesnothaveattributesforscrollbardesign%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0">"Image source for Scroll bar does not have attributes for scroll bar design"というassertで落ちた。何が原因?</a>
+</li><li><a class="wiki" href="#UI_List%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%8C%E4%B8%AD%E5%A4%AE%E3%81%AB%E3%81%8F%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84">UI_List で特定のアイテムが中央にくるようにスクロールさせたい</a>
+</li><li><a class="wiki" href="#%E3%83%AA%E3%82%B9%E3%83%88%E4%B8%AD%E3%81%AB%E3%81%82%E3%82%8B%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E5%8D%A0%E6%9C%89%E5%B9%85%E3%82%92%E5%80%8B%E5%88%A5%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%81%84">リスト中にあるアイテムの占有幅を個別に変更したい</a>
+</li><li><a class="wiki" href="#%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E7%AB%AF%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%8C%E6%AD%A2%E3%81%BE%E3%81%A3%E3%81%A6%E3%81%97%E3%81%BE%E3%81%86%E3%81%8C%E6%AD%A2%E3%82%81%E3%81%9A%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84">リストの端でスクロールが止まってしまうが、止めずにスクロールさせたい</a>
+</li><li><a class="wiki" href="#%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E4%B8%A1%E7%AB%AF%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AF%E6%AD%A2%E3%82%81%E3%81%9F%E3%81%84%E3%81%8C%E4%B8%A1%E7%AB%AF%E3%81%AB%E4%BD%99%E7%99%BD%E3%81%8C%E3%81%BB%E3%81%97%E3%81%84">リストの両端でスクロールは止めたいが、両端に余白がほしい</a>
+</li><li><a class="wiki" href="#%E3%83%AA%E3%82%B9%E3%83%88%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84%E3%81%8C%E3%81%A9%E3%81%93%E3%81%BE%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%8B%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B">リスト末尾にスクロールさせたいが、どこまでスクロールさせればよいか取得できるか?</a>
+</li><li><a class="wiki" href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%BD%8D%E7%BD%AE%E3%81%8C%E7%9F%A5%E3%82%8A%E3%81%9F%E3%81%84">現在のスクロール位置が知りたい</a>
+</li><li><a class="wiki" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%BD%8D%E7%BD%AE%E3%81%AE%E5%80%A4%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E5%8D%98%E4%BD%8D%E3%81%A7%E6%89%B1%E3%82%8F%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B">スクロール位置の値はどのような単位で扱われている?</a>
+</li><li><a class="wiki" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%81%AB%E8%BF%94%E3%81%95%E3%82%8C%E3%82%8B%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1%E3%81%AE%E5%8D%98%E4%BD%8D%E3%81%AF">スクロールバーのコールバックに返される位置情報の単位は?</a>
+</li><li><a class="wiki" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E6%99%82%E3%81%AB%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%AE%E3%83%8C%E3%83%A1%E3%81%A3%E3%81%A8%E3%81%97%E3%81%9F%E5%8B%95%E3%81%8D%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%81%8D%E3%81%B3%E3%81%8D%E3%81%B3%E5%8B%95%E4%BD%9C%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84">スクロール時にデフォルトのヌメっとした動きではなくきびきび動作させたい</a>
+</li><li><a class="wiki" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3default%E3%81%AB%E6%8C%87%E5%AE%9A%E3%81%A7%E3%81%8D%E3%82%8B%E5%80%A4delay%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%8C%E7%9F%A5%E3%82%8A%E3%81%9F%E3%81%84">スクロールマネージャ "default" に指定できる値&lt;delay&gt;の意味が知りたい</a>
+</li><li><a class="wiki" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AE%E5%81%9C%E6%AD%A2%E4%BD%8D%E7%BD%AE%E3%82%92%E4%B8%80%E5%AE%9A%E3%83%94%E3%82%AF%E3%82%BB%E3%83%AB%E3%81%8A%E3%81%8D%E3%81%AB%E3%81%97%E3%81%A6%E3%83%9A%E3%83%BC%E3%82%B8%E5%8D%98%E4%BD%8D%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84">スクロールの停止位置を一定ピクセルおきにして「ページ単位スクロール」がしたい</a>
+</li><li><a class="wiki" href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%BD%8D%E7%BD%AE%E6%8C%87%E6%A8%99%E3%81%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%81%AF%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84%E3%81%8C%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%95%E3%81%9B%E3%81%9F%E3%81%8F%E3%81%AF%E3%81%AA%E3%81%84%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84">現在のスクロール位置指標としてスクロールバーは表示させたいが、スクロールバーを操作させたくはない。どうすればいい？</a>
+</li></ul></li><li>汎用タスク編
+<ul><li><a class="wiki" href="#%E4%B8%80%E5%AE%9A%E6%99%82%E9%96%93%E5%BE%8C%E3%81%AB%E3%82%BF%E3%82%B9%E3%82%AF%E3%82%92%E6%AE%BA%E3%81%97%E3%81%9F%E3%81%84">一定時間後にタスクを殺したい</a>
+</li><li><a class="wiki" href="#%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8C%E7%AB%AF%E6%9C%AB%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6ForegroundBackground%E5%8C%96%E3%81%95%E3%82%8C%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%87%A6%E7%90%86%E3%82%92%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84">ゲームアプリが端末によってForeground/Background化されたときにスクリプト処理をさせたい</a>
+</li></ul></li></ul><hr>
+<h2 id="表現逆引き編">表現逆引き編<a title="このセクションへのリンク" href="#%E8%A1%A8%E7%8F%BE%E9%80%86%E5%BC%95%E3%81%8D%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="ドラムピッカーを作りたい">ドラムピッカーを作りたい<a title="このセクションへのリンク" href="#%E3%83%89%E3%83%A9%E3%83%A0%E3%83%94%E3%83%83%E3%82%AB%E3%83%BC%E3%82%92%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+以下のように UI_List を起動/設定することで、ドラムピッカー的な動作をさせることができます。
+</p>
+<ul><li>verticalモードを指定(起動引数)
+</li><li>クリッピング領域サイズをアイテム一つ分と同じ面積で指定(起動引数)
+</li><li>ループモードを指定(sysCommand: UI_LIST_SET_LOOPMODE)
+</li><li>スクロールマネージャとして "page" を指定し、ページサイズをアイテム一つと同じにする(sysCommand: UI_LIST_SELECT_SCRMGR)
+</li><li>デフォルトスクロールを有効にする(property: .default_scroll)
+</li></ul><pre class="wiki">   local itemSize = {
+      width = 100,
+      height = 32
+   }
+   pDrumPick = UI_List( ... ) -- 起動引数でサイズと動作モードを適切に指定
+   sysCommand(pDrumPick, UI_LIST_SET_LOOPMODE, true)
+   sysCommand(pDrumPick, UI_LIST_SELECT_SCRMGR, "page", itemSize.height)
+   prop = TASK_getProperty(pDrumPick)
+   prop.default_scroll = true
+   TASK_setProperty(pDrumPick, prop)
+</pre><hr>
+<h2 id="UI_TouchPadUI_Control編">UI_TouchPad/UI_Control編<a title="このセクションへのリンク" href="#UI_TouchPadUI_Control%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="UI_TouchPadのコールバックの引数として与えられるtblはどんなもの">UI_TouchPadのコールバックの引数として与えられるtblはどんなもの?<a title="このセクションへのリンク" href="#UI_TouchPad%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%81%AE%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E4%B8%8E%E3%81%88%E3%82%89%E3%82%8C%E3%82%8Btbl%E3%81%AF%E3%81%A9%E3%82%93%E3%81%AA%E3%82%82%E3%81%AE" class="anchor"> ¶</a></h3>
+<p>
+「直前のフレーム内に検出されたタッチパネルイベントの一覧を、時系列順にindexを与え格納した配列(Luaテーブル)」です。
+index順に処理する限り、時系列順にイベントを取り出すことができます。
+</p>
+<p>
+引数となるテーブルの各要素はさらにテーブルになっていて、以下のキーで値を取り出すことができます。
+</p>
+<ul><li>type : 操作のタイプ(PAD_ITEM_TAP / PAD_ITEM_DRAG / PAD_ITEM_RELEASE)
+</li><li>id : 操作ポイントID
+</li><li>x : X座標
+</li><li>y : Y座標
+</li></ul><hr>
+<h3 id="UI_TouchPadで取得したイベントのidって何">UI_TouchPadで取得したイベントの "id" って何?<a title="このセクションへのリンク" href="#UI_TouchPad%E3%81%A7%E5%8F%96%E5%BE%97%E3%81%97%E3%81%9F%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%81%AEid%E3%81%A3%E3%81%A6%E4%BD%95" class="anchor"> ¶</a></h3>
+<p>
+マルチタッチの操作ポイントを区別するためのIDです。同時に複数の指が触れている場合、それぞれの指に異なるIDが割り当てられ、ある指に関する操作は、その指で触れて(TAP)から離す(RELEASE)までの間(DRAG)、すべて同じIDで通知されます。
+</p>
+<p>
+UI_TouchPadを使用してタッチパネルイベントを取得する場合は、必ずIDを見てそれぞれの指を区別するように実装してください。
+特に Win32 環境ではマウスポインタ以外によるポインティングが成されず id が常に 0 となるため、異なるidのイベントを混同することによる問題に気づきにくいので注意が必要です。
+</p>
+<hr>
+<h2 id="UI_SWFPlayer編">UI_SWFPlayer編<a title="このセクションへのリンク" href="#UI_SWFPlayer%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="再生しているmovie名を取得するには">再生しているmovie名を取得するには?<a title="このセクションへのリンク" href="#%E5%86%8D%E7%94%9F%E3%81%97%E3%81%A6%E3%81%84%E3%82%8Bmovie%E5%90%8D%E3%82%92%E5%8F%96%E5%BE%97%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF" class="anchor"> ¶</a></h3>
+<p>
+プロパティの .mvname メンバを参照することで、起動時に指定された再生movie名を取得できます。
+</p>
+<pre class="wiki">   pSWF = UI_SWFPlayer(...)
+   prop = TASK_getProperty(pSWF)
+
+   -- movie名を取得
+   local movie_name = prop.mvname
+</pre><hr>
+<h2 id="UI_VirtualDoc編">UI_VirtualDoc編<a title="このセクションへのリンク" href="#UI_VirtualDoc%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="BADcommandtableformat.というassertで落ちた何が原因">BAD command table format.というassertで落ちた。何が原因?<a title="このセクションへのリンク" href="#BADcommandtableformat.%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0" class="anchor"> ¶</a></h3>
+<p>
+sysCommandのUI_VDOC_DRAWに与える描画コマンドテーブルのフォーマットが誤っています。
+必ず「テーブルのテーブル」でなければならない点に注意してください。発行するコマンドが一つしかなくても同じです。
+</p>
+<hr>
+<h2 id="UI_FormUI_List共通編">UI_Form/UI_List共通編<a title="このセクションへのリンク" href="#UI_FormUI_List%E5%85%B1%E9%80%9A%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="FORM_UIE_SET_ASSETでNodeの画像が変更できない">FORM_UIE_SET_ASSETでNodeの画像が変更できない<a title="このセクションへのリンク" href="#FORM_UIE_SET_ASSET%E3%81%A7Node%E3%81%AE%E7%94%BB%E5%83%8F%E3%81%8C%E5%A4%89%E6%9B%B4%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+FORM_UIE_* というコマンドは CKLBUIElement クラス以上に対するコマンドです。
+通常のノードはもっとも基本的な CKLBNode クラスとして作られているため、FORM_UIE_SET_ASSET サブコマンドを適用することはできません。
+</p>
+<p>
+CKLBUIElementクラスを使用するもっとも基本的なComposite中のアイテムはボタンです。対象のNodeをボタンとして生成することで FORM_UI_SET_ASSET サブコマンドを使用することができます。
+</p>
+<hr>
+<h3 id="元々Compositeで指定されているのと同じAssetをFORM_UIE_SET_ASSETで指定できない">元々Compositeで指定されているのと同じAssetをFORM_UIE_SET_ASSETで指定できない<a title="このセクションへのリンク" href="#%E5%85%83%E3%80%85Composite%E3%81%A7%E6%8C%87%E5%AE%9A%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A8%E5%90%8C%E3%81%98Asset%E3%82%92FORM_UIE_SET_ASSET%E3%81%A7%E6%8C%87%E5%AE%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+本来、CompositeはAssetの差し替えを想定していない実装になっていますが、
+現時点においては数多くの需要からAdHookな実装としてFORM_UIE_SET_ASSETが実現されています。
+</p>
+<p>
+このため、おおもとのCompositeに設定されているものと同じAssetを指定した際、
+正しくAssetが設定されないという副作用が確認されています。
+FORM_UIE_SET_ASSETによる変更を必要とするNodeについては、変更後に使われる可能性のあるAssetをComposite中では指定しないことで問題を回避してください。
+</p>
+<hr>
+<h3 id="複数のUI_FormやUI_List間で特定のボタンが操作されている間他のボタンがマルチタッチで操作されるのを防ぎたい">複数のUI_FormやUI_List間で、特定のボタンが操作されている間他のボタンがマルチタッチで操作されるのを防ぎたい<a title="このセクションへのリンク" href="#%E8%A4%87%E6%95%B0%E3%81%AEUI_Form%E3%82%84UI_List%E9%96%93%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%9C%E3%82%BF%E3%83%B3%E3%81%8C%E6%93%8D%E4%BD%9C%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E9%96%93%E4%BB%96%E3%81%AE%E3%83%9C%E3%82%BF%E3%83%B3%E3%81%8C%E3%83%9E%E3%83%AB%E3%83%81%E3%82%BF%E3%83%83%E3%83%81%E3%81%A7%E6%93%8D%E4%BD%9C%E3%81%95%E3%82%8C%E3%82%8B%E3%81%AE%E3%82%92%E9%98%B2%E3%81%8E%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+同時に操作されては困る複数の UI_Form や UI_List は「グループ化」することで、同一のグループに所属するものとの間で排他制御されるようになります。
+</p>
+<p>
+UI_FORM_SET_GROUP(UI_LIST_SET_GROUP)で、フォームやリストを所属させるグループの名称を指定してください。
+</p>
+<pre class="wiki">   pForm = UI_Form(...)
+   pList = UI_List(...)
+
+   sysCommand(pForm, UI_FORM_SET_GROUP, "exclusiveGroup")
+   sysCommand(pList, UI_LIST_SET_GROUP, "exclusiveGroup")
+</pre><p>
+上記の例では、フォームとリストを一つずつ生成し、それぞれを同じ "exclusiveGroup" という名称のグループに所属させています。
+pFormが操作中はpListの操作が禁止され、pListの操作中はpFormの操作が禁止されます。
+</p>
+<hr>
+<h3 id="UI_Formの特定のノードに対してUI_GENERIC_NODE_RECONNECTを使いUIタスクを繋ぎなおしたが繋いだはずのノードからUI_FORM_UPDATE_NODEのFORM_NODE_TASKでタスクポインタが取得できないなぜ">UI_Formの特定のノードに対してUI_GENERIC_NODE_RECONNECTを使いUIタスクを繋ぎなおしたが、繋いだはずのノードからUI_FORM_UPDATE_NODEのFORM_NODE_TASKでタスクポインタが取得できない。なぜ?<a title="このセクションへのリンク" href="#UI_Form%E3%81%AE%E7%89%B9%E5%AE%9A%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6UI_GENERIC_NODE_RECONNECT%E3%82%92%E4%BD%BF%E3%81%84UI%E3%82%BF%E3%82%B9%E3%82%AF%E3%82%92%E7%B9%8B%E3%81%8E%E3%81%AA%E3%81%8A%E3%81%97%E3%81%9F%E3%81%8C%E7%B9%8B%E3%81%84%E3%81%A0%E3%81%AF%E3%81%9A%E3%81%AE%E3%83%8E%E3%83%BC%E3%83%89%E3%81%8B%E3%82%89UI_FORM_UPDATE_NODE%E3%81%AEFORM_NODE_TASK%E3%81%A7%E3%82%BF%E3%82%B9%E3%82%AF%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF%E3%81%8C%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%AA%E3%81%9C" class="anchor"> ¶</a></h3>
+<p>
+それは、UI_GENERIC_NODE_RECONNECTは<strong>指定されたノードの下にUIタスクのRootノードを繋ぐ</strong>コマンドであり、
+FORM_NODE_TASKは指定された名前の<strong>ノードが持つタスクのポインタを返す</strong>コマンドだからです。
+<strong>「指定した名前のノードにタスクのポインタを与えるコマンド」ではありません</strong>。
+</p>
+<p>
+たとえば、"connection_point"という名前のノードの下に、UIタスクを繋ぎたいと思って、下記のような処理を行ったとします。
+</p>
+<pre class="wiki">   pForm = UI_Form( ... )
+   pTask = UI_* (pForm, ... )
+   sysCommand(pTask, UI_GENERIC_NODE_RECONNECT, "connection_point")
+
+   pUI = sysCommand(pForm, UI_FORM_UPDATE_NODE, "connection_point", FORM_NODE_TASK)
+
+</pre><p>
+このとき、pUIの値はnilにしかなりません。
+UI_GENERIC_NODE_RECONNECTによる接続後、 "connection_point" 以下のSceneGraphはこうなっています。
+</p>
+<pre class="wiki">   "connection_point" (タスクポインタ == NULL)
+       |
+       +- pTaskのRootノード (タスクポインタ == pTask)
+</pre><p>
+このため、UI_FORM_UPDATE_NODE::FORM_NODE_TASK のターゲットとして "connection_point" を指定しても、そのノードが持っているタスクポインタはNULLなので、nilしか返されません。
+</p>
+<p>
+取得ターゲットとしては、その下にぶら下がっている「pTaskのRootノード」を与える必要がありますが、このノードは名前を持っていないため、このままではUI_FORM_UPDATE_NODEのターゲットとして指定できません。
+</p>
+<p>
+しかし、下記のようにすることで目的を果たすことができます。
+</p>
+<pre class="wiki">   pForm = UI_Form( ... )
+   pTask = UI_* (pForm, ... )
+   sysCommand(pTask, UI_GENERIC_SET_NAME, "task_search_name")        -- 追加
+   sysCommand(pTask, UI_GENERIC_NODE_RECONNECT, "connection_point")
+
+   pUI = sysCommand(pForm, UI_FORM_UPDATE_NODE, "task_search_name", FORM_NODE_TASK) -- 変更
+</pre><p>
+UI_GENERIC_SET_NAME は、UIタスクの持つRootノードに検索で使える名前を与えるためのコマンドです。
+これにより名前のなかった「pTaskのRootノード」に名前を与えることができ、UI_GENERIC_NODE_RECONNECTにより
+pFormの持つSceneGraph以下にもつながるため、pFormのUI_FORM_UPDATE_NODEのターゲットとしてその名前を使用できるようになります。
+</p>
+<hr>
+<h2 id="UI_List編">UI_List編<a title="このセクションへのリンク" href="#UI_List%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="Overlappingclippingrangeというassertで落ちた何が原因">"Overlapping clipping range"というassertで落ちた。何が原因?<a title="このセクションへのリンク" href="#Overlappingclippingrange%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0" class="anchor"> ¶</a></h3>
+<p>
+UI_Listの起動時に指定した &lt;base priority&gt; から &lt;max order&gt; の範囲が、他の UI_List で指定されている範囲と重なっているのが原因です。
+同時に起動している他のUI_Listで指定されているプライオリティ範囲と重複する値を指定することはできません。たとえば以下のような場合です。
+</p>
+<pre class="wiki">   pList1 = UI_List(nil, 100, 200, ...)
+   pList2 = UI_List(nil, 180, 300, ...)
+</pre><p>
+上記の例ではpList1に指定された範囲とpList2に指定された範囲が、180～200の範囲で重なっています。
+描画系のクリッピングシステムは描画プライオリティの範囲に対しクリッピングをかけるため、
+異なるクリッピング領域の有効プライオリティ範囲が重なる指定はできません。
+</p>
+<hr>
+<h3 id="Wrongclippingorderstartendというassertで落ちた何が原因">"Wrong clipping order (start &gt;= end)"というassertで落ちた。何が原因?<a title="このセクションへのリンク" href="#Wrongclippingorderstartend%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0" class="anchor"> ¶</a></h3>
+<p>
+UI_Listの起動時に指定した &lt;base priority&gt; より &lt;max order&gt; の値が小さいです。
+&lt;max order&gt;は必ず&lt;base priority&gt;より大きな値でなければなりません。
+</p>
+<hr>
+<h3 id="アイテムとしてUI_List起動を伴うCompositeを登録したがassertionが出て動いてくれない">アイテムとしてUI_List起動を伴うCompositeを登録したが、assertionが出て動いてくれない。<a title="このセクションへのリンク" href="#%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%A8%E3%81%97%E3%81%A6UI_List%E8%B5%B7%E5%8B%95%E3%82%92%E4%BC%B4%E3%81%86Composite%E3%82%92%E7%99%BB%E9%8C%B2%E3%81%97%E3%81%9F%E3%81%8Cassertion%E3%81%8C%E5%87%BA%E3%81%A6%E5%8B%95%E3%81%84%E3%81%A6%E3%81%8F%E3%82%8C%E3%81%AA%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+描画系の仕様上、UI_Listのアイテムとして、<strong>UI_Listの起動を伴うCompositeの登録はできません</strong>。
+</p>
+<p>
+これは、UI_Listが利用している描画系のクリッピング機能に下記の制約があるためです。
+</p>
+<ul><li>クリッピング領域をクリッピングすることはできない
+</li><li>対象プライオリティ範囲が重複するクリッピング範囲を作ることはできない
+</li></ul><p>
+リストアイテムのCompositeはUI_Listの指定したクリッピングの対象となるのが前提であり、
+アイテムにUI_Listを含めるということは、アイテムのUI_Listのクリッピング範囲を
+親となるUI_Listのクリッピング範囲でクリッピングするということですが、描画系の制約上これはできません。
+</p>
+<p>
+また、同時に表示されるUI_Listはそれぞれクリッピング対象となるプライオリティ範囲が重複してはいけませんが、
+親となる UI_List とアイテムの UI_Listだけでなく、アイテムのUI_List同士でも重複してはいけません。
+</p>
+<p>
+この場合唯一の方法は「デザインの側を変更してもらう」ことです。
+</p>
+<hr>
+<h3 id="リスト上ドラッグのためのコールバックを書くのがめんどくさい">リスト上ドラッグのためのコールバックを書くのがめんどくさい<a title="このセクションへのリンク" href="#%E3%83%AA%E3%82%B9%E3%83%88%E4%B8%8A%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%AE%E3%81%8C%E3%82%81%E3%82%93%E3%81%A9%E3%81%8F%E3%81%95%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_List起動時のコールバック名&lt;drag callback&gt;として nil 値を指定した上で、プロパティ .default_scroll を true にしてください。
+デフォルトのドラッグスクロール機能が有効になります。
+</p>
+<pre class="wiki">   pList = UI_List(nil,
+                   3000,     -- base priority
+                   3200,     -- max priority
+                   100, 100, -- position
+                   300, 400, -- size
+                   90,       -- default step
+                   true,     -- vertical flag
+                   nil       -- drag callback   ←これを nil に
+                   )
+    prop = TASK_getProperty(pList)
+    prop.default_scroll = true     ← これをtrueに
+    TASK_setProperty(pList, prop)
+</pre><hr>
+<h3 id="UI_Listにスクロールバーをつけたい">UI_Listにスクロールバーをつけたい<a title="このセクションへのリンク" href="#UI_List%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%82%92%E3%81%A4%E3%81%91%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_USE_SCROLLBARに必要なパラメータを設定することで、UI_Listの組み込みスクロールバーが使用できます。
+</p>
+<hr>
+<h3 id="ImagesourceforScrollbardoesnothaveattributesforscrollbardesignというassertで落ちた何が原因">"Image source for Scroll bar does not have attributes for scroll bar design"というassertで落ちた。何が原因?<a title="このセクションへのリンク" href="#ImagesourceforScrollbardoesnothaveattributesforscrollbardesign%E3%81%A8%E3%81%84%E3%81%86assert%E3%81%A7%E8%90%BD%E3%81%A1%E3%81%9F%E4%BD%95%E3%81%8C%E5%8E%9F%E5%9B%A0" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_USE_SCROLLBARでスクロールバーの設定を行っていますね?
+</p>
+<p>
+スクロールバーのスライダに使用するassetの画像をToboggan上で開き、Editable propertyのImageTypeが&quot;ScrollBar&quot;になっていることを
+確認してください。なっていない場合、そのままではその画像をスライダ用assetとして指定することはできません。設定を変更した上でテクスチャを再生成してください。
+</p>
+<hr>
+<h3 id="起動パラメータのLIST_FLAG_BOTTOMは何が変わるの">起動パラメータのLIST_FLAG_BOTTOMは何が変わるの?<a title="このセクションへのリンク" href="#%E8%B5%B7%E5%8B%95%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AELIST_FLAG_BOTTOM%E3%81%AF%E4%BD%95%E3%81%8C%E5%A4%89%E3%82%8F%E3%82%8B%E3%81%AE" class="anchor"> ¶</a></h3>
+<p>
+通常UI_Listにアイテムを追加すると、追加されたCompositeの原点はすべて一本の直線の上に乗るよう配置されます。この直線を「原点ライン」と呼びます。
+</p>
+<p>
+デフォルトでは、縦方向リストならばクリッピング領域の左側、横方向リストならば上側の辺の延長線が原点ラインとなりますが、
+LIST_FLAG_BOTTOMを指定すると、原点ラインが「反対側の辺」の延長線になります。縦方向リストならば右側、横方向リストならば下側の辺です。
+</p>
+<p>
+これは、「右の辺から生えているリスト」「アイテムが下の辺に乗っているリスト」のような表示を可能にするためのモードです。
+原点ラインが移動するので、アイテムとして登録するCompositeの作り方にも注意が必要となります。
+</p>
+<hr>
+<h3 id="LIST_FLAG_BOTTOMを指定したらアイテムが表示されなくなったなぜ">LIST_FLAG_BOTTOMを指定したらアイテムが表示されなくなった。なぜ?<a title="このセクションへのリンク" href="#LIST_FLAG_BOTTOM%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%9F%E3%82%89%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%8F%E3%81%AA%E3%81%A3%E3%81%9F%E3%81%AA%E3%81%9C" class="anchor"> ¶</a></h3>
+<p>
+LIST_FLAG_BOTTOMを指定しない状態でアイテムが表示されるのであれば、アイテムとして追加しているCompositeの作り方が間違っています。
+</p>
+<p>
+たとえば縦方向リストの場合、原点の右側に表示オブジェクトを配置しているCompositeをLIST_FLAG_BOTTOM指定のUI_Listに追加すると、
+表示物がクリッピング領域外に出てしまうため描画されません。
+</p>
+<p>
+LIST_FLAG_BOTTOM指定のUI_Listにアイテムとして追加するCompositeは、縦方向リストであれば原点の左側、横方向リストならば原点の上側に
+表示オブジェクトが配置されていなければなりません。
+</p>
+<hr>
+<h3 id="UI_Listで特定のアイテムが中央にくるようにスクロールさせたい">UI_List で特定のアイテムが中央にくるようにスクロールさせたい<a title="このセクションへのリンク" href="#UI_List%E3%81%A7%E7%89%B9%E5%AE%9A%E3%81%AE%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%8C%E4%B8%AD%E5%A4%AE%E3%81%AB%E3%81%8F%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_SET_ITEM_POSを、&lt;position mode&gt; = LIST_VIEW_CENTER で使用してください。
+</p>
+<p>
+同じように、クリッピング領域の上/左に移動させたいなら LIST_VIEW_TOP,クリッピング領域の下/右ならばLIST_VIEW_BOTTOMです。
+</p>
+<hr>
+<h3 id="リスト中にあるアイテムの占有幅を個別に変更したい">リスト中にあるアイテムの占有幅を個別に変更したい<a title="このセクションへのリンク" href="#%E3%83%AA%E3%82%B9%E3%83%88%E4%B8%AD%E3%81%AB%E3%81%82%E3%82%8B%E3%82%A2%E3%82%A4%E3%83%86%E3%83%A0%E3%81%AE%E5%8D%A0%E6%9C%89%E5%B9%85%E3%82%92%E5%80%8B%E5%88%A5%E3%81%AB%E5%A4%89%E6%9B%B4%E3%81%97%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_CHANGE_STEPを使用することで変更できます。
+</p>
+<hr>
+<h3 id="リストの端でスクロールが止まってしまうが止めずにスクロールさせたい">リストの端でスクロールが止まってしまうが、止めずにスクロールさせたい<a title="このセクションへのリンク" href="#%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E7%AB%AF%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%8C%E6%AD%A2%E3%81%BE%E3%81%A3%E3%81%A6%E3%81%97%E3%81%BE%E3%81%86%E3%81%8C%E6%AD%A2%E3%82%81%E3%81%9A%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_SET_LIMITCLIPで&lt;limit clip enable&gt;をfalseにすることで、両端を超えてスクロールできるようになります。
+</p>
+<hr>
+<h3 id="リストの両端でスクロールは止めたいが両端に余白がほしい">リストの両端でスクロールは止めたいが、両端に余白がほしい<a title="このセクションへのリンク" href="#%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E4%B8%A1%E7%AB%AF%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AF%E6%AD%A2%E3%82%81%E3%81%9F%E3%81%84%E3%81%8C%E4%B8%A1%E7%AB%AF%E3%81%AB%E4%BD%99%E7%99%BD%E3%81%8C%E3%81%BB%E3%81%97%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_SET_MARGINで&lt;margin-top&gt;と&lt;margin-bottom&gt;を指定できます。
+</p>
+<pre class="wiki">   pList = UI_List(...)
+   sysCommand(pList, UI_LIST_SET_MARGIN, 50, 70)
+</pre><p>
+また、プロパティ.margin_top と .margin_bottom で個別に指定できます。
+</p>
+<pre class="wiki">   pList = UI_List(...)
+   prop = TASK_getProperty(pList)
+   prop.margin_top = 50    -- 先頭マージン
+   prop.margin_bottom = 70 -- 末尾マージン
+   TASK_setProperty(pList, prop)
+</pre><p>
+ 
+</p>
+<hr>
+<h3 id="リスト末尾にスクロールさせたいがどこまでスクロールさせればよいか取得できるか">リスト末尾にスクロールさせたいが、どこまでスクロールさせればよいか取得できるか?<a title="このセクションへのリンク" href="#%E3%83%AA%E3%82%B9%E3%83%88%E6%9C%AB%E5%B0%BE%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84%E3%81%8C%E3%81%A9%E3%81%93%E3%81%BE%E3%81%A7%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%95%E3%81%9B%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%8B%E5%8F%96%E5%BE%97%E3%81%A7%E3%81%8D%E3%82%8B%E3%81%8B" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_GET_LIMITで返ってくる値を使用してください。
+</p>
+<hr>
+<h3 id="現在のスクロール位置が知りたい">現在のスクロール位置が知りたい<a title="このセクションへのリンク" href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%BD%8D%E7%BD%AE%E3%81%8C%E7%9F%A5%E3%82%8A%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_GET_POSITION で返ってくる値を使用してください。
+</p>
+<hr>
+<h3 id="スクロール位置の値はどのような単位で扱われている">スクロール位置の値はどのような単位で扱われている?<a title="このセクションへのリンク" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%BD%8D%E7%BD%AE%E3%81%AE%E5%80%A4%E3%81%AF%E3%81%A9%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E5%8D%98%E4%BD%8D%E3%81%A7%E6%89%B1%E3%82%8F%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B" class="anchor"> ¶</a></h3>
+<p>
+スクロールアイテム群の先頭からのピクセル数です。
+</p>
+<hr>
+<h3 id="スクロールバーのコールバックに返される位置情報の単位は">スクロールバーのコールバックに返される位置情報の単位は?<a title="このセクションへのリンク" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E3%81%AB%E8%BF%94%E3%81%95%E3%82%8C%E3%82%8B%E4%BD%8D%E7%BD%AE%E6%83%85%E5%A0%B1%E3%81%AE%E5%8D%98%E4%BD%8D%E3%81%AF" class="anchor"> ¶</a></h3>
+<p>
+スクロール位置と同様にアイテム群先頭からのピクセル数です。
+そのまま計算してUI_LIST_SET_POSITIONに与えることができます。
+</p>
+<hr>
+<h3 id="スクロール時にデフォルトのヌメっとした動きではなくきびきび動作させたい">スクロール時にデフォルトのヌメっとした動きではなくきびきび動作させたい<a title="このセクションへのリンク" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E6%99%82%E3%81%AB%E3%83%87%E3%83%95%E3%82%A9%E3%83%AB%E3%83%88%E3%81%AE%E3%83%8C%E3%83%A1%E3%81%A3%E3%81%A8%E3%81%97%E3%81%9F%E5%8B%95%E3%81%8D%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%81%8D%E3%81%B3%E3%81%8D%E3%81%B3%E5%8B%95%E4%BD%9C%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_SELECT_SCRMGR で "solid" でも指定すると良いでしょう。
+あるいは "default" の &lt;delay&gt; を小さくしても良いです。
+</p>
+<hr>
+<h3 id="スクロールマネージャdefaultに指定できる値delayの意味が知りたい">スクロールマネージャ "default" に指定できる値&lt;delay&gt;の意味が知りたい<a title="このセクションへのリンク" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3default%E3%81%AB%E6%8C%87%E5%AE%9A%E3%81%A7%E3%81%8D%E3%82%8B%E5%80%A4delay%E3%81%AE%E6%84%8F%E5%91%B3%E3%81%8C%E7%9F%A5%E3%82%8A%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+スクロールマネージャ "default" は、1フレームあたりに現在の位置とスクロール目標位置の間の 1/n だけ距離を詰めます。
+距離が近づくにつれ 1/n の値も小さくなるのでだんだんとゆっくりになり、整数値に丸めた値が等しくなった時点で停止します。
+つまり n に 1 を指定すると 1/n = 1/1 = 1 となり、見かけ上 "solid" と同じ動作になります。
+</p>
+<p>
+&lt;delay&gt; はこの分母 n を指定する値で、整数値のみが指定できます。デフォルトの値は10です。
+</p>
+<hr>
+<h3 id="スクロールの停止位置を一定ピクセルおきにしてページ単位スクロールがしたい">スクロールの停止位置を一定ピクセルおきにして「ページ単位スクロール」がしたい<a title="このセクションへのリンク" href="#%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%AE%E5%81%9C%E6%AD%A2%E4%BD%8D%E7%BD%AE%E3%82%92%E4%B8%80%E5%AE%9A%E3%83%94%E3%82%AF%E3%82%BB%E3%83%AB%E3%81%8A%E3%81%8D%E3%81%AB%E3%81%97%E3%81%A6%E3%83%9A%E3%83%BC%E3%82%B8%E5%8D%98%E4%BD%8D%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_SELECT_SCRMGR で "page" を指定し、ページの「長さ」を指定してください。
+</p>
+<hr>
+<h3 id="現在のスクロール位置指標としてスクロールバーは表示させたいがスクロールバーを操作させたくはないどうすればいい">現在のスクロール位置指標としてスクロールバーは表示させたいが、スクロールバーを操作させたくはない。どうすればいい？<a title="このセクションへのリンク" href="#%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%BD%8D%E7%BD%AE%E6%8C%87%E6%A8%99%E3%81%A8%E3%81%97%E3%81%A6%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%81%AF%E8%A1%A8%E7%A4%BA%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84%E3%81%8C%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E3%83%90%E3%83%BC%E3%82%92%E6%93%8D%E4%BD%9C%E3%81%95%E3%81%9B%E3%81%9F%E3%81%8F%E3%81%AF%E3%81%AA%E3%81%84%E3%81%A9%E3%81%86%E3%81%99%E3%82%8C%E3%81%B0%E3%81%84%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+UI_LIST_USE_SCROLLBAR のパラメータ &lt;active&gt; を false にしてください。
+スクロールバーが指定のAssetで表示され、現在位置を反映しますが、スクロールバーそのものを操作することはできなくなります。
+</p>
+<hr>
+<h2 id="汎用タスク編">汎用タスク編<a title="このセクションへのリンク" href="#%E6%B1%8E%E7%94%A8%E3%82%BF%E3%82%B9%E3%82%AF%E7%B7%A8" class="anchor"> ¶</a></h2>
+<hr>
+<h3 id="一定時間後にタスクを殺したい">一定時間後にタスクを殺したい<a title="このセクションへのリンク" href="#%E4%B8%80%E5%AE%9A%E6%99%82%E9%96%93%E5%BE%8C%E3%81%AB%E3%82%BF%E3%82%B9%E3%82%AF%E3%82%92%E6%AE%BA%E3%81%97%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+LIFECtrlタスクを使用してください。
+</p>
+<hr>
+<h3 id="ゲームアプリが端末によってForegroundBackground化されたときにスクリプト処理をさせたい">ゲームアプリが端末によってForeground/Background化されたときにスクリプト処理をさせたい<a title="このセクションへのリンク" href="#%E3%82%B2%E3%83%BC%E3%83%A0%E3%82%A2%E3%83%97%E3%83%AA%E3%81%8C%E7%AB%AF%E6%9C%AB%E3%81%AB%E3%82%88%E3%81%A3%E3%81%A6ForegroundBackground%E5%8C%96%E3%81%95%E3%82%8C%E3%81%9F%E3%81%A8%E3%81%8D%E3%81%AB%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E5%87%A6%E7%90%86%E3%82%92%E3%81%95%E3%81%9B%E3%81%9F%E3%81%84" class="anchor"> ¶</a></h3>
+<p>
+PAUSECtrl タスクを使用し、Background化された際の処理を &lt;pause-callback&gt; 、Foreground化の処理を &lt;resume-callback&gt; で指定した関数に記述してください。
+</p>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_ProgressBar – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_ProgressBar">UI_ProgressBar<a title="このセクションへのリンク" href="#UI_ProgressBar" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_ProgressBar( &lt;parent pointer&gt;, &lt;order&gt;, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt;,
+                              &lt;full image&gt;, &lt;empty image&gt; [, &lt;start pix&gt;, &lt;end pix&gt;, &lt;anim time&gt;, &lt;vertical flag&gt;, &lt;barfilter image&gt;])
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;order&gt; 表示プライオリティ
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;width&gt;, &lt;height&gt; プログレスバー全体の表示域サイズ
+</li><li>&lt;full image&gt; 100%状態で使用する画像asset
+</li><li>&lt;empty image&gt; 0%状態で使用する画像asset
+</li><li>&lt;start pix&gt; ゲージ開始点となるpixel位置。縦方向か横方向かはバーの成長方向による。
+</li><li>&lt;end pix&gt; ゲージ終了店となるpixel位置。縦方向か横方向かはバーの成長方向による。
+</li><li>&lt;anim time&gt; バーの変化にかけるアニメーション時間(単位:[ms])
+</li><li>&lt;vertical flag&gt; 縦方向プログレスバーフラグ
+</li><li>&lt;barfilter image&gt; バーの長さに合わせて伸縮するフィルタ画像asset
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_ProgressBar タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+指定された二つの画像を適切な位置で分割し繋ぎ合わせることでプログレスバーの表示をおこなう。
+このタスクを使用する上では下記の制約がある。
+</p>
+<ul><li>使用される画像assetは、必ず同一の .texb に含まれている必要がある(&lt;barfilter image&gt;含む)。
+</li><li>使用される画像assetは、必ず4頂点かつ、頂点indexが左上から時計回りに割り当てられている必要がある。
+</li></ul><p>
+上記の制約に当てはまらない画像assetを&lt;full image&gt;もしくは&lt;empty image&gt;に指定した場合の動作は保証されない。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_PROGRESS_RESET</dt><dd>
+プログレスバーの進捗を0にリセットする
+<ul><li>UI_PROGRESS_RESET
+<pre class="wiki">   pProgressBar = UI_ProgressBar(...)
+   sysCommand(pProgressBar, UI_PROGRESS_RESET)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_PROGRESS_SET</dt><dd>
+プログレスバーの進捗を設定する。進捗は 0.0から 1.0の間(実数)で与える。
+<ul><li>UI_PROGRESS_SET
+<pre class="wiki">   pProgressBar= UI_ProgressBar(...)
+   sysCommand(pProgressBar, UI_PROGRESS_SET, &lt;progress&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_PROGRESS_MAX</dt><dd>
+プログレスバーの進捗を最大(1.0)にする
+<ul><li>UI_PROGRESS_MAX
+<pre class="wiki">   pProgressBar= UI_ProgressBar(...)
+   sysCommand(pProgressBar, UI_PROGRESS_MAX)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_PROGRESS_GET</dt><dd>
+現在プログレスバーに与えられている進捗値を取得する。
+<ul><li>UI_PROGRESS_GET
+<pre class="wiki">   pProgressBar= UI_ProgressBar(...)
+   &lt;progress&gt; = sysCommand(pProgressBar, UI_PROGRESS_GET)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_PROGRESS_FILTER_VISIBLE</dt><dd>
+&lt;barfilter image&gt;が指定されている場合に、バーフィルタの visible をコントロールする
+<ul><li>UI_PROGRESS_FILTER_VISIBLE
+<pre class="wiki">   pProgressBar = UI_ProgerssBar(...)
+   sysCommand(pProgressBar, UI_PROGRESS_FILTER_VISIBLE, &lt;visible&gt;)
+
+   &lt;visible&gt; true / false
+</pre></li></ul></dd></dl>
+<dl><dt>UI_PROGRESS_FILTER_COLOR</dt><dd>
+&lt;barfilter image&gt;が指定されている場合に、バーフィルタに対して与える頂点 RGBA 値を指定する
+<ul><li>UI_PROGRESS_FILTER_COLOR
+<pre class="wiki">   pProgressBar = UI_ProgressBar(...)
+   sysCommand(pProgressBar, UI_PROGRESS_FILTER_COLOR, &lt;alpha&gt;, &lt;rgb&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_PROGRESS_FILTER_ANIM</dt><dd>
+&lt;barfilter image&gt;が指定されている場合に、バーフィルタに対して与えるカラーアニメーションを指定する。
+アニメーションは与えられた二つのRGBA値の間をサインカーブ的に補間し、指定された周期で往復するものになる。
+<ul><li>UI_PROGRESS_FILTER_ANIM
+<pre class="wiki">   pProgressBar = UI_ProgressBar(...)
+   sysCommand(pProgressBar, UI_PROGRESS_FILTER_ANIM, &lt;anim-enable&gt;, &lt;alpha-1&gt;, &lt;rgb-1&gt;, &lt;alpha-2&gt;, &lt;rgb-2&gt;, &lt;period&gt;)
+
+   &lt;anim-enable&gt;  true:カラーアニメを有効にする / false:カラーアニメを無効にする。falseの場合は以降のパラメータは省略可能で、あっても無視される。
+   &lt;alpha-1&gt;   カラー1のalpha値
+   &lt;rgb-1&gt;     カラー1のRGB値
+   &lt;alpha-2&gt;   カラー2のalpha値
+   &lt;rgb-2&gt;     カラー2のRGB値
+   &lt;period&gt;    往復にかかる周期(単位:[ms])
+</pre></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

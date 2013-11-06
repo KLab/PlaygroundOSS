@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/UI_Form – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="UI_Form">UI_Form<a title="このセクションへのリンク" href="#UI_Form" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = UI_Form( &lt;parent pointer&gt;, &lt;base priority&gt;,
+                            &lt;x&gt;, &lt;y&gt;, "&lt;asset name&gt;" [ , &lt;exclusive flag&gt;, &lt;modal flag&gt;, &lt;urgent flag&gt; ] )
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;parent pointer&gt; 親UIのポインタ
+</li><li>&lt;base priority&gt; 基準表示プライオリティ
+</li><li>&lt;x&gt;, &lt;y&gt; 表示座標
+</li><li>&lt;asset name&gt; 使用するassetのパス
+</li><li>&lt;exclusive flag&gt; 排他フラグ。Formが保持する特定コントロールの操作中、他の保持コントロールの操作を禁止する。
+</li><li>&lt;modal flag&gt; モーダルフラグ。モーダルフォームとして機能させる(<a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/ModalStack">モーダルスタックについて</a>)
+</li><li>&lt;urgent flag&gt; アージェント(緊急)フラグ。モーダルスタック上にアージェントレベル(urgent level)で乗るようになり、&lt;modal flag&gt;は自動的に true 扱いとなる。
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された UI_Form タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+UIエディタで生成されたJSONを元に、フォームを表示/管理するタスクを生成する。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>UI_FORM_SET_ENABLED</dt><dd>
+フォーム操作の許可/禁止を指定する
+<ul><li>UI_FORM_SET_ENABLED
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_SET_ENABLED, &lt;enable flag&gt;)
+</pre><ul><li>&lt;enable flag&gt; 許可(true)/禁止(false)
+</li></ul></li></ul></dd></dl>
+<dl><dt>UI_FORM_EXIST_NODE</dt><dd>
+フォーム内に含まれるノードを名前で検索し、存在するか否かを返す。
+<ul><li>UI_FORM_EXIST_NODE
+<pre class="wiki">   pForm = UI_Form(...)
+   &lt;exist-status&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, "&lt;node name&gt;")
+
+   &lt;node name&gt;  ノード名称文字列
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_UPDATE_NODE</dt><dd>
+フォーム内に含まれるノードを名前で検索し、サブコマンドで指定された操作を行う。
+<ul><li>UI_FORM_UPDATE_NODE
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, &lt;subcommand&gt;, ... )
+
+   &lt;node identifier&gt;  ノードの名称"&lt;node name&gt;"または、FORM_NODE_POINTER で取得される &lt;node pointer&gt; いずれか
+
+
+   引数の数と意味は &lt;subcommand&gt; の値ごとに異なる。
+
+   FORM_NODE_～: 全ノード共通処理
+     &lt;node pointer&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_POINTER)  ノードポインタ取得
+
+      ※取得されるポインタは SceneGraph上に存在するノードのポインタであり、そのノードが持つタスクのポインタではないことに注意。
+        タスクのポインタを取得する場合は、FORM_NODE_TASK サブコマンド(後述)を使用。
+
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_RECURSIVE, "&lt;function name&gt;") ノード再帰処理
+
+       function &lt;function name&gt;(&lt;parent task pointer&gt;, &lt;node pointer&gt;, &lt;index&gt;, &lt;level&gt;)
+         -- &lt;parent task pointer&gt;  呼び出し元UI_Formタスクのポインタ
+         -- &lt;node pointer&gt;         再帰処理対象となるノードのポインタ
+         -- &lt;index&gt;                アイテムインデックス。UI_Formでは常に0
+         -- &lt;level&gt;                再帰呼び出しの階層。FORM_NODE_RECURSIVEで指定した&lt;node identifier&gt;に該当するものが0、以降、階層を子の側に辿るごとに+1される。
+       end
+
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_TRANS, &lt;x&gt;, &lt;y&gt;)           移動
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_SCALE, &lt;scaleX&gt;, &lt;scaleY&gt;) 表示倍率指定
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_ROT, &lt;rotation-degree&gt;)    回転角指定。正の方向で時計回り。単位はdegree.
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_COLOR, &lt;alpha&gt;, &lt;RGB&gt; )    表示RGBおよびalpha指定
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_VISIBLE, &lt;visible flag&gt; )  表示/非表示切り替え
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_ORDER, &lt;priority&gt; )        表示プライオリティ指定
+     &lt;node order&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_GET_ORDER)  表示プライオリティ取得
+     &lt;task pointer&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_NODE_TASK)     指定した名称のノードを持つタスクポインタを取得
+
+       ※FORM_NODE_TASK で取得できるのは、Compositeで指定され起動されたタスクのみであり、
+         UI_GENERIC_RECONNECT_NODE 等を使用してスクリプトから後天的に接続したタスクについては対象とならない。
+         そのようなタスクについては、別途スクリプタの責任においてタスクのポインタを保持すること。
+
+       ※ Order property does not update (起動時のみ）:
+　　　　（しかし、対応が出来るので相談してください）
+			- UIDragIcon
+			- UIPieChart
+			- UIGroup
+			- UIForm
+			- UIPolyline
+			- UIRubberBand
+			- UIScore
+			- UIMapGroup(Worldから正常に更新される）
+			- MapTask
+			- UIScrollbar (order property unused at all)
+
+   FORM_UIE_～: CKLBUIElement型用
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIE_SET_ENABLED, &lt;enabled flag&gt; )           有効/無効切り替え
+     &lt;enabled flag&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIE_GET_ENABLED)           有効/無効状態取得
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIE_SET_ASSET, &lt;asset path&gt;, &lt;asset type&gt; ) 表示asset変更
+     &lt;asset type&gt; は、form中で使用される目的別の分類。
+		FORM_ASSET_NORMAL    通常時
+		FORM_ASSET_DISABLED  無効時
+		FORM_ASSET_FOCUSED   フォーカス時(タッチパネルデバイスでは無意味)
+		FORM_ASSET_PUSHED    押された時
+
+   FORM_UIS_～: CKLBUISelectable型用
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIS_SET_CLICK, &lt;x&gt;, &lt;y&gt;, &lt;width&gt;, &lt;height&gt; ) クリック範囲指定
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIS_SET_STICK, &lt;stick flag&gt; )                チェックボックス状態指定
+     &lt;sticked status&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIS_GET_STICK)            チェックボックス状態取得
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIS_SET_RADIO, &lt;radio ID&gt; )                  ラジオボタンID指定
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_UIS_SET_CALLBACK, &lt;callback fct name&gt; )      コールバック関数を実行に変更する
+
+   FORM_CONT_～: CKLBUIContainer型用
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_CONT_VIEWOFFSET, &lt;offsetX&gt;, &lt;offsetY&gt; )      View内表示offset指定
+     &lt;radio value&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_CONT_GET_RADIO_VALUE)        ラジオボタン値取得
+
+   FORM_TEXT_～: CKLBUITextBox型用
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_TEXT_SET, &lt;text string&gt; )                    テキストボックス文字列設定
+     &lt;text string&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_TEXT_GET)                    テキストボックス文字列取得
+   
+   FORM_WEB_～: CKLBUIWebView型用
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_WEB_SET_URI, &lt;URI string&gt; )                  WebView 表示 URI 指定
+     &lt;URI string&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_WEB_GET_URI)                  現在の URI 文字列取得
+
+   FORM_LBL_～: CKLBLabelNode型用
+     sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_LBL_SET_TEXT, "&lt;new text&gt;" )                ラベルテキスト変更
+     &lt;text string&gt; = sysCommand(pForm, UI_FORM_UPDATE_NODE, &lt;node identifier&gt;, FORM_LBL_GET_TEXT)               ラベルテキスト取得
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_INPUT_ENABLE</dt><dd>
+フォームの表示状態を変えずに操作を許可/禁止する。
+<ul><li>UI_FORM_INPUT_ENABLE
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_INPUT_ENABLE, &lt;enable flag&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_ANIM_CALLBACK</dt><dd>
+フォームのアニメーションコールバックを指定する。
+<ul><li>UI_FORM_ANIM_CALLBACK
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_ANIM_CALLBACK, "&lt;callback name&gt;")
+
+   コールバックの型は下記の通り。
+
+   function &lt;callback name&gt;(pForm, name, id)
+   end
+
+    pForm アニメーションを終了させたUI_Formタスクのポインタ
+    name  終了したアニメーションの名前
+    id    アニメーション起動時に与えたID(必ず0になる)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_ANIMATION</dt><dd>
+名前を指定して、formの持つアニメーションを開始させる。
+<ul><li>UI_FORM_ANIMATION
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_ANIMATION, "&lt;animation name&gt;" [, &lt;blend flag&gt;])
+
+     &lt;animation name&gt; アニメーションの名前
+     &lt;blend flag&gt; Form中のアニメーションとの補間フラグ。指定しない場合はfalseと同じ扱いとなる。
+                  trueであればこのコマンドで最初に指定した時にだけ再生を行い、
+                  falseであれば指定される都度に再生される。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_SKIP_ANIM</dt><dd>
+指定された名称のアニメーションを中断し、終了時のフレーム状態にする。ループアニメーションの場合でも終了する。
+<ul><li>UI_FORM_SKIP_ANIM
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_SKIP_ANIM, "&lt;animation name&gt;")
+
+     &lt;animation name&gt; アニメーションの名前
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_ANIM_ENTER</dt><dd>
+"enter" アニメーションを再生する。
+<ul><li>UI_FORM_ANIM_ENTER
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_ANIM_ENTER)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_ANIM_LEAVE</dt><dd>
+"leave" アニメーションを再生し、終了と同時にタスクを殺す。
+<ul><li>UI_FORM_ANIM_LEAVE
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_ANIM_LEAVE)
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_IS_ANIM</dt><dd>
+現在アニメーションが再生されているか否かをbooleanで返す。
+<ul><li>UI_FORM_IS_ANIM
+<pre class="wiki">   pForm = UI_Form(...)
+   &lt;result&gt; = sysCommand(pForm, UI_FORM_IS_ANIM [, "&lt;animation name&gt;" ] )
+
+   &lt;animation name&gt; で指定された名称のアニメーションについて、現在動いているノードがあれば true, 再生が終了していれば false を返す。
+   &lt;animation name&gt; を指定しない、または nil を指定することで全てのアニメーションについて確認できる。
+　　　　　　この場合、trueであればいずれかのアニメーションが再生中、falseであれば全てのアニメーションが終了している。
+</pre></li></ul></dd></dl>
+<dl><dt>UI_FORM_SET_GROUP</dt><dd>
+フォームにグループ名を与える。同じグループ名を持つ UI_Form および UI_List は同一のグループに所属すると見做され、
+</dd></dl>
+<p>
+操作の排他制御が行われる。
+</p>
+<pre class="wiki">   pForm = UI_Form(...)
+   sysCommand(pForm, UI_FORM_SET_GROUP, "&lt;group-name&gt;")
+</pre>
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>

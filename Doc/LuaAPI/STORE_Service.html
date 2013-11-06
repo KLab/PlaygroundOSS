@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>
+      engine/design/task/STORE_Service – KLBGame25D
+    </title>
+        <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
+    <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main">
+    <div id="content" class="wiki">
+      <p class="path noprint">
+        <br style="clear: both">
+      </p>
+      <div class="wikipage searchable">
+        
+          <h2 id="STORE_Service">STORE_Service<a title="このセクションへのリンク" href="#STORE_Service" class="anchor"> ¶</a></h2>
+<pre class="wiki">   &lt;task pointer&gt; = STORE_Service( "&lt;store-callback&gt;" )
+
+
+   function &lt;store-callback&gt;(&lt;task pointer&gt;, &lt;status&gt;, &lt;item-id&gt;, &lt;data&gt;)
+
+     -- &lt;task pointer&gt;  呼び出し元 STORE_Service タスクのポインタ
+     -- &lt;status&gt;        コールバック理由
+     -- &lt;item-id&gt;       対象商品の ID 文字列(不要な場合は長さ0の文字列になる)
+     -- &lt;data&gt;          付加データ(現時点で、レシート情報以外には使用されていない)
+
+   end
+
+
+</pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
+<ul><li>&lt;store-callback&gt; <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/AppStore" rel="nofollow">AppStore?</a> からのステータスを受け取るコールバック関数名
+</li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
+<ul><li>&lt;task pointer&gt; 生成された STORE_Service タスクのポインタ
+</li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<p>
+iOS/Android の課金サービスをサポートする。
+iOS/Android の API を必要とするため、他環境の porting layer 上での動作は保証されない。
+</p>
+<p>
+コールバックを登録した時点から中断された決済情報の回収が始まり、
+新規購入と同様にSTORE_PURCHASHEDのコールバックが中断された分だけlua側に返される。
+また、課金プラットフォームの挙動によっては購入処理で失敗結果が返された後に成功結果が投げ直されることもある。
+よって、スクリプト側では任意のタイミングでSTORE_PURCHASEDが呼ばれることを考慮して適宜レシートデータをキューイングするなどの実装を行う必要がある。
+</p>
+<h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
+<dl><dt>STORESERVICE_GET_PRODUCTS</dt><dd>
+商品のIDリスト(iOS: product id, Andrroid: sku id)を配列のjsonで指定し、
+プラットフォームに問い合わせて有効な商品リストを返却する。
+<ul><li>STORESERVICE_GET_PRODUCTS
+<pre class="wiki">   pStore = STORE_Service(...)
+   itemListJson = Conv_Lua2Json({"product.id.1", "product.id.2", ... }
+   --  価格の文字列に通貨記号を自動で付加する場合はcurrency_modeをtrueにする。
+   sysCommand(pStore, STORESERVICE_GET_PRODUCTS, itemListJson, &lt;currency_mode&gt;)
+</pre></li></ul></dd></dl>
+<dl><dt>STORESERVICE_BUY_ITEMS</dt><dd>
+商品のIDを指定し、購入処理を開始する。以後のシーケンスはコールバックによって通知される。
+可変長パラメータとなっており、購入対象とするアイテムのIDを同時に複数指定することができる。
+<ul><li>STORESERVICE_BUY_ITEMS
+<pre class="wiki">   pStore= STORE_Service(...)
+   sysCommand(pStore, STORESERVICE_BUY_ITEMS, &lt;item-id&gt; [, &lt;item-id&gt; [, ... ]])
+</pre></li></ul></dd></dl>
+<dl><dt>STORESERVICE_FINISH_TRANSACTION</dt><dd>
+決済情報のレシートデータ（iOS: Receipt, Android: <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/PurchaseToken" rel="nofollow">PurchaseToken?</a>)をエンジンに渡し、購入処理が完了したことを通知する。
+これを行うまで決済は中断状態とみなされ、アプリを起動し直す度にSTORE_PURCHASHEDコールバックに同じレシートデータが渡され続ける。
+この処理を行うタイミングは、サーバーサイドが購入アイテム付与を正常に完了出来たと確証出来たタイミングに限られる。
+<ul><li>STORESERVICE_FINISH_TRANSACTION
+<pre class="wiki">   sysCommand(pStore, STORESERVICE_FINISH_TRANSACTION,&lt;receipt&gt;)
+</pre></li></ul></dd></dl>
+<h3 id="コールバック解説">コールバック解説<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
+<blockquote>
+<p>
+コールバックは、&lt;status&gt;にコールバック理由を添えて通知される。
+使用スクリプト側では、各コールバック理由に対応する処理が求められる。
+</p>
+</blockquote>
+<dl><dt>STORE_GET_PRODUCTS/商品リスト取得</dt><dd>
+プラットフォームに商品リストを問い合わせた結果を返却する。
+<ul><li>STORE_GET_PRODUCTS有効パラメータ
+<ul><li>&lt;data&gt;    商品リストJSONデータ(Conv_Json2Luaでluaテーブルに要変換)
+<pre class="wiki">  {
+    { 
+      "id": &lt;product id&gt;, 
+      "title": &lt;商品タイトル&gt;, 
+      "description": &lt;商品説明&gt;, 
+      "price": &lt;値段の文字列&gt;
+    }, ...
+}
+</pre></li></ul></li></ul></dd></dl>
+<dl><dt>STORE_FAILED/購入処理エラーもしくはキャンセル</dt><dd>
+購入処理がエラーもしくはキャンセルの扱いとなった通知。
+<ul><li>STORE_FAILED 有効パラメータ
+<ul><li>&lt;item-id&gt; 購入処理がエラーまたはキャンセルとなったアイテムのID
+</li></ul></li></ul></dd></dl>
+<dl><dt>STORE_PURCHASHING/購入処理中</dt><dd>
+現在購入処理中。
+<ul><li>STORE_PURCHASHING 有効パラメータ
+<ul><li>&lt;item-id&gt; 購入処理中アイテムのID
+</li></ul></li></ul></dd></dl>
+<dl><dt>STORE_PURCHASHED/購入処理成功</dt><dd>
+購入処理が終了し、処理は成功。レシートデータが通知されるので、適切に処理する必要がある。
+<ul><li>STORE_PURCHASHED 有効パラメータ
+<ul><li>&lt;item-id&gt; 購入処理終了アイテムのID
+</li><li>&lt;data&gt;    購入結果のレシートデータ文字列
+</li></ul></li></ul></dd></dl>
+<dl><dt>STORE_RESTORE/リストア</dt><dd>
+既に購入済みのアイテムが再インストール後の購入などで再付与される。
+<ul><li>STORE_RESTORE 有効パラメータ
+<ul><li>&lt;item-id&gt; リストア対象のアイテムID
+</li></ul></li></ul></dd></dl>
+<dl><dt>STORE_RESTRE_COMPLETED/リストア終了</dt><dd>
+全てのリストア処理が完了した。
+<ul><li>STORE_RESTORE_COMPLETED 有効パラメータ
+<ul><li>(なし)
+</li></ul></li></ul></dd></dl>
+<dl><dt>STORE_RESTORE_FAILED/リストア失敗</dt><dd>
+リストア処理が失敗した。
+<ul><li>STORE_RESTORE_FAILED 有効パラメータ
+<ul><li>(なし)
+</li></ul></li></ul></dd></dl>
+
+        
+        
+      </div>
+    </div>
+    </div>
+    <div id="footer" xml:lang="en" lang="en"><hr>
+      <a id="tracpowered" href="http://trac.edgewall.org/"><img src="assets/trac_logo_mini.png" alt="Trac Powered" height="30" width="107"></a>
+      <p class="left">
+        By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+        <br>Translated by <a href="http://www.i-act.co.jp/">インタアクト株式会社</a>
+      </p>
+      <p class="right">Visit the Trac open source project at<br><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+    </div>
+  
+</body></html>
