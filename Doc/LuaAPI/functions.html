@@ -175,7 +175,7 @@ borderlessがオプションですが、設定をtrueにすると論理描画と
 </p>
 </blockquote>
 <p>
-つまり、borderlessをtrue/falseにしても、<a class="source" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/log/?revs=0">[0,0]</a>-[width,height]は同じ場所にあります。
+つまり、borderlessをtrue/falseにしても、[0,0]-[width,height]は同じ場所にあります。
 </p>
 <pre class="wiki">   GL_SetResolution(&lt;width&gt;, &lt;height&gt; [,&lt;borderless = false&gt;])
 </pre></blockquote>
@@ -211,7 +211,7 @@ GL_SetResolutionを使って、borderlessにした場合、横枠のピクセル
 </p>
 <blockquote>
 <p>
-<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/GuardBand" rel="nofollow">GuardBand?</a>の座標は画面の空間でピクセルで設定する。
+GuardBandの座標は画面の空間でピクセルで設定する。
 </p>
 </blockquote>
 <blockquote>
@@ -317,7 +317,7 @@ end
 
 </pre><h3 id="システムリソース情報ダンプ関数">システムリソース情報ダンプ関数<a title="このセクションへのリンク" href="#%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%E3%83%80%E3%83%B3%E3%83%97%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
 <dl><dt>RES_DumpSceneGraph</dt><dd>
-<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/SceneGraph" rel="nofollow">SceneGraph?</a> のツリー情報をコンソールに出力する。引数を与えない場合はrootノードから、
+SceneGraph のツリー情報をコンソールに出力する。引数を与えない場合はrootノードから、
 UIタスクのポインタを与えた場合はそのタスクが持つコントロールノード以下のツリー情報を出力する。
 <ul><li>RES_DumpSceneGraph()
 <pre class="wiki">   RES_DumpSceneGraph( [ &lt;UI-task-pointer&gt; ] )

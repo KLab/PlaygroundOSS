@@ -38,7 +38,7 @@
 
 
 </pre><h3 id="引数">引数<a title="このセクションへのリンク" href="#%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
-<ul><li>&lt;store-callback&gt; <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/AppStore" rel="nofollow">AppStore?</a> からのステータスを受け取るコールバック関数名
+<ul><li>&lt;store-callback&gt; AppStore からのステータスを受け取るコールバック関数名
 </li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
 <ul><li>&lt;task pointer&gt; 生成された STORE_Service タスクのポインタ
 </li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
@@ -70,7 +70,7 @@ iOS/Android の API を必要とするため、他環境の porting layer 上で
    sysCommand(pStore, STORESERVICE_BUY_ITEMS, &lt;item-id&gt; [, &lt;item-id&gt; [, ... ]])
 </pre></li></ul></dd></dl>
 <dl><dt>STORESERVICE_FINISH_TRANSACTION</dt><dd>
-決済情報のレシートデータ（iOS: Receipt, Android: <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/PurchaseToken" rel="nofollow">PurchaseToken?</a>)をエンジンに渡し、購入処理が完了したことを通知する。
+決済情報のレシートデータ（iOS: Receipt, Android: PurchaseToken)をエンジンに渡し、購入処理が完了したことを通知する。
 これを行うまで決済は中断状態とみなされ、アプリを起動し直す度にSTORE_PURCHASHEDコールバックに同じレシートデータが渡され続ける。
 この処理を行うタイミングは、サーバーサイドが購入アイテム付与を正常に完了出来たと確証出来たタイミングに限られる。
 <ul><li>STORESERVICE_FINISH_TRANSACTION

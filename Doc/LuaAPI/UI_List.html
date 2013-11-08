@@ -30,8 +30,8 @@
 <strong>UI_List は非常に多機能であり、使用方法についてもっとも質問の多いタスクであるため、</strong>
 <strong>質問や不具合報告を行う前に、必ず FAQ およびマニュアルを確認することを推奨します。</strong>
 </p>
-<ul><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/FAQ#UI_FormUI_List%E5%85%B1%E9%80%9A%E7%B7%A8">FAQ:UI_Form/UI_List共通編</a>
-</li><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/FAQ#UI_List%E7%B7%A8">FAQ:UI_List編</a>
+<ul><li><a class="wiki" href="FAQ.html#UI_FormUI_List%E5%85%B1%E9%80%9A%E7%B7%A8">FAQ:UI_Form/UI_List共通編</a>
+</li><li><a class="wiki" href="FAQ.html#UI_List%E7%B7%A8">FAQ:UI_List編</a>
 </li></ul><hr>
 <pre class="wiki">   &lt;task pointer&gt; = UI_List( &lt;parent pointer&gt;, 
                              &lt;base priority&gt;, &lt;max order&gt;,
@@ -53,7 +53,7 @@
 </li><li>&lt;drag callback&gt; リストをドラッグ操作した際のコールバック。nil を指定した場合はコールバックを呼ばない。
 </li><li>&lt;option flags&gt; 動作オプションのフラグ
 <ul><li>LIST_FLAG_BOTTOM アイテムとなるフォームを並べる軸線を、横スクロールであればクリッピング領域の下端、縦スクロールであれば右端に設定する。
-</li><li>LIST_FLAG_MODAL  モーダルコントロールとして生成する(<a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/ModalStack">モーダルスタックについて</a>)
+</li><li>LIST_FLAG_MODAL  モーダルコントロールとして生成する(<a class="wiki" href="modalstack.html">モーダルスタックについて</a>)
 </li></ul></li></ul><blockquote>
 <p>
 ※LIST_FLAG_BOTTOM を使用する場合、アイテムとして追加されるフォームの起点が軸線上に来るため、データ作成上注意が必要。

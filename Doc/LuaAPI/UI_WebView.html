@@ -37,7 +37,7 @@
 </li><li>&lt;x&gt;, &lt;y&gt; 表示座標
 </li><li>&lt;width&gt;, &lt;height&gt; 表示領域のサイズ
 </li><li>&lt;url&gt; 初期表示状態のURL
-</li><li>&lt;callback&gt; <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/WebView" rel="nofollow">WebView?</a>のイベントコールバック
+</li><li>&lt;callback&gt; WebViewのイベントコールバック
 </li></ul><h3 id="戻り値">戻り値<a title="このセクションへのリンク" href="#%E6%88%BB%E3%82%8A%E5%80%A4" class="anchor"> ¶</a></h3>
 <ul><li>&lt;task pointer&gt; 生成された UI_WebView タスクのポインタ
 </li></ul><h3 id="コールバック引数">コールバック引数<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%BC%E3%83%AB%E3%83%90%E3%83%83%E3%82%AF%E5%BC%95%E6%95%B0" class="anchor"> ¶</a></h3>
@@ -47,7 +47,7 @@
 </li><li>WEBVIEW_DIDSTARTLOAD  Webのロードが開始された。&lt;argument string&gt; は空になる。
 </li><li>WEBVIEW_DIDENDLOAD     Webのロードが終了した。&lt;argument string&gt; は空になる。
 </li><li>WEBVIEW_FAILEDLOAD      Webのロードが失敗した。&lt;argument string&gt; は空になる。
-</li></ul></li><li>&lt;argument string&gt; <a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/WebSite" rel="nofollow">WebSite?</a> 中のリンクから与えられた識別用文字列
+</li></ul></li><li>&lt;argument string&gt; WebSite 中のリンクから与えられた識別用文字列
 </li></ul><h3 id="解説">解説<a title="このセクションへのリンク" href="#%E8%A7%A3%E8%AA%AC" class="anchor"> ¶</a></h3>
 <p>
 画面の一部に簡易ブラウザを表示する。
@@ -55,7 +55,7 @@
 </p>
 <p>
 また、表示したWebPage中のリンクやボタンから特定のJavaScript呼び出しを行うことで、
-&lt;callback&gt;で指定されたコールバック関数を呼び出し、<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/JavaScript" rel="nofollow">JavaScript?</a>の引数として与えられた文字列を
+&lt;callback&gt;で指定されたコールバック関数を呼び出し、JavaScriptの引数として与えられた文字列を
 受け取ることができる。
 </p>
 <h3 id="コマンド">コマンド<a title="このセクションへのリンク" href="#%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" class="anchor"> ¶</a></h3>
