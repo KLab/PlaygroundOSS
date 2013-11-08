@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>
-      engine/design/lua – KLBGame25D
+      engine/design/lua – PlaygroundOSS
     </title>
         <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
     <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
-    <!--[if lt IE 7]>
-    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
-    <![endif]-->
     <script type="text/javascript">
       jQuery(document).ready(function($) {
         $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
@@ -175,7 +172,7 @@ borderlessがオプションですが、設定をtrueにすると論理描画と
 </p>
 </blockquote>
 <p>
-つまり、borderlessをtrue/falseにしても、<a class="source" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/log/?revs=0">[0,0]</a>-[width,height]は同じ場所にあります。
+つまり、borderlessをtrue/falseにしても、[0,0]-[width,height]は同じ場所にあります。
 </p>
 <pre class="wiki">   GL_SetResolution(&lt;width&gt;, &lt;height&gt; [,&lt;borderless = false&gt;])
 </pre></blockquote>
@@ -188,7 +185,6 @@ See also : GL_GetHorizontalBorder, GL_GetVerticalBorder.
    GL_SetResolution(width, height)
    if (GL_GetHorizontalBorder() != 0) then
      GL_SetResolution(width, height, true)
-   endif
 </pre><dl><dt>GL_GetHorizontalBorder</dt><dd>
 GL_SetResolutionを使って、borderlessにした場合、立て枠のピクセルサイズを返す関数です。
 <pre class="wiki">　GL_GetHorizontalBorder()
@@ -211,7 +207,7 @@ GL_SetResolutionを使って、borderlessにした場合、横枠のピクセル
 </p>
 <blockquote>
 <p>
-<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/GuardBand" rel="nofollow">GuardBand?</a>の座標は画面の空間でピクセルで設定する。
+GuardBandの座標は画面の空間でピクセルで設定する。
 </p>
 </blockquote>
 <blockquote>
@@ -317,7 +313,7 @@ end
 
 </pre><h3 id="システムリソース情報ダンプ関数">システムリソース情報ダンプ関数<a title="このセクションへのリンク" href="#%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%83%AA%E3%82%BD%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%E3%83%80%E3%83%B3%E3%83%97%E9%96%A2%E6%95%B0" class="anchor"> ¶</a></h3>
 <dl><dt>RES_DumpSceneGraph</dt><dd>
-<a class="missing wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/SceneGraph" rel="nofollow">SceneGraph?</a> のツリー情報をコンソールに出力する。引数を与えない場合はrootノードから、
+SceneGraph のツリー情報をコンソールに出力する。引数を与えない場合はrootノードから、
 UIタスクのポインタを与えた場合はそのタスクが持つコントロールノード以下のツリー情報を出力する。
 <ul><li>RES_DumpSceneGraph()
 <pre class="wiki">   RES_DumpSceneGraph( [ &lt;UI-task-pointer&gt; ] )

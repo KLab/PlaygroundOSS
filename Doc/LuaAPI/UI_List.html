@@ -2,13 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>
-      engine/design/task/UI_List – KLBGame25D
+      engine/design/task/UI_List – PlaygroundOSS
     </title>
         <link rel="stylesheet" href="assets/trac.css" type="text/css"><link rel="stylesheet" href="assets/wiki.css" type="text/css">
     <script type="text/javascript" src="assets/jquery.js"></script><script type="text/javascript" src="assets/trac.js"></script><script type="text/javascript" src="assets/search.js"></script>
-    <!--[if lt IE 7]>
-    <script type="text/javascript" src="/KLBGame25D/trac/project/chrome/common/js/ie_pre7_hacks.js"></script>
-    <![endif]-->
     <script type="text/javascript">
       jQuery(document).ready(function($) {
         $("#content").find("h1,h2,h3,h4,h5,h6").addAnchor("このセクションへのリンク");
@@ -30,8 +27,8 @@
 <strong>UI_List は非常に多機能であり、使用方法についてもっとも質問の多いタスクであるため、</strong>
 <strong>質問や不具合報告を行う前に、必ず FAQ およびマニュアルを確認することを推奨します。</strong>
 </p>
-<ul><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/FAQ#UI_FormUI_List%E5%85%B1%E9%80%9A%E7%B7%A8">FAQ:UI_Form/UI_List共通編</a>
-</li><li><a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/FAQ#UI_List%E7%B7%A8">FAQ:UI_List編</a>
+<ul><li><a class="wiki" href="FAQ.html#UI_FormUI_List%E5%85%B1%E9%80%9A%E7%B7%A8">FAQ:UI_Form/UI_List共通編</a>
+</li><li><a class="wiki" href="FAQ.html#UI_List%E7%B7%A8">FAQ:UI_List編</a>
 </li></ul><hr>
 <pre class="wiki">   &lt;task pointer&gt; = UI_List( &lt;parent pointer&gt;, 
                              &lt;base priority&gt;, &lt;max order&gt;,
@@ -53,7 +50,7 @@
 </li><li>&lt;drag callback&gt; リストをドラッグ操作した際のコールバック。nil を指定した場合はコールバックを呼ばない。
 </li><li>&lt;option flags&gt; 動作オプションのフラグ
 <ul><li>LIST_FLAG_BOTTOM アイテムとなるフォームを並べる軸線を、横スクロールであればクリッピング領域の下端、縦スクロールであれば右端に設定する。
-</li><li>LIST_FLAG_MODAL  モーダルコントロールとして生成する(<a class="wiki" href="http://cloud.its.klab.jp/KLBGame25D/trac/project/wiki/engine/design/task/ModalStack">モーダルスタックについて</a>)
+</li><li>LIST_FLAG_MODAL  モーダルコントロールとして生成する(<a class="wiki" href="modalstack.html">モーダルスタックについて</a>)
 </li></ul></li></ul><blockquote>
 <p>
 ※LIST_FLAG_BOTTOM を使用する場合、アイテムとして追加されるフォームの起点が軸線上に来るため、データ作成上注意が必要。
