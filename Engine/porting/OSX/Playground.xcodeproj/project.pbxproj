@@ -274,7 +274,6 @@
 		3284FE95179A4F6600B0CA20 /* yajl_version.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE89179A4F6600B0CA20 /* yajl_version.c */; };
 		32D86B06182F73E700210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
 		32D86B10182F73E700210C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D86B0E182F73E700210C28 /* InfoPlist.strings */; };
-		32D86B14182F73E700210C28 /* PlaygroundOSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D86B13182F73E700210C28 /* PlaygroundOSS.m */; };
 		32D86B1B182F73E800210C28 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86B1A182F73E700210C28 /* XCTest.framework */; };
 		32D86B1C182F73E800210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
 		32D86B1F182F73E800210C28 /* PlaygroundOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86B05182F73E700210C28 /* PlaygroundOSS.framework */; };
@@ -477,7 +476,6 @@
 		32D86C13182F74A600210C28 /* IMgrEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D6C179A41BE007B7F42 /* IMgrEntry.cpp */; };
 		32D86C14182F74A600210C28 /* CSampleProjectEntrance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32127065182530650027C57E /* CSampleProjectEntrance.cpp */; };
 		32D86C15182F74E900210C28 /* PlaygroundAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 327C0B9C179A3945007B7F42 /* PlaygroundAppDelegate.mm */; };
-		32D86C16182F74E900210C28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 327C0B95179A3945007B7F42 /* main.m */; };
 		32D86C17182F74E900210C28 /* imageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D0179CE0D200E9F3CE /* imageUtil.m */; };
 		32D86C18182F74E900210C28 /* OpenGLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8CB179CE01300E9F3CE /* OpenGLRenderer.mm */; };
 		32D86C19182F74E900210C28 /* NSGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8C8179CDDD900E9F3CE /* NSGLView.mm */; };
@@ -556,7 +554,6 @@
 		32D86C62182F7FDF00210C28 /* KLBPlatformMetricsCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBB179A3B52007B7F42 /* KLBPlatformMetricsCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86C63182F7FDF00210C28 /* CSoundAnalysis.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBC179A3B52007B7F42 /* CSoundAnalysis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86C64182F7FDF00210C28 /* mem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBD179A3B52007B7F42 /* mem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32D86C65182F7FDF00210C28 /* unistd.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBE179A3B52007B7F42 /* unistd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86C66182F7FDF00210C28 /* BaseType.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBF179A3B52007B7F42 /* BaseType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86C67182F7FDF00210C28 /* FileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC0179A3B52007B7F42 /* FileSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86C68182F7FDF00210C28 /* OSWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC1179A3B52007B7F42 /* OSWidget.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -790,7 +787,6 @@
 		327C0BBB179A3B52007B7F42 /* KLBPlatformMetricsCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KLBPlatformMetricsCommon.h; path = ../../../source/include/KLBPlatformMetricsCommon.h; sourceTree = "<group>"; };
 		327C0BBC179A3B52007B7F42 /* CSoundAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSoundAnalysis.h; path = ../../../source/include/CSoundAnalysis.h; sourceTree = "<group>"; };
 		327C0BBD179A3B52007B7F42 /* mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mem.h; path = ../../../source/include/mem.h; sourceTree = "<group>"; };
-		327C0BBE179A3B52007B7F42 /* unistd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unistd.h; path = ../../../source/include/unistd.h; sourceTree = "<group>"; };
 		327C0BBF179A3B52007B7F42 /* BaseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseType.h; path = ../../../include/BaseType.h; sourceTree = "<group>"; };
 		327C0BC0179A3B52007B7F42 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSystem.h; path = ../../../include/FileSystem.h; sourceTree = "<group>"; };
 		327C0BC1179A3B52007B7F42 /* OSWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSWidget.h; path = ../../../include/OSWidget.h; sourceTree = "<group>"; };
@@ -1408,6 +1404,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D86C51182F757A00210C28 /* libcurl.dylib in Frameworks */,
+				32D86C52182F758100210C28 /* libz.dylib in Frameworks */,
 				32D86C5C182F75D600210C28 /* CoreAudio.framework in Frameworks */,
 				32D86C5B182F75CE00210C28 /* CoreFoundation.framework in Frameworks */,
 				32D86C5A182F75C700210C28 /* QuartzCore.framework in Frameworks */,
@@ -1418,8 +1416,6 @@
 				32D86C55182F759600210C28 /* WebKit.framework in Frameworks */,
 				32D86C54182F758F00210C28 /* OpenGL.framework in Frameworks */,
 				32D86C53182F758800210C28 /* AudioUnit.framework in Frameworks */,
-				32D86C52182F758100210C28 /* libz.dylib in Frameworks */,
-				32D86C51182F757A00210C28 /* libcurl.dylib in Frameworks */,
 				32D86B06182F73E700210C28 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1681,7 +1677,6 @@
 				327C0BBB179A3B52007B7F42 /* KLBPlatformMetricsCommon.h */,
 				327C0BBC179A3B52007B7F42 /* CSoundAnalysis.h */,
 				327C0BBD179A3B52007B7F42 /* mem.h */,
-				327C0BBE179A3B52007B7F42 /* unistd.h */,
 				327C0BBF179A3B52007B7F42 /* BaseType.h */,
 				327C0BC0179A3B52007B7F42 /* FileSystem.h */,
 				327C0BC1179A3B52007B7F42 /* OSWidget.h */,
@@ -2584,7 +2579,6 @@
 				32D86C62182F7FDF00210C28 /* KLBPlatformMetricsCommon.h in Headers */,
 				32D86C63182F7FDF00210C28 /* CSoundAnalysis.h in Headers */,
 				32D86C64182F7FDF00210C28 /* mem.h in Headers */,
-				32D86C65182F7FDF00210C28 /* unistd.h in Headers */,
 				32D86C66182F7FDF00210C28 /* BaseType.h in Headers */,
 				32D86C67182F7FDF00210C28 /* FileSystem.h in Headers */,
 				32D86C68182F7FDF00210C28 /* OSWidget.h in Headers */,
@@ -3205,7 +3199,6 @@
 				32D86C4B182F751B00210C28 /* CKLBLanguageDatabase.cpp in Sources */,
 				32D86C4C182F751B00210C28 /* DataSet_JSonDB.cpp in Sources */,
 				32D86C15182F74E900210C28 /* PlaygroundAppDelegate.mm in Sources */,
-				32D86C16182F74E900210C28 /* main.m in Sources */,
 				32D86C17182F74E900210C28 /* imageUtil.m in Sources */,
 				32D86C18182F74E900210C28 /* OpenGLRenderer.mm in Sources */,
 				32D86C19182F74E900210C28 /* NSGLView.mm in Sources */,
@@ -3415,7 +3408,6 @@
 				32D86C12182F74A600210C28 /* CKLBUISimpleItem.cpp in Sources */,
 				32D86C13182F74A600210C28 /* IMgrEntry.cpp in Sources */,
 				32D86C14182F74A600210C28 /* CSampleProjectEntrance.cpp in Sources */,
-				32D86B14182F73E700210C28 /* PlaygroundOSS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3556,7 +3548,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../libs/freeType/include\"";
 				INFOPLIST_FILE = "Playground/Playground-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3580,7 +3572,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../libs/freeType/include\"";
 				INFOPLIST_FILE = "Playground/Playground-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3607,12 +3599,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"\"$(SRCROOT)/../../libs/freeType/include\"",
 				);
 				INFOPLIST_FILE = "PlaygroundOSS/PlaygroundOSS-Info.plist";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
@@ -3637,12 +3631,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"\"$(SRCROOT)/../../libs/freeType/include\"",
 				);
 				INFOPLIST_FILE = "PlaygroundOSS/PlaygroundOSS-Info.plist";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = framework;
