@@ -31,6 +31,7 @@ __MACOSX/
 
 # iOS 
 /Engine/porting/iOS/Project/
+xcuserdata/
 
 # object files things
 *.exe
