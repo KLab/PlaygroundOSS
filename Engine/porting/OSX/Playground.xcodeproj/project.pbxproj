@@ -718,6 +718,7 @@
 		32D86D09182F801700210C28 /* CKLBWebViewNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D6B179A41BE007B7F42 /* CKLBWebViewNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86D0A182F801700210C28 /* IMgrEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D6D179A41BF007B7F42 /* IMgrEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		32D86D0B182F801700210C28 /* CSampleProjectEntrance.h in Headers */ = {isa = PBXBuildFile; fileRef = 32127066182530650027C57E /* CSampleProjectEntrance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86DF5182FDAE300210C28 /* Playground-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 327C0B91179A3944007B7F42 /* Playground-Info.plist */; };
 		32F55E8D179AFDFC003807CE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E8C179AFDFC003807CE /* WebKit.framework */; };
 		32F55E8F179B0796003807CE /* CiOSWebView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32F55E8E179B0796003807CE /* CiOSWebView.mm */; };
 		32F55E91179B0D55003807CE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E90179B0D55003807CE /* OpenGL.framework */; };
@@ -2835,6 +2836,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D86DF5182FDAE300210C28 /* Playground-Info.plist in Resources */,
 				32D86C5D182F75FE00210C28 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
