@@ -47,6 +47,12 @@
 #include "playground.h"
 #include "gtest/gtest.h"
 
+#define private public
+#define protected public
+#import <Security/Authorization.h>
+#import <PlaygroundOSS/CKLBNode.h>
+#undef protected
+#undef private
 
 // Step 2. Use the TEST macro to define your tests.
 //
