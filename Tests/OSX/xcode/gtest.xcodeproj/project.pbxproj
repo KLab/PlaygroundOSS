@@ -46,6 +46,11 @@
 		32D86ED3182FE06E00210C28 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86ECD182FE06E00210C28 /* libcurl.dylib */; };
 		32D86ED4182FE06E00210C28 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86ECE182FE06E00210C28 /* AudioToolbox.framework */; };
 		32D86ED5182FE06E00210C28 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86ECF182FE06E00210C28 /* AudioUnit.framework */; };
+		32D86EF9182FF4D800210C28 /* PlaygroundOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86EF8182FF4D800210C28 /* PlaygroundOSS.framework */; };
+		32D86EFB182FF4EA00210C28 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86EFA182FF4EA00210C28 /* QuartzCore.framework */; };
+		32D86EFD182FF50700210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86EFC182FF50700210C28 /* Cocoa.framework */; };
+		32D86F03182FFB9B00210C28 /* DummyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32D86F01182FFB9B00210C28 /* DummyTest.cpp */; };
+		32D86F07182FFC5F00210C28 /* CKLBNodeRenderCountTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32D86F06182FFC5F00210C28 /* CKLBNodeRenderCountTest.cpp */; };
 		3BF6F2A00E79B5AD000F2EEE /* gtest-type-util.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 3BF6F29F0E79B5AD000F2EEE /* gtest-type-util.h */; };
 		3BF6F2A50E79B616000F2EEE /* gtest-typed-test.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BF6F2A40E79B616000F2EEE /* gtest-typed-test.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		404884380E2F799B00CF7658 /* gtest-death-test.h in Headers */ = {isa = PBXBuildFile; fileRef = 404883DB0E2F799B00CF7658 /* gtest-death-test.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -54,30 +59,20 @@
 		4048843B0E2F799B00CF7658 /* gtest.h in Headers */ = {isa = PBXBuildFile; fileRef = 404883DE0E2F799B00CF7658 /* gtest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4048843C0E2F799B00CF7658 /* gtest_pred_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 404883DF0E2F799B00CF7658 /* gtest_pred_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4048843D0E2F799B00CF7658 /* gtest_prod.h in Headers */ = {isa = PBXBuildFile; fileRef = 404883E00E2F799B00CF7658 /* gtest_prod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		404884500E2F799B00CF7658 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 404883F60E2F799B00CF7658 /* README */; };
 		404884A00E2F7BE600CF7658 /* gtest-death-test-internal.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 404883E20E2F799B00CF7658 /* gtest-death-test-internal.h */; };
 		404884A10E2F7BE600CF7658 /* gtest-filepath.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 404883E30E2F799B00CF7658 /* gtest-filepath.h */; };
 		404884A20E2F7BE600CF7658 /* gtest-internal.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 404883E40E2F799B00CF7658 /* gtest-internal.h */; };
 		404884A30E2F7BE600CF7658 /* gtest-port.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 404883E50E2F799B00CF7658 /* gtest-port.h */; };
 		404884A40E2F7BE600CF7658 /* gtest-string.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 404883E60E2F799B00CF7658 /* gtest-string.h */; };
-		404884AC0E2F7CD900CF7658 /* CHANGES in Resources */ = {isa = PBXBuildFile; fileRef = 404884A90E2F7CD900CF7658 /* CHANGES */; };
-		404884AD0E2F7CD900CF7658 /* CONTRIBUTORS in Resources */ = {isa = PBXBuildFile; fileRef = 404884AA0E2F7CD900CF7658 /* CONTRIBUTORS */; };
-		404884AE0E2F7CD900CF7658 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 404884AB0E2F7CD900CF7658 /* LICENSE */; };
 		40899F3A0FFA70D4000B29AE /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = 224A12A10E9EADA700BD17FD /* gtest-all.cc */; };
 		40899F500FFA7281000B29AE /* gtest-tuple.h in Copy Headers Internal */ = {isa = PBXBuildFile; fileRef = 40899F4D0FFA7271000B29AE /* gtest-tuple.h */; };
-		40899F530FFA72A0000B29AE /* gtest_unittest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3B238C120E7FE13C00846E11 /* gtest_unittest.cc */; };
-		4089A0440FFAD1BE000B29AE /* playground.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4089A02C0FFACF7F000B29AE /* playground.cc */; };
-		4089A0460FFAD1BE000B29AE /* playground_unittest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4089A02E0FFACF7F000B29AE /* playground_unittest.mm */; };
 		40C848FF101A21150083642A /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = 224A12A10E9EADA700BD17FD /* gtest-all.cc */; };
 		40C84915101A21DF0083642A /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4048840D0E2F799B00CF7658 /* gtest_main.cc */; };
 		40C84916101A235B0083642A /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C8490B101A217E0083642A /* libgtest_main.a */; };
 		40C84921101A23AD0083642A /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C8490B101A217E0083642A /* libgtest_main.a */; };
 		40C84978101A36540083642A /* libgtest_main.a in Resources */ = {isa = PBXBuildFile; fileRef = 40C8490B101A217E0083642A /* libgtest_main.a */; };
-		40C84980101A36850083642A /* gtest_unittest.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3B238C120E7FE13C00846E11 /* gtest_unittest.cc */; };
 		40C84982101A36850083642A /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C848FA101A209C0083642A /* libgtest.a */; };
 		40C84983101A36850083642A /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C8490B101A217E0083642A /* libgtest_main.a */; };
-		40C8498F101A36A60083642A /* playground.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4089A02C0FFACF7F000B29AE /* playground.cc */; };
-		40C84990101A36A60083642A /* playground_unittest.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4089A02E0FFACF7F000B29AE /* playground_unittest.mm */; };
 		40C84992101A36A60083642A /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C848FA101A209C0083642A /* libgtest.a */; };
 		40C84993101A36A60083642A /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C8490B101A217E0083642A /* libgtest_main.a */; };
 		40C849A2101A37050083642A /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4539C8FF0EC27F6400A70F4C /* gtest.framework */; };
@@ -217,7 +212,11 @@
 		32D86ECD182FE06E00210C28 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/lib/libcurl.dylib; sourceTree = DEVELOPER_DIR; };
 		32D86ECE182FE06E00210C28 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		32D86ECF182FE06E00210C28 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AudioUnit.framework; sourceTree = DEVELOPER_DIR; };
-		3B238C120E7FE13C00846E11 /* gtest_unittest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gtest_unittest.cc; sourceTree = "<group>"; };
+		32D86EF8182FF4D800210C28 /* PlaygroundOSS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PlaygroundOSS.framework; path = ../../../Engine/prebuilt/OSX/PlaygroundOSS.framework; sourceTree = SOURCE_ROOT; };
+		32D86EFA182FF4EA00210C28 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		32D86EFC182FF50700210C28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		32D86F01182FFB9B00210C28 /* DummyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DummyTest.cpp; sourceTree = "<group>"; };
+		32D86F06182FFC5F00210C28 /* CKLBNodeRenderCountTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CKLBNodeRenderCountTest.cpp; sourceTree = "<group>"; };
 		3B87D2100E96B92E000D1852 /* runtests.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = runtests.sh; sourceTree = "<group>"; };
 		3BF6F29F0E79B5AD000F2EEE /* gtest-type-util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-type-util.h"; sourceTree = "<group>"; };
 		3BF6F2A40E79B616000F2EEE /* gtest-typed-test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-typed-test.h"; sourceTree = "<group>"; };
@@ -233,18 +232,11 @@
 		404883E40E2F799B00CF7658 /* gtest-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-internal.h"; sourceTree = "<group>"; };
 		404883E50E2F799B00CF7658 /* gtest-port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-port.h"; sourceTree = "<group>"; };
 		404883E60E2F799B00CF7658 /* gtest-string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-string.h"; sourceTree = "<group>"; };
-		404883F60E2F799B00CF7658 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = ../../gtest/README; sourceTree = SOURCE_ROOT; };
 		4048840D0E2F799B00CF7658 /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gtest_main.cc; sourceTree = "<group>"; };
-		404884A90E2F7CD900CF7658 /* CHANGES */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CHANGES; path = ../../gtest/CHANGES; sourceTree = SOURCE_ROOT; };
-		404884AA0E2F7CD900CF7658 /* CONTRIBUTORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CONTRIBUTORS; path = ../../gtest/CONTRIBUTORS; sourceTree = SOURCE_ROOT; };
-		404884AB0E2F7CD900CF7658 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../gtest/LICENSE; sourceTree = SOURCE_ROOT; };
 		40899F430FFA7184000B29AE /* gtest_unittest-framework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "gtest_unittest-framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40899F4D0FFA7271000B29AE /* gtest-tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-tuple.h"; sourceTree = "<group>"; };
 		40899FB30FFA7567000B29AE /* StaticLibraryTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = StaticLibraryTarget.xcconfig; sourceTree = "<group>"; };
 		4089A0130FFACEFC000B29AE /* sample1_unittest-framework */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "sample1_unittest-framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4089A02C0FFACF7F000B29AE /* playground.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = playground.cc; sourceTree = "<group>"; };
-		4089A02D0FFACF7F000B29AE /* playground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playground.h; sourceTree = "<group>"; };
-		4089A02E0FFACF7F000B29AE /* playground_unittest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = playground_unittest.mm; sourceTree = "<group>"; };
 		40C848FA101A209C0083642A /* libgtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C8490B101A217E0083642A /* libgtest_main.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgtest_main.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C84987101A36850083642A /* gtest_unittest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gtest_unittest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +286,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D86EFD182FF50700210C28 /* Cocoa.framework in Frameworks */,
+				32D86EFB182FF4EA00210C28 /* QuartzCore.framework in Frameworks */,
+				32D86EF9182FF4D800210C28 /* PlaygroundOSS.framework in Frameworks */,
 				40C84992101A36A60083642A /* libgtest.a in Frameworks */,
 				40C84993101A36A60083642A /* libgtest_main.a in Frameworks */,
 				32D86EC8182FE06800210C28 /* AVFoundation.framework in Frameworks */,
@@ -327,18 +322,11 @@
 		0867D691FE84028FC02AAC07 /* gtest */ = {
 			isa = PBXGroup;
 			children = (
-				32D86ECA182FE06E00210C28 /* Security.framework */,
-				32D86ECB182FE06E00210C28 /* CoreVideo.framework */,
-				32D86ECC182FE06E00210C28 /* libz.dylib */,
-				32D86ECD182FE06E00210C28 /* libcurl.dylib */,
-				32D86ECE182FE06E00210C28 /* AudioToolbox.framework */,
-				32D86ECF182FE06E00210C28 /* AudioUnit.framework */,
-				32D86EC6182FE06800210C28 /* AVFoundation.framework */,
-				32D86EC7182FE06800210C28 /* OpenGL.framework */,
 				40D4CDF00E30E07400294801 /* Config */,
 				08FB77ACFE841707C02AAC07 /* Source */,
 				40D4CF4E0E30F5E200294801 /* Resources */,
 				403EE37B0E377822004BD1E2 /* Scripts */,
+				32D86EFE182FF7E100210C28 /* Frameworks */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 			);
 			name = gtest;
@@ -347,26 +335,40 @@
 		08FB77ACFE841707C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				404884A90E2F7CD900CF7658 /* CHANGES */,
-				404884AA0E2F7CD900CF7658 /* CONTRIBUTORS */,
-				404884AB0E2F7CD900CF7658 /* LICENSE */,
-				404883F60E2F799B00CF7658 /* README */,
+				32D86F05182FFC5F00210C28 /* testcases_common */,
+				4089A02F0FFACF84000B29AE /* testcases_osx */,
 				404883D90E2F799B00CF7658 /* include */,
-				4089A02F0FFACF84000B29AE /* playground */,
 				404884070E2F799B00CF7658 /* src */,
-				3B238BF00E7FE13B00846E11 /* test */,
 			);
 			name = Source;
 			sourceTree = "<group>";
 		};
-		3B238BF00E7FE13B00846E11 /* test */ = {
+		32D86EFE182FF7E100210C28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3B238C120E7FE13C00846E11 /* gtest_unittest.cc */,
+				32D86EFC182FF50700210C28 /* Cocoa.framework */,
+				32D86EFA182FF4EA00210C28 /* QuartzCore.framework */,
+				32D86EF8182FF4D800210C28 /* PlaygroundOSS.framework */,
+				32D86ECA182FE06E00210C28 /* Security.framework */,
+				32D86ECB182FE06E00210C28 /* CoreVideo.framework */,
+				32D86ECC182FE06E00210C28 /* libz.dylib */,
+				32D86ECD182FE06E00210C28 /* libcurl.dylib */,
+				32D86ECE182FE06E00210C28 /* AudioToolbox.framework */,
+				32D86ECF182FE06E00210C28 /* AudioUnit.framework */,
+				32D86EC6182FE06800210C28 /* AVFoundation.framework */,
+				32D86EC7182FE06800210C28 /* OpenGL.framework */,
 			);
-			name = test;
-			path = ../../gtest/test;
-			sourceTree = SOURCE_ROOT;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32D86F05182FFC5F00210C28 /* testcases_common */ = {
+			isa = PBXGroup;
+			children = (
+				32D86F06182FFC5F00210C28 /* CKLBNodeRenderCountTest.cpp */,
+			);
+			name = testcases_common;
+			path = ../../testcases_common;
+			sourceTree = "<group>";
 		};
 		403EE37B0E377822004BD1E2 /* Scripts */ = {
 			isa = PBXGroup;
@@ -431,15 +433,13 @@
 			path = ../../gtest/src;
 			sourceTree = SOURCE_ROOT;
 		};
-		4089A02F0FFACF84000B29AE /* playground */ = {
+		4089A02F0FFACF84000B29AE /* testcases_osx */ = {
 			isa = PBXGroup;
 			children = (
-				4089A02C0FFACF7F000B29AE /* playground.cc */,
-				4089A02D0FFACF7F000B29AE /* playground.h */,
-				4089A02E0FFACF7F000B29AE /* playground_unittest.mm */,
+				32D86F01182FFB9B00210C28 /* DummyTest.cpp */,
 			);
-			name = playground;
-			path = ../../gtest/samples;
+			name = testcases_osx;
+			path = ../testcases_osx;
 			sourceTree = SOURCE_ROOT;
 		};
 		40D4CDF00E30E07400294801 /* Config */ = {
@@ -649,10 +649,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				404884500E2F799B00CF7658 /* README in Resources */,
-				404884AC0E2F7CD900CF7658 /* CHANGES in Resources */,
-				404884AD0E2F7CD900CF7658 /* CONTRIBUTORS in Resources */,
-				404884AE0E2F7CD900CF7658 /* LICENSE in Resources */,
 				40C84978101A36540083642A /* libgtest_main.a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,7 +693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40899F530FFA72A0000B29AE /* gtest_unittest.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,8 +700,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4089A0440FFAD1BE000B29AE /* playground.cc in Sources */,
-				4089A0460FFAD1BE000B29AE /* playground_unittest.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +723,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C84980101A36850083642A /* gtest_unittest.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,8 +730,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C8498F101A36A60083642A /* playground.cc in Sources */,
-				40C84990101A36A60083642A /* playground_unittest.mm in Sources */,
+				32D86F03182FFB9B00210C28 /* DummyTest.cpp in Sources */,
+				32D86F07182FFC5F00210C28 /* CKLBNodeRenderCountTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,7 +992,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Engine/prebuilt/OSX/",
+					"\\\"$(SRCROOT)/../../../Engine/prebuilt/OSX/",
+					/Users/keinakazawa/Documents/workspace/PlaygroundOSS/Engine/prebuilt/OSX,
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
@@ -1015,7 +1008,8 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../Engine/prebuilt/OSX/",
+					"\\\"$(SRCROOT)/../../../Engine/prebuilt/OSX/",
+					/Users/keinakazawa/Documents/workspace/PlaygroundOSS/Engine/prebuilt/OSX,
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
@@ -1070,6 +1064,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40D4CDF10E30E07400294801 /* DebugProject.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				GCC_VERSION = "";
+				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -1077,6 +1075,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 40D4CDF40E30E07400294801 /* ReleaseProject.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				GCC_VERSION = "";
+				SDKROOT = macosx;
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
