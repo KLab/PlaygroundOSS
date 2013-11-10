@@ -9,7 +9,7 @@
 /**
  * Dummy test case for checking test runner is running properly or not.
  */
-TEST(DummyTest, AlwaysPass)
+TEST(OSXDummyTest, AlwaysPass)
 {
     EXPECT_TRUE(1);
 }
