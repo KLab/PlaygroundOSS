@@ -44,7 +44,7 @@
 // Don't forget gtest.h, which declares the testing framework.
 
 #include <limits.h>
-#include "sample1.h"
+#include "playground.h"
 #include "gtest/gtest.h"
 
 
