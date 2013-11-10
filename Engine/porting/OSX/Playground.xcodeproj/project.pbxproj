@@ -273,8 +273,6 @@
 		3284FE94179A4F6600B0CA20 /* yajl_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE86179A4F6600B0CA20 /* yajl_gen.c */; };
 		3284FE95179A4F6600B0CA20 /* yajl_version.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE89179A4F6600B0CA20 /* yajl_version.c */; };
 		32D86B06182F73E700210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
-		32D86B10182F73E700210C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D86B0E182F73E700210C28 /* InfoPlist.strings */; };
-		32D86B1B182F73E800210C28 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86B1A182F73E700210C28 /* XCTest.framework */; };
 		32D86B1C182F73E800210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
 		32D86B1F182F73E800210C28 /* PlaygroundOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86B05182F73E700210C28 /* PlaygroundOSS.framework */; };
 		32D86B25182F73E800210C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D86B23182F73E800210C28 /* InfoPlist.strings */; };
@@ -1338,13 +1336,7 @@
 		32D86B08182F73E700210C28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32D86B09182F73E700210C28 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		32D86B0A182F73E700210C28 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		32D86B0D182F73E700210C28 /* PlaygroundOSS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundOSS-Info.plist"; sourceTree = "<group>"; };
-		32D86B0F182F73E700210C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		32D86B11182F73E700210C28 /* PlaygroundOSS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlaygroundOSS-Prefix.pch"; sourceTree = "<group>"; };
-		32D86B12182F73E700210C28 /* PlaygroundOSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundOSS.h; sourceTree = "<group>"; };
-		32D86B13182F73E700210C28 /* PlaygroundOSS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundOSS.m; sourceTree = "<group>"; };
 		32D86B19182F73E700210C28 /* PlaygroundOSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundOSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		32D86B1A182F73E700210C28 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		32D86B22182F73E800210C28 /* PlaygroundOSSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundOSSTests-Info.plist"; sourceTree = "<group>"; };
 		32D86B24182F73E800210C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32D86B26182F73E800210C28 /* PlaygroundOSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundOSSTests.m; sourceTree = "<group>"; };
@@ -1425,7 +1417,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D86B1C182F73E800210C28 /* Cocoa.framework in Frameworks */,
-				32D86B1B182F73E800210C28 /* XCTest.framework in Frameworks */,
 				32D86B1F182F73E800210C28 /* PlaygroundOSS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1438,7 +1429,6 @@
 			children = (
 				327C0BA6179A39A9007B7F42 /* ProjectResources */,
 				327C0B8F179A3944007B7F42 /* Playground */,
-				32D86B0B182F73E700210C28 /* PlaygroundOSS */,
 				32D86B20182F73E800210C28 /* PlaygroundOSSTests */,
 				327C0B88179A3944007B7F42 /* Frameworks */,
 				327C0B87179A3944007B7F42 /* Products */,
@@ -1473,7 +1463,6 @@
 				327C0DBF179A424C007B7F42 /* CoreFoundation.framework */,
 				327C0DBD179A423F007B7F42 /* CoreAudio.framework */,
 				32F55E8C179AFDFC003807CE /* WebKit.framework */,
-				32D86B1A182F73E700210C28 /* XCTest.framework */,
 				32D86B07182F73E700210C28 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -2499,26 +2488,6 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		32D86B0B182F73E700210C28 /* PlaygroundOSS */ = {
-			isa = PBXGroup;
-			children = (
-				32D86B12182F73E700210C28 /* PlaygroundOSS.h */,
-				32D86B13182F73E700210C28 /* PlaygroundOSS.m */,
-				32D86B0C182F73E700210C28 /* Supporting Files */,
-			);
-			path = PlaygroundOSS;
-			sourceTree = "<group>";
-		};
-		32D86B0C182F73E700210C28 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				32D86B0D182F73E700210C28 /* PlaygroundOSS-Info.plist */,
-				32D86B0E182F73E700210C28 /* InfoPlist.strings */,
-				32D86B11182F73E700210C28 /* PlaygroundOSS-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		32D86B20182F73E800210C28 /* PlaygroundOSSTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -2867,7 +2836,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D86C5D182F75FE00210C28 /* MainMenu.xib in Resources */,
-				32D86B10182F73E700210C28 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3452,14 +3420,6 @@
 				327C0B9F179A3945007B7F42 /* en */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		32D86B0E182F73E700210C28 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				32D86B0F182F73E700210C28 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		32D86B23182F73E800210C28 /* InfoPlist.strings */ = {
