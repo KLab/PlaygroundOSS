@@ -272,6 +272,453 @@
 		3284FE93179A4F6600B0CA20 /* yajl_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE81179A4F6600B0CA20 /* yajl_alloc.c */; };
 		3284FE94179A4F6600B0CA20 /* yajl_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE86179A4F6600B0CA20 /* yajl_gen.c */; };
 		3284FE95179A4F6600B0CA20 /* yajl_version.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE89179A4F6600B0CA20 /* yajl_version.c */; };
+		32D86B06182F73E700210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
+		32D86B1C182F73E800210C28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0B89179A3944007B7F42 /* Cocoa.framework */; };
+		32D86B1F182F73E800210C28 /* PlaygroundOSS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86B05182F73E700210C28 /* PlaygroundOSS.framework */; };
+		32D86B25182F73E800210C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32D86B23182F73E800210C28 /* InfoPlist.strings */; };
+		32D86B27182F73E800210C28 /* PlaygroundOSSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D86B26182F73E800210C28 /* PlaygroundOSSTests.m */; };
+		32D86B51182F74A500210C28 /* yajl_buf.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE77179A4F6600B0CA20 /* yajl_buf.c */; };
+		32D86B52182F74A500210C28 /* yajl_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE79179A4F6600B0CA20 /* yajl_encode.c */; };
+		32D86B53182F74A500210C28 /* yajl_lex.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE7A179A4F6600B0CA20 /* yajl_lex.c */; };
+		32D86B54182F74A500210C28 /* yajl_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE7B179A4F6600B0CA20 /* yajl_parser.c */; };
+		32D86B55182F74A500210C28 /* yajl_tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE7C179A4F6600B0CA20 /* yajl_tree.c */; };
+		32D86B56182F74A500210C28 /* yajl.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE7D179A4F6600B0CA20 /* yajl.c */; };
+		32D86B57182F74A500210C28 /* json_binary_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE7E179A4F6600B0CA20 /* json_binary_parser.c */; };
+		32D86B58182F74A500210C28 /* msg_pack_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE80179A4F6600B0CA20 /* msg_pack_parser.c */; };
+		32D86B59182F74A500210C28 /* yajl_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE81179A4F6600B0CA20 /* yajl_alloc.c */; };
+		32D86B5A182F74A500210C28 /* yajl_gen.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE86179A4F6600B0CA20 /* yajl_gen.c */; };
+		32D86B5B182F74A500210C28 /* yajl_version.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE89179A4F6600B0CA20 /* yajl_version.c */; };
+		32D86B5C182F74A500210C28 /* lapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE07179A4B2B00B0CA20 /* lapi.c */; };
+		32D86B5D182F74A500210C28 /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE09179A4B2B00B0CA20 /* lauxlib.c */; };
+		32D86B5E182F74A500210C28 /* lbaselib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE0A179A4B2B00B0CA20 /* lbaselib.c */; };
+		32D86B5F182F74A500210C28 /* lbitlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE0B179A4B2B00B0CA20 /* lbitlib.c */; };
+		32D86B60182F74A500210C28 /* lcode.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE0C179A4B2B00B0CA20 /* lcode.c */; };
+		32D86B61182F74A500210C28 /* lcorolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE0E179A4B2B00B0CA20 /* lcorolib.c */; };
+		32D86B62182F74A500210C28 /* lctype.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE0F179A4B2B00B0CA20 /* lctype.c */; };
+		32D86B63182F74A500210C28 /* ldblib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE11179A4B2B00B0CA20 /* ldblib.c */; };
+		32D86B64182F74A500210C28 /* ldebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE12179A4B2B00B0CA20 /* ldebug.c */; };
+		32D86B65182F74A500210C28 /* ldo.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE14179A4B2B00B0CA20 /* ldo.c */; };
+		32D86B66182F74A500210C28 /* ldump.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE16179A4B2B00B0CA20 /* ldump.c */; };
+		32D86B67182F74A500210C28 /* lfunc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE17179A4B2B00B0CA20 /* lfunc.c */; };
+		32D86B68182F74A500210C28 /* lgc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE19179A4B2B00B0CA20 /* lgc.c */; };
+		32D86B69182F74A500210C28 /* linit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE1B179A4B2B00B0CA20 /* linit.c */; };
+		32D86B6A182F74A500210C28 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE1C179A4B2B00B0CA20 /* liolib.c */; };
+		32D86B6B182F74A500210C28 /* llex.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE1D179A4B2B00B0CA20 /* llex.c */; };
+		32D86B6C182F74A500210C28 /* lmathlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE20179A4B2B00B0CA20 /* lmathlib.c */; };
+		32D86B6D182F74A500210C28 /* lmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE21179A4B2B00B0CA20 /* lmem.c */; };
+		32D86B6E182F74A500210C28 /* loadlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE23179A4B2B00B0CA20 /* loadlib.c */; };
+		32D86B6F182F74A500210C28 /* lobject.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE24179A4B2B00B0CA20 /* lobject.c */; };
+		32D86B70182F74A500210C28 /* lopcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE26179A4B2B00B0CA20 /* lopcodes.c */; };
+		32D86B71182F74A500210C28 /* loslib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE28179A4B2B00B0CA20 /* loslib.c */; };
+		32D86B72182F74A500210C28 /* lparser.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE29179A4B2B00B0CA20 /* lparser.c */; };
+		32D86B73182F74A500210C28 /* lstate.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE2B179A4B2B00B0CA20 /* lstate.c */; };
+		32D86B74182F74A500210C28 /* lstring.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE2D179A4B2B00B0CA20 /* lstring.c */; };
+		32D86B75182F74A500210C28 /* lstrlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE2F179A4B2B00B0CA20 /* lstrlib.c */; };
+		32D86B76182F74A500210C28 /* ltable.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE30179A4B2B00B0CA20 /* ltable.c */; };
+		32D86B77182F74A500210C28 /* ltablib.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE32179A4B2B00B0CA20 /* ltablib.c */; };
+		32D86B78182F74A500210C28 /* ltm.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE33179A4B2B00B0CA20 /* ltm.c */; };
+		32D86B79182F74A500210C28 /* lundump.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE38179A4B2B00B0CA20 /* lundump.c */; };
+		32D86B7A182F74A500210C28 /* lvm.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE3A179A4B2B00B0CA20 /* lvm.c */; };
+		32D86B7B182F74A500210C28 /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE3C179A4B2B00B0CA20 /* lzio.c */; };
+		32D86B7C182F74A500210C28 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE6D179A4F4900B0CA20 /* ioapi.c */; };
+		32D86B7D182F74A500210C28 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE6F179A4F4900B0CA20 /* mztools.c */; };
+		32D86B7E182F74A500210C28 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE71179A4F4900B0CA20 /* unzip.c */; };
+		32D86B7F182F74A500210C28 /* hash_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE5F179A4EF900B0CA20 /* hash_sha1.c */; };
+		32D86B80182F74A500210C28 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE63179A4F0900B0CA20 /* sqlite3.c */; };
+		32D86B81182F74A500210C28 /* utf8.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FE68179A4F1B00B0CA20 /* utf8.c */; };
+		32D86B82182F74A500210C28 /* CiOSReadFileStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 328401CE179A576300B0CA20 /* CiOSReadFileStream.cpp */; };
+		32D86B83182F74A500210C28 /* CiOSTmpFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 328401D0179A576300B0CA20 /* CiOSTmpFile.cpp */; };
+		32D86B84182F74A500210C28 /* CiOSWriteFileStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 328401D6179A576300B0CA20 /* CiOSWriteFileStream.cpp */; };
+		32D86B85182F74A500210C28 /* CSockReadStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 328401D1179A576300B0CA20 /* CSockReadStream.cpp */; };
+		32D86B86182F74A500210C28 /* CSockWriteStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 328401D7179A576300B0CA20 /* CSockWriteStream.cpp */; };
+		32D86B87182F74A500210C28 /* FileDelete.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3212706C18253C800027C57E /* FileDelete.cpp */; };
+		32D86B88182F74A500210C28 /* FontRendering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3212706D18253C800027C57E /* FontRendering.cpp */; };
+		32D86B89182F74A500210C28 /* CKLBNodeVirtualDocument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BDD179A3E4A007B7F42 /* CKLBNodeVirtualDocument.cpp */; };
+		32D86B8A182F74A500210C28 /* CKLBSplineNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BDF179A3E4A007B7F42 /* CKLBSplineNode.cpp */; };
+		32D86B8B182F74A500210C28 /* CKLBSWFPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BE0179A3E4A007B7F42 /* CKLBSWFPlayer.cpp */; };
+		32D86B8C182F74A500210C28 /* CKLBScoreNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BE4179A3E4A007B7F42 /* CKLBScoreNode.cpp */; };
+		32D86B8D182F74A500210C28 /* CKLBSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BE7179A3E4A007B7F42 /* CKLBSystem.cpp */; };
+		32D86B8E182F74A500210C28 /* CKLBTexturePacker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BF0179A3E63007B7F42 /* CKLBTexturePacker.cpp */; };
+		32D86B8F182F74A500210C28 /* CompositeManagement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BF2179A3E63007B7F42 /* CompositeManagement.cpp */; };
+		32D86B90182F74A500210C28 /* TextureManagement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BF3179A3E63007B7F42 /* TextureManagement.cpp */; };
+		32D86B91182F74A500210C28 /* CKLBAssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BF4179A3E63007B7F42 /* CKLBAssetManager.cpp */; };
+		32D86B92182F74A500210C28 /* AudioAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BF5179A3E63007B7F42 /* AudioAsset.cpp */; };
+		32D86B93182F74A500210C28 /* CKLBPropertyBag.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0BFD179A3E63007B7F42 /* CKLBPropertyBag.cpp */; };
+		32D86B94182F74A500210C28 /* NodeAnimationAsset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C01179A3E63007B7F42 /* NodeAnimationAsset.cpp */; };
+		32D86B95182F74A500210C28 /* CKLBScriptEnv_forLUA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D02179A408E007B7F42 /* CKLBScriptEnv_forLUA.cpp */; };
+		32D86B96182F74A500210C28 /* CKLBTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C0E179A3E7A007B7F42 /* CKLBTask.cpp */; };
+		32D86B97182F74A500210C28 /* CKLBAsyncFilecopy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C11179A3E7A007B7F42 /* CKLBAsyncFilecopy.cpp */; };
+		32D86B98182F74A500210C28 /* CKLBGameApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C12179A3E7A007B7F42 /* CKLBGameApplication.cpp */; };
+		32D86B99182F74A500210C28 /* CKLBLuaEnv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C14179A3E7A007B7F42 /* CKLBLuaEnv.cpp */; };
+		32D86B9A182F74A500210C28 /* CKLBUITask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C15179A3E7A007B7F42 /* CKLBUITask.cpp */; };
+		32D86B9B182F74A500210C28 /* encryptFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C16179A3E7A007B7F42 /* encryptFile.cpp */; };
+		32D86B9C182F74A500210C28 /* CKLBDebugger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C1A179A3E7A007B7F42 /* CKLBDebugger.cpp */; };
+		32D86B9D182F74A500210C28 /* CKLBGameApplicationDebugModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C1B179A3E7A007B7F42 /* CKLBGameApplicationDebugModule.cpp */; };
+		32D86B9E182F74A500210C28 /* CKLBIntervalTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C1C179A3E7A007B7F42 /* CKLBIntervalTimer.cpp */; };
+		32D86B9F182F74A500210C28 /* CKLBLuaPropTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C1D179A3E7A007B7F42 /* CKLBLuaPropTask.cpp */; };
+		32D86BA0182F74A500210C28 /* CKLBUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C1E179A3E7A007B7F42 /* CKLBUtility.cpp */; };
+		32D86BA1182F74A500210C28 /* CKLBDataHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C1F179A3E7A007B7F42 /* CKLBDataHandler.cpp */; };
+		32D86BA2182F74A500210C28 /* Dictionnary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C20179A3E7A007B7F42 /* Dictionnary.cpp */; };
+		32D86BA3182F74A500210C28 /* CKLBBinArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C21179A3E7A007B7F42 /* CKLBBinArray.cpp */; };
+		32D86BA4182F74A500210C28 /* CKLBContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C22179A3E7A007B7F42 /* CKLBContext.cpp */; };
+		32D86BA5182F74A500210C28 /* DebugAlloc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C25179A3E7A007B7F42 /* DebugAlloc.cpp */; };
+		32D86BA6182F74A500210C28 /* DebugTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C26179A3E7A007B7F42 /* DebugTracker.cpp */; };
+		32D86BA7182F74A500210C28 /* CKLBAppProperty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C29179A3E7A007B7F42 /* CKLBAppProperty.cpp */; };
+		32D86BA8182F74A500210C28 /* CKLBAsyncLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C2B179A3E7A007B7F42 /* CKLBAsyncLoader.cpp */; };
+		32D86BA9182F74A500210C28 /* CKLBGenericTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C33179A3E7A007B7F42 /* CKLBGenericTask.cpp */; };
+		32D86BAA182F74A500210C28 /* CKLBLibRegistrator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C36179A3E7A007B7F42 /* CKLBLibRegistrator.cpp */; };
+		32D86BAB182F74A500210C28 /* CKLBLifeCtrlTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C38179A3E7A007B7F42 /* CKLBLifeCtrlTask.cpp */; };
+		32D86BAC182F74A500210C28 /* CKLBLuaTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C3C179A3E7A007B7F42 /* CKLBLuaTask.cpp */; };
+		32D86BAD182F74A500210C28 /* CKLBObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C3D179A3E7A007B7F42 /* CKLBObject.cpp */; };
+		32D86BAE182F74A500210C28 /* CKLBPauseCtrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C3F179A3E7A007B7F42 /* CKLBPauseCtrl.cpp */; };
+		32D86BAF182F74A500210C28 /* CKLBTextTempBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C42179A3E7A007B7F42 /* CKLBTextTempBuffer.cpp */; };
+		32D86BB0182F74A500210C28 /* CLuaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C45179A3E7A007B7F42 /* CLuaState.cpp */; };
+		32D86BB1182F74A500210C28 /* CPFInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C46179A3E7A007B7F42 /* CPFInterface.cpp */; };
+		32D86BB2182F74A500210C28 /* ITmpFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C49179A3E7A007B7F42 /* ITmpFile.cpp */; };
+		32D86BB3182F74A500210C28 /* CKLBStoreService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C7A179A3EAF007B7F42 /* CKLBStoreService.cpp */; };
+		32D86BB4182F74A500210C28 /* CKLBNetAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C7C179A3EAF007B7F42 /* CKLBNetAPI.cpp */; };
+		32D86BB5182F74A500210C28 /* CKLBHTTPInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C7F179A3EAF007B7F42 /* CKLBHTTPInterface.cpp */; };
+		32D86BB6182F74A500210C28 /* CKLBUpdate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C81179A3EAF007B7F42 /* CKLBUpdate.cpp */; };
+		32D86BB7182F74A500210C28 /* CUnZip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C82179A3EAF007B7F42 /* CUnZip.cpp */; };
+		32D86BB8182F74A500210C28 /* CKLBJsonItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C83179A3EAF007B7F42 /* CKLBJsonItem.cpp */; };
+		32D86BB9182F74A500210C28 /* MultithreadedNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C84179A3EAF007B7F42 /* MultithreadedNetwork.cpp */; };
+		32D86BBA182F74A500210C28 /* CKLBNetAPIKeyChain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C88179A3EAF007B7F42 /* CKLBNetAPIKeyChain.cpp */; };
+		32D86BBB182F74A500210C28 /* CKLBLuaLibAPP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C92179A3ECB007B7F42 /* CKLBLuaLibAPP.cpp */; };
+		32D86BBC182F74A500210C28 /* CKLBLuaLibENG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C93179A3ECB007B7F42 /* CKLBLuaLibENG.cpp */; };
+		32D86BBD182F74A500210C28 /* CKLBLuaLibFONT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C95179A3ECB007B7F42 /* CKLBLuaLibFONT.cpp */; };
+		32D86BBE182F74A500210C28 /* CKLBLuaLibHASH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C97179A3ECB007B7F42 /* CKLBLuaLibHASH.cpp */; };
+		32D86BBF182F74A500210C28 /* CKLBLuaLibSOUND.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C99179A3ECB007B7F42 /* CKLBLuaLibSOUND.cpp */; };
+		32D86BC0182F74A500210C28 /* CKLBLuaLibGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C9B179A3ECB007B7F42 /* CKLBLuaLibGL.cpp */; };
+		32D86BC1182F74A500210C28 /* CKLBLuaLibDATA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C9C179A3ECB007B7F42 /* CKLBLuaLibDATA.cpp */; };
+		32D86BC2182F74A500210C28 /* CKLBLuaLibMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C9D179A3ECB007B7F42 /* CKLBLuaLibMatrix.cpp */; };
+		32D86BC3182F74A500210C28 /* ILuaFuncLib.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C9F179A3ECB007B7F42 /* ILuaFuncLib.cpp */; };
+		32D86BC4182F74A500210C28 /* CKLBLuaLibCONV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CA0179A3ECB007B7F42 /* CKLBLuaLibCONV.cpp */; };
+		32D86BC5182F74A500210C28 /* CKLBLuaLibKEY.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CA2179A3ECB007B7F42 /* CKLBLuaLibKEY.cpp */; };
+		32D86BC6182F74A500210C28 /* CKLBLuaLibTASK.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CA3179A3ECB007B7F42 /* CKLBLuaLibTASK.cpp */; };
+		32D86BC7182F74A500210C28 /* CKLBLuaLibASSET.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CA4179A3ECB007B7F42 /* CKLBLuaLibASSET.cpp */; };
+		32D86BC8182F74A500210C28 /* CKLBLuaConst.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CA6179A3ECB007B7F42 /* CKLBLuaConst.cpp */; };
+		32D86BC9182F74A500210C28 /* CKLBLuaLibBIN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CAA179A3ECB007B7F42 /* CKLBLuaLibBIN.cpp */; };
+		32D86BCA182F74A500210C28 /* CKLBLuaLibDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CAE179A3ECB007B7F42 /* CKLBLuaLibDB.cpp */; };
+		32D86BCB182F74A500210C28 /* CKLBLuaLibDEBUG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CB0179A3ECB007B7F42 /* CKLBLuaLibDEBUG.cpp */; };
+		32D86BCC182F74A500210C28 /* CKLBLuaLibLANG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CB3179A3ECB007B7F42 /* CKLBLuaLibLANG.cpp */; };
+		32D86BCD182F74A500210C28 /* CKLBLuaLibRES.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CB6179A3ECB007B7F42 /* CKLBLuaLibRES.cpp */; };
+		32D86BCE182F74A500210C28 /* CKLBLuaLibUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CB9179A3ECB007B7F42 /* CKLBLuaLibUI.cpp */; };
+		32D86BCF182F74A500210C28 /* CKLBRenderingManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD1179A3F34007B7F42 /* CKLBRenderingManager.cpp */; };
+		32D86BD0182F74A500210C28 /* CRenderingManager_GL1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD2179A3F34007B7F42 /* CRenderingManager_GL1.cpp */; };
+		32D86BD1182F74A500210C28 /* CRenderingManager_GL2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD3179A3F34007B7F42 /* CRenderingManager_GL2.cpp */; };
+		32D86BD2182F74A500210C28 /* CRenderingManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD4179A3F34007B7F42 /* CRenderingManager.cpp */; };
+		32D86BD3182F74A500210C28 /* CTextureUsage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD5179A3F34007B7F42 /* CTextureUsage.cpp */; };
+		32D86BD4182F74A500210C28 /* CBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD6179A3F34007B7F42 /* CBuffer.cpp */; };
+		32D86BD5182F74A500210C28 /* CIndexBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD7179A3F34007B7F42 /* CIndexBuffer.cpp */; };
+		32D86BD6182F74A500210C28 /* CTextureBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CD9179A3F34007B7F42 /* CTextureBase.cpp */; };
+		32D86BD7182F74A500210C28 /* glWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CDB179A3F34007B7F42 /* glWrapper.cpp */; };
+		32D86BD8182F74A500210C28 /* CFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CDC179A3F34007B7F42 /* CFrame.cpp */; };
+		32D86BD9182F74A500210C28 /* CImageBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CDD179A3F34007B7F42 /* CImageBuffer.cpp */; };
+		32D86BDA182F74A500210C28 /* CKLBCanvasSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CDE179A3F34007B7F42 /* CKLBCanvasSprite.cpp */; };
+		32D86BDB182F74A500210C28 /* CKLBSprite3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CE0179A3F34007B7F42 /* CKLBSprite3D.cpp */; };
+		32D86BDC182F74A500210C28 /* CShaderSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CE2179A3F34007B7F42 /* CShaderSet.cpp */; };
+		32D86BDD182F74A500210C28 /* CShaderSetInstance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CE3179A3F34007B7F42 /* CShaderSetInstance.cpp */; };
+		32D86BDE182F74A500210C28 /* CTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CE4179A3F34007B7F42 /* CTexture.cpp */; };
+		32D86BDF182F74A500210C28 /* CKLBNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CF9179A3F4D007B7F42 /* CKLBNode.cpp */; };
+		32D86BE0182F74A500210C28 /* CSoundAnalysisMP3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CFC179A3F76007B7F42 /* CSoundAnalysisMP3.cpp */; };
+		32D86BE1182F74A500210C28 /* CSoundAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0CFD179A3F76007B7F42 /* CSoundAnalysis.cpp */; };
+		32D86BE2182F74A500210C28 /* CKLBDeviceKeyEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32127068182532090027C57E /* CKLBDeviceKeyEvent.cpp */; };
+		32D86BE3182F74A500210C28 /* CKLBDrawTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D04179A41AE007B7F42 /* CKLBDrawTask.cpp */; };
+		32D86BE4182F74A500210C28 /* CKLBDebugMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D05179A41AE007B7F42 /* CKLBDebugMenu.cpp */; };
+		32D86BE5182F74A500210C28 /* CKLBTouchPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D07179A41AE007B7F42 /* CKLBTouchPad.cpp */; };
+		32D86BE6182F74A500210C28 /* CKLBTouchEventUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D09179A41AE007B7F42 /* CKLBTouchEventUI.cpp */; };
+		32D86BE7182F74A500210C28 /* CKLBOSCtrlEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D0B179A41AE007B7F42 /* CKLBOSCtrlEvent.cpp */; };
+		32D86BE8182F74A500210C28 /* CKLBLuaScript.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D0D179A41AE007B7F42 /* CKLBLuaScript.cpp */; };
+		32D86BE9182F74A500210C28 /* CKLBUIVirtualDoc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D16179A41BE007B7F42 /* CKLBUIVirtualDoc.cpp */; };
+		32D86BEA182F74A500210C28 /* CKLBUIList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D17179A41BE007B7F42 /* CKLBUIList.cpp */; };
+		32D86BEB182F74A500210C28 /* CKLBScrMgrDefault.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D18179A41BE007B7F42 /* CKLBScrMgrDefault.cpp */; };
+		32D86BEC182F74A500210C28 /* CKLBScrMgrPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D1A179A41BE007B7F42 /* CKLBScrMgrPage.cpp */; };
+		32D86BED182F74A500210C28 /* CKLBUICanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D1C179A41BE007B7F42 /* CKLBUICanvas.cpp */; };
+		32D86BEE182F74A500210C28 /* CKLBUIDragIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D1D179A41BE007B7F42 /* CKLBUIDragIcon.cpp */; };
+		32D86BEF182F74A500210C28 /* CKLBUIFreeVertItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D1E179A41BE007B7F42 /* CKLBUIFreeVertItem.cpp */; };
+		32D86BF0182F74A500210C28 /* CKLBUIProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D21179A41BE007B7F42 /* CKLBUIProgressBar.cpp */; };
+		32D86BF1182F74A600210C28 /* CKLBUIVariableItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D22179A41BE007B7F42 /* CKLBUIVariableItem.cpp */; };
+		32D86BF2182F74A600210C28 /* CKLBScrMgrSolid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D23179A41BE007B7F42 /* CKLBScrMgrSolid.cpp */; };
+		32D86BF3182F74A600210C28 /* CKLBScrollBarIF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D25179A41BE007B7F42 /* CKLBScrollBarIF.cpp */; };
+		32D86BF4182F74A600210C28 /* CKLBLabelNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D27179A41BE007B7F42 /* CKLBLabelNode.cpp */; };
+		32D86BF5182F74A600210C28 /* CKLBMovieNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D28179A41BE007B7F42 /* CKLBMovieNode.cpp */; };
+		32D86BF6182F74A600210C28 /* CKLBTextInputNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D29179A41BE007B7F42 /* CKLBTextInputNode.cpp */; };
+		32D86BF7182F74A600210C28 /* CKLBUIDebugItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D2A179A41BE007B7F42 /* CKLBUIDebugItem.cpp */; };
+		32D86BF8182F74A600210C28 /* CKLBUIWebArea.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D2C179A41BE007B7F42 /* CKLBUIWebArea.cpp */; };
+		32D86BF9182F74A600210C28 /* CKLBWebViewNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D2D179A41BE007B7F42 /* CKLBWebViewNode.cpp */; };
+		32D86BFA182F74A600210C28 /* CKLBUIClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D2E179A41BE007B7F42 /* CKLBUIClip.cpp */; };
+		32D86BFB182F74A600210C28 /* CKLBUIMultiImgItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D2F179A41BE007B7F42 /* CKLBUIMultiImgItem.cpp */; };
+		32D86BFC182F74A600210C28 /* CKLBUISWFPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D30179A41BE007B7F42 /* CKLBUISWFPlayer.cpp */; };
+		32D86BFD182F74A600210C28 /* CKLBUISystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D31179A41BE007B7F42 /* CKLBUISystem.cpp */; };
+		32D86BFE182F74A600210C28 /* CKLBUITouchPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D32179A41BE007B7F42 /* CKLBUITouchPad.cpp */; };
+		32D86BFF182F74A600210C28 /* CKLBUIForm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D33179A41BE007B7F42 /* CKLBUIForm.cpp */; };
+		32D86C00182F74A600210C28 /* CKLBUILabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D34179A41BE007B7F42 /* CKLBUILabel.cpp */; };
+		32D86C01182F74A600210C28 /* CKLBUIControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D39179A41BE007B7F42 /* CKLBUIControl.cpp */; };
+		32D86C02182F74A600210C28 /* CKLBUIScale9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D3C179A41BE007B7F42 /* CKLBUIScale9.cpp */; };
+		32D86C03182F74A600210C28 /* CKLBUITextInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D3D179A41BE007B7F42 /* CKLBUITextInput.cpp */; };
+		32D86C04182F74A600210C28 /* CKLBActivityIndicatorNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D3E179A41BE007B7F42 /* CKLBActivityIndicatorNode.cpp */; };
+		32D86C05182F74A600210C28 /* CKLBDragCallbackIF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D40179A41BE007B7F42 /* CKLBDragCallbackIF.cpp */; };
+		32D86C06182F74A600210C28 /* CKLBFormGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D42179A41BE007B7F42 /* CKLBFormGroup.cpp */; };
+		32D86C07182F74A600210C28 /* CKLBFormIF.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D44179A41BE007B7F42 /* CKLBFormIF.cpp */; };
+		32D86C08182F74A600210C28 /* CKLBModalStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D46179A41BE007B7F42 /* CKLBModalStack.cpp */; };
+		32D86C09182F74A600210C28 /* CKLBNodeAnimPack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D49179A41BE007B7F42 /* CKLBNodeAnimPack.cpp */; };
+		32D86C0A182F74A600210C28 /* CKLBUIActivityIndicator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D4B179A41BE007B7F42 /* CKLBUIActivityIndicator.cpp */; };
+		32D86C0B182F74A600210C28 /* CKLBUIGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D55179A41BE007B7F42 /* CKLBUIGroup.cpp */; };
+		32D86C0C182F74A600210C28 /* CKLBUIMoviePlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D58179A41BE007B7F42 /* CKLBUIMoviePlayer.cpp */; };
+		32D86C0D182F74A600210C28 /* CKLBUIPieChart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D5B179A41BE007B7F42 /* CKLBUIPieChart.cpp */; };
+		32D86C0E182F74A600210C28 /* CKLBUIPolyline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D5D179A41BE007B7F42 /* CKLBUIPolyline.cpp */; };
+		32D86C0F182F74A600210C28 /* CKLBUIRubberBand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D60179A41BE007B7F42 /* CKLBUIRubberBand.cpp */; };
+		32D86C10182F74A600210C28 /* CKLBUIScore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D63179A41BE007B7F42 /* CKLBUIScore.cpp */; };
+		32D86C11182F74A600210C28 /* CKLBUIScrollBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D65179A41BE007B7F42 /* CKLBUIScrollBar.cpp */; };
+		32D86C12182F74A600210C28 /* CKLBUISimpleItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D67179A41BE007B7F42 /* CKLBUISimpleItem.cpp */; };
+		32D86C13182F74A600210C28 /* IMgrEntry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0D6C179A41BE007B7F42 /* IMgrEntry.cpp */; };
+		32D86C14182F74A600210C28 /* CSampleProjectEntrance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 32127065182530650027C57E /* CSampleProjectEntrance.cpp */; };
+		32D86C15182F74E900210C28 /* PlaygroundAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 327C0B9C179A3945007B7F42 /* PlaygroundAppDelegate.mm */; };
+		32D86C17182F74E900210C28 /* imageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D0179CE0D200E9F3CE /* imageUtil.m */; };
+		32D86C18182F74E900210C28 /* OpenGLRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8CB179CE01300E9F3CE /* OpenGLRenderer.mm */; };
+		32D86C19182F74E900210C28 /* NSGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8C8179CDDD900E9F3CE /* NSGLView.mm */; };
+		32D86C1A182F74E900210C28 /* assert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401C8179A576300B0CA20 /* assert.mm */; };
+		32D86C1B182F74E900210C28 /* CiOSAudio.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401C9179A576300B0CA20 /* CiOSAudio.mm */; };
+		32D86C1C182F74E900210C28 /* CiOSAudioManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401C6179A576300B0CA20 /* CiOSAudioManager.mm */; };
+		32D86C1D182F74E900210C28 /* CiOSMovieView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401D4179A576300B0CA20 /* CiOSMovieView.mm */; };
+		32D86C1E182F74E900210C28 /* CiOSPathConv.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401CF179A576300B0CA20 /* CiOSPathConv.mm */; };
+		32D86C1F182F74E900210C28 /* CiOSPlatform.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401C5179A576300B0CA20 /* CiOSPlatform.mm */; };
+		32D86C20182F74E900210C28 /* CiOSSysResource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401D5179A576300B0CA20 /* CiOSSysResource.mm */; };
+		32D86C21182F74E900210C28 /* CiOSWebView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32F55E8E179B0796003807CE /* CiOSWebView.mm */; };
+		32D86C22182F74E900210C28 /* CiOSWidget.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401CA179A576300B0CA20 /* CiOSWidget.mm */; };
+		32D86C23182F74E900210C28 /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 328401CB179A576300B0CA20 /* EAGLView.mm */; };
+		32D86C24182F751B00210C28 /* autofit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEB8179A4FB200B0CA20 /* autofit.c */; };
+		32D86C25182F751B00210C28 /* ftbase.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEC1179A4FB200B0CA20 /* ftbase.c */; };
+		32D86C26182F751B00210C28 /* ftbbox.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEC3179A4FB200B0CA20 /* ftbbox.c */; };
+		32D86C27182F751B00210C28 /* ftbitmap.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEC5179A4FB200B0CA20 /* ftbitmap.c */; };
+		32D86C28182F751B00210C28 /* ftfstype.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FECA179A4FB200B0CA20 /* ftfstype.c */; };
+		32D86C29182F751B00210C28 /* ftgasp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FECB179A4FB200B0CA20 /* ftgasp.c */; };
+		32D86C2A182F751B00210C28 /* ftglyph.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FECD179A4FB200B0CA20 /* ftglyph.c */; };
+		32D86C2B182F751B00210C28 /* ftgxval.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FECE179A4FB200B0CA20 /* ftgxval.c */; };
+		32D86C2C182F751B00210C28 /* ftinit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FECF179A4FB200B0CA20 /* ftinit.c */; };
+		32D86C2D182F751B00210C28 /* ftlcdfil.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FED0179A4FB200B0CA20 /* ftlcdfil.c */; };
+		32D86C2E182F751B00210C28 /* ftmm.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FED2179A4FB200B0CA20 /* ftmm.c */; };
+		32D86C2F182F751B00210C28 /* ftotval.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FED4179A4FB200B0CA20 /* ftotval.c */; };
+		32D86C30182F751B00210C28 /* ftpatent.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FED6179A4FB200B0CA20 /* ftpatent.c */; };
+		32D86C31182F751B00210C28 /* ftpfr.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FED7179A4FB200B0CA20 /* ftpfr.c */; };
+		32D86C32182F751B00210C28 /* ftstroke.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEDC179A4FB200B0CA20 /* ftstroke.c */; };
+		32D86C33182F751B00210C28 /* ftsynth.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEDD179A4FB200B0CA20 /* ftsynth.c */; };
+		32D86C34182F751B00210C28 /* ftsystem.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEDE179A4FB200B0CA20 /* ftsystem.c */; };
+		32D86C35182F751B00210C28 /* fttype1.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEE0179A4FB200B0CA20 /* fttype1.c */; };
+		32D86C36182F751B00210C28 /* ftwinfnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEE2179A4FB200B0CA20 /* ftwinfnt.c */; };
+		32D86C37182F751B00210C28 /* ftxf86.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEE3179A4FB200B0CA20 /* ftxf86.c */; };
+		32D86C38182F751B00210C28 /* bdf.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEE7179A4FB200B0CA20 /* bdf.c */; };
+		32D86C39182F751B00210C28 /* ftcache.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FEF6179A4FB200B0CA20 /* ftcache.c */; };
+		32D86C3A182F751B00210C28 /* ftdebug.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FF30179A4FB300B0CA20 /* ftdebug.c */; };
+		32D86C3B182F751B00210C28 /* pfr.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FF92179A4FB300B0CA20 /* pfr.c */; };
+		32D86C3C182F751B00210C28 /* psaux.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FFA7179A4FB300B0CA20 /* psaux.c */; };
+		32D86C3D182F751B00210C28 /* pshinter.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FFBB179A4FB300B0CA20 /* pshinter.c */; };
+		32D86C3E182F751B00210C28 /* raster.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FFD7179A4FB300B0CA20 /* raster.c */; };
+		32D86C3F182F751B00210C28 /* sfnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FFE3179A4FB300B0CA20 /* sfnt.c */; };
+		32D86C40182F751B00210C28 /* smooth.c in Sources */ = {isa = PBXBuildFile; fileRef = 32840003179A4FB300B0CA20 /* smooth.c */; };
+		32D86C41182F751B00210C28 /* truetype.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284001D179A4FB300B0CA20 /* truetype.c */; };
+		32D86C42182F751B00210C28 /* type1.c in Sources */ = {isa = PBXBuildFile; fileRef = 32840041179A4FB300B0CA20 /* type1.c */; };
+		32D86C43182F751B00210C28 /* type42.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284004E179A4FB300B0CA20 /* type42.c */; };
+		32D86C44182F751B00210C28 /* winfnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 32840054179A4FB300B0CA20 /* winfnt.c */; };
+		32D86C45182F751B00210C28 /* matrixUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D1179CE0D200E9F3CE /* matrixUtil.c */; };
+		32D86C46182F751B00210C28 /* modelUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D3179CE0D200E9F3CE /* modelUtil.c */; };
+		32D86C47182F751B00210C28 /* sourceUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D5179CE0D200E9F3CE /* sourceUtil.c */; };
+		32D86C48182F751B00210C28 /* vectorUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D7179CE0D200E9F3CE /* vectorUtil.c */; };
+		32D86C49182F751B00210C28 /* CKLBDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C6D179A3E98007B7F42 /* CKLBDatabase.cpp */; };
+		32D86C4A182F751B00210C28 /* CKLBLuaDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C6F179A3E98007B7F42 /* CKLBLuaDB.cpp */; };
+		32D86C4B182F751B00210C28 /* CKLBLanguageDatabase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C72179A3E98007B7F42 /* CKLBLanguageDatabase.cpp */; };
+		32D86C4C182F751B00210C28 /* DataSet_JSonDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 327C0C74179A3E98007B7F42 /* DataSet_JSonDB.cpp */; };
+		32D86C4D182F753100210C28 /* cff.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FF0A179A4FB200B0CA20 /* cff.c */; };
+		32D86C4E182F753100210C28 /* type1cid.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FF2F179A4FB300B0CA20 /* type1cid.c */; };
+		32D86C4F182F753100210C28 /* pcf.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FF84179A4FB300B0CA20 /* pcf.c */; };
+		32D86C50182F753100210C28 /* psmodule.c in Sources */ = {isa = PBXBuildFile; fileRef = 3284FFC7179A4FB300B0CA20 /* psmodule.c */; };
+		32D86C51182F757A00210C28 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55EA2179B2147003807CE /* libcurl.dylib */; };
+		32D86C52182F758100210C28 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E95179B1CA2003807CE /* libz.dylib */; };
+		32D86C53182F758800210C28 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E93179B17F4003807CE /* AudioUnit.framework */; };
+		32D86C54182F758F00210C28 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E90179B0D55003807CE /* OpenGL.framework */; };
+		32D86C55182F759600210C28 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E8C179AFDFC003807CE /* WebKit.framework */; };
+		32D86C56182F75A000210C28 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0DCA179A428A007B7F42 /* AudioToolbox.framework */; };
+		32D86C57182F75A700210C28 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0DC8179A427E007B7F42 /* Security.framework */; };
+		32D86C58182F75AC00210C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32D86B08182F73E700210C28 /* Foundation.framework */; };
+		32D86C59182F75BC00210C28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0DC3179A425A007B7F42 /* AVFoundation.framework */; };
+		32D86C5A182F75C700210C28 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0DC1179A4252007B7F42 /* QuartzCore.framework */; };
+		32D86C5B182F75CE00210C28 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0DBF179A424C007B7F42 /* CoreFoundation.framework */; };
+		32D86C5C182F75D600210C28 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327C0DBD179A423F007B7F42 /* CoreAudio.framework */; };
+		32D86C5D182F75FE00210C28 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327C0B9E179A3945007B7F42 /* MainMenu.xib */; };
+		32D86C5E182F7FDF00210C28 /* CPFInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BB8179A3B52007B7F42 /* CPFInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C5F182F7FDF00210C28 /* RenderingFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BB9179A3B52007B7F42 /* RenderingFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C60182F7FDF00210C28 /* encryptFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBA179A3B52007B7F42 /* encryptFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C61182F7FDF00210C28 /* KLBPlatformMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401C4179A50F700B0CA20 /* KLBPlatformMetrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C62182F7FDF00210C28 /* KLBPlatformMetricsCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBB179A3B52007B7F42 /* KLBPlatformMetricsCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C63182F7FDF00210C28 /* CSoundAnalysis.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBC179A3B52007B7F42 /* CSoundAnalysis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C64182F7FDF00210C28 /* mem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBD179A3B52007B7F42 /* mem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C66182F7FDF00210C28 /* BaseType.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BBF179A3B52007B7F42 /* BaseType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C67182F7FDF00210C28 /* FileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC0179A3B52007B7F42 /* FileSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C68182F7FDF00210C28 /* OSWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC1179A3B52007B7F42 /* OSWidget.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C69182F7FDF00210C28 /* assert_klb.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC2179A3B52007B7F42 /* assert_klb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C6A182F7FDF00210C28 /* ITmpFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC3179A3B52007B7F42 /* ITmpFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C6B182F7FDF00210C28 /* klb_vararg.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BC4179A3B52007B7F42 /* klb_vararg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C6C182F801600210C28 /* imageUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8CF179CE0D200E9F3CE /* imageUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C6D182F801600210C28 /* matrixUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8D2179CE0D200E9F3CE /* matrixUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C6E182F801600210C28 /* modelUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8D4179CE0D200E9F3CE /* modelUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C6F182F801600210C28 /* sourceUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8D6179CE0D200E9F3CE /* sourceUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C70182F801600210C28 /* vectorUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8D8179CE0D200E9F3CE /* vectorUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C71182F801600210C28 /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401ED179A577900B0CA20 /* AppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C72182F801600210C28 /* CiOSAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401EE179A577900B0CA20 /* CiOSAudio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C73182F801600210C28 /* CiOSAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401EC179A577900B0CA20 /* CiOSAudioManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C74182F801600210C28 /* CiOSMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F7179A577900B0CA20 /* CiOSMovieView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C75182F801600210C28 /* CiOSPathConv.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F8179A577900B0CA20 /* CiOSPathConv.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C76182F801600210C28 /* CiOSPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401EB179A577900B0CA20 /* CiOSPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C77182F801600210C28 /* CiOSReadFileStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F2179A577900B0CA20 /* CiOSReadFileStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C78182F801600210C28 /* CiOSSysResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F9179A577900B0CA20 /* CiOSSysResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C79182F801600210C28 /* CiOSTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401FA179A577900B0CA20 /* CiOSTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C7A182F801600210C28 /* CiOSTmpFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401FB179A577900B0CA20 /* CiOSTmpFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C7B182F801600210C28 /* CiOSWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F0179A577900B0CA20 /* CiOSWebView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C7C182F801600210C28 /* CiOSWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F4179A577900B0CA20 /* CiOSWidget.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C7D182F801600210C28 /* CiOSWriteFileStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401FC179A577900B0CA20 /* CiOSWriteFileStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C7E182F801600210C28 /* CSockReadStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401FD179A577900B0CA20 /* CSockReadStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C7F182F801600210C28 /* CSockWriteStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401FE179A577900B0CA20 /* CSockWriteStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C80182F801600210C28 /* EAGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401EF179A577900B0CA20 /* EAGLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C81182F801600210C28 /* FontRendering.h in Headers */ = {isa = PBXBuildFile; fileRef = 32F55E92179B1493003807CE /* FontRendering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C82182F801600210C28 /* FileDelete.h in Headers */ = {isa = PBXBuildFile; fileRef = 3212706B18253C630027C57E /* FileDelete.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C83182F801600210C28 /* GLcommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401FF179A577900B0CA20 /* GLcommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C84182F801600210C28 /* iOSFileLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F5179A577900B0CA20 /* iOSFileLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C85182F801600210C28 /* KLBPlatformMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F3179A577900B0CA20 /* KLBPlatformMetrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C86182F801600210C28 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 32840200179A577900B0CA20 /* NSData+Base64.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C87182F801600210C28 /* ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 328401F6179A577900B0CA20 /* ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C88182F801600210C28 /* glUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8CD179CE05900E9F3CE /* glUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C89182F801600210C28 /* OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8CA179CE01300E9F3CE /* OpenGLRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C8A182F801600210C28 /* NSGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F65D8C7179CDDD900E9F3CE /* NSGLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C8B182F801600210C28 /* CKLBSplineNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BDE179A3E4A007B7F42 /* CKLBSplineNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C8C182F801600210C28 /* CKLBNodeVirtualDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BE1179A3E4A007B7F42 /* CKLBNodeVirtualDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C8D182F801600210C28 /* CKLBScoreNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BE5179A3E4A007B7F42 /* CKLBScoreNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C8E182F801600210C28 /* CKLBSWFPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BE6179A3E4A007B7F42 /* CKLBSWFPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C8F182F801600210C28 /* CKLBTexturePacker.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BF1179A3E63007B7F42 /* CKLBTexturePacker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C90182F801600210C28 /* CKLBAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BF6179A3E63007B7F42 /* CKLBAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C91182F801700210C28 /* CompositeManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BF7179A3E63007B7F42 /* CompositeManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C92182F801700210C28 /* AudioAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BFA179A3E63007B7F42 /* AudioAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C93182F801700210C28 /* CKLBPropertyBag.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0BFE179A3E63007B7F42 /* CKLBPropertyBag.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C94182F801700210C28 /* NodeAnimationAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C02179A3E63007B7F42 /* NodeAnimationAsset.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C95182F801700210C28 /* TextureManagement.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C03179A3E63007B7F42 /* TextureManagement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C96182F801700210C28 /* CKLBTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C0F179A3E7A007B7F42 /* CKLBTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C97182F801700210C28 /* ArrayAllocator.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C10179A3E7A007B7F42 /* ArrayAllocator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C98182F801700210C28 /* CKLBGameApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C13179A3E7A007B7F42 /* CKLBGameApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C99182F801700210C28 /* CKLBAsyncFilecopy.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C17179A3E7A007B7F42 /* CKLBAsyncFilecopy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C9A182F801700210C28 /* CKLBScriptEnv.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C18179A3E7A007B7F42 /* CKLBScriptEnv.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C9B182F801700210C28 /* CLuaState.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C19179A3E7A007B7F42 /* CLuaState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C9C182F801700210C28 /* CKLBLuaTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C23179A3E7A007B7F42 /* CKLBLuaTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C9D182F801700210C28 /* CKLBUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C24179A3E7A007B7F42 /* CKLBUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C9E182F801700210C28 /* DebugTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C27179A3E7A007B7F42 /* DebugTracker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86C9F182F801700210C28 /* CKLBAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C28179A3E7A007B7F42 /* CKLBAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA0182F801700210C28 /* CKLBAppProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C2A179A3E7A007B7F42 /* CKLBAppProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA1182F801700210C28 /* CKLBAsyncLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C2C179A3E7A007B7F42 /* CKLBAsyncLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA2182F801700210C28 /* CKLBBinArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C2D179A3E7A007B7F42 /* CKLBBinArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA3182F801700210C28 /* CKLBDataHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C2F179A3E7A007B7F42 /* CKLBDataHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA4182F801700210C28 /* CKLBDebugger.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C30179A3E7A007B7F42 /* CKLBDebugger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA5182F801700210C28 /* CKLBGenericTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C34179A3E7A007B7F42 /* CKLBGenericTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA6182F801700210C28 /* CKLBIntervalTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C35179A3E7A007B7F42 /* CKLBIntervalTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA7182F801700210C28 /* CKLBLibRegistrator.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C37179A3E7A007B7F42 /* CKLBLibRegistrator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA8182F801700210C28 /* CKLBLifeCtrlTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C39179A3E7A007B7F42 /* CKLBLifeCtrlTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CA9182F801700210C28 /* CKLBLuaEnv.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C3A179A3E7A007B7F42 /* CKLBLuaEnv.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CAA182F801700210C28 /* CKLBLuaPropTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C3B179A3E7A007B7F42 /* CKLBLuaPropTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CAB182F801700210C28 /* CKLBObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C3E179A3E7A007B7F42 /* CKLBObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CAC182F801700210C28 /* CKLBPauseCtrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C40179A3E7A007B7F42 /* CKLBPauseCtrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CAD182F801700210C28 /* CKLBTextTempBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C43179A3E7A007B7F42 /* CKLBTextTempBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CAE182F801700210C28 /* CKLBUITask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C44179A3E7A007B7F42 /* CKLBUITask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CAF182F801700210C28 /* DebugAlloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C47179A3E7A007B7F42 /* DebugAlloc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB0182F801700210C28 /* Dictionnary.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C48179A3E7A007B7F42 /* Dictionnary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB1182F801700210C28 /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C4A179A3E7A007B7F42 /* Message.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB2182F801700210C28 /* DataSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C6E179A3E98007B7F42 /* DataSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB3182F801700210C28 /* CKLBDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C70179A3E98007B7F42 /* CKLBDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB4182F801700210C28 /* CKLBLuaDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C71179A3E98007B7F42 /* CKLBLuaDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB5182F801700210C28 /* CKLBLanguageDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C73179A3E98007B7F42 /* CKLBLanguageDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB6182F801700210C28 /* DataSet_JSonDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C75179A3E98007B7F42 /* DataSet_JSonDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB7182F801700210C28 /* CKLBStoreService.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C7B179A3EAF007B7F42 /* CKLBStoreService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB8182F801700210C28 /* CKLBNetAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C7D179A3EAF007B7F42 /* CKLBNetAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CB9182F801700210C28 /* MultithreadedNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C7E179A3EAF007B7F42 /* MultithreadedNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CBA182F801700210C28 /* CKLBHTTPInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C80179A3EAF007B7F42 /* CKLBHTTPInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CBB182F801700210C28 /* CKLBNetAPIKeyChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C85179A3EAF007B7F42 /* CKLBNetAPIKeyChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CBC182F801700210C28 /* CKLBUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C86179A3EAF007B7F42 /* CKLBUpdate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CBD182F801700210C28 /* CKLBJsonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C87179A3EAF007B7F42 /* CKLBJsonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CBE182F801700210C28 /* CUnZip.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C89179A3EAF007B7F42 /* CUnZip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CBF182F801700210C28 /* CKLBLuaLibENG.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C94179A3ECB007B7F42 /* CKLBLuaLibENG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC0182F801700210C28 /* CKLBLuaLibFONT.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C96179A3ECB007B7F42 /* CKLBLuaLibFONT.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC1182F801700210C28 /* CKLBLuaLibHASH.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C98179A3ECB007B7F42 /* CKLBLuaLibHASH.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC2182F801700210C28 /* CKLBLuaLibSOUND.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0C9A179A3ECB007B7F42 /* CKLBLuaLibSOUND.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC3182F801700210C28 /* CKLBLuaLibGL.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CA1179A3ECB007B7F42 /* CKLBLuaLibGL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC4182F801700210C28 /* CKLBLuaLibASSET.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CA5179A3ECB007B7F42 /* CKLBLuaLibASSET.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC5182F801700210C28 /* CKLBLuaConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CA7179A3ECB007B7F42 /* CKLBLuaConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC6182F801700210C28 /* CKLBLuaLibAPP.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CA9179A3ECB007B7F42 /* CKLBLuaLibAPP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC7182F801700210C28 /* CKLBLuaLibBIN.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CAB179A3ECB007B7F42 /* CKLBLuaLibBIN.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC8182F801700210C28 /* CKLBLuaLibCONV.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CAC179A3ECB007B7F42 /* CKLBLuaLibCONV.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CC9182F801700210C28 /* CKLBLuaLibDATA.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CAD179A3ECB007B7F42 /* CKLBLuaLibDATA.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CCA182F801700210C28 /* CKLBLuaLibDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CAF179A3ECB007B7F42 /* CKLBLuaLibDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CCB182F801700210C28 /* CKLBLuaLibDEBUG.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CB1179A3ECB007B7F42 /* CKLBLuaLibDEBUG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CCC182F801700210C28 /* CKLBLuaLibKEY.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CB2179A3ECB007B7F42 /* CKLBLuaLibKEY.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CCD182F801700210C28 /* CKLBLuaLibLANG.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CB4179A3ECB007B7F42 /* CKLBLuaLibLANG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CCE182F801700210C28 /* CKLBLuaLibMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CB5179A3ECB007B7F42 /* CKLBLuaLibMatrix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CCF182F801700210C28 /* CKLBLuaLibRES.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CB7179A3ECB007B7F42 /* CKLBLuaLibRES.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD0182F801700210C28 /* CKLBLuaLibTASK.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CB8179A3ECB007B7F42 /* CKLBLuaLibTASK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD1182F801700210C28 /* CKLBLuaLibUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CBA179A3ECB007B7F42 /* CKLBLuaLibUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD2182F801700210C28 /* ILuaFuncLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CBB179A3ECB007B7F42 /* ILuaFuncLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD3182F801700210C28 /* CKLBRendering.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CD8179A3F34007B7F42 /* CKLBRendering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD4182F801700210C28 /* glWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CDA179A3F34007B7F42 /* glWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD5182F801700210C28 /* CKLBCanvasSprite.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CDF179A3F34007B7F42 /* CKLBCanvasSprite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD6182F801700210C28 /* CKLBSprite3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CE1179A3F34007B7F42 /* CKLBSprite3D.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD7182F801700210C28 /* CKLBNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CFA179A3F4D007B7F42 /* CKLBNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD8182F801700210C28 /* CSoundAnalysisMP3.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0CFE179A3F76007B7F42 /* CSoundAnalysisMP3.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CD9182F801700210C28 /* CKLBDeviceKeyEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 32127069182532090027C57E /* CKLBDeviceKeyEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CDA182F801700210C28 /* CKLBDebugMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D06179A41AE007B7F42 /* CKLBDebugMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CDB182F801700210C28 /* CKLBTouchPad.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D08179A41AE007B7F42 /* CKLBTouchPad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CDC182F801700210C28 /* CKLBDrawTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D0A179A41AE007B7F42 /* CKLBDrawTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CDD182F801700210C28 /* CKLBOSCtrlEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D0C179A41AE007B7F42 /* CKLBOSCtrlEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CDE182F801700210C28 /* CKLBLuaScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D0E179A41AE007B7F42 /* CKLBLuaScript.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CDF182F801700210C28 /* CKLBTouchEventUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D0F179A41AE007B7F42 /* CKLBTouchEventUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE0182F801700210C28 /* CKLBScrMgrDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D19179A41BE007B7F42 /* CKLBScrMgrDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE1182F801700210C28 /* CKLBScrMgrPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D1B179A41BE007B7F42 /* CKLBScrMgrPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE2182F801700210C28 /* CKLBUIFreeVertItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D1F179A41BE007B7F42 /* CKLBUIFreeVertItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE3182F801700210C28 /* CKLBUIList.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D20179A41BE007B7F42 /* CKLBUIList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE4182F801700210C28 /* CKLBScrMgrSolid.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D24179A41BE007B7F42 /* CKLBScrMgrSolid.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE5182F801700210C28 /* CKLBScrollBarIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D26179A41BE007B7F42 /* CKLBScrollBarIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE6182F801700210C28 /* CKLBUISystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D2B179A41BE007B7F42 /* CKLBUISystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE7182F801700210C28 /* CKLBUISWFPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D35179A41BE007B7F42 /* CKLBUISWFPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE8182F801700210C28 /* CKLBUIVariableItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D36179A41BE007B7F42 /* CKLBUIVariableItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CE9182F801700210C28 /* CKLBLabelNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D37179A41BE007B7F42 /* CKLBLabelNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CEA182F801700210C28 /* CKLBUIVirtualDoc.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D38179A41BE007B7F42 /* CKLBUIVirtualDoc.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CEB182F801700210C28 /* CKLBUITextInput.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D3A179A41BE007B7F42 /* CKLBUITextInput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CEC182F801700210C28 /* CKLBTextInputNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D3B179A41BE007B7F42 /* CKLBTextInputNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CED182F801700210C28 /* CKLBActivityIndicatorNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D3F179A41BE007B7F42 /* CKLBActivityIndicatorNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CEE182F801700210C28 /* CKLBDragCallbackIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D41179A41BE007B7F42 /* CKLBDragCallbackIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CEF182F801700210C28 /* CKLBFormGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D43179A41BE007B7F42 /* CKLBFormGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF0182F801700210C28 /* CKLBFormIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D45179A41BE007B7F42 /* CKLBFormIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF1182F801700210C28 /* CKLBModalStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D47179A41BE007B7F42 /* CKLBModalStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF2182F801700210C28 /* CKLBMovieNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D48179A41BE007B7F42 /* CKLBMovieNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF3182F801700210C28 /* CKLBNodeAnimPack.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D4A179A41BE007B7F42 /* CKLBNodeAnimPack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF4182F801700210C28 /* CKLBUIActivityIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D4C179A41BE007B7F42 /* CKLBUIActivityIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF5182F801700210C28 /* CKLBUICanvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D4D179A41BE007B7F42 /* CKLBUICanvas.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF6182F801700210C28 /* CKLBUIClip.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D50179A41BE007B7F42 /* CKLBUIClip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF7182F801700210C28 /* CKLBUIControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D51179A41BE007B7F42 /* CKLBUIControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF8182F801700210C28 /* CKLBUIDebugItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D52179A41BE007B7F42 /* CKLBUIDebugItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CF9182F801700210C28 /* CKLBUIDragIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D53179A41BE007B7F42 /* CKLBUIDragIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CFA182F801700210C28 /* CKLBUIForm.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D54179A41BE007B7F42 /* CKLBUIForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CFB182F801700210C28 /* CKLBUIGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D56179A41BE007B7F42 /* CKLBUIGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CFC182F801700210C28 /* CKLBUILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D57179A41BE007B7F42 /* CKLBUILabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CFD182F801700210C28 /* CKLBUIMoviePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D59179A41BE007B7F42 /* CKLBUIMoviePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CFE182F801700210C28 /* CKLBUIMultiImgItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D5A179A41BE007B7F42 /* CKLBUIMultiImgItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86CFF182F801700210C28 /* CKLBUIPieChart.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D5C179A41BE007B7F42 /* CKLBUIPieChart.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D00182F801700210C28 /* CKLBUIPolyline.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D5E179A41BE007B7F42 /* CKLBUIPolyline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D01182F801700210C28 /* CKLBUIProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D5F179A41BE007B7F42 /* CKLBUIProgressBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D02182F801700210C28 /* CKLBUIRubberBand.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D61179A41BE007B7F42 /* CKLBUIRubberBand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D03182F801700210C28 /* CKLBUIScale9.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D62179A41BE007B7F42 /* CKLBUIScale9.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D04182F801700210C28 /* CKLBUIScore.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D64179A41BE007B7F42 /* CKLBUIScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D05182F801700210C28 /* CKLBUIScrollBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D66179A41BE007B7F42 /* CKLBUIScrollBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D06182F801700210C28 /* CKLBUISimpleItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D68179A41BE007B7F42 /* CKLBUISimpleItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D07182F801700210C28 /* CKLBUITouchPad.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D69179A41BE007B7F42 /* CKLBUITouchPad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D08182F801700210C28 /* CKLBUIWebArea.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D6A179A41BE007B7F42 /* CKLBUIWebArea.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D09182F801700210C28 /* CKLBWebViewNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D6B179A41BE007B7F42 /* CKLBWebViewNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D0A182F801700210C28 /* IMgrEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 327C0D6D179A41BF007B7F42 /* IMgrEntry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86D0B182F801700210C28 /* CSampleProjectEntrance.h in Headers */ = {isa = PBXBuildFile; fileRef = 32127066182530650027C57E /* CSampleProjectEntrance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32D86DF5182FDAE300210C28 /* Playground-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 327C0B91179A3944007B7F42 /* Playground-Info.plist */; };
 		32F55E8D179AFDFC003807CE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E8C179AFDFC003807CE /* WebKit.framework */; };
 		32F55E8F179B0796003807CE /* CiOSWebView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 32F55E8E179B0796003807CE /* CiOSWebView.mm */; };
 		32F55E91179B0D55003807CE /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F55E90179B0D55003807CE /* OpenGL.framework */; };
@@ -297,6 +744,16 @@
 		6F65D8DC179CE18500E9F3CE /* sourceUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D5179CE0D200E9F3CE /* sourceUtil.c */; };
 		6F65D8DD179CE18500E9F3CE /* vectorUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 6F65D8D7179CE0D200E9F3CE /* vectorUtil.c */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32D86B1D182F73E800210C28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 327C0B7E179A3944007B7F42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 32D86B04182F73E700210C28;
+			remoteInfo = PlaygroundOSS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		32127065182530650027C57E /* CSampleProjectEntrance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CSampleProjectEntrance.cpp; path = ../../../../SampleProject/game/CSampleProjectEntrance.cpp; sourceTree = "<group>"; };
@@ -329,7 +786,6 @@
 		327C0BBB179A3B52007B7F42 /* KLBPlatformMetricsCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KLBPlatformMetricsCommon.h; path = ../../../source/include/KLBPlatformMetricsCommon.h; sourceTree = "<group>"; };
 		327C0BBC179A3B52007B7F42 /* CSoundAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSoundAnalysis.h; path = ../../../source/include/CSoundAnalysis.h; sourceTree = "<group>"; };
 		327C0BBD179A3B52007B7F42 /* mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mem.h; path = ../../../source/include/mem.h; sourceTree = "<group>"; };
-		327C0BBE179A3B52007B7F42 /* unistd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = unistd.h; path = ../../../source/include/unistd.h; sourceTree = "<group>"; };
 		327C0BBF179A3B52007B7F42 /* BaseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseType.h; path = ../../../include/BaseType.h; sourceTree = "<group>"; };
 		327C0BC0179A3B52007B7F42 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSystem.h; path = ../../../include/FileSystem.h; sourceTree = "<group>"; };
 		327C0BC1179A3B52007B7F42 /* OSWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OSWidget.h; path = ../../../include/OSWidget.h; sourceTree = "<group>"; };
@@ -877,6 +1333,14 @@
 		3284FFC7179A4FB300B0CA20 /* psmodule.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = psmodule.c; sourceTree = "<group>"; };
 		3284FFD7179A4FB300B0CA20 /* raster.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = raster.c; sourceTree = "<group>"; };
 		3284FFE3179A4FB300B0CA20 /* sfnt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sfnt.c; sourceTree = "<group>"; };
+		32D86B05182F73E700210C28 /* PlaygroundOSS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundOSS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D86B08182F73E700210C28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		32D86B09182F73E700210C28 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		32D86B0A182F73E700210C28 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		32D86B19182F73E700210C28 /* PlaygroundOSSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaygroundOSSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D86B22182F73E800210C28 /* PlaygroundOSSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlaygroundOSSTests-Info.plist"; sourceTree = "<group>"; };
+		32D86B24182F73E800210C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		32D86B26182F73E800210C28 /* PlaygroundOSSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaygroundOSSTests.m; sourceTree = "<group>"; };
 		32F55E8C179AFDFC003807CE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		32F55E8E179B0796003807CE /* CiOSWebView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CiOSWebView.mm; sourceTree = "<group>"; };
 		32F55E90179B0D55003807CE /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -929,6 +1393,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32D86B01182F73E700210C28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86C51182F757A00210C28 /* libcurl.dylib in Frameworks */,
+				32D86C52182F758100210C28 /* libz.dylib in Frameworks */,
+				32D86C5C182F75D600210C28 /* CoreAudio.framework in Frameworks */,
+				32D86C5B182F75CE00210C28 /* CoreFoundation.framework in Frameworks */,
+				32D86C5A182F75C700210C28 /* QuartzCore.framework in Frameworks */,
+				32D86C59182F75BC00210C28 /* AVFoundation.framework in Frameworks */,
+				32D86C58182F75AC00210C28 /* Foundation.framework in Frameworks */,
+				32D86C57182F75A700210C28 /* Security.framework in Frameworks */,
+				32D86C56182F75A000210C28 /* AudioToolbox.framework in Frameworks */,
+				32D86C55182F759600210C28 /* WebKit.framework in Frameworks */,
+				32D86C54182F758F00210C28 /* OpenGL.framework in Frameworks */,
+				32D86C53182F758800210C28 /* AudioUnit.framework in Frameworks */,
+				32D86B06182F73E700210C28 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D86B16182F73E700210C28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86B1C182F73E800210C28 /* Cocoa.framework in Frameworks */,
+				32D86B1F182F73E800210C28 /* PlaygroundOSS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -937,6 +1430,7 @@
 			children = (
 				327C0BA6179A39A9007B7F42 /* ProjectResources */,
 				327C0B8F179A3944007B7F42 /* Playground */,
+				32D86B20182F73E800210C28 /* PlaygroundOSSTests */,
 				327C0B88179A3944007B7F42 /* Frameworks */,
 				327C0B87179A3944007B7F42 /* Products */,
 			);
@@ -946,6 +1440,8 @@
 			isa = PBXGroup;
 			children = (
 				327C0B86179A3944007B7F42 /* Playground.app */,
+				32D86B05182F73E700210C28 /* PlaygroundOSS.framework */,
+				32D86B19182F73E700210C28 /* PlaygroundOSSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -968,6 +1464,7 @@
 				327C0DBF179A424C007B7F42 /* CoreFoundation.framework */,
 				327C0DBD179A423F007B7F42 /* CoreAudio.framework */,
 				32F55E8C179AFDFC003807CE /* WebKit.framework */,
+				32D86B07182F73E700210C28 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1170,7 +1667,6 @@
 				327C0BBB179A3B52007B7F42 /* KLBPlatformMetricsCommon.h */,
 				327C0BBC179A3B52007B7F42 /* CSoundAnalysis.h */,
 				327C0BBD179A3B52007B7F42 /* mem.h */,
-				327C0BBE179A3B52007B7F42 /* unistd.h */,
 				327C0BBF179A3B52007B7F42 /* BaseType.h */,
 				327C0BC0179A3B52007B7F42 /* FileSystem.h */,
 				327C0BC1179A3B52007B7F42 /* OSWidget.h */,
@@ -1983,6 +2479,34 @@
 			path = smooth;
 			sourceTree = "<group>";
 		};
+		32D86B07182F73E700210C28 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				32D86B08182F73E700210C28 /* Foundation.framework */,
+				32D86B09182F73E700210C28 /* CoreData.framework */,
+				32D86B0A182F73E700210C28 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32D86B20182F73E800210C28 /* PlaygroundOSSTests */ = {
+			isa = PBXGroup;
+			children = (
+				32D86B26182F73E800210C28 /* PlaygroundOSSTests.m */,
+				32D86B21182F73E800210C28 /* Supporting Files */,
+			);
+			path = PlaygroundOSSTests;
+			sourceTree = "<group>";
+		};
+		32D86B21182F73E800210C28 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32D86B22182F73E800210C28 /* PlaygroundOSSTests-Info.plist */,
+				32D86B23182F73E800210C28 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		32F55EA8179CFA29003807CE /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -2013,6 +2537,189 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		32D86B02182F73E700210C28 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86C5E182F7FDF00210C28 /* CPFInterface.h in Headers */,
+				32D86C5F182F7FDF00210C28 /* RenderingFramework.h in Headers */,
+				32D86C60182F7FDF00210C28 /* encryptFile.h in Headers */,
+				32D86C61182F7FDF00210C28 /* KLBPlatformMetrics.h in Headers */,
+				32D86C62182F7FDF00210C28 /* KLBPlatformMetricsCommon.h in Headers */,
+				32D86C63182F7FDF00210C28 /* CSoundAnalysis.h in Headers */,
+				32D86C64182F7FDF00210C28 /* mem.h in Headers */,
+				32D86C66182F7FDF00210C28 /* BaseType.h in Headers */,
+				32D86C67182F7FDF00210C28 /* FileSystem.h in Headers */,
+				32D86C68182F7FDF00210C28 /* OSWidget.h in Headers */,
+				32D86C69182F7FDF00210C28 /* assert_klb.h in Headers */,
+				32D86C6A182F7FDF00210C28 /* ITmpFile.h in Headers */,
+				32D86C6B182F7FDF00210C28 /* klb_vararg.h in Headers */,
+				32D86C6C182F801600210C28 /* imageUtil.h in Headers */,
+				32D86C6D182F801600210C28 /* matrixUtil.h in Headers */,
+				32D86C6E182F801600210C28 /* modelUtil.h in Headers */,
+				32D86C6F182F801600210C28 /* sourceUtil.h in Headers */,
+				32D86C70182F801600210C28 /* vectorUtil.h in Headers */,
+				32D86C71182F801600210C28 /* AppDelegate.h in Headers */,
+				32D86C72182F801600210C28 /* CiOSAudio.h in Headers */,
+				32D86C73182F801600210C28 /* CiOSAudioManager.h in Headers */,
+				32D86C74182F801600210C28 /* CiOSMovieView.h in Headers */,
+				32D86C75182F801600210C28 /* CiOSPathConv.h in Headers */,
+				32D86C76182F801600210C28 /* CiOSPlatform.h in Headers */,
+				32D86C77182F801600210C28 /* CiOSReadFileStream.h in Headers */,
+				32D86C78182F801600210C28 /* CiOSSysResource.h in Headers */,
+				32D86C79182F801600210C28 /* CiOSTextView.h in Headers */,
+				32D86C7A182F801600210C28 /* CiOSTmpFile.h in Headers */,
+				32D86C7B182F801600210C28 /* CiOSWebView.h in Headers */,
+				32D86C7C182F801600210C28 /* CiOSWidget.h in Headers */,
+				32D86C7D182F801600210C28 /* CiOSWriteFileStream.h in Headers */,
+				32D86C7E182F801600210C28 /* CSockReadStream.h in Headers */,
+				32D86C7F182F801600210C28 /* CSockWriteStream.h in Headers */,
+				32D86C80182F801600210C28 /* EAGLView.h in Headers */,
+				32D86C81182F801600210C28 /* FontRendering.h in Headers */,
+				32D86C82182F801600210C28 /* FileDelete.h in Headers */,
+				32D86C83182F801600210C28 /* GLcommon.h in Headers */,
+				32D86C84182F801600210C28 /* iOSFileLocation.h in Headers */,
+				32D86C85182F801600210C28 /* KLBPlatformMetrics.h in Headers */,
+				32D86C86182F801600210C28 /* NSData+Base64.h in Headers */,
+				32D86C87182F801600210C28 /* ViewController.h in Headers */,
+				32D86C88182F801600210C28 /* glUtil.h in Headers */,
+				32D86C89182F801600210C28 /* OpenGLRenderer.h in Headers */,
+				32D86C8A182F801600210C28 /* NSGLView.h in Headers */,
+				32D86C8B182F801600210C28 /* CKLBSplineNode.h in Headers */,
+				32D86C8C182F801600210C28 /* CKLBNodeVirtualDocument.h in Headers */,
+				32D86C8D182F801600210C28 /* CKLBScoreNode.h in Headers */,
+				32D86C8E182F801600210C28 /* CKLBSWFPlayer.h in Headers */,
+				32D86C8F182F801600210C28 /* CKLBTexturePacker.h in Headers */,
+				32D86C90182F801600210C28 /* CKLBAsset.h in Headers */,
+				32D86C91182F801700210C28 /* CompositeManagement.h in Headers */,
+				32D86C92182F801700210C28 /* AudioAsset.h in Headers */,
+				32D86C93182F801700210C28 /* CKLBPropertyBag.h in Headers */,
+				32D86C94182F801700210C28 /* NodeAnimationAsset.h in Headers */,
+				32D86C95182F801700210C28 /* TextureManagement.h in Headers */,
+				32D86C96182F801700210C28 /* CKLBTask.h in Headers */,
+				32D86C97182F801700210C28 /* ArrayAllocator.h in Headers */,
+				32D86C98182F801700210C28 /* CKLBGameApplication.h in Headers */,
+				32D86C99182F801700210C28 /* CKLBAsyncFilecopy.h in Headers */,
+				32D86C9A182F801700210C28 /* CKLBScriptEnv.h in Headers */,
+				32D86C9B182F801700210C28 /* CLuaState.h in Headers */,
+				32D86C9C182F801700210C28 /* CKLBLuaTask.h in Headers */,
+				32D86C9D182F801700210C28 /* CKLBUtility.h in Headers */,
+				32D86C9E182F801700210C28 /* DebugTracker.h in Headers */,
+				32D86C9F182F801700210C28 /* CKLBAction.h in Headers */,
+				32D86CA0182F801700210C28 /* CKLBAppProperty.h in Headers */,
+				32D86CA1182F801700210C28 /* CKLBAsyncLoader.h in Headers */,
+				32D86CA2182F801700210C28 /* CKLBBinArray.h in Headers */,
+				32D86CA3182F801700210C28 /* CKLBDataHandler.h in Headers */,
+				32D86CA4182F801700210C28 /* CKLBDebugger.h in Headers */,
+				32D86CA5182F801700210C28 /* CKLBGenericTask.h in Headers */,
+				32D86CA6182F801700210C28 /* CKLBIntervalTimer.h in Headers */,
+				32D86CA7182F801700210C28 /* CKLBLibRegistrator.h in Headers */,
+				32D86CA8182F801700210C28 /* CKLBLifeCtrlTask.h in Headers */,
+				32D86CA9182F801700210C28 /* CKLBLuaEnv.h in Headers */,
+				32D86CAA182F801700210C28 /* CKLBLuaPropTask.h in Headers */,
+				32D86CAB182F801700210C28 /* CKLBObject.h in Headers */,
+				32D86CAC182F801700210C28 /* CKLBPauseCtrl.h in Headers */,
+				32D86CAD182F801700210C28 /* CKLBTextTempBuffer.h in Headers */,
+				32D86CAE182F801700210C28 /* CKLBUITask.h in Headers */,
+				32D86CAF182F801700210C28 /* DebugAlloc.h in Headers */,
+				32D86CB0182F801700210C28 /* Dictionnary.h in Headers */,
+				32D86CB1182F801700210C28 /* Message.h in Headers */,
+				32D86CB2182F801700210C28 /* DataSet.h in Headers */,
+				32D86CB3182F801700210C28 /* CKLBDatabase.h in Headers */,
+				32D86CB4182F801700210C28 /* CKLBLuaDB.h in Headers */,
+				32D86CB5182F801700210C28 /* CKLBLanguageDatabase.h in Headers */,
+				32D86CB6182F801700210C28 /* DataSet_JSonDB.h in Headers */,
+				32D86CB7182F801700210C28 /* CKLBStoreService.h in Headers */,
+				32D86CB8182F801700210C28 /* CKLBNetAPI.h in Headers */,
+				32D86CB9182F801700210C28 /* MultithreadedNetwork.h in Headers */,
+				32D86CBA182F801700210C28 /* CKLBHTTPInterface.h in Headers */,
+				32D86CBB182F801700210C28 /* CKLBNetAPIKeyChain.h in Headers */,
+				32D86CBC182F801700210C28 /* CKLBUpdate.h in Headers */,
+				32D86CBD182F801700210C28 /* CKLBJsonItem.h in Headers */,
+				32D86CBE182F801700210C28 /* CUnZip.h in Headers */,
+				32D86CBF182F801700210C28 /* CKLBLuaLibENG.h in Headers */,
+				32D86CC0182F801700210C28 /* CKLBLuaLibFONT.h in Headers */,
+				32D86CC1182F801700210C28 /* CKLBLuaLibHASH.h in Headers */,
+				32D86CC2182F801700210C28 /* CKLBLuaLibSOUND.h in Headers */,
+				32D86CC3182F801700210C28 /* CKLBLuaLibGL.h in Headers */,
+				32D86CC4182F801700210C28 /* CKLBLuaLibASSET.h in Headers */,
+				32D86CC5182F801700210C28 /* CKLBLuaConst.h in Headers */,
+				32D86CC6182F801700210C28 /* CKLBLuaLibAPP.h in Headers */,
+				32D86CC7182F801700210C28 /* CKLBLuaLibBIN.h in Headers */,
+				32D86CC8182F801700210C28 /* CKLBLuaLibCONV.h in Headers */,
+				32D86CC9182F801700210C28 /* CKLBLuaLibDATA.h in Headers */,
+				32D86CCA182F801700210C28 /* CKLBLuaLibDB.h in Headers */,
+				32D86CCB182F801700210C28 /* CKLBLuaLibDEBUG.h in Headers */,
+				32D86CCC182F801700210C28 /* CKLBLuaLibKEY.h in Headers */,
+				32D86CCD182F801700210C28 /* CKLBLuaLibLANG.h in Headers */,
+				32D86CCE182F801700210C28 /* CKLBLuaLibMatrix.h in Headers */,
+				32D86CCF182F801700210C28 /* CKLBLuaLibRES.h in Headers */,
+				32D86CD0182F801700210C28 /* CKLBLuaLibTASK.h in Headers */,
+				32D86CD1182F801700210C28 /* CKLBLuaLibUI.h in Headers */,
+				32D86CD2182F801700210C28 /* ILuaFuncLib.h in Headers */,
+				32D86CD3182F801700210C28 /* CKLBRendering.h in Headers */,
+				32D86CD4182F801700210C28 /* glWrapper.h in Headers */,
+				32D86CD5182F801700210C28 /* CKLBCanvasSprite.h in Headers */,
+				32D86CD6182F801700210C28 /* CKLBSprite3D.h in Headers */,
+				32D86CD7182F801700210C28 /* CKLBNode.h in Headers */,
+				32D86CD8182F801700210C28 /* CSoundAnalysisMP3.h in Headers */,
+				32D86CD9182F801700210C28 /* CKLBDeviceKeyEvent.h in Headers */,
+				32D86CDA182F801700210C28 /* CKLBDebugMenu.h in Headers */,
+				32D86CDB182F801700210C28 /* CKLBTouchPad.h in Headers */,
+				32D86CDC182F801700210C28 /* CKLBDrawTask.h in Headers */,
+				32D86CDD182F801700210C28 /* CKLBOSCtrlEvent.h in Headers */,
+				32D86CDE182F801700210C28 /* CKLBLuaScript.h in Headers */,
+				32D86CDF182F801700210C28 /* CKLBTouchEventUI.h in Headers */,
+				32D86CE0182F801700210C28 /* CKLBScrMgrDefault.h in Headers */,
+				32D86CE1182F801700210C28 /* CKLBScrMgrPage.h in Headers */,
+				32D86CE2182F801700210C28 /* CKLBUIFreeVertItem.h in Headers */,
+				32D86CE3182F801700210C28 /* CKLBUIList.h in Headers */,
+				32D86CE4182F801700210C28 /* CKLBScrMgrSolid.h in Headers */,
+				32D86CE5182F801700210C28 /* CKLBScrollBarIF.h in Headers */,
+				32D86CE6182F801700210C28 /* CKLBUISystem.h in Headers */,
+				32D86CE7182F801700210C28 /* CKLBUISWFPlayer.h in Headers */,
+				32D86CE8182F801700210C28 /* CKLBUIVariableItem.h in Headers */,
+				32D86CE9182F801700210C28 /* CKLBLabelNode.h in Headers */,
+				32D86CEA182F801700210C28 /* CKLBUIVirtualDoc.h in Headers */,
+				32D86CEB182F801700210C28 /* CKLBUITextInput.h in Headers */,
+				32D86CEC182F801700210C28 /* CKLBTextInputNode.h in Headers */,
+				32D86CED182F801700210C28 /* CKLBActivityIndicatorNode.h in Headers */,
+				32D86CEE182F801700210C28 /* CKLBDragCallbackIF.h in Headers */,
+				32D86CEF182F801700210C28 /* CKLBFormGroup.h in Headers */,
+				32D86CF0182F801700210C28 /* CKLBFormIF.h in Headers */,
+				32D86CF1182F801700210C28 /* CKLBModalStack.h in Headers */,
+				32D86CF2182F801700210C28 /* CKLBMovieNode.h in Headers */,
+				32D86CF3182F801700210C28 /* CKLBNodeAnimPack.h in Headers */,
+				32D86CF4182F801700210C28 /* CKLBUIActivityIndicator.h in Headers */,
+				32D86CF5182F801700210C28 /* CKLBUICanvas.h in Headers */,
+				32D86CF6182F801700210C28 /* CKLBUIClip.h in Headers */,
+				32D86CF7182F801700210C28 /* CKLBUIControl.h in Headers */,
+				32D86CF8182F801700210C28 /* CKLBUIDebugItem.h in Headers */,
+				32D86CF9182F801700210C28 /* CKLBUIDragIcon.h in Headers */,
+				32D86CFA182F801700210C28 /* CKLBUIForm.h in Headers */,
+				32D86CFB182F801700210C28 /* CKLBUIGroup.h in Headers */,
+				32D86CFC182F801700210C28 /* CKLBUILabel.h in Headers */,
+				32D86CFD182F801700210C28 /* CKLBUIMoviePlayer.h in Headers */,
+				32D86CFE182F801700210C28 /* CKLBUIMultiImgItem.h in Headers */,
+				32D86CFF182F801700210C28 /* CKLBUIPieChart.h in Headers */,
+				32D86D00182F801700210C28 /* CKLBUIPolyline.h in Headers */,
+				32D86D01182F801700210C28 /* CKLBUIProgressBar.h in Headers */,
+				32D86D02182F801700210C28 /* CKLBUIRubberBand.h in Headers */,
+				32D86D03182F801700210C28 /* CKLBUIScale9.h in Headers */,
+				32D86D04182F801700210C28 /* CKLBUIScore.h in Headers */,
+				32D86D05182F801700210C28 /* CKLBUIScrollBar.h in Headers */,
+				32D86D06182F801700210C28 /* CKLBUISimpleItem.h in Headers */,
+				32D86D07182F801700210C28 /* CKLBUITouchPad.h in Headers */,
+				32D86D08182F801700210C28 /* CKLBUIWebArea.h in Headers */,
+				32D86D09182F801700210C28 /* CKLBWebViewNode.h in Headers */,
+				32D86D0A182F801700210C28 /* IMgrEntry.h in Headers */,
+				32D86D0B182F801700210C28 /* CSampleProjectEntrance.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		327C0B85179A3944007B7F42 /* Playground */ = {
 			isa = PBXNativeTarget;
@@ -2031,6 +2738,42 @@
 			productReference = 327C0B86179A3944007B7F42 /* Playground.app */;
 			productType = "com.apple.product-type.application";
 		};
+		32D86B04182F73E700210C28 /* PlaygroundOSS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32D86B2C182F73E800210C28 /* Build configuration list for PBXNativeTarget "PlaygroundOSS" */;
+			buildPhases = (
+				32D86B00182F73E700210C28 /* Sources */,
+				32D86B01182F73E700210C28 /* Frameworks */,
+				32D86B02182F73E700210C28 /* Headers */,
+				32D86B03182F73E700210C28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlaygroundOSS;
+			productName = PlaygroundOSS;
+			productReference = 32D86B05182F73E700210C28 /* PlaygroundOSS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		32D86B18182F73E700210C28 /* PlaygroundOSSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32D86B2D182F73E800210C28 /* Build configuration list for PBXNativeTarget "PlaygroundOSSTests" */;
+			buildPhases = (
+				32D86B15182F73E700210C28 /* Sources */,
+				32D86B16182F73E700210C28 /* Frameworks */,
+				32D86B17182F73E700210C28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32D86B1E182F73E800210C28 /* PBXTargetDependency */,
+			);
+			name = PlaygroundOSSTests;
+			productName = PlaygroundOSSTests;
+			productReference = 32D86B19182F73E700210C28 /* PlaygroundOSSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2040,6 +2783,11 @@
 				CLASSPREFIX = Playground;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "KLab Inc.";
+				TargetAttributes = {
+					32D86B18182F73E700210C28 = {
+						TestTargetID = 32D86B04182F73E700210C28;
+					};
+				};
 			};
 			buildConfigurationList = 327C0B81179A3944007B7F42 /* Build configuration list for PBXProject "Playground" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2054,6 +2802,8 @@
 			projectRoot = "";
 			targets = (
 				327C0B85179A3944007B7F42 /* Playground */,
+				32D86B04182F73E700210C28 /* PlaygroundOSS */,
+				32D86B18182F73E700210C28 /* PlaygroundOSSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2079,6 +2829,23 @@
 				3284FE91179A4F6600B0CA20 /* important.txt in Resources */,
 				3212707618253D2A0027C57E /* start.lua in Resources */,
 				32F55EBE179D0B07003807CE /* MTLmr3m.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D86B03182F73E700210C28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86DF5182FDAE300210C28 /* Playground-Info.plist in Resources */,
+				32D86C5D182F75FE00210C28 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D86B17182F73E700210C28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86B25182F73E800210C28 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2352,7 +3119,285 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		32D86B00182F73E700210C28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86C4D182F753100210C28 /* cff.c in Sources */,
+				32D86C4E182F753100210C28 /* type1cid.c in Sources */,
+				32D86C4F182F753100210C28 /* pcf.c in Sources */,
+				32D86C50182F753100210C28 /* psmodule.c in Sources */,
+				32D86C24182F751B00210C28 /* autofit.c in Sources */,
+				32D86C25182F751B00210C28 /* ftbase.c in Sources */,
+				32D86C26182F751B00210C28 /* ftbbox.c in Sources */,
+				32D86C27182F751B00210C28 /* ftbitmap.c in Sources */,
+				32D86C28182F751B00210C28 /* ftfstype.c in Sources */,
+				32D86C29182F751B00210C28 /* ftgasp.c in Sources */,
+				32D86C2A182F751B00210C28 /* ftglyph.c in Sources */,
+				32D86C2B182F751B00210C28 /* ftgxval.c in Sources */,
+				32D86C2C182F751B00210C28 /* ftinit.c in Sources */,
+				32D86C2D182F751B00210C28 /* ftlcdfil.c in Sources */,
+				32D86C2E182F751B00210C28 /* ftmm.c in Sources */,
+				32D86C2F182F751B00210C28 /* ftotval.c in Sources */,
+				32D86C30182F751B00210C28 /* ftpatent.c in Sources */,
+				32D86C31182F751B00210C28 /* ftpfr.c in Sources */,
+				32D86C32182F751B00210C28 /* ftstroke.c in Sources */,
+				32D86C33182F751B00210C28 /* ftsynth.c in Sources */,
+				32D86C34182F751B00210C28 /* ftsystem.c in Sources */,
+				32D86C35182F751B00210C28 /* fttype1.c in Sources */,
+				32D86C36182F751B00210C28 /* ftwinfnt.c in Sources */,
+				32D86C37182F751B00210C28 /* ftxf86.c in Sources */,
+				32D86C38182F751B00210C28 /* bdf.c in Sources */,
+				32D86C39182F751B00210C28 /* ftcache.c in Sources */,
+				32D86C3A182F751B00210C28 /* ftdebug.c in Sources */,
+				32D86C3B182F751B00210C28 /* pfr.c in Sources */,
+				32D86C3C182F751B00210C28 /* psaux.c in Sources */,
+				32D86C3D182F751B00210C28 /* pshinter.c in Sources */,
+				32D86C3E182F751B00210C28 /* raster.c in Sources */,
+				32D86C3F182F751B00210C28 /* sfnt.c in Sources */,
+				32D86C40182F751B00210C28 /* smooth.c in Sources */,
+				32D86C41182F751B00210C28 /* truetype.c in Sources */,
+				32D86C42182F751B00210C28 /* type1.c in Sources */,
+				32D86C43182F751B00210C28 /* type42.c in Sources */,
+				32D86C44182F751B00210C28 /* winfnt.c in Sources */,
+				32D86C45182F751B00210C28 /* matrixUtil.c in Sources */,
+				32D86C46182F751B00210C28 /* modelUtil.c in Sources */,
+				32D86C47182F751B00210C28 /* sourceUtil.c in Sources */,
+				32D86C48182F751B00210C28 /* vectorUtil.c in Sources */,
+				32D86C49182F751B00210C28 /* CKLBDatabase.cpp in Sources */,
+				32D86C4A182F751B00210C28 /* CKLBLuaDB.cpp in Sources */,
+				32D86C4B182F751B00210C28 /* CKLBLanguageDatabase.cpp in Sources */,
+				32D86C4C182F751B00210C28 /* DataSet_JSonDB.cpp in Sources */,
+				32D86C15182F74E900210C28 /* PlaygroundAppDelegate.mm in Sources */,
+				32D86C17182F74E900210C28 /* imageUtil.m in Sources */,
+				32D86C18182F74E900210C28 /* OpenGLRenderer.mm in Sources */,
+				32D86C19182F74E900210C28 /* NSGLView.mm in Sources */,
+				32D86C1A182F74E900210C28 /* assert.mm in Sources */,
+				32D86C1B182F74E900210C28 /* CiOSAudio.mm in Sources */,
+				32D86C1C182F74E900210C28 /* CiOSAudioManager.mm in Sources */,
+				32D86C1D182F74E900210C28 /* CiOSMovieView.mm in Sources */,
+				32D86C1E182F74E900210C28 /* CiOSPathConv.mm in Sources */,
+				32D86C1F182F74E900210C28 /* CiOSPlatform.mm in Sources */,
+				32D86C20182F74E900210C28 /* CiOSSysResource.mm in Sources */,
+				32D86C21182F74E900210C28 /* CiOSWebView.mm in Sources */,
+				32D86C22182F74E900210C28 /* CiOSWidget.mm in Sources */,
+				32D86C23182F74E900210C28 /* EAGLView.mm in Sources */,
+				32D86B51182F74A500210C28 /* yajl_buf.c in Sources */,
+				32D86B52182F74A500210C28 /* yajl_encode.c in Sources */,
+				32D86B53182F74A500210C28 /* yajl_lex.c in Sources */,
+				32D86B54182F74A500210C28 /* yajl_parser.c in Sources */,
+				32D86B55182F74A500210C28 /* yajl_tree.c in Sources */,
+				32D86B56182F74A500210C28 /* yajl.c in Sources */,
+				32D86B57182F74A500210C28 /* json_binary_parser.c in Sources */,
+				32D86B58182F74A500210C28 /* msg_pack_parser.c in Sources */,
+				32D86B59182F74A500210C28 /* yajl_alloc.c in Sources */,
+				32D86B5A182F74A500210C28 /* yajl_gen.c in Sources */,
+				32D86B5B182F74A500210C28 /* yajl_version.c in Sources */,
+				32D86B5C182F74A500210C28 /* lapi.c in Sources */,
+				32D86B5D182F74A500210C28 /* lauxlib.c in Sources */,
+				32D86B5E182F74A500210C28 /* lbaselib.c in Sources */,
+				32D86B5F182F74A500210C28 /* lbitlib.c in Sources */,
+				32D86B60182F74A500210C28 /* lcode.c in Sources */,
+				32D86B61182F74A500210C28 /* lcorolib.c in Sources */,
+				32D86B62182F74A500210C28 /* lctype.c in Sources */,
+				32D86B63182F74A500210C28 /* ldblib.c in Sources */,
+				32D86B64182F74A500210C28 /* ldebug.c in Sources */,
+				32D86B65182F74A500210C28 /* ldo.c in Sources */,
+				32D86B66182F74A500210C28 /* ldump.c in Sources */,
+				32D86B67182F74A500210C28 /* lfunc.c in Sources */,
+				32D86B68182F74A500210C28 /* lgc.c in Sources */,
+				32D86B69182F74A500210C28 /* linit.c in Sources */,
+				32D86B6A182F74A500210C28 /* liolib.c in Sources */,
+				32D86B6B182F74A500210C28 /* llex.c in Sources */,
+				32D86B6C182F74A500210C28 /* lmathlib.c in Sources */,
+				32D86B6D182F74A500210C28 /* lmem.c in Sources */,
+				32D86B6E182F74A500210C28 /* loadlib.c in Sources */,
+				32D86B6F182F74A500210C28 /* lobject.c in Sources */,
+				32D86B70182F74A500210C28 /* lopcodes.c in Sources */,
+				32D86B71182F74A500210C28 /* loslib.c in Sources */,
+				32D86B72182F74A500210C28 /* lparser.c in Sources */,
+				32D86B73182F74A500210C28 /* lstate.c in Sources */,
+				32D86B74182F74A500210C28 /* lstring.c in Sources */,
+				32D86B75182F74A500210C28 /* lstrlib.c in Sources */,
+				32D86B76182F74A500210C28 /* ltable.c in Sources */,
+				32D86B77182F74A500210C28 /* ltablib.c in Sources */,
+				32D86B78182F74A500210C28 /* ltm.c in Sources */,
+				32D86B79182F74A500210C28 /* lundump.c in Sources */,
+				32D86B7A182F74A500210C28 /* lvm.c in Sources */,
+				32D86B7B182F74A500210C28 /* lzio.c in Sources */,
+				32D86B7C182F74A500210C28 /* ioapi.c in Sources */,
+				32D86B7D182F74A500210C28 /* mztools.c in Sources */,
+				32D86B7E182F74A500210C28 /* unzip.c in Sources */,
+				32D86B7F182F74A500210C28 /* hash_sha1.c in Sources */,
+				32D86B80182F74A500210C28 /* sqlite3.c in Sources */,
+				32D86B81182F74A500210C28 /* utf8.c in Sources */,
+				32D86B82182F74A500210C28 /* CiOSReadFileStream.cpp in Sources */,
+				32D86B83182F74A500210C28 /* CiOSTmpFile.cpp in Sources */,
+				32D86B84182F74A500210C28 /* CiOSWriteFileStream.cpp in Sources */,
+				32D86B85182F74A500210C28 /* CSockReadStream.cpp in Sources */,
+				32D86B86182F74A500210C28 /* CSockWriteStream.cpp in Sources */,
+				32D86B87182F74A500210C28 /* FileDelete.cpp in Sources */,
+				32D86B88182F74A500210C28 /* FontRendering.cpp in Sources */,
+				32D86B89182F74A500210C28 /* CKLBNodeVirtualDocument.cpp in Sources */,
+				32D86B8A182F74A500210C28 /* CKLBSplineNode.cpp in Sources */,
+				32D86B8B182F74A500210C28 /* CKLBSWFPlayer.cpp in Sources */,
+				32D86B8C182F74A500210C28 /* CKLBScoreNode.cpp in Sources */,
+				32D86B8D182F74A500210C28 /* CKLBSystem.cpp in Sources */,
+				32D86B8E182F74A500210C28 /* CKLBTexturePacker.cpp in Sources */,
+				32D86B8F182F74A500210C28 /* CompositeManagement.cpp in Sources */,
+				32D86B90182F74A500210C28 /* TextureManagement.cpp in Sources */,
+				32D86B91182F74A500210C28 /* CKLBAssetManager.cpp in Sources */,
+				32D86B92182F74A500210C28 /* AudioAsset.cpp in Sources */,
+				32D86B93182F74A500210C28 /* CKLBPropertyBag.cpp in Sources */,
+				32D86B94182F74A500210C28 /* NodeAnimationAsset.cpp in Sources */,
+				32D86B95182F74A500210C28 /* CKLBScriptEnv_forLUA.cpp in Sources */,
+				32D86B96182F74A500210C28 /* CKLBTask.cpp in Sources */,
+				32D86B97182F74A500210C28 /* CKLBAsyncFilecopy.cpp in Sources */,
+				32D86B98182F74A500210C28 /* CKLBGameApplication.cpp in Sources */,
+				32D86B99182F74A500210C28 /* CKLBLuaEnv.cpp in Sources */,
+				32D86B9A182F74A500210C28 /* CKLBUITask.cpp in Sources */,
+				32D86B9B182F74A500210C28 /* encryptFile.cpp in Sources */,
+				32D86B9C182F74A500210C28 /* CKLBDebugger.cpp in Sources */,
+				32D86B9D182F74A500210C28 /* CKLBGameApplicationDebugModule.cpp in Sources */,
+				32D86B9E182F74A500210C28 /* CKLBIntervalTimer.cpp in Sources */,
+				32D86B9F182F74A500210C28 /* CKLBLuaPropTask.cpp in Sources */,
+				32D86BA0182F74A500210C28 /* CKLBUtility.cpp in Sources */,
+				32D86BA1182F74A500210C28 /* CKLBDataHandler.cpp in Sources */,
+				32D86BA2182F74A500210C28 /* Dictionnary.cpp in Sources */,
+				32D86BA3182F74A500210C28 /* CKLBBinArray.cpp in Sources */,
+				32D86BA4182F74A500210C28 /* CKLBContext.cpp in Sources */,
+				32D86BA5182F74A500210C28 /* DebugAlloc.cpp in Sources */,
+				32D86BA6182F74A500210C28 /* DebugTracker.cpp in Sources */,
+				32D86BA7182F74A500210C28 /* CKLBAppProperty.cpp in Sources */,
+				32D86BA8182F74A500210C28 /* CKLBAsyncLoader.cpp in Sources */,
+				32D86BA9182F74A500210C28 /* CKLBGenericTask.cpp in Sources */,
+				32D86BAA182F74A500210C28 /* CKLBLibRegistrator.cpp in Sources */,
+				32D86BAB182F74A500210C28 /* CKLBLifeCtrlTask.cpp in Sources */,
+				32D86BAC182F74A500210C28 /* CKLBLuaTask.cpp in Sources */,
+				32D86BAD182F74A500210C28 /* CKLBObject.cpp in Sources */,
+				32D86BAE182F74A500210C28 /* CKLBPauseCtrl.cpp in Sources */,
+				32D86BAF182F74A500210C28 /* CKLBTextTempBuffer.cpp in Sources */,
+				32D86BB0182F74A500210C28 /* CLuaState.cpp in Sources */,
+				32D86BB1182F74A500210C28 /* CPFInterface.cpp in Sources */,
+				32D86BB2182F74A500210C28 /* ITmpFile.cpp in Sources */,
+				32D86BB3182F74A500210C28 /* CKLBStoreService.cpp in Sources */,
+				32D86BB4182F74A500210C28 /* CKLBNetAPI.cpp in Sources */,
+				32D86BB5182F74A500210C28 /* CKLBHTTPInterface.cpp in Sources */,
+				32D86BB6182F74A500210C28 /* CKLBUpdate.cpp in Sources */,
+				32D86BB7182F74A500210C28 /* CUnZip.cpp in Sources */,
+				32D86BB8182F74A500210C28 /* CKLBJsonItem.cpp in Sources */,
+				32D86BB9182F74A500210C28 /* MultithreadedNetwork.cpp in Sources */,
+				32D86BBA182F74A500210C28 /* CKLBNetAPIKeyChain.cpp in Sources */,
+				32D86BBB182F74A500210C28 /* CKLBLuaLibAPP.cpp in Sources */,
+				32D86BBC182F74A500210C28 /* CKLBLuaLibENG.cpp in Sources */,
+				32D86BBD182F74A500210C28 /* CKLBLuaLibFONT.cpp in Sources */,
+				32D86BBE182F74A500210C28 /* CKLBLuaLibHASH.cpp in Sources */,
+				32D86BBF182F74A500210C28 /* CKLBLuaLibSOUND.cpp in Sources */,
+				32D86BC0182F74A500210C28 /* CKLBLuaLibGL.cpp in Sources */,
+				32D86BC1182F74A500210C28 /* CKLBLuaLibDATA.cpp in Sources */,
+				32D86BC2182F74A500210C28 /* CKLBLuaLibMatrix.cpp in Sources */,
+				32D86BC3182F74A500210C28 /* ILuaFuncLib.cpp in Sources */,
+				32D86BC4182F74A500210C28 /* CKLBLuaLibCONV.cpp in Sources */,
+				32D86BC5182F74A500210C28 /* CKLBLuaLibKEY.cpp in Sources */,
+				32D86BC6182F74A500210C28 /* CKLBLuaLibTASK.cpp in Sources */,
+				32D86BC7182F74A500210C28 /* CKLBLuaLibASSET.cpp in Sources */,
+				32D86BC8182F74A500210C28 /* CKLBLuaConst.cpp in Sources */,
+				32D86BC9182F74A500210C28 /* CKLBLuaLibBIN.cpp in Sources */,
+				32D86BCA182F74A500210C28 /* CKLBLuaLibDB.cpp in Sources */,
+				32D86BCB182F74A500210C28 /* CKLBLuaLibDEBUG.cpp in Sources */,
+				32D86BCC182F74A500210C28 /* CKLBLuaLibLANG.cpp in Sources */,
+				32D86BCD182F74A500210C28 /* CKLBLuaLibRES.cpp in Sources */,
+				32D86BCE182F74A500210C28 /* CKLBLuaLibUI.cpp in Sources */,
+				32D86BCF182F74A500210C28 /* CKLBRenderingManager.cpp in Sources */,
+				32D86BD0182F74A500210C28 /* CRenderingManager_GL1.cpp in Sources */,
+				32D86BD1182F74A500210C28 /* CRenderingManager_GL2.cpp in Sources */,
+				32D86BD2182F74A500210C28 /* CRenderingManager.cpp in Sources */,
+				32D86BD3182F74A500210C28 /* CTextureUsage.cpp in Sources */,
+				32D86BD4182F74A500210C28 /* CBuffer.cpp in Sources */,
+				32D86BD5182F74A500210C28 /* CIndexBuffer.cpp in Sources */,
+				32D86BD6182F74A500210C28 /* CTextureBase.cpp in Sources */,
+				32D86BD7182F74A500210C28 /* glWrapper.cpp in Sources */,
+				32D86BD8182F74A500210C28 /* CFrame.cpp in Sources */,
+				32D86BD9182F74A500210C28 /* CImageBuffer.cpp in Sources */,
+				32D86BDA182F74A500210C28 /* CKLBCanvasSprite.cpp in Sources */,
+				32D86BDB182F74A500210C28 /* CKLBSprite3D.cpp in Sources */,
+				32D86BDC182F74A500210C28 /* CShaderSet.cpp in Sources */,
+				32D86BDD182F74A500210C28 /* CShaderSetInstance.cpp in Sources */,
+				32D86BDE182F74A500210C28 /* CTexture.cpp in Sources */,
+				32D86BDF182F74A500210C28 /* CKLBNode.cpp in Sources */,
+				32D86BE0182F74A500210C28 /* CSoundAnalysisMP3.cpp in Sources */,
+				32D86BE1182F74A500210C28 /* CSoundAnalysis.cpp in Sources */,
+				32D86BE2182F74A500210C28 /* CKLBDeviceKeyEvent.cpp in Sources */,
+				32D86BE3182F74A500210C28 /* CKLBDrawTask.cpp in Sources */,
+				32D86BE4182F74A500210C28 /* CKLBDebugMenu.cpp in Sources */,
+				32D86BE5182F74A500210C28 /* CKLBTouchPad.cpp in Sources */,
+				32D86BE6182F74A500210C28 /* CKLBTouchEventUI.cpp in Sources */,
+				32D86BE7182F74A500210C28 /* CKLBOSCtrlEvent.cpp in Sources */,
+				32D86BE8182F74A500210C28 /* CKLBLuaScript.cpp in Sources */,
+				32D86BE9182F74A500210C28 /* CKLBUIVirtualDoc.cpp in Sources */,
+				32D86BEA182F74A500210C28 /* CKLBUIList.cpp in Sources */,
+				32D86BEB182F74A500210C28 /* CKLBScrMgrDefault.cpp in Sources */,
+				32D86BEC182F74A500210C28 /* CKLBScrMgrPage.cpp in Sources */,
+				32D86BED182F74A500210C28 /* CKLBUICanvas.cpp in Sources */,
+				32D86BEE182F74A500210C28 /* CKLBUIDragIcon.cpp in Sources */,
+				32D86BEF182F74A500210C28 /* CKLBUIFreeVertItem.cpp in Sources */,
+				32D86BF0182F74A500210C28 /* CKLBUIProgressBar.cpp in Sources */,
+				32D86BF1182F74A600210C28 /* CKLBUIVariableItem.cpp in Sources */,
+				32D86BF2182F74A600210C28 /* CKLBScrMgrSolid.cpp in Sources */,
+				32D86BF3182F74A600210C28 /* CKLBScrollBarIF.cpp in Sources */,
+				32D86BF4182F74A600210C28 /* CKLBLabelNode.cpp in Sources */,
+				32D86BF5182F74A600210C28 /* CKLBMovieNode.cpp in Sources */,
+				32D86BF6182F74A600210C28 /* CKLBTextInputNode.cpp in Sources */,
+				32D86BF7182F74A600210C28 /* CKLBUIDebugItem.cpp in Sources */,
+				32D86BF8182F74A600210C28 /* CKLBUIWebArea.cpp in Sources */,
+				32D86BF9182F74A600210C28 /* CKLBWebViewNode.cpp in Sources */,
+				32D86BFA182F74A600210C28 /* CKLBUIClip.cpp in Sources */,
+				32D86BFB182F74A600210C28 /* CKLBUIMultiImgItem.cpp in Sources */,
+				32D86BFC182F74A600210C28 /* CKLBUISWFPlayer.cpp in Sources */,
+				32D86BFD182F74A600210C28 /* CKLBUISystem.cpp in Sources */,
+				32D86BFE182F74A600210C28 /* CKLBUITouchPad.cpp in Sources */,
+				32D86BFF182F74A600210C28 /* CKLBUIForm.cpp in Sources */,
+				32D86C00182F74A600210C28 /* CKLBUILabel.cpp in Sources */,
+				32D86C01182F74A600210C28 /* CKLBUIControl.cpp in Sources */,
+				32D86C02182F74A600210C28 /* CKLBUIScale9.cpp in Sources */,
+				32D86C03182F74A600210C28 /* CKLBUITextInput.cpp in Sources */,
+				32D86C04182F74A600210C28 /* CKLBActivityIndicatorNode.cpp in Sources */,
+				32D86C05182F74A600210C28 /* CKLBDragCallbackIF.cpp in Sources */,
+				32D86C06182F74A600210C28 /* CKLBFormGroup.cpp in Sources */,
+				32D86C07182F74A600210C28 /* CKLBFormIF.cpp in Sources */,
+				32D86C08182F74A600210C28 /* CKLBModalStack.cpp in Sources */,
+				32D86C09182F74A600210C28 /* CKLBNodeAnimPack.cpp in Sources */,
+				32D86C0A182F74A600210C28 /* CKLBUIActivityIndicator.cpp in Sources */,
+				32D86C0B182F74A600210C28 /* CKLBUIGroup.cpp in Sources */,
+				32D86C0C182F74A600210C28 /* CKLBUIMoviePlayer.cpp in Sources */,
+				32D86C0D182F74A600210C28 /* CKLBUIPieChart.cpp in Sources */,
+				32D86C0E182F74A600210C28 /* CKLBUIPolyline.cpp in Sources */,
+				32D86C0F182F74A600210C28 /* CKLBUIRubberBand.cpp in Sources */,
+				32D86C10182F74A600210C28 /* CKLBUIScore.cpp in Sources */,
+				32D86C11182F74A600210C28 /* CKLBUIScrollBar.cpp in Sources */,
+				32D86C12182F74A600210C28 /* CKLBUISimpleItem.cpp in Sources */,
+				32D86C13182F74A600210C28 /* IMgrEntry.cpp in Sources */,
+				32D86C14182F74A600210C28 /* CSampleProjectEntrance.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D86B15182F73E700210C28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D86B27182F73E800210C28 /* PlaygroundOSSTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32D86B1E182F73E800210C28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 32D86B04182F73E700210C28 /* PlaygroundOSS */;
+			targetProxy = 32D86B1D182F73E800210C28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		327C0B92179A3944007B7F42 /* InfoPlist.strings */ = {
@@ -2377,6 +3422,14 @@
 				327C0B9F179A3945007B7F42 /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		32D86B23182F73E800210C28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32D86B24182F73E800210C28 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2457,7 +3510,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../libs/freeType/include\"";
 				INFOPLIST_FILE = "Playground/Playground-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2481,9 +3534,129 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../libs/freeType/include\"";
 				INFOPLIST_FILE = "Playground/Playground-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		32D86B28182F73E800210C28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "PlaygroundOSS/PlaygroundOSS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					FT2_BUILD_LIBRARY,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GENERATE_MASTER_OBJECT_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../libs/freeType/include\"",
+				);
+				INFOPLIST_FILE = "PlaygroundOSS/PlaygroundOSS-Info.plist";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		32D86B29182F73E800210C28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "PlaygroundOSS/PlaygroundOSS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = FT2_BUILD_LIBRARY;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GENERATE_MASTER_OBJECT_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../libs/freeType/include\"",
+				);
+				INFOPLIST_FILE = "PlaygroundOSS/PlaygroundOSS-Info.plist";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		32D86B2A182F73E800210C28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlaygroundOSS/PlaygroundOSS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PlaygroundOSSTests/PlaygroundOSSTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		32D86B2B182F73E800210C28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlaygroundOSS/PlaygroundOSS-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PlaygroundOSSTests/PlaygroundOSSTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -2507,6 +3680,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		32D86B2C182F73E800210C28 /* Build configuration list for PBXNativeTarget "PlaygroundOSS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32D86B28182F73E800210C28 /* Debug */,
+				32D86B29182F73E800210C28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		32D86B2D182F73E800210C28 /* Build configuration list for PBXNativeTarget "PlaygroundOSSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32D86B2A182F73E800210C28 /* Debug */,
+				32D86B2B182F73E800210C28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
