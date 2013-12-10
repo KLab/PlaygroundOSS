@@ -73,6 +73,10 @@
     <LibraryPath>$(SolutionDir)openssl/lib;$(SolutionDir)Lame;$(SolutionDir)pure-Lua\;$(SolutionDir)LuaEdit\x86;$(SolutionDir)zlib\;$(SolutionDir)directx;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Output\$(Configuration)\</OutDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Output\$(Configuration)\</OutDir>
+    <LibraryPath>$(SolutionDir)openssl/lib;$(SolutionDir)Lame;$(SolutionDir)pure-Lua\;$(SolutionDir)LuaEdit\x86;$(SolutionDir)zlib\;$(SolutionDir)directx;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -116,16 +120,18 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>../../../source/UISystem/;../../../source/Animation/;../../../source/Assets/;../../../source/Core/;../../../source/LuaLib/;../../../source/HTTP/;../../../source/SystemTask/;../../../source/Rendering/;../../../source/SceneGraph/;../../../source/UnitSystem/;../../../include/;../../../Source/include/;../../../libs/lua;../../../porting/Win32/;../../../porting/Win32/LuaEdit/include/;../../../porting/Win32/Platform;../../../porting/Win32/openssl/include/;../../../porting/Win32/Lame/;../../../libs/SQLite/;../../../source/Database/;../../../source/AISystem/;../../../source/DataSet/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../../source/UISystem/;../../../source/Animation/;../../../source/Assets/;../../../source/Core/;../../../source/LuaLib/;../../../source/HTTP/;../../../source/SystemTask/;../../../source/Rendering/;../../../source/SceneGraph/;../../../source/UnitSystem/;../../../include/;../../../Source/include/;../../../libs/minizip;../../../libs/lua;../../../porting/Win32/;../../../porting/Win32/LuaEdit/include/;../../../porting/Win32/Platform;../../../porting/Win32/openssl/include/;../../../porting/Win32/zlib/include/;../../../porting/Win32/Lame/;../../../libs/SQLite/;../../../source/Database/;../../../source/AISystem/;../../../source/DataSet/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>$(SolutionDir)/Output/$(Configuration)\GameLibraryWin32.lib;wsock32.lib;Ws2_32.lib;Wldap32.lib;opengl32.lib;glu32.lib;$(SolutionDir)/Platform/libs/glut32.lib;$(SolutionDir)/Platform/libs/glew32.lib;C:\Imagination Technologies\POWERVR SDK\OGLES_WINDOWS_X86EMULATION_2.09.29.0649\Builds\OGLES\WindowsX86\Lib\libEGL.lib;C:\Imagination Technologies\POWERVR SDK\OGLES_WINDOWS_X86EMULATION_2.09.29.0649\Builds\OGLES\WindowsX86\Lib\libgles_cm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)/Output/$(Configuration)\OSSGameLibraryWin32.lib;wsock32.lib;Ws2_32.lib;Wldap32.lib;opengl32.lib;glu32.lib;$(SolutionDir)/Platform/libs/glut32.lib;$(SolutionDir)/Platform/libs/glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>MSVCRT</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>$(ProjectDir)directx</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)..\..\gl*.dll $(OutDir)</Command>
+      <Command>copy $(OutDir)..\..\*.dll $(OutDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug CSharp|Win32'">
@@ -166,6 +172,7 @@
     <ClCompile Include="..\..\..\..\SampleProject\Cpp\out.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\SampleProject\game\CSampleProjectEntrance.cpp" />
     <ClCompile Include="..\..\..\libs\RuntimeCSharp\RuntimeLibrary\Collections\Generic\CS_Dictionary.cpp">

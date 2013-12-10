@@ -22,7 +22,6 @@ CKLBLibRegistrator::CKLBLibRegistrator()
 
 CKLBLibRegistrator::~CKLBLibRegistrator() 
 {
-	CHECKMEM();
 }
 
 CKLBLibRegistrator* 

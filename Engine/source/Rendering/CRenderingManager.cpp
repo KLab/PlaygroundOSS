@@ -17,7 +17,6 @@
 #include "mem.h"
 
 static int _x_getVertexSize() {
-	CHECKMEM();
 	return 5;
 }
 
