@@ -1,5 +1,4 @@
 
-
 How to run
 ==========
 
@@ -181,6 +180,7 @@ Engine/porting/iOS/Project/SampleProject/SampleProject.xcodeproj
 - Select the ```Sample Project``` in XCode, file menu -> ```Add File to Sample Project```
 - File navigation appears, select the "PathToYourProjectAsset/.publish/iphone"
 - Pop up appears, DO NOT FORGET to select your target in ```Add To Targets```
+- Also you need to select ```Create folder references for any added folders```. DO NOT SELECT ```Create groups for any added folders```. If not, some ```.lua``` files will be lost when there are more than two ```.lua``` files with same filename in different folders
 - ```Finish``` button.
 
 It will add the compiled ressources to the application.
