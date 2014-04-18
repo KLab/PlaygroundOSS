@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug_Cpp|Win32">
       <Configuration>Debug_Cpp</Configuration>
@@ -28,20 +28,24 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_CSharp|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_Cpp|Win32'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -118,7 +122,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>CURL_STATICLIB;WIN32;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;_DEBUG;_CONSOLE;DEBUG_MEMORY_OFF;DEBUG_PERFORMANCE_OFF;DEBUG_LUAEDIT_OFF;DEBUG_RT_CHECK;DEBUG_MENU;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CURL_STATICLIB;WIN32;FT_DEBUG_LEVEL_ERROR;FT_DEBUG_LEVEL_TRACE;FT2_BUILD_LIBRARY;_CONSOLE;DEBUG_MEMORY_OFF;DEBUG_PERFORMANCE_OFF;DEBUG_LUAEDIT_OFF;DEBUG_RT_CHECK;DEBUG_MENU;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>../../source/UISystem/;../../source/Animation/;../../source/Assets/;../../source/Core/;../../source/LuaLib/;../../source/HTTP/;../../source/SystemTask/;../../source/Rendering/;../../source/SceneGraph/;../../source/UnitSystem/;../../porting/;../../libs/freeType/include/;../../libs/sha1/;../../libs/utf8_converter/;../../include/;../../Source/include/;../../libs/minizip;../../libs/lua;../../porting/Win32/;../../porting/Win32/LuaEdit/include/;../../porting/Win32/Platform;../../porting/Win32/openssl/include/;../../porting/Win32/Lame/;../../libs/SQLite/;../../source/Database/;../../source/AISystem/;../../source/DataSet/;./zlib/include/;../../libs/;../../libs/curl-7.29.0-minimal/include/curl/;../../libs/curl-7.29.0-minimal/lib/;../../libs/curl-7.29.0-minimal/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
