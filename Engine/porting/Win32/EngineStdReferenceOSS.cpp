@@ -63,6 +63,7 @@
 #include "CKLBUpdate.h"
 #include "CKLBAsyncLoader.h"
 #include "CKLBAsyncFilecopy.h"
+#include "VoiceRecognitionTask.h"  
 
 bool EngineTaskReference()
 {
@@ -109,6 +110,7 @@ bool EngineTaskReference()
 	bResult = bResult && getFactoryFunc<CKLBUITouchPad>();
 	bResult = bResult && getFactoryFunc<CKLBUIVariableItem>();
 	bResult = bResult && getFactoryFunc<CKLBUIVirtualDoc>();
+	bResult = bResult && getFactoryFunc<VoiceRecognitionTask>();
 	bResult = bResult && getFactoryFunc<CKLBUIWebArea>();
 
 
