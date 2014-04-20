@@ -41,3 +41,4 @@ project.xcworkspace/
 !libcurl.a
 *.so
 *.dll
+*.obj
