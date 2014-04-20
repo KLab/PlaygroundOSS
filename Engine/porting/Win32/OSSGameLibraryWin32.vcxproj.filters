@@ -672,6 +672,9 @@
     <ClInclude Include="..\..\source\HTTP\CKLBNetAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VoiceRecognitionTask.h">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\Animation\CKLBSystem.cpp">
@@ -1783,6 +1786,15 @@
     </ClCompile>
     <ClCompile Include="..\..\source\HTTP\CKLBNetAPI.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\VoiceRecognition.h">
+      <Filter>Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="VoiceRecognitionTask.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="VoiceRecognition.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
