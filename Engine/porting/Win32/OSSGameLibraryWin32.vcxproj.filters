@@ -1787,13 +1787,13 @@
     <ClCompile Include="..\..\source\HTTP\CKLBNetAPI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Platform\VoiceRecognition.h">
-      <Filter>Platform</Filter>
-    </ClCompile>
     <ClCompile Include="VoiceRecognitionTask.cpp">
       <Filter>Source Files\UISystem\Task</Filter>
     </ClCompile>
     <ClCompile Include="VoiceRecognition.cpp">
+      <Filter>Source Files\UISystem\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\VoiceRecognition.h">
       <Filter>Source Files\UISystem\Task</Filter>
     </ClCompile>
   </ItemGroup>

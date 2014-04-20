@@ -16,11 +16,16 @@
 #ifndef CWin32Platform_h
 #define CWin32Platform_h
 
+
 #include "CPFInterface.h"
 #include "CWin32Audio.h"
 #include "CWin32Widget.h"
 #include <setjmp.h>
-
+#include <string>
+#include <atlbase.h>
+#include <sapi.h>
+#include <sphelper.h>
+#include <cassert>
 
 #define W32_KEYCHAIN_FILENAME  "GE_keychain.key"
 
@@ -194,6 +199,8 @@ public:
 	virtual void	eventSleep		(void * lock);
 	virtual void	eventWakeup		(void * lock);
 	
+
+	
 	void	startAlertDialog( const char* /*title*/ , const char* /*message*/){};
 
 	void	setNoDefaultFont() {
@@ -201,6 +208,8 @@ public:
 	}
 
 	inline void forbidSleep(bool is_forbidden) {}
+
+
 
 private:
 	bool m_bNoDefaultFont;
@@ -235,6 +244,8 @@ private:
 	const char		*	m_version_string;
 
 	static DWORD WINAPI ThreadProc(LPVOID lpParam);
+
+	
 };
 
 

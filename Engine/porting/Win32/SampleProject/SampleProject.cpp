@@ -15,6 +15,19 @@
 */
 #include <stdafx.h>
 #include "GameEngine.h"
+#include <Windows.h>
+
+//COM初期化クラス
+class COMInitializer{
+public:
+	COMInitializer() {
+		CoInitialize(NULL);
+	}
+	~COMInitializer() {
+		CoUninitialize();
+	}
+
+} comInitializer;
 
 int _tmain(int argc, _TCHAR * argv[])
 {
