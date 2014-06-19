@@ -110,7 +110,7 @@ namespace System
 		//public static Array CreateInstance(Type elementType, int length1, int length2){}
 		//public static Array CreateInstance(Type elementType, int[] lengths, int[] lowerBounds){}
 		//public static Array CreateInstance(Type elementType, int length1, int length2, int length3){}
-		//public IEnumerator GetEnumerator(){}
+		public IEnumerator<T> GetEnumerator(){}
 		public int GetLength(int dimension){}
 		public long GetLongLength(int dimension){}
 		public int GetLowerBound(int dimension){}
@@ -329,7 +329,7 @@ namespace System
 		//public static string Format(IFormatProvider provider, string format, params Object[] args){}
 		//public static string Format(string format, Object arg0, Object arg1){}
 		//public static string Format(string format, Object arg0, Object arg1, Object arg2){}
-		//public CharEnumerator GetEnumerator(){}
+		public IEnumerator<char> GetEnumerator(){}
 		public override int GetHashCode(){}
 		//public TypeCode GetTypeCode(){}
 		public int IndexOf(char value){}
@@ -435,7 +435,12 @@ namespace System
 		}
 		
 		namespace Generic {
-            public class IEnumerator</*out*/T> {}
+            public class IEnumerator</*out*/T>
+            {
+                public bool MoveNext(){}
+                public T Current{ get{} }
+                public void Dispose(){}
+            }
 			public class IEnumerable </*out*/T> {}
             public class IComparer </*in*/T> {}
 			
@@ -470,7 +475,8 @@ namespace System
 				//public int FindLastIndex(int startIndex, Predicate<T> match){}
 				//public int FindLastIndex(int startIndex, int count, Predicate<T> match){}
 				//public void ForEach(Action<T> action){}
-				//public List<T>.Enumerator GetEnumerator(){}
+				// It is better to return struct Enumerator.
+				public IEnumerator<T> GetEnumerator(){}
 				public List<T> GetRange(int index, int count){}
 				public int IndexOf(T item){}
 				public int IndexOf(T item, int index){}
@@ -499,7 +505,16 @@ namespace System
                 //    public void Dispose(){}
                 //    public bool MoveNext(){}
                 //}
-			}
+            }
+            
+            // Value types are not supported yet...
+            public class KeyValuePair<TKey,TValue> : Object
+            {
+                public KeyValuePair(TKey key, TValue value) {}
+                public TKey Key { get{} }
+                public TValue Value { get{} }
+            }
+            
             public class Dictionary<TKey, TValue> : Object
             {
                 public Dictionary() { }
@@ -521,7 +536,8 @@ namespace System
                 public void Clear() { }
                 public bool ContainsKey(TKey key) { }
                 public bool ContainsValue(TValue value) { }
-                //public Dictionary<TKey, TValue>.Enumerator GetEnumerator();
+                // It is better to return struct Enumerator.
+                public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator();
                 //public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
                 //public virtual void OnDeserialization(object sender);
                 public bool Remove(TKey key) { }
@@ -570,6 +586,12 @@ namespace System
                 //    public void Dispose();
                 //    public bool MoveNext();
                 //}
+            }
+            
+            public class KeyValuePair<TKey, TValue> : Object {
+            	public TKey Key { get{} }
+            	public TValue Value { get{} }
+            	public KeyValuePair(TKey key, TValue value) {}
             }
 			
 			public class KeyNotFoundException : Exception { }

@@ -24,15 +24,19 @@ void Console::Write(bool value) {
 
 /*static*/
 void Console::Write(uniChar value) {
-	u8 utf8buff[3];
-	_utf16ToUtf8(&value, 1, utf8buff, 3);
+	u8 utf8buff[4];
+	u32 endPos = _utf16ToUtf8(&value, 1, utf8buff, 3);
+	utf8buff[endPos] = '\0';
+	// TODO: utf-8 is not suitable for Windows.
 	printf("%s", utf8buff);
 }
 
 /*static*/
 void Console::Write(System::Array<uniChar>* buffer) {
-	u8* utf8buff = (u8*)CS_MALLOC(buffer->_acc_gLength() * 3);
-	_utf16ToUtf8((uniChar*)buffer->_getPArray(), buffer->_acc_gLength(), utf8buff, buffer->_acc_gLength()*3);
+	u8* utf8buff = (u8*)CS_MALLOC(buffer->_acc_gLength() * 3 + 1);
+	u32 endPos = _utf16ToUtf8((uniChar*)buffer->_getPArray(), buffer->_acc_gLength(), utf8buff, buffer->_acc_gLength()*3);
+	utf8buff[endPos] = '\0';
+	// TODO: utf-8 is not suitable for Windows.
 	printf("%s", utf8buff);
 	CS_FREE(utf8buff);
 }
@@ -68,6 +72,7 @@ void Console::Write(System::Object* value) {
 
 /*static*/
 void Console::Write(System::String* value) {
+	// TODO: Unicode support.
 	printf("%s", value->_toCStr());
 }
 
@@ -83,8 +88,9 @@ void Console::Write(u64 value) {
 
 /*static*/
 void Console::Write(System::Array<uniChar>* buffer, u32 index, u32 count) {
-	u8* utf8buff = (u8*)CS_MALLOC(count * 3);
-	_utf16ToUtf8((uniChar*)buffer->_getPArray() + index, count, utf8buff, count * 3);
+	u8* utf8buff = (u8*)CS_MALLOC(count * 3 + 1);
+	u32 endPos =_utf16ToUtf8((uniChar*)buffer->_getPArray() + index, count, utf8buff, count * 3);
+	utf8buff[endPos] = '\0';
 	printf("%s", utf8buff);
 	CS_FREE(utf8buff);
 }
