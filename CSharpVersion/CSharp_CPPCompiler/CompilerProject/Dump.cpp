@@ -1301,7 +1301,10 @@ void Statement::dumpStatement(bool processBrother) {
 					}
 				} else { // Finally
 					hasFinally = true;
-					tab(); printf("FINALLY\n");
+					if (!firstCatch) {
+						// This line should not be executed for try-finally (no catches) pattern.
+					    tab(); printf("FINALLY\n");
+					}
 				}
 				p->m_pChild->dumpStatement();
 

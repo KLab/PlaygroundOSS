@@ -27,6 +27,19 @@ namespace Generic {
 	// Prime numbers from 2 to 1M with a minimal increase of 1% between 2 prime numbers.
 	// Array of 772 elements.
 	extern const u32 _dictionary_primeArray[];
+	
+	template<class TKey, class TValue>
+	class KeyValuePair : public Object {
+	private:
+		TKey m_key;
+		TValue m_value;
+	public:
+		KeyValuePair(TKey key, TValue value);
+		TKey			_acc_gKey();
+		inline TKey     _acc_gKey$()    { CHCKTHIS; return _acc_gKey();   }
+		TValue          _acc_gValue();
+		inline TValue   _acc_gValue$()  { CHCKTHIS; return _acc_gValue(); }
+	};
 
 	///
 	/// Dictionary<TKey,TValue>
@@ -95,7 +108,10 @@ namespace Generic {
 		inline bool						ContainsKey$			(TKey key)							{ CHCKTHIS;  return ContainsKey(key);		}
 		bool							ContainsValue			(TValue value);
 		inline bool						ContainsValue$			(TValue value)						{ CHCKTHIS; return ContainsValue(value);	}
-/*x*/	//Dictionary<T>.Enumerator		GetEnumerator			();
+		IEnumerator<KeyValuePair<TKey,TValue>*>*
+										GetEnumerator			();
+		inline IEnumerator<KeyValuePair<TKey,TValue>*>*
+										GetEnumerator$			()									{ CHCKTHIS; return GetEnumerator();			}
 /*x*/	//int							GetHashCode				();
 		bool							Remove					(TKey key);
 		inline bool						Remove$					(TKey key)							{ CHCKTHIS; return Remove(key);				}
@@ -112,8 +128,42 @@ namespace Generic {
 
 	public: 
 		void							_display				();
+
+	private:
+		class Enumerator : public IEnumerator<KeyValuePair<TKey,TValue>*> {
+		private:
+			u32 m_capacity;
+			u32 m_currentBucket;
+			s32* m_buckets;
+			Entry* m_entries;
+			Entry* m_currentEntry;
+			static const u32 c_uninitialized = 0xFFFFFFFF;
+		public:
+			Enumerator(Dictionary<TKey,TValue>* dict);
+			KeyValuePair<TKey,TValue>* _acc_gCurrent();
+			bool MoveNext();
+			void Dispose();
+		};
 	};
 
+	// ------------------------------------------------------
+	// KeyValuePair<TKey, TValue> methods
+	
+	template<class TKey, class TValue>
+	KeyValuePair<TKey,TValue>::KeyValuePair(TKey key, TValue value) {
+		m_key = key;
+		m_value = value;
+	}
+
+	template<class TKey, class TValue>
+	TKey KeyValuePair<TKey,TValue>::_acc_gKey() {
+		return m_key;
+	}
+	
+	template<class TKey, class TValue>
+	TValue KeyValuePair<TKey,TValue>::_acc_gValue() {
+		return m_value;
+	}
 
 	// ------------------------------------------------------
 	// Virtual methods
@@ -699,6 +749,11 @@ namespace Generic {
 		}
 		return false;
 	}
+
+	template<class TKey, class TValue>
+	IEnumerator<KeyValuePair<TKey,TValue>*>* Dictionary<TKey,TValue>::GetEnumerator() {
+		return CS_NEW Enumerator(this);
+	}
 	
 	template<class TKey, class TValue>
 	bool Dictionary<TKey,TValue>::Remove(TKey key) {
@@ -769,7 +824,63 @@ namespace Generic {
 		_refRemove_(_cs_count_refholder,_cs_refholder_loc_array);
 		return r;
 	}
+	
+	// -----------------------------------------------------------------------
+	// Enumerator
+	template<class TKey, class TValue>
+	Dictionary<TKey, TValue>::Enumerator::Enumerator(Dictionary<TKey, TValue>* dict) {
+		m_capacity = dict->m_capacity;
+		m_buckets = dict->m_buckets;
+		m_entries = dict->m_entries;
+		m_currentBucket = c_uninitialized;
+		m_currentEntry = NULL;
+	}
 
+	template<class TKey, class TValue>
+	KeyValuePair<TKey, TValue>* Dictionary<TKey, TValue>::Enumerator::_acc_gCurrent() {
+		if(m_currentEntry == NULL) {
+			THROW(CS_NEW InvalidOperationException());
+		}
+
+		return CS_NEW KeyValuePair<TKey,TValue>(m_currentEntry->m_key, m_currentEntry->m_value);
+	}
+
+	template<class TKey, class TValue>
+	bool Dictionary<TKey, TValue>::Enumerator::MoveNext() {
+		while(m_currentBucket < m_capacity || m_currentBucket == c_uninitialized) {
+			if(!m_currentEntry || !(m_currentEntry->m_pNext)) {
+				while(true){
+					m_currentBucket++;
+
+					if(m_currentBucket == m_capacity) {
+						// Now ends
+						m_currentEntry = NULL;
+						return false;
+					}
+
+					if (m_buckets[m_currentBucket] >= 0) {
+						Entry* entry = m_entries + m_buckets[m_currentBucket];
+						if (entry) {
+							// Found
+							m_currentEntry = entry;
+							return true;
+						}
+					}
+				}
+			}
+			
+			m_currentEntry = m_currentEntry->m_pNext;
+			return true;
+		}
+
+		// Already ended (or empty).
+		return false;
+	}
+
+	template<class TKey, class TValue>
+	void Dictionary<TKey, TValue>::Enumerator::Dispose() {
+		// nop
+	}	
 }
 }
 }

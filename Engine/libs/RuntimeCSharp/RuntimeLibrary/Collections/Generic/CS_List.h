@@ -110,7 +110,8 @@ namespace Generic {
 /*x*/   //int           FindLastIndex			(int startIndex, Predicate<T>* match);
 /*x*/   //int           FindLastIndex			(int startIndex, s32 count, Predicate<T>* match);
 /*x*/   //void          ForEach					(Action<T>* action);*/
-/*x*/   /*List<T>.Enumerator GetEnumerator		();*/
+		IEnumerator<T>* GetEnumerator           ();
+		inline IEnumerator<T>* GetEnumerator$   ()                                                                                      { CHCKTHIS; return GetEnumerator();			        }
 		List<T>*        GetRange				(s32 index, s32 count);
 		inline List<T>* GetRange$				(s32 index, s32 count)																	{ CHCKTHIS; return GetRange(index, count);			}
 		int             IndexOf					(T item);
@@ -153,6 +154,19 @@ namespace Generic {
 	private:
 		void			_valueType_Sort			();
 		s32				_valueType_BinarySearch	(T item);
+
+		class Enumerator : public IEnumerator<T> {
+		private:
+			T* m_list;
+			u32 m_count;
+			u32 m_nextIndex;
+			static const u32 c_uninitialized = 0xFFFFFFFF;
+		public:
+			Enumerator(List<T>* list);
+			T _acc_gCurrent();
+			bool MoveNext();
+			void Dispose();
+		};
     };
 
 
@@ -563,8 +577,12 @@ namespace Generic {
 /*x*/   //int             FindLastIndex       (s32 startIndex, Predicate<T>* match);
 /*x*/   //int             FindLastIndex       (s32 startIndex, s32 count, Predicate<T>* match);
 /*x*/   //void            ForEach             (Action<T>* action);*/
-/*x*/   /*List<T>.Enumerator GetEnumerator    ();*/
-	
+
+	template<class T>
+	IEnumerator<T>* List<T>::GetEnumerator() {
+		return CS_NEW Enumerator(this);			
+	}
+
 	template<class T>
 	List<T>* List<T>::GetRange (s32 index, s32 count) {
 		if((index | count) < 0)				{ THROW(CS_NEW ArgumentOutOfRangeException());	}
@@ -787,6 +805,35 @@ namespace Generic {
 		}
 	}
 /*x*/   /*bool            TrueForAll          (Predicate<T> match);*/
+
+	// -----------------------------------------------------------------------
+	
+	// -----------------------------------------------------------------------
+	// Enumerator
+	template<class T>
+	List<T>::Enumerator::Enumerator(List<T>* list) {
+		m_nextIndex = c_uninitialized;
+		m_list = list->m_list;
+		m_count = list->m_count;
+	}
+
+	template<class T>
+	T List<T>::Enumerator::_acc_gCurrent() {
+		if(m_nextIndex == c_uninitialized || m_nextIndex > m_count) {
+			THROW(CS_NEW InvalidOperationException());
+		}
+		return m_list[m_nextIndex];
+	}
+
+	template<class T>
+	bool List<T>::Enumerator::MoveNext() {
+		return ((++m_nextIndex) < m_count);
+	}
+
+	template<class T>
+	void List<T>::Enumerator::Dispose() {
+		// nop
+	}	
 }
 }
 }

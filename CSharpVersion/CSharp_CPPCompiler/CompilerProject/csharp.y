@@ -53,6 +53,7 @@
 
 	// Prototypes to keep the compiler happy
 	void yyerror (const char *error);
+	const char* makeUniqueId(const char* body);
 	
 	extern "C" {
 		int yyparse(void);
@@ -697,11 +698,84 @@ statement_expression_list
   ;
 foreach_statement
   : FOREACH '(' type IDENTIFIER IN expression ')' embedded_statement
-										{ R(); $$.statement = CreateStatement(STM_FOREACH, NULL, NULL)
-											->setExpression($6.expr)
-											->addType($3.type)
-											->addChild($8.statement); 
-											compilerError(ERR_NOT_SUPPORTED_YET, "Foreach not supported yet. Please use 'for' with array or list.");
+										{
+											R(); 
+											const char* enumVar = makeUniqueId("enumerator");
+											PushGenericType(GetGenericType());
+											addGenericType($3.type);
+											// NOTE: Requires System.Collections.Generic;
+											TypeObject* enumType =
+												TypeObject::getTypeObject("IEnumerator", TYPE_UNRESOLVED)
+												->setGeneric(GetGenericType());
+											PopGenericType();
+
+											$$.statement =
+												/* IEnumerator<T> enumerator = $6.GetEnumerator() */
+												CreateVarStatement(
+													STM_LOCALVAR,
+													NULL, // next
+													NULL, // child
+													CreateVarInstance(
+														enumVar
+													)->setInitializer(
+														CreateDoubleExpr(
+															EXPR_INVOKE,
+															CreateSingleExpr(EXPR_DOT, $6.expr)->setIdentifier("GetEnumerator"),
+															NULL
+														)->patchSubInvoke()
+													),
+													enumType
+												) ->addNext(
+													CreateStatement(STM_TRY, NULL, NULL)
+													->addChild(
+														CreateStatement(
+															STM_BLOCK,
+															NULL,
+															CreateStatement(
+																STM_WHILE, 
+																NULL, 
+																CreateStatement(
+																	STM_BLOCK,
+																	NULL,
+																	CreateVarStatement(
+																		STM_LOCALVAR,
+																		$8.statement, // next
+																		NULL, // child
+																		CreateVarInstance(
+																			$4.text
+																		)->setInitializer(
+																			CreateSingleExpr(EXPR_DOT, CreateLeafExpr(EXPR_IDENT, enumVar))->setIdentifier("Current")
+																		),
+																		$3.type
+																	)
+																)
+															) -> setExpression(
+																/* enumerator.MoveNext() */
+																CreateDoubleExpr(
+																	EXPR_INVOKE,
+																	CreateSingleExpr(EXPR_DOT, CreateLeafExpr(EXPR_IDENT, enumVar))->setIdentifier("MoveNext"),
+																	NULL // no args
+																)->patchSubInvoke()
+															)
+														)
+													) -> addNext (
+														CreateStatement(STM_FINALLY, NULL, NULL)
+														->addChild(
+															CreateStatement(
+																STM_BLOCK,
+																NULL,
+																CreateStatement(STM_WRAP_EXP, NULL, NULL) -> setExpression(
+																	/* enumerator.Dispose() */
+																	CreateDoubleExpr(
+																		EXPR_INVOKE,
+																		CreateSingleExpr(EXPR_DOT, CreateLeafExpr(EXPR_IDENT, enumVar))->setIdentifier("Dispose"),
+																		NULL // no args
+																	)->patchSubInvoke()
+																)
+															)
+														)
+													)
+												);
 										}
   ;
 jump_statement
@@ -1524,4 +1598,11 @@ void error (const char* msg,...) {
 	SPRINTF(log, "Line %i : %s @%s\n", yylineno, pszBuf, yytext);
 
 	printf(log);
+}
+
+int uniqueIdCount = 0;
+const char* makeUniqueId(const char* body) {
+	char buf[10];
+	_itoa(uniqueIdCount++, buf, 10);
+	return concat3("__", body, buf);
 }

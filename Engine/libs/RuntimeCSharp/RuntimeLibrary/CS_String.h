@@ -250,6 +250,10 @@ CultureInfo*
 		bool					Equals				(String* value);
 		inline bool				Equals$				(String* value)																				{ CHCKTHIS; return Equals(value);							}
 /*x*/	bool					Equals				(String* value, StringComparison comparisonType);
+		Collections::Generic::IEnumerator<uniChar>*	
+			                    GetEnumerator		();
+		inline Collections::Generic:: IEnumerator<uniChar>* 
+			                    GetEnumerator$      ()				                                                                            { CHCKTHIS; return GetEnumerator();	                        }
 		s32						GetHashCode			();
 		inline s32				GetHashCode$		()																							{ CHCKTHIS; return GetHashCode();							}
 /*x*/	/*TypeCode GetTypeCode		();*/
@@ -338,6 +342,18 @@ CultureInfo*
 		inline static const char*	_toCStr			(String* str)			{ if(!str) { return NULL; } return str->_toCStr();	}
 		const char*					_toCStr			();
 		inline const char*			_toCStr$		()						{ CHCKTHIS; return this->_toCStr();					}
+
+	private:
+		class CharEnumerator : public Collections::Generic::IEnumerator<uniChar> {
+		private:
+			String* m_str;
+			s32 m_nextIndex;
+		public:
+			CharEnumerator(String* str);
+			uniChar _acc_gCurrent();
+			bool MoveNext();
+			void Dispose();
+		};
 	};
 
 	class AnyToString {
