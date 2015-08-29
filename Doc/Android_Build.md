@@ -191,6 +191,8 @@ Launch terminal :
 > ./build.py --rebuild --project SampleProject
 ```
 
+(note: Maybe project name is 'SampleProject' only)
+
 ## For Ubuntu:
 
 Launch terminal :
@@ -200,6 +202,8 @@ Launch terminal :
 > chmod +x ./build.py (note: First time only)
 > ./build.py --rebuild --project SampleProject
 ```
+
+(note: Maybe project name is 'SampleProject' only)
 
 3. Build package assets
 ------------------------
@@ -217,9 +221,9 @@ Launch terminal :
 > cd [PATH TO PROJECT BASE]/Tutorial/01.SimpleItem/.publish/android/
 > zip -r -0 [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
 > echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
+> md5 AppAssets.zip | cut -d " " -f 4 > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
 ```
 
-(note: you need to increment "1" by one every new build. i.e. "2" next time)
 
 ### For Ubuntu:
 Launch terminal :
@@ -227,10 +231,9 @@ Launch terminal :
 ```
 > cd /media/sf_Playground/Tutorial/01.SimpleItem/.publish/android/
 > zip -r -0 /media/sf_Playground/Engine/porting/Android/GameEngine-android/assets/AppAssets.zip ./*
-> echo -n "1" > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
+> md5sum AppAssets.zip | cut -d " " -f 1 > [PATH TO PROJECT BASE]/Engine/porting/Android/GameEngine-android/assets/version ./*
 ```
 
-(note: you need to increment "1" by one every new build. i.e. "2" next time)
 
 4. Import Engine project into your ADT
 --------------------------------------
