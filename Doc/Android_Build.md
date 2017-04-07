@@ -1,7 +1,7 @@
 Windows Specific Install
 ========================
 
-The easiest and fastest to build for Android is to use a Linux emulated machine.
+The easiest and fastest way to build for Android is to use a Linux emulated machine.
 Using a virtual PC will make the task quite easy.
 
 If you have already a Linux virtual machine running you can skip this section.
@@ -11,7 +11,7 @@ If you have already a Linux virtual machine running you can skip this section.
    
    Start Download VirtualBox.
 
-2. We will use Ubuntu to do the build, so we download also Ubuntu at the same time.
+2. We will use Ubuntu to do the build, so we also download Ubuntu at the same time.
    
    http://www.ubuntu.com/download
 
@@ -35,33 +35,33 @@ If you have already a Linux virtual machine running you can skip this section.
    Version -> Ubuntu 
    Then click 'next'.
 
-   - Let's create a memory size of 2GB, that should be enough. (
+   - Let's create a memory size of 2GB, that should be enough.
    Then click 'next'.
 
    - Create a virtual hard drive as asked.
    Then click 'next'.
 
-   - Fixed Size hard disk is nicer for performance during build, but dynamic is OK.
+   - Fixed Size hard disk is better for performance during the build, but dynamic is OK too.
    Do as you wish, just make sure you have space to create that disk.
    Then click 'next'.
    
    - Select the location and size of the virtual drive.
    Then click 'next'.
 
-   Now the virtual PC setup is complete, now we will install Ubuntu on this virtual PC.
+   Now the virtual PC setup is complete, and we can begin installing Ubuntu on this virtual PC.
 
    Select your new virtual machine and click the "Settings" button
    Goto to Storage Tab, Add a CD/DVD (click on CD/DVD icon with +)
    Then select the ISO file of Ubuntu we have just downloaded.
 
-   Make sure the boot order select the CD/DVD drive first (Under System / Motherboard)
+   Make sure the boot order selects the CD/DVD drive first (Under System / Motherboard)
    Close the setup and go back to the main window of VirtualBox.
    Select the virtual machine, run the PC.
 
    Now the PC will boot and install Ubuntu.
-   Make sure the account you will use has the admin rights. (By default, it will work)
+   Make sure the account you will use has admin rights. (By default, it will work)
    
-   You can also check that online tutorial :
+   You can also check this online tutorial :
    http://www.wikihow.com/Install-Ubuntu-on-VirtualBox
 
 
@@ -85,7 +85,7 @@ Then download the Linux android x86 NDK
 **32 bit** : http://dl.google.com/android/ndk/android-ndk-r9-linux-x86.tar.bz2
 **64 bit** : http://dl.google.com/android/ndk/android-ndk-r9-linux-x86_64.tar.bz2
 
-Firefox ask you to use with Archive Manager to handle the archive, please use it.
+Firefox will ask you to use Archive Manager to handle the archive, please use it.
 Once the download is finished, select extract, the file explorer appears,
 select "File system", then home/ and select your folder with your account. (ie home/myUserName)
   
@@ -140,7 +140,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/local/bi
 ```
 
 ### For Ubuntu
-Run Ubuntu, search your computer for local ressource, type "text editor" and launch it.
+Run Ubuntu, search your computer for local resource, type "text editor" and launch it.
 
 - Go inside '/home/myUserName' with the file explorer, right click, select show hidden files in the popup menu.
 - Select ```.bashrc```
@@ -205,7 +205,7 @@ Launch terminal :
 ------------------------
 (Target assets should be compiled prior to packaging. Please refer Tools document for how)
 For instance, we're packaging "SimpleItem" example here.
-We assume you already have Tutorial/ inside Playground root directory, please continue
+We assume you already have Tutorial/ inside the Playground root directory, please continue
 reading with replacing them if you have things in other location.
 
 ### Move to the samples directory
